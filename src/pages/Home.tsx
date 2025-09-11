@@ -22,7 +22,7 @@ export const HomePage: React.FC = () => {
       <section className="text-center py-16 bg-gradient-to-b from-background to-muted/20 rounded-lg">
         <div className="space-y-6">
           <h1 className="voila-heading text-4xl md:text-6xl mb-6 text-accent">
-            UIKit Multi-Page App
+            Voilacode Technologies
           </h1>
           <p className="voila-subheading text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Professional React components with file-based routing, showcasing layouts, navigation, and code organization
