@@ -16682,7 +16682,7 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$A = [
+const __iconNode$y = [
   [
     "path",
     {
@@ -16691,29 +16691,7 @@ const __iconNode$A = [
     }
   ]
 ];
-const Activity = createLucideIcon("activity", __iconNode$A);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$z = [
-  ["path", { d: "m7 7 10 10", key: "1fmybs" }],
-  ["path", { d: "M17 7v10H7", key: "6fjiku" }]
-];
-const ArrowDownRight = createLucideIcon("arrow-down-right", __iconNode$z);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$y = [
-  ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
-  ["path", { d: "M19 12H5", key: "x3x0zl" }]
-];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$y);
+const Activity = createLucideIcon("activity", __iconNode$y);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16721,10 +16699,10 @@ const ArrowLeft = createLucideIcon("arrow-left", __iconNode$y);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$x = [
-  ["path", { d: "M5 12h14", key: "1ays0h" }],
-  ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
+  ["path", { d: "m7 7 10 10", key: "1fmybs" }],
+  ["path", { d: "M17 7v10H7", key: "6fjiku" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$x);
+const ArrowDownRight = createLucideIcon("arrow-down-right", __iconNode$x);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16732,10 +16710,10 @@ const ArrowRight = createLucideIcon("arrow-right", __iconNode$x);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$w = [
-  ["path", { d: "M7 7h10v10", key: "1tivn9" }],
-  ["path", { d: "M7 17 17 7", key: "1vkiza" }]
+  ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
+  ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$w);
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$w);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16743,6 +16721,28 @@ const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$w);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$v = [
+  ["path", { d: "M5 12h14", key: "1ays0h" }],
+  ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
+];
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$v);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$u = [
+  ["path", { d: "M7 7h10v10", key: "1tivn9" }],
+  ["path", { d: "M7 17 17 7", key: "1vkiza" }]
+];
+const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$u);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$t = [
   ["path", { d: "M12 7v14", key: "1akyts" }],
   [
     "path",
@@ -16752,14 +16752,14 @@ const __iconNode$v = [
     }
   ]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$v);
+const BookOpen = createLucideIcon("book-open", __iconNode$t);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$u = [
+const __iconNode$s = [
   ["path", { d: "M12 10h.01", key: "1nrarc" }],
   ["path", { d: "M12 14h.01", key: "1etili" }],
   ["path", { d: "M12 6h.01", key: "1vi96p" }],
@@ -16772,32 +16772,7 @@ const __iconNode$u = [
   ["path", { d: "M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3", key: "cabbwy" }],
   ["rect", { x: "4", y: "2", width: "16", height: "20", rx: "2", key: "1uxh74" }]
 ];
-const Building = createLucideIcon("building", __iconNode$u);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$t = [
-  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
-  ["path", { d: "M18 17V9", key: "2bz60n" }],
-  ["path", { d: "M13 17V5", key: "1frdt8" }],
-  ["path", { d: "M8 17v-3", key: "17ska0" }]
-];
-const ChartColumn = createLucideIcon("chart-column", __iconNode$t);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$s = [
-  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
-  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
-  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
-];
-const CircleAlert = createLucideIcon("circle-alert", __iconNode$s);
+const Building = createLucideIcon("building", __iconNode$s);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16805,10 +16780,12 @@ const CircleAlert = createLucideIcon("circle-alert", __iconNode$s);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$r = [
-  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
-  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
+  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
+  ["path", { d: "M18 17V9", key: "2bz60n" }],
+  ["path", { d: "M13 17V5", key: "1frdt8" }],
+  ["path", { d: "M8 17v-3", key: "17ska0" }]
 ];
-const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$r);
+const ChartColumn = createLucideIcon("chart-column", __iconNode$r);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16816,11 +16793,11 @@ const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$r);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$q = [
-  ["path", { d: "m18 16 4-4-4-4", key: "1inbqp" }],
-  ["path", { d: "m6 8-4 4 4 4", key: "15zrgr" }],
-  ["path", { d: "m14.5 4-5 16", key: "e7oirm" }]
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
+  ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
 ];
-const CodeXml = createLucideIcon("code-xml", __iconNode$q);
+const CircleAlert = createLucideIcon("circle-alert", __iconNode$q);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16828,10 +16805,10 @@ const CodeXml = createLucideIcon("code-xml", __iconNode$q);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$p = [
-  ["line", { x1: "12", x2: "12", y1: "2", y2: "22", key: "7eqyqh" }],
-  ["path", { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6", key: "1b0p4s" }]
+  ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
+  ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
 ];
-const DollarSign = createLucideIcon("dollar-sign", __iconNode$p);
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$p);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16839,11 +16816,11 @@ const DollarSign = createLucideIcon("dollar-sign", __iconNode$p);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$o = [
-  ["path", { d: "M12 15V3", key: "m9g1x1" }],
-  ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
-  ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
+  ["path", { d: "m18 16 4-4-4-4", key: "1inbqp" }],
+  ["path", { d: "m6 8-4 4 4 4", key: "15zrgr" }],
+  ["path", { d: "m14.5 4-5 16", key: "e7oirm" }]
 ];
-const Download = createLucideIcon("download", __iconNode$o);
+const CodeXml = createLucideIcon("code-xml", __iconNode$o);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16851,6 +16828,29 @@ const Download = createLucideIcon("download", __iconNode$o);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$n = [
+  ["line", { x1: "12", x2: "12", y1: "2", y2: "22", key: "7eqyqh" }],
+  ["path", { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6", key: "1b0p4s" }]
+];
+const DollarSign = createLucideIcon("dollar-sign", __iconNode$n);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$m = [
+  ["path", { d: "M12 15V3", key: "m9g1x1" }],
+  ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
+  ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
+];
+const Download = createLucideIcon("download", __iconNode$m);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$l = [
   [
     "path",
     {
@@ -16868,38 +16868,7 @@ const __iconNode$n = [
   ],
   ["path", { d: "m2 2 20 20", key: "1ooewy" }]
 ];
-const EyeOff = createLucideIcon("eye-off", __iconNode$n);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$m = [
-  [
-    "path",
-    {
-      d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
-      key: "1nclc0"
-    }
-  ],
-  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
-];
-const Eye = createLucideIcon("eye", __iconNode$m);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$l = [
-  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
-  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
-  ["path", { d: "M10 9H8", key: "b1mrlr" }],
-  ["path", { d: "M16 13H8", key: "t4e002" }],
-  ["path", { d: "M16 17H8", key: "z1uh3a" }]
-];
-const FileText = createLucideIcon("file-text", __iconNode$l);
+const EyeOff = createLucideIcon("eye-off", __iconNode$l);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -16910,12 +16879,13 @@ const __iconNode$k = [
   [
     "path",
     {
-      d: "M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z",
-      key: "1kt360"
+      d: "M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0",
+      key: "1nclc0"
     }
-  ]
+  ],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
 ];
-const Folder = createLucideIcon("folder", __iconNode$k);
+const Eye = createLucideIcon("eye", __iconNode$k);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -18333,70 +18303,41 @@ const ThemesPage = () => {
   ] });
 };
 const AboutPage = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "voila-heading text-4xl", children: "About UIKit Multi-Page" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "voila-subheading text-muted-foreground max-w-3xl mx-auto", children: "Learn about the architecture, design principles, and implementation details behind this multi-page template" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-extrabold tracking-tight", children: "About Voilacode Technologies" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-3xl mx-auto text-lg", children: "Discover our expertise in custom software development including websites, mobile apps, desktop software, AI implementations, and cutting-edge technologies." })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "h-5 w-5" }),
-          "Architecture Overview"
+          "Company Overview"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "This multi-page template demonstrates advanced UIKit usage with proper code organization" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Voilacode Technologies is dedicated to building innovative and custom software solutions tailored to client needs." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "space-y-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", { className: "font-semibold flex items-center gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Folder, { className: "h-4 w-4" }),
-            "File Structure"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/50 p-4 rounded-lg font-mono text-sm", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: "src/" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-2", children: "├── pages/" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-4", children: "│   ├── Home.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-4", children: "│   ├── Components.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-4", children: "│   ├── Themes.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-4", children: "│   ├── About.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-4", children: "│   └── Contact.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-2", children: "├── layouts/" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-4", children: "│   └── MainLayout.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-2", children: "├── components/" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-4", children: "│   └── Navigation.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-2", children: "├── App.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "ml-2", children: "└── main.tsx" })
-          ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm md:text-base leading-relaxed", children: "Our team of experts excels in delivering full-cycle development services across multiple platforms including web, mobile, and desktop. We integrate AI and the latest technologies to keep our solutions future-proof and user-friendly." }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CodeXml, { className: "h-5 w-5" }),
+          "Our Core Services"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("h4", { className: "font-semibold flex items-center gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(CodeXml, { className: "h-4 w-4" }),
-            "Key Technologies"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "React Router v6" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", children: "Routing" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "UIKit PageLayout" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", children: "Layout" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "React Suspense" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", children: "Code Splitting" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "TypeScript" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", children: "Type Safety" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Vite" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", children: "Build Tool" })
-            ] })
-          ] })
-        ] })
-      ] }) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Comprehensive expertise spanning multiple domains and technologies" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: [
+        { icon: PanelsTopLeft, title: "Website Development", description: "Custom, scalable websites tailored to your business needs." },
+        { icon: Smartphone, title: "Mobile Applications", description: "Cross-platform mobile solutions with excellent UX." },
+        { icon: Layers, title: "Desktop Software", description: "Robust desktop applications for major OS platforms." },
+        { icon: Zap, title: "AI & Automation", description: "Smart AI integrations for automation and analytics." },
+        { icon: Palette, title: "UI/UX Design", description: "Modern design principles to create engaging user interfaces." },
+        { icon: Shield, title: "Security & Compliance", description: "Industry-standard security practices embedded in our solutions." }
+      ].map(({ icon: Icon2, title, description }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2 p-4 border border-border rounded-lg hover:shadow-lg transition-shadow", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "h-6 w-6 text-primary" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-lg", children: title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: description })
+      ] }, title)) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
@@ -18404,117 +18345,49 @@ const AboutPage = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx(Palette, { className: "h-5 w-5" }),
           "Design Principles"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Core principles that guide the UIKit design system and this template" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "The pillars that guide our development and design philosophy" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "h-5 w-5 text-primary" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Accessibility First" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Built with WCAG guidelines in mind, ensuring components work for everyone" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-secondary/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-5 w-5 text-secondary" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Performance Focused" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Optimized for fast loading with code splitting and tree shaking" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-accent/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Smartphone, { className: "h-5 w-5 text-accent" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Mobile Responsive" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Designed to work beautifully across all device sizes and orientations" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-chart1/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(CodeXml, { className: "h-5 w-5 text-chart1" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Developer Experience" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "TypeScript-first with excellent IntelliSense and clear component APIs" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-chart2/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelsTopLeft, { className: "h-5 w-5 text-chart2" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Consistent Design" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Unified design language with consistent spacing, colors, and typography" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-chart3/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "h-5 w-5 text-chart3" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Modular Architecture" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Composable components that can be easily combined and customized" })
-        ] })
-      ] }) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "h-5 w-5" }),
-          "Routing Strategy"
-        ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm", children: "Code Splitting" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Each page component is loaded lazily using React.lazy() and Suspense, reducing initial bundle size and improving load times." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm", children: "Navigation State" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "The PageLayout component automatically manages active navigation states based on the current route, providing visual feedback to users." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm", children: "Route Organization" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Routes are organized in App.tsx with clear path definitions, making it easy to add new pages and maintain the routing structure." })
-          ] })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "h-5 w-5" }),
-          "Component Strategy"
-        ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm", children: "UIKit Integration" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Leverages UIKit's PageLayout, navigation components, and theme system for consistent design and behavior across all pages." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm", children: "Layout Consistency" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "All pages share the same header, navigation, and footer through the PageLayout wrapper, ensuring consistent user experience." })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm", children: "Theme Integration" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Theme switching works seamlessly across all pages without page refreshes, demonstrating UIKit's powerful theming capabilities." })
-          ] })
-        ] })
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
+        {
+          icon: Shield,
+          title: "Accessibility",
+          description: "We build inclusive software ensuring accessibility for all users.",
+          iconBg: "bg-primary/10"
+        },
+        {
+          icon: Zap,
+          title: "Performance",
+          description: "Optimized for speed and efficiency with modern best practices.",
+          iconBg: "bg-secondary/10"
+        },
+        {
+          icon: Smartphone,
+          title: "Responsiveness",
+          description: "Designs that adapt seamlessly across devices and screen sizes.",
+          iconBg: "bg-accent/10"
+        }
+      ].map(({ icon: Icon2, title, description, iconBg }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `${iconBg} w-10 h-10 rounded-lg flex items-center justify-center`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "h-5 w-5 text-primary" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-lg", children: title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: description })
+      ] }, title)) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Getting Started" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "How to extend and customize this multi-page template for your needs" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Get In Touch" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Contact us to discuss your custom software development needs" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "space-y-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Adding New Pages" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "text-sm space-y-2 text-muted-foreground list-decimal list-inside", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-              "Create a new component in ",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "bg-muted px-1 rounded", children: "pages/" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-              "Add the route to ",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "bg-muted px-1 rounded", children: "App.tsx" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Update navigation in the PageLayout header" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Export the component with lazy loading if needed" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Customizing Layout" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "text-sm space-y-2 text-muted-foreground list-decimal list-inside", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Modify the PageLayout props in App.tsx" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-              "Create custom layout components in ",
-              /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "bg-muted px-1 rounded", children: "layouts/" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Override navigation items and actions" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Customize footer content and styling" })
-          ] })
-        ] })
-      ] }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Whether you need a cutting-edge AI project, a responsive website, an efficient mobile app, or a secure desktop solution, the Voilacode team is ready to help." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "a",
+          {
+            href: "/contact",
+            className: "inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition",
+            children: "Contact Us"
+          }
+        ) })
+      ] })
     ] })
   ] });
 };
@@ -20188,4 +20061,4 @@ function App() {
 ReactDOM.createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-C6pIKnC0.js.map
+//# sourceMappingURL=index-DDta9D7n.js.map
