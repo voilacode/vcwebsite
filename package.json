@@ -1,5 +1,6 @@
 {
-  "name": "voilacode site",
+  "name": "vcwebs",
+  "homepage": "http://voilacode.com/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,7 +14,7 @@
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
-    "@voilajsx/uikit": "^1.1.17",
+    "@voilajsx/uikit": "^1.1.18",
     "lucide-react": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
     "typescript": "^5.2.2",
-    "vite": "^6.3.6"
+    "vite": "^6.3.6",
+    "vite-plugin-static-copy": "^3.1.2"
   }
 }
