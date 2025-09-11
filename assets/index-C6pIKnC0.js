@@ -17389,7 +17389,7 @@ const HomePage = () => {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-12", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "text-center py-16 bg-gradient-to-b from-background to-muted/20 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "voila-heading text-4xl md:text-6xl mb-6 text-accent", children: "Voilacode Technologies" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "voila-heading text-4xl md:text-6xl mb-6 text-accent", children: "Voilacode Technology" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "voila-subheading text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed", children: "Professional React components with file-based routing, showcasing layouts, navigation, and code organization" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-3 text-sm text-muted-foreground bg-muted/50 backdrop-blur px-6 py-3 rounded-full border", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-primary rounded-full animate-pulse" }),
@@ -20188,4 +20188,4 @@ function App() {
 ReactDOM.createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-D7--eABv.js.map
+//# sourceMappingURL=index-C6pIKnC0.js.map
