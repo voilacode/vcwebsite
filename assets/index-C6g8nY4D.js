@@ -9156,8 +9156,8 @@ function useViewTransitionState(to2, { relative } = {}) {
   return matchPath(path.pathname, nextPath) != null || matchPath(path.pathname, currentPath) != null;
 }
 var reactDomExports = requireReactDom();
-const M$4 = /* @__PURE__ */ getDefaultExportFromCjs(reactDomExports);
-const A$3 = {
+const M$2 = /* @__PURE__ */ getDefaultExportFromCjs(reactDomExports);
+const A$1 = {
   AdminLayout: "subtle",
   // Professional admin interfaces
   PageLayout: "clean",
@@ -9178,7 +9178,7 @@ const A$3 = {
   // Clean admin headers
   PopupHeader: "brand"
   // Branded popup headers
-}, I$8 = {
+}, I$5 = {
   clean: "bg-background text-foreground border-border",
   subtle: "bg-muted/30 text-foreground border-border/50",
   brand: "bg-primary text-primary-foreground border-primary/20",
@@ -9196,7 +9196,7 @@ const A$3 = {
   "vivid"
   // Premium cursive - luxury/creative portfolios
 ], p$2 = reactExports.createContext(void 0);
-function P$6(t2, n2, a2, i2 = false, c2 = "uikit-theme") {
+function P$2(t2, n2, a2, i2 = false, c2 = "uikit-theme") {
   if (typeof window > "u")
     return { theme: t2, mode: n2 };
   if (i2)
@@ -9224,14 +9224,14 @@ function P$6(t2, n2, a2, i2 = false, c2 = "uikit-theme") {
     return console.warn("Failed to load theme preferences, using defaults:", r), { theme: t2, mode: n2 };
   }
 }
-function g$5(t2, n2) {
+function g$3(t2, n2) {
   if (typeof window > "u") return;
   const a2 = document.documentElement;
   a2.classList.remove("light", "dark"), m$3.forEach((i2) => {
     a2.classList.remove(`theme-${i2}`);
   }), a2.classList.add(n2), a2.classList.add(`theme-${t2}`);
 }
-function H$8({
+function H$7({
   children: t2,
   theme: n2 = "base",
   mode: a2 = "light",
@@ -9242,13 +9242,13 @@ function H$8({
   // 🔧 NEW: Configurable storage key
 }) {
   const [o2, d2] = reactExports.useState(() => {
-    const e2 = P$6(n2, a2, i2, c2, r);
-    return g$5(e2.theme, e2.mode), e2;
+    const e2 = P$2(n2, a2, i2, c2, r);
+    return g$3(e2.theme, e2.mode), e2;
   });
   reactExports.useEffect(() => {
     if (typeof window > "u") return;
     const { theme: e2, mode: s2 } = o2;
-    if (g$5(e2, s2), r && !c2)
+    if (g$3(e2, s2), r && !c2)
       try {
         localStorage.setItem(r, JSON.stringify({ theme: e2, mode: s2 }));
       } catch (l2) {
@@ -9287,7 +9287,7 @@ function H$8({
       ...e2,
       mode: e2.mode === "light" ? "dark" : "light"
     }));
-  }, v2 = (e2) => I$8[e2], $2 = (e2) => A$3[e2] || "clean", w2 = {
+  }, v2 = (e2) => I$5[e2], $2 = (e2) => A$1[e2] || "clean", w2 = {
     theme: o2.theme,
     mode: o2.mode,
     availableThemes: m$3,
@@ -9299,56 +9299,50 @@ function H$8({
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(p$2.Provider, { value: w2, children: t2 });
 }
-function N$5() {
-  const t2 = reactExports.useContext(p$2);
-  if (!t2)
-    throw new Error("useTheme must be used within a ThemeProvider");
-  return t2;
-}
-function Y$6(e2) {
+function Y$5(e2) {
   var r, t2, o2 = "";
   if (typeof e2 == "string" || typeof e2 == "number") o2 += e2;
   else if (typeof e2 == "object") if (Array.isArray(e2)) {
     var l2 = e2.length;
-    for (r = 0; r < l2; r++) e2[r] && (t2 = Y$6(e2[r])) && (o2 && (o2 += " "), o2 += t2);
+    for (r = 0; r < l2; r++) e2[r] && (t2 = Y$5(e2[r])) && (o2 && (o2 += " "), o2 += t2);
   } else for (t2 in e2) e2[t2] && (o2 && (o2 += " "), o2 += t2);
   return o2;
 }
-function ne$4() {
-  for (var e2, r, t2 = 0, o2 = "", l2 = arguments.length; t2 < l2; t2++) (e2 = arguments[t2]) && (r = Y$6(e2)) && (o2 && (o2 += " "), o2 += r);
+function ne$3() {
+  for (var e2, r, t2 = 0, o2 = "", l2 = arguments.length; t2 < l2; t2++) (e2 = arguments[t2]) && (r = Y$5(e2)) && (o2 && (o2 += " "), o2 += r);
   return o2;
 }
-const B$7 = "-", se$3 = (e2) => {
+const B$5 = "-", se$2 = (e2) => {
   const r = ie$3(e2), {
     conflictingClassGroups: t2,
     conflictingClassGroupModifiers: o2
   } = e2;
   return {
     getClassGroupId: (a2) => {
-      const s2 = a2.split(B$7);
-      return s2[0] === "" && s2.length !== 1 && s2.shift(), D$3(s2, r) || le$4(a2);
+      const s2 = a2.split(B$5);
+      return s2[0] === "" && s2.length !== 1 && s2.shift(), D$2(s2, r) || le$3(a2);
     },
     getConflictingClassGroupIds: (a2, s2) => {
       const u2 = t2[a2] || [];
       return s2 && o2[a2] ? [...u2, ...o2[a2]] : u2;
     }
   };
-}, D$3 = (e2, r) => {
+}, D$2 = (e2, r) => {
   var _a;
   if (e2.length === 0)
     return r.classGroupId;
-  const t2 = e2[0], o2 = r.nextPart.get(t2), l2 = o2 ? D$3(e2.slice(1), o2) : void 0;
+  const t2 = e2[0], o2 = r.nextPart.get(t2), l2 = o2 ? D$2(e2.slice(1), o2) : void 0;
   if (l2)
     return l2;
   if (r.validators.length === 0)
     return;
-  const n2 = e2.join(B$7);
+  const n2 = e2.join(B$5);
   return (_a = r.validators.find(({
     validator: a2
   }) => a2(n2))) == null ? void 0 : _a.classGroupId;
-}, K$5 = /^\[(.+)\]$/, le$4 = (e2) => {
-  if (K$5.test(e2)) {
-    const r = K$5.exec(e2)[1], t2 = r == null ? void 0 : r.substring(0, r.indexOf(":"));
+}, K$3 = /^\[(.+)\]$/, le$3 = (e2) => {
+  if (K$3.test(e2)) {
+    const r = K$3.exec(e2)[1], t2 = r == null ? void 0 : r.substring(0, r.indexOf(":"));
     if (t2)
       return "arbitrary.." + t2;
   }
@@ -9360,10 +9354,10 @@ const B$7 = "-", se$3 = (e2) => {
     nextPart: /* @__PURE__ */ new Map(),
     validators: []
   };
-  return ce$4(Object.entries(e2.classGroups), t2).forEach(([n2, a2]) => {
-    $$4(a2, o2, n2, r);
+  return ce$2(Object.entries(e2.classGroups), t2).forEach(([n2, a2]) => {
+    $$1(a2, o2, n2, r);
   }), o2;
-}, $$4 = (e2, r, t2, o2) => {
+}, $$1 = (e2, r, t2, o2) => {
   e2.forEach((l2) => {
     if (typeof l2 == "string") {
       const n2 = l2 === "" ? r : Q$4(r, l2);
@@ -9371,8 +9365,8 @@ const B$7 = "-", se$3 = (e2) => {
       return;
     }
     if (typeof l2 == "function") {
-      if (ae$4(l2)) {
-        $$4(l2(o2), r, t2, o2);
+      if (ae$3(l2)) {
+        $$1(l2(o2), r, t2, o2);
         return;
       }
       r.validators.push({
@@ -9382,21 +9376,21 @@ const B$7 = "-", se$3 = (e2) => {
       return;
     }
     Object.entries(l2).forEach(([n2, a2]) => {
-      $$4(a2, Q$4(r, n2), t2, o2);
+      $$1(a2, Q$4(r, n2), t2, o2);
     });
   });
 }, Q$4 = (e2, r) => {
   let t2 = e2;
-  return r.split(B$7).forEach((o2) => {
+  return r.split(B$5).forEach((o2) => {
     t2.nextPart.has(o2) || t2.nextPart.set(o2, {
       nextPart: /* @__PURE__ */ new Map(),
       validators: []
     }), t2 = t2.nextPart.get(o2);
   }), t2;
-}, ae$4 = (e2) => e2.isThemeGetter, ce$4 = (e2, r) => r ? e2.map(([t2, o2]) => {
+}, ae$3 = (e2) => e2.isThemeGetter, ce$2 = (e2, r) => r ? e2.map(([t2, o2]) => {
   const l2 = o2.map((n2) => typeof n2 == "string" ? r + n2 : typeof n2 == "object" ? Object.fromEntries(Object.entries(n2).map(([a2, s2]) => [r + a2, s2])) : n2);
   return [t2, l2];
-}) : e2, de$4 = (e2) => {
+}) : e2, de$3 = (e2) => {
   if (e2 < 1)
     return {
       get: () => {
@@ -9420,7 +9414,7 @@ const B$7 = "-", se$3 = (e2) => {
       t2.has(n2) ? t2.set(n2, a2) : l2(n2, a2);
     }
   };
-}, ee$6 = "!", pe$3 = (e2) => {
+}, ee$4 = "!", pe$1 = (e2) => {
   const {
     separator: r,
     experimentalParseClassName: t2
@@ -9441,7 +9435,7 @@ const B$7 = "-", se$3 = (e2) => {
       }
       f2 === "[" ? g2++ : f2 === "]" && g2--;
     }
-    const x2 = u2.length === 0 ? s2 : s2.substring(m2), v2 = x2.startsWith(ee$6), w2 = v2 ? x2.substring(1) : x2, b2 = y2 && y2 > m2 ? y2 - m2 : void 0;
+    const x2 = u2.length === 0 ? s2 : s2.substring(m2), v2 = x2.startsWith(ee$4), w2 = v2 ? x2.substring(1) : x2, b2 = y2 && y2 > m2 ? y2 - m2 : void 0;
     return {
       modifiers: u2,
       hasImportantModifier: v2,
@@ -9453,7 +9447,7 @@ const B$7 = "-", se$3 = (e2) => {
     className: s2,
     parseClassName: a2
   }) : a2;
-}, ue$4 = (e2) => {
+}, ue$3 = (e2) => {
   if (e2.length <= 1)
     return e2;
   const r = [];
@@ -9461,16 +9455,16 @@ const B$7 = "-", se$3 = (e2) => {
   return e2.forEach((o2) => {
     o2[0] === "[" ? (r.push(...t2.sort(), o2), t2 = []) : t2.push(o2);
   }), r.push(...t2.sort()), r;
-}, be$4 = (e2) => ({
-  cache: de$4(e2.cacheSize),
-  parseClassName: pe$3(e2),
-  ...se$3(e2)
-}), ge$1 = /\s+/, fe$3 = (e2, r) => {
+}, be$1 = (e2) => ({
+  cache: de$3(e2.cacheSize),
+  parseClassName: pe$1(e2),
+  ...se$2(e2)
+}), ge = /\s+/, fe$2 = (e2, r) => {
   const {
     parseClassName: t2,
     getClassGroupId: o2,
     getConflictingClassGroupIds: l2
-  } = r, n2 = [], a2 = e2.trim().split(ge$1);
+  } = r, n2 = [], a2 = e2.trim().split(ge);
   let s2 = "";
   for (let u2 = a2.length - 1; u2 >= 0; u2 -= 1) {
     const g2 = a2[u2], {
@@ -9491,7 +9485,7 @@ const B$7 = "-", se$3 = (e2) => {
       }
       w2 = false;
     }
-    const p2 = ue$4(m2).join(":"), f2 = y2 ? p2 + ee$6 : p2, h2 = f2 + b2;
+    const p2 = ue$3(m2).join(":"), f2 = y2 ? p2 + ee$4 : p2, h2 = f2 + b2;
     if (n2.includes(h2))
       continue;
     n2.push(h2);
@@ -9504,60 +9498,60 @@ const B$7 = "-", se$3 = (e2) => {
   }
   return s2;
 };
-function me$1() {
+function me() {
   let e2 = 0, r, t2, o2 = "";
   for (; e2 < arguments.length; )
-    (r = arguments[e2++]) && (t2 = re$3(r)) && (o2 && (o2 += " "), o2 += t2);
+    (r = arguments[e2++]) && (t2 = re$2(r)) && (o2 && (o2 += " "), o2 += t2);
   return o2;
 }
-const re$3 = (e2) => {
+const re$2 = (e2) => {
   if (typeof e2 == "string")
     return e2;
   let r, t2 = "";
   for (let o2 = 0; o2 < e2.length; o2++)
-    e2[o2] && (r = re$3(e2[o2])) && (t2 && (t2 += " "), t2 += r);
+    e2[o2] && (r = re$2(e2[o2])) && (t2 && (t2 += " "), t2 += r);
   return t2;
 };
-function he$1(e2, ...r) {
+function he(e2, ...r) {
   let t2, o2, l2, n2 = a2;
   function a2(u2) {
     const g2 = r.reduce((m2, y2) => y2(m2), e2());
-    return t2 = be$4(g2), o2 = t2.cache.get, l2 = t2.cache.set, n2 = s2, s2(u2);
+    return t2 = be$1(g2), o2 = t2.cache.get, l2 = t2.cache.set, n2 = s2, s2(u2);
   }
   function s2(u2) {
     const g2 = o2(u2);
     if (g2)
       return g2;
-    const m2 = fe$3(u2, t2);
+    const m2 = fe$2(u2, t2);
     return l2(u2, m2), m2;
   }
   return function() {
-    return n2(me$1.apply(null, arguments));
+    return n2(me.apply(null, arguments));
   };
 }
 const c$7 = (e2) => {
   const r = (t2) => t2[e2] || [];
   return r.isThemeGetter = true, r;
-}, te$5 = /^\[(?:([a-z-]+):)?(.+)\]$/i, ye$3 = /^\d+\/\d+$/, xe$3 = /* @__PURE__ */ new Set(["px", "full", "screen"]), we$3 = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/, ve$2 = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/, ke$3 = /^(rgba?|hsla?|hwb|(ok)?(lab|lch))\(.+\)$/, Ce$3 = /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/, ze$3 = /^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/, C$7 = (e2) => M$3(e2) || xe$3.has(e2) || ye$3.test(e2), z$6 = (e2) => G$4(e2, "length", je$3), M$3 = (e2) => !!e2 && !Number.isNaN(Number(e2)), _$4 = (e2) => G$4(e2, "number", M$3), I$7 = (e2) => !!e2 && Number.isInteger(Number(e2)), Ae$2 = (e2) => e2.endsWith("%") && M$3(e2.slice(0, -1)), i$2 = (e2) => te$5.test(e2), A$2 = (e2) => we$3.test(e2), Se$2 = /* @__PURE__ */ new Set(["length", "size", "percentage"]), Me$2 = (e2) => G$4(e2, Se$2, oe$4), Ge$3 = (e2) => G$4(e2, "position", oe$4), Re$2 = /* @__PURE__ */ new Set(["image", "url"]), Pe$3 = (e2) => G$4(e2, Re$2, Ee$3), Ie$4 = (e2) => G$4(e2, "", Ne$2), j$6 = () => true, G$4 = (e2, r, t2) => {
-  const o2 = te$5.exec(e2);
+}, te$3 = /^\[(?:([a-z-]+):)?(.+)\]$/i, ye$2 = /^\d+\/\d+$/, xe$2 = /* @__PURE__ */ new Set(["px", "full", "screen"]), we$2 = /^(\d+(\.\d+)?)?(xs|sm|md|lg|xl)$/, ve$1 = /\d+(%|px|r?em|[sdl]?v([hwib]|min|max)|pt|pc|in|cm|mm|cap|ch|ex|r?lh|cq(w|h|i|b|min|max))|\b(calc|min|max|clamp)\(.+\)|^0$/, ke$3 = /^(rgba?|hsla?|hwb|(ok)?(lab|lch))\(.+\)$/, Ce$2 = /^(inset_)?-?((\d+)?\.?(\d+)[a-z]+|0)_-?((\d+)?\.?(\d+)[a-z]+|0)/, ze$3 = /^(url|image|image-set|cross-fade|element|(repeating-)?(linear|radial|conic)-gradient)\(.+\)$/, C$5 = (e2) => M$1(e2) || xe$2.has(e2) || ye$2.test(e2), z$4 = (e2) => G$3(e2, "length", je$3), M$1 = (e2) => !!e2 && !Number.isNaN(Number(e2)), _$2 = (e2) => G$3(e2, "number", M$1), I$4 = (e2) => !!e2 && Number.isInteger(Number(e2)), Ae$2 = (e2) => e2.endsWith("%") && M$1(e2.slice(0, -1)), i$2 = (e2) => te$3.test(e2), A = (e2) => we$2.test(e2), Se$2 = /* @__PURE__ */ new Set(["length", "size", "percentage"]), Me$2 = (e2) => G$3(e2, Se$2, oe$2), Ge$3 = (e2) => G$3(e2, "position", oe$2), Re$1 = /* @__PURE__ */ new Set(["image", "url"]), Pe$2 = (e2) => G$3(e2, Re$1, Ee$2), Ie$3 = (e2) => G$3(e2, "", Ne$2), j$5 = () => true, G$3 = (e2, r, t2) => {
+  const o2 = te$3.exec(e2);
   return o2 ? o2[1] ? typeof r == "string" ? o2[1] === r : r.has(o2[1]) : t2(o2[2]) : false;
 }, je$3 = (e2) => (
   // `colorFunctionRegex` check is necessary because color functions can have percentages in them which which would be incorrectly classified as lengths.
   // For example, `hsl(0 0% 0%)` would be classified as a length without this check.
   // I could also use lookbehind assertion in `lengthUnitRegex` but that isn't supported widely enough.
-  ve$2.test(e2) && !ke$3.test(e2)
-), oe$4 = () => false, Ne$2 = (e2) => Ce$3.test(e2), Ee$3 = (e2) => ze$3.test(e2), Te$3 = () => {
-  const e2 = c$7("colors"), r = c$7("spacing"), t2 = c$7("blur"), o2 = c$7("brightness"), l2 = c$7("borderColor"), n2 = c$7("borderRadius"), a2 = c$7("borderSpacing"), s2 = c$7("borderWidth"), u2 = c$7("contrast"), g2 = c$7("grayscale"), m2 = c$7("hueRotate"), y2 = c$7("invert"), x2 = c$7("gap"), v2 = c$7("gradientColorStops"), w2 = c$7("gradientColorStopPositions"), b2 = c$7("inset"), p2 = c$7("margin"), f2 = c$7("opacity"), h2 = c$7("padding"), R2 = c$7("saturate"), S2 = c$7("scale"), N2 = c$7("sepia"), U2 = c$7("skew"), F2 = c$7("space"), q2 = c$7("translate"), L2 = () => ["auto", "contain", "none"], W2 = () => ["auto", "hidden", "clip", "visible", "scroll"], V2 = () => ["auto", i$2, r], d2 = () => [i$2, r], J2 = () => ["", C$7, z$6], E2 = () => ["auto", M$3, i$2], X2 = () => ["bottom", "center", "left", "left-bottom", "left-top", "right", "right-bottom", "right-top", "top"], T2 = () => ["solid", "dashed", "dotted", "double", "none"], Z2 = () => ["normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"], O2 = () => ["start", "end", "center", "between", "around", "evenly", "stretch"], P2 = () => ["", "0", i$2], H2 = () => ["auto", "avoid", "all", "avoid-page", "page", "left", "right", "column"], k2 = () => [M$3, i$2];
+  ve$1.test(e2) && !ke$3.test(e2)
+), oe$2 = () => false, Ne$2 = (e2) => Ce$2.test(e2), Ee$2 = (e2) => ze$3.test(e2), Te$2 = () => {
+  const e2 = c$7("colors"), r = c$7("spacing"), t2 = c$7("blur"), o2 = c$7("brightness"), l2 = c$7("borderColor"), n2 = c$7("borderRadius"), a2 = c$7("borderSpacing"), s2 = c$7("borderWidth"), u2 = c$7("contrast"), g2 = c$7("grayscale"), m2 = c$7("hueRotate"), y2 = c$7("invert"), x2 = c$7("gap"), v2 = c$7("gradientColorStops"), w2 = c$7("gradientColorStopPositions"), b2 = c$7("inset"), p2 = c$7("margin"), f2 = c$7("opacity"), h2 = c$7("padding"), R2 = c$7("saturate"), S2 = c$7("scale"), N2 = c$7("sepia"), U2 = c$7("skew"), F2 = c$7("space"), q2 = c$7("translate"), L2 = () => ["auto", "contain", "none"], W2 = () => ["auto", "hidden", "clip", "visible", "scroll"], V2 = () => ["auto", i$2, r], d2 = () => [i$2, r], J2 = () => ["", C$5, z$4], E2 = () => ["auto", M$1, i$2], X2 = () => ["bottom", "center", "left", "left-bottom", "left-top", "right", "right-bottom", "right-top", "top"], T2 = () => ["solid", "dashed", "dotted", "double", "none"], Z2 = () => ["normal", "multiply", "screen", "overlay", "darken", "lighten", "color-dodge", "color-burn", "hard-light", "soft-light", "difference", "exclusion", "hue", "saturation", "color", "luminosity"], O2 = () => ["start", "end", "center", "between", "around", "evenly", "stretch"], P2 = () => ["", "0", i$2], H2 = () => ["auto", "avoid", "all", "avoid-page", "page", "left", "right", "column"], k2 = () => [M$1, i$2];
   return {
     cacheSize: 500,
     separator: ":",
     theme: {
-      colors: [j$6],
-      spacing: [C$7, z$6],
-      blur: ["none", "", A$2, i$2],
+      colors: [j$5],
+      spacing: [C$5, z$4],
+      blur: ["none", "", A, i$2],
       brightness: k2(),
       borderColor: [e2],
-      borderRadius: ["none", "", "full", A$2, i$2],
+      borderRadius: ["none", "", "full", A, i$2],
       borderSpacing: d2(),
       borderWidth: J2(),
       contrast: k2(),
@@ -9566,7 +9560,7 @@ const c$7 = (e2) => {
       invert: P2(),
       gap: d2(),
       gradientColorStops: [e2],
-      gradientColorStopPositions: [Ae$2, z$6],
+      gradientColorStopPositions: [Ae$2, z$4],
       inset: V2(),
       margin: V2(),
       opacity: k2(),
@@ -9597,7 +9591,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/columns
        */
       columns: [{
-        columns: [A$2]
+        columns: [A]
       }],
       /**
        * Break After
@@ -9792,7 +9786,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/z-index
        */
       z: [{
-        z: ["auto", I$7, i$2]
+        z: ["auto", I$4, i$2]
       }],
       // Flexbox and Grid
       /**
@@ -9842,14 +9836,14 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/order
        */
       order: [{
-        order: ["first", "last", "none", I$7, i$2]
+        order: ["first", "last", "none", I$4, i$2]
       }],
       /**
        * Grid Template Columns
        * @see https://tailwindcss.com/docs/grid-template-columns
        */
       "grid-cols": [{
-        "grid-cols": [j$6]
+        "grid-cols": [j$5]
       }],
       /**
        * Grid Column Start / End
@@ -9857,7 +9851,7 @@ const c$7 = (e2) => {
        */
       "col-start-end": [{
         col: ["auto", {
-          span: ["full", I$7, i$2]
+          span: ["full", I$4, i$2]
         }, i$2]
       }],
       /**
@@ -9879,7 +9873,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/grid-template-rows
        */
       "grid-rows": [{
-        "grid-rows": [j$6]
+        "grid-rows": [j$5]
       }],
       /**
        * Grid Row Start / End
@@ -9887,7 +9881,7 @@ const c$7 = (e2) => {
        */
       "row-start-end": [{
         row: ["auto", {
-          span: [I$7, i$2]
+          span: [I$4, i$2]
         }, i$2]
       }],
       /**
@@ -10181,8 +10175,8 @@ const c$7 = (e2) => {
        */
       "max-w": [{
         "max-w": [i$2, r, "none", "full", "min", "max", "fit", "prose", {
-          screen: [A$2]
-        }, A$2]
+          screen: [A]
+        }, A]
       }],
       /**
        * Height
@@ -10218,7 +10212,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/font-size
        */
       "font-size": [{
-        text: ["base", A$2, z$6]
+        text: ["base", A, z$4]
       }],
       /**
        * Font Smoothing
@@ -10235,14 +10229,14 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/font-weight
        */
       "font-weight": [{
-        font: ["thin", "extralight", "light", "normal", "medium", "semibold", "bold", "extrabold", "black", _$4]
+        font: ["thin", "extralight", "light", "normal", "medium", "semibold", "bold", "extrabold", "black", _$2]
       }],
       /**
        * Font Family
        * @see https://tailwindcss.com/docs/font-family
        */
       "font-family": [{
-        font: [j$6]
+        font: [j$5]
       }],
       /**
        * Font Variant Numeric
@@ -10286,14 +10280,14 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/line-clamp
        */
       "line-clamp": [{
-        "line-clamp": ["none", M$3, _$4]
+        "line-clamp": ["none", M$1, _$2]
       }],
       /**
        * Line Height
        * @see https://tailwindcss.com/docs/line-height
        */
       leading: [{
-        leading: ["none", "tight", "snug", "normal", "relaxed", "loose", C$7, i$2]
+        leading: ["none", "tight", "snug", "normal", "relaxed", "loose", C$5, i$2]
       }],
       /**
        * List Style Image
@@ -10369,14 +10363,14 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/text-decoration-thickness
        */
       "text-decoration-thickness": [{
-        decoration: ["auto", "from-font", C$7, z$6]
+        decoration: ["auto", "from-font", C$5, z$4]
       }],
       /**
        * Text Underline Offset
        * @see https://tailwindcss.com/docs/text-underline-offset
        */
       "underline-offset": [{
-        "underline-offset": ["auto", C$7, i$2]
+        "underline-offset": ["auto", C$5, i$2]
       }],
       /**
        * Text Decoration Color
@@ -10504,7 +10498,7 @@ const c$7 = (e2) => {
       "bg-image": [{
         bg: ["none", {
           "gradient-to": ["t", "tr", "r", "br", "b", "bl", "l", "tl"]
-        }, Pe$3]
+        }, Pe$2]
       }],
       /**
        * Background Color
@@ -10858,14 +10852,14 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/outline-offset
        */
       "outline-offset": [{
-        "outline-offset": [C$7, i$2]
+        "outline-offset": [C$5, i$2]
       }],
       /**
        * Outline Width
        * @see https://tailwindcss.com/docs/outline-width
        */
       "outline-w": [{
-        outline: [C$7, z$6]
+        outline: [C$5, z$4]
       }],
       /**
        * Outline Color
@@ -10905,7 +10899,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/ring-offset-width
        */
       "ring-offset-w": [{
-        "ring-offset": [C$7, z$6]
+        "ring-offset": [C$5, z$4]
       }],
       /**
        * Ring Offset Color
@@ -10920,14 +10914,14 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/box-shadow
        */
       shadow: [{
-        shadow: ["", "inner", "none", A$2, Ie$4]
+        shadow: ["", "inner", "none", A, Ie$3]
       }],
       /**
        * Box Shadow Color
        * @see https://tailwindcss.com/docs/box-shadow-color
        */
       "shadow-color": [{
-        shadow: [j$6]
+        shadow: [j$5]
       }],
       /**
        * Opacity
@@ -10985,7 +10979,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/drop-shadow
        */
       "drop-shadow": [{
-        "drop-shadow": ["", "none", A$2, i$2]
+        "drop-shadow": ["", "none", A, i$2]
       }],
       /**
        * Grayscale
@@ -11206,7 +11200,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/rotate
        */
       rotate: [{
-        rotate: [I$7, i$2]
+        rotate: [I$4, i$2]
       }],
       /**
        * Translate X
@@ -11500,7 +11494,7 @@ const c$7 = (e2) => {
        * @see https://tailwindcss.com/docs/stroke-width
        */
       "stroke-w": [{
-        stroke: [C$7, z$6, _$4]
+        stroke: [C$5, z$4, _$2]
       }],
       /**
        * Stroke
@@ -11575,13 +11569,13 @@ const c$7 = (e2) => {
       "font-size": ["leading"]
     }
   };
-}, Le$4 = /* @__PURE__ */ he$1(Te$3);
+}, Le$3 = /* @__PURE__ */ he(Te$2);
 function We$3(...e2) {
-  return Le$4(ne$4(e2));
+  return Le$3(ne$3(e2));
 }
-const m$2 = (e2) => typeof e2 == "boolean" ? `${e2}` : e2 === 0 ? "0" : e2, y$5 = ne$4, j$5 = (e2, l2) => (n2) => {
+const m$2 = (e2) => typeof e2 == "boolean" ? `${e2}` : e2 === 0 ? "0" : e2, y$3 = ne$3, j$4 = (e2, l2) => (n2) => {
   var u2;
-  if ((l2 == null ? void 0 : l2.variants) == null) return y$5(e2, n2 == null ? void 0 : n2.class, n2 == null ? void 0 : n2.className);
+  if ((l2 == null ? void 0 : l2.variants) == null) return y$3(e2, n2 == null ? void 0 : n2.class, n2 == null ? void 0 : n2.className);
   const { variants: r, defaultVariants: d2 } = l2, V2 = Object.keys(r).map((t2) => {
     const a2 = n2 == null ? void 0 : n2[t2], s2 = d2 == null ? void 0 : d2[t2];
     if (a2 === null) return null;
@@ -11607,7 +11601,7 @@ const m$2 = (e2) => typeof e2 == "boolean" ? `${e2}` : e2 === 0 ? "0" : e2, y$5 
       i2
     ] : t2;
   }, []);
-  return y$5(e2, V2, N2, n2 == null ? void 0 : n2.class, n2 == null ? void 0 : n2.className);
+  return y$3(e2, V2, N2, n2 == null ? void 0 : n2.class, n2 == null ? void 0 : n2.className);
 };
 function d$3(e2, n2) {
   if (typeof e2 == "function")
@@ -11630,13 +11624,13 @@ function m$1(...e2) {
       };
   };
 }
-function x$5(...e2) {
+function x$3(...e2) {
   return reactExports.useCallback(m$1(...e2), e2);
 }
 // @__NO_SIDE_EFFECTS__
-function C$6(e2) {
-  const n2 = /* @__PURE__ */ b$5(e2), r = reactExports.forwardRef((o2, t2) => {
-    const { children: l2, ...a2 } = o2, s2 = reactExports.Children.toArray(l2), c2 = s2.find(E$2);
+function C$4(e2) {
+  const n2 = /* @__PURE__ */ b$4(e2), r = reactExports.forwardRef((o2, t2) => {
+    const { children: l2, ...a2 } = o2, s2 = reactExports.Children.toArray(l2), c2 = s2.find(E$1);
     if (c2) {
       const u2 = c2.props.children, S2 = s2.map((p2) => p2 === c2 ? reactExports.Children.count(u2) > 1 ? reactExports.Children.only(null) : reactExports.isValidElement(u2) ? u2.props.children : null : p2);
       return /* @__PURE__ */ jsxRuntimeExports.jsx(n2, { ...a2, ref: t2, children: reactExports.isValidElement(u2) ? reactExports.cloneElement(u2, void 0, S2) : null });
@@ -11645,29 +11639,24 @@ function C$6(e2) {
   });
   return r.displayName = `${e2}.Slot`, r;
 }
-var I$6 = /* @__PURE__ */ C$6("Slot");
+var I$3 = /* @__PURE__ */ C$4("Slot");
 // @__NO_SIDE_EFFECTS__
-function b$5(e2) {
+function b$4(e2) {
   const n2 = reactExports.forwardRef((r, o2) => {
     const { children: t2, ...l2 } = r;
     if (reactExports.isValidElement(t2)) {
-      const a2 = h$4(t2), s2 = R$7(l2, t2.props);
+      const a2 = h$4(t2), s2 = R$3(l2, t2.props);
       return t2.type !== reactExports.Fragment && (s2.ref = o2 ? m$1(o2, a2) : a2), reactExports.cloneElement(t2, s2);
     }
     return reactExports.Children.count(t2) > 1 ? reactExports.Children.only(null) : null;
   });
   return n2.displayName = `${e2}.SlotClone`, n2;
 }
-var y$4 = Symbol("radix.slottable");
-// @__NO_SIDE_EFFECTS__
-function V$4(e2) {
-  const n2 = ({ children: r }) => /* @__PURE__ */ jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: r });
-  return n2.displayName = `${e2}.Slottable`, n2.__radixId = y$4, n2;
+var y$2 = Symbol("radix.slottable");
+function E$1(e2) {
+  return reactExports.isValidElement(e2) && typeof e2.type == "function" && "__radixId" in e2.type && e2.type.__radixId === y$2;
 }
-function E$2(e2) {
-  return reactExports.isValidElement(e2) && typeof e2.type == "function" && "__radixId" in e2.type && e2.type.__radixId === y$4;
-}
-function R$7(e2, n2) {
+function R$3(e2, n2) {
   const r = { ...n2 };
   for (const o2 in n2) {
     const t2 = e2[o2], l2 = n2[o2];
@@ -11683,7 +11672,7 @@ function h$4(e2) {
   let n2 = (_a = Object.getOwnPropertyDescriptor(e2.props, "ref")) == null ? void 0 : _a.get, r = n2 && "isReactWarning" in n2 && n2.isReactWarning;
   return r ? e2.ref : (n2 = (_b = Object.getOwnPropertyDescriptor(e2, "ref")) == null ? void 0 : _b.get, r = n2 && "isReactWarning" in n2 && n2.isReactWarning, r ? e2.props.ref : e2.props.ref || e2.ref);
 }
-const c$6 = j$5(
+const c$6 = j$4(
   "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
   {
     variants: {
@@ -11708,7 +11697,7 @@ const c$6 = j$5(
     }
   }
 );
-function b$4({
+function b$3({
   className: e2,
   variant: r,
   size: t2,
@@ -11716,7 +11705,7 @@ function b$4({
   ...n2
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    i2 ? I$6 : "button",
+    i2 ? I$3 : "button",
     {
       "data-slot": "button",
       className: We$3(c$6({ variant: r, size: t2, className: e2 })),
@@ -11754,7 +11743,7 @@ var f$2 = {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const g$4 = reactExports.forwardRef(
+const g$2 = reactExports.forwardRef(
   ({
     color: r = "currentColor",
     size: e2 = 24,
@@ -11788,9 +11777,9 @@ const g$4 = reactExports.forwardRef(
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const C$5 = (r, e2) => {
+const C$3 = (r, e2) => {
   const t2 = reactExports.forwardRef(
-    ({ className: o2, ...s2 }, n2) => reactExports.createElement(g$4, {
+    ({ className: o2, ...s2 }, n2) => reactExports.createElement(g$2, {
       ref: n2,
       iconNode: e2,
       className: c$5(`lucide-${p$1(r)}`, o2),
@@ -11805,7 +11794,7 @@ const C$5 = (r, e2) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const n$5 = C$5("ChevronDown", [
+const n$4 = C$3("ChevronDown", [
   ["path", { d: "m6 9 6 6 6-6", key: "qrunsl" }]
 ]);
 /**
@@ -11814,7 +11803,7 @@ const n$5 = C$5("ChevronDown", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const c$4 = C$5("X", [
+const c$4 = C$3("X", [
   ["path", { d: "M18 6 6 18", key: "1bl5f8" }],
   ["path", { d: "m6 6 12 12", key: "d8bk6v" }]
 ]);
@@ -11824,15 +11813,15 @@ const c$4 = C$5("X", [
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const n$4 = C$5("Menu", [
+const n$3 = C$3("Menu", [
   ["line", { x1: "4", x2: "20", y1: "12", y2: "12", key: "1e0a9i" }],
   ["line", { x1: "4", x2: "20", y1: "6", y2: "6", key: "1owob3" }],
   ["line", { x1: "4", x2: "20", y1: "18", y2: "18", key: "yk5zj1" }]
 ]);
-const H$7 = reactExports.createContext({
+const H$6 = reactExports.createContext({
   tone: "clean",
   size: "xl"
-}), G$3 = j$5(
+}), G$2 = j$4(
   "w-full border-b transition-all duration-200 z-40",
   {
     variants: {
@@ -11865,7 +11854,7 @@ const H$7 = reactExports.createContext({
       position: "sticky"
     }
   }
-), J$4 = j$5(
+), J$4 = j$4(
   "mx-auto flex items-center justify-between",
   {
     variants: {
@@ -11881,24 +11870,24 @@ const H$7 = reactExports.createContext({
       size: "xl"
     }
   }
-), L$6 = reactExports.forwardRef(({
+), L$4 = reactExports.forwardRef(({
   className: c2,
   tone: s2 = "clean",
   size: d2 = "xl",
   position: u2 = "sticky",
   children: h2,
   ...b2
-}, a2) => /* @__PURE__ */ jsxRuntimeExports.jsx(H$7.Provider, { value: { tone: s2, size: d2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+}, a2) => /* @__PURE__ */ jsxRuntimeExports.jsx(H$6.Provider, { value: { tone: s2, size: d2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
   "header",
   {
     ref: a2,
-    className: We$3(G$3({ tone: s2, position: u2 }), c2),
+    className: We$3(G$2({ tone: s2, position: u2 }), c2),
     ...b2,
     children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: We$3(J$4({ size: d2 })), children: h2 })
   }
 ) }));
-L$6.displayName = "Header";
-const O$4 = reactExports.forwardRef(({
+L$4.displayName = "Header";
+const O$2 = reactExports.forwardRef(({
   className: c2,
   children: s2,
   ...d2
@@ -11911,15 +11900,15 @@ const O$4 = reactExports.forwardRef(({
     children: s2
   }
 ));
-O$4.displayName = "HeaderLogo";
-const D$2 = reactExports.forwardRef(({
+O$2.displayName = "HeaderLogo";
+const D$1 = reactExports.forwardRef(({
   navigation: c2 = [],
   currentPath: s2 = "",
   onNavigate: d2,
   className: u2,
   ...h2
 }, b2) => {
-  const [a2, y2] = reactExports.useState(false), [z2, v2] = reactExports.useState(/* @__PURE__ */ new Set()), [w2, f2] = reactExports.useState(null), [x2, A2] = reactExports.useState(false), { tone: M2 } = reactExports.useContext(H$7);
+  const [a2, y2] = reactExports.useState(false), [z2, v2] = reactExports.useState(/* @__PURE__ */ new Set()), [w2, f2] = reactExports.useState(null), [x2, A2] = reactExports.useState(false), { tone: M2 } = reactExports.useContext(H$6);
   reactExports.useEffect(() => {
     A2(true);
   }, []), reactExports.useEffect(() => {
@@ -12004,7 +11993,7 @@ const D$2 = reactExports.forwardRef(({
             children: [
               e2.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(e2.icon, { className: "h-4 w-4" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: e2.label }),
-              t2 && /* @__PURE__ */ jsxRuntimeExports.jsx(n$5, { className: We$3(
+              t2 && /* @__PURE__ */ jsxRuntimeExports.jsx(n$4, { className: We$3(
                 "h-3 w-3 transition-transform duration-200",
                 i2 && "rotate-180"
               ) })
@@ -12044,14 +12033,14 @@ const D$2 = reactExports.forwardRef(({
       ] }, e2.key);
     }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
-      b$4,
+      b$3,
       {
         variant: "ghost",
         size: "icon",
         className: We$3("md:hidden", R2()),
         onClick: () => y2(!a2),
         "aria-label": a2 ? "Close menu" : "Open menu",
-        children: a2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(c$4, { className: "h-5 w-5" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(n$4, { className: "h-5 w-5" })
+        children: a2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(c$4, { className: "h-5 w-5" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(n$3, { className: "h-5 w-5" })
       }
     ),
     a2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "fixed top-16 left-0 right-0 z-40 md:hidden bg-background border-b border-border/40 shadow-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-h-96 overflow-y-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-4 py-4 space-y-2", children: c2.map((e2) => {
@@ -12068,7 +12057,7 @@ const D$2 = reactExports.forwardRef(({
               e2.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(e2.icon, { className: "h-4 w-4 mr-3 flex-shrink-0" }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex-1 text-sm", children: e2.label }),
               e2.badge && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded mr-2", children: e2.badge }),
-              t2 && /* @__PURE__ */ jsxRuntimeExports.jsx(n$5, { className: We$3(
+              t2 && /* @__PURE__ */ jsxRuntimeExports.jsx(n$4, { className: We$3(
                 "h-4 w-4 transition-transform duration-200 flex-shrink-0",
                 i2 && "rotate-180"
               ) })
@@ -12099,10 +12088,10 @@ const D$2 = reactExports.forwardRef(({
     }) }) }) })
   ] });
 });
-D$2.displayName = "HeaderNav";
-const I$5 = Object.assign(L$6, {
-  Logo: O$4,
-  Nav: D$2
+D$1.displayName = "HeaderNav";
+const I$2 = Object.assign(L$4, {
+  Logo: O$2,
+  Nav: D$1
 });
 var u$2 = [
   "a",
@@ -12123,17 +12112,17 @@ var u$2 = [
   "svg",
   "ul"
 ], h$3 = u$2.reduce((t2, i2) => {
-  const o2 = /* @__PURE__ */ C$6(`Primitive.${i2}`), r = reactExports.forwardRef((e2, s2) => {
+  const o2 = /* @__PURE__ */ C$4(`Primitive.${i2}`), r = reactExports.forwardRef((e2, s2) => {
     const { asChild: a2, ...m2 } = e2, n2 = a2 ? o2 : i2;
     return typeof window < "u" && (window[Symbol.for("radix-ui")] = true), /* @__PURE__ */ jsxRuntimeExports.jsx(n2, { ...m2, ref: s2 });
   });
   return r.displayName = `Primitive.${i2}`, { ...t2, [i2]: r };
 }, {});
-function w$3(t2, i2) {
+function w$2(t2, i2) {
   t2 && reactDomExports.flushSync(() => t2.dispatchEvent(i2));
 }
-var v$1 = "Separator", n$3 = "horizontal", f$1 = ["horizontal", "vertical"], l$1 = reactExports.forwardRef((r, o2) => {
-  const { decorative: t2, orientation: a2 = n$3, ...s2 } = r, i2 = u$1(a2) ? a2 : n$3, c2 = t2 ? { role: "none" } : { "aria-orientation": i2 === "vertical" ? i2 : void 0, role: "separator" };
+var v$1 = "Separator", n$2 = "horizontal", f$1 = ["horizontal", "vertical"], l = reactExports.forwardRef((r, o2) => {
+  const { decorative: t2, orientation: a2 = n$2, ...s2 } = r, i2 = u$1(a2) ? a2 : n$2, c2 = t2 ? { role: "none" } : { "aria-orientation": i2 === "vertical" ? i2 : void 0, role: "separator" };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     h$3.div,
     {
@@ -12144,12 +12133,12 @@ var v$1 = "Separator", n$3 = "horizontal", f$1 = ["horizontal", "vertical"], l$1
     }
   );
 });
-l$1.displayName = v$1;
+l.displayName = v$1;
 function u$1(r) {
   return f$1.includes(r);
 }
-var h$2 = l$1;
-function R$6({
+var h$2 = l;
+function R$2({
   className: r,
   orientation: o2 = "horizontal",
   decorative: t2 = true,
@@ -12169,10 +12158,10 @@ function R$6({
     }
   );
 }
-const y$3 = reactExports.createContext({
+const y$1 = reactExports.createContext({
   tone: "contrast",
   size: "xl"
-}), T$2 = j$5(
+}), T$1 = j$4(
   "w-full border-t transition-all duration-200",
   {
     variants: {
@@ -12193,7 +12182,7 @@ const y$3 = reactExports.createContext({
       position: "relative"
     }
   }
-), L$5 = j$5(
+), L$3 = j$4(
   "mx-auto",
   {
     variants: {
@@ -12209,7 +12198,7 @@ const y$3 = reactExports.createContext({
       size: "xl"
     }
   }
-), F$4 = reactExports.forwardRef(({
+), F$3 = reactExports.forwardRef(({
   className: g2,
   tone: c2 = "contrast",
   size: n2 = "xl",
@@ -12219,15 +12208,15 @@ const y$3 = reactExports.createContext({
   onNavigate: s2,
   children: u2,
   ...h2
-}, a2) => /* @__PURE__ */ jsxRuntimeExports.jsx(y$3.Provider, { value: { tone: c2, size: n2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+}, a2) => /* @__PURE__ */ jsxRuntimeExports.jsx(y$1.Provider, { value: { tone: c2, size: n2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
   "footer",
   {
     ref: a2,
-    className: We$3(T$2({ tone: c2, position: m2 }), g2),
+    className: We$3(T$1({ tone: c2, position: m2 }), g2),
     ...h2,
-    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: We$3(L$5({ size: n2 })), children: [
+    children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: We$3(L$3({ size: n2 })), children: [
       l2.length > 0 && !u2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
-        z$5,
+        z$3,
         {
           navigation: l2,
           currentPath: d2,
@@ -12238,8 +12227,8 @@ const y$3 = reactExports.createContext({
     ] })
   }
 ) }));
-F$4.displayName = "Footer";
-const z$5 = reactExports.forwardRef(({
+F$3.displayName = "Footer";
+const z$3 = reactExports.forwardRef(({
   className: g2,
   navigation: c2 = [],
   currentPath: n2 = "",
@@ -12249,7 +12238,7 @@ const z$5 = reactExports.forwardRef(({
   copyright: s2,
   ...u2
 }, h2) => {
-  const { tone: a2 } = reactExports.useContext(y$3), N2 = (r) => {
+  const { tone: a2 } = reactExports.useContext(y$1), N2 = (r) => {
     r.href && m2 ? m2(r.href, r) : r.onClick && r.onClick();
   }, b2 = (r = false) => {
     const f2 = "text-sm transition-colors cursor-pointer";
@@ -12288,7 +12277,7 @@ const z$5 = reactExports.forwardRef(({
           d2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-shrink-0", children: d2 })
         ] }),
         s2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(R$6, { className: We$3(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(R$2, { className: We$3(
             a2 === "brand" && "bg-primary-foreground/20",
             a2 === "contrast" && "bg-zinc-700"
           ) }),
@@ -12303,8 +12292,8 @@ const z$5 = reactExports.forwardRef(({
     }
   );
 });
-z$5.displayName = "FooterBasic";
-const S$2 = reactExports.forwardRef(({
+z$3.displayName = "FooterBasic";
+const S$1 = reactExports.forwardRef(({
   className: g2,
   brand: c2,
   columns: n2 = [],
@@ -12316,7 +12305,7 @@ const S$2 = reactExports.forwardRef(({
   copyright: h2,
   ...a2
 }, N2) => {
-  const { tone: b2 } = reactExports.useContext(y$3), r = (o2) => {
+  const { tone: b2 } = reactExports.useContext(y$1), r = (o2) => {
     o2.href && u2 ? u2(o2.href, o2) : o2.onClick && o2.onClick();
   }, p2 = (() => {
     switch (b2) {
@@ -12393,7 +12382,7 @@ const S$2 = reactExports.forwardRef(({
           }) }) })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(R$6, { className: We$3(
+          /* @__PURE__ */ jsxRuntimeExports.jsx(R$2, { className: We$3(
             b2 === "brand" && "bg-primary-foreground/20",
             b2 === "contrast" && "bg-zinc-700"
           ) }),
@@ -12422,13 +12411,13 @@ const S$2 = reactExports.forwardRef(({
     }
   );
 });
-S$2.displayName = "FooterAdvanced";
-const j$4 = reactExports.forwardRef(({
+S$1.displayName = "FooterAdvanced";
+const j$3 = reactExports.forwardRef(({
   className: g2,
   links: c2 = [],
   ...n2
 }, m2) => {
-  const { tone: l2 } = reactExports.useContext(y$3), d2 = () => {
+  const { tone: l2 } = reactExports.useContext(y$1), d2 = () => {
     switch (l2) {
       case "subtle":
         return "text-muted-foreground hover:text-foreground hover:bg-background/50";
@@ -12447,7 +12436,7 @@ const j$4 = reactExports.forwardRef(({
       className: We$3("flex items-center gap-1", g2),
       ...n2,
       children: c2.map((s2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-        b$4,
+        b$3,
         {
           variant: "ghost",
           size: "icon",
@@ -12461,13 +12450,13 @@ const j$4 = reactExports.forwardRef(({
     }
   );
 });
-j$4.displayName = "FooterSocial";
-const H$6 = Object.assign(F$4, {
-  Basic: z$5,
-  Advanced: S$2,
-  Social: j$4
+j$3.displayName = "FooterSocial";
+const H$5 = Object.assign(F$3, {
+  Basic: z$3,
+  Advanced: S$1,
+  Social: j$3
 });
-const d$2 = j$5(
+const d$2 = j$4(
   "inline-flex items-center justify-center rounded-md border px-2 py-0.5 text-xs font-medium w-fit whitespace-nowrap shrink-0 [&>svg]:size-3 gap-1 [&>svg]:pointer-events-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive transition-[color,box-shadow] overflow-hidden",
   {
     variants: {
@@ -12483,14 +12472,14 @@ const d$2 = j$5(
     }
   }
 );
-function b$3({
+function b$2({
   className: r,
   variant: e2,
   asChild: t2 = false,
   ...i2
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    t2 ? I$6 : "span",
+    t2 ? I$3 : "span",
     {
       "data-slot": "badge",
       className: We$3(d$2({ variant: e2 }), r),
@@ -12503,21 +12492,21 @@ function c$3(a2, [t2, n2]) {
 }
 var a = (globalThis == null ? void 0 : globalThis.document) ? reactExports.useLayoutEffect : () => {
 };
-function w$2(e2, r, { checkForDefaultPrevented: t2 = true } = {}) {
+function w$1(e2, r, { checkForDefaultPrevented: t2 = true } = {}) {
   return function(o2) {
     if (e2 == null ? void 0 : e2(o2), t2 === false || !o2.defaultPrevented)
       return r == null ? void 0 : r(o2);
   };
 }
 var v = o$1[" useInsertionEffect ".trim().toString()] || a;
-function S$1({
+function S({
   prop: e2,
   defaultProp: r,
   onChange: t2 = () => {
   },
   caller: l2
 }) {
-  const [o2, u2, i2] = R$5({
+  const [o2, u2, i2] = R$1({
     defaultProp: r,
     onChange: t2
   }), c2 = e2 !== void 0, a2 = c2 ? e2 : o2;
@@ -12534,7 +12523,7 @@ function S$1({
     (s2) => {
       var _a;
       if (c2) {
-        const f2 = E$1(s2) ? s2(e2) : s2;
+        const f2 = E(s2) ? s2(e2) : s2;
         f2 !== e2 && ((_a = i2.current) == null ? void 0 : _a.call(i2, f2));
       } else
         u2(s2);
@@ -12543,7 +12532,7 @@ function S$1({
   );
   return [a2, d2];
 }
-function R$5({
+function R$1({
   defaultProp: e2,
   onChange: r
 }) {
@@ -12555,10 +12544,10 @@ function R$5({
     o2.current !== t2 && ((_a = u2.current) == null ? void 0 : _a.call(u2, t2), o2.current = t2);
   }, [t2, o2]), [t2, l2, u2];
 }
-function E$1(e2) {
+function E(e2) {
   return typeof e2 == "function";
 }
-function w$1(t2, c2 = []) {
+function w(t2, c2 = []) {
   let n2 = [];
   function p2(r, e2) {
     const o2 = reactExports.createContext(e2), s2 = n2.length;
@@ -12588,9 +12577,9 @@ function w$1(t2, c2 = []) {
       );
     };
   };
-  return i2.scopeName = t2, [p2, P$5(i2, ...c2)];
+  return i2.scopeName = t2, [p2, P$1(i2, ...c2)];
 }
-function P$5(...t2) {
+function P$1(...t2) {
   const c2 = t2[0];
   if (t2.length === 1) return c2;
   const n2 = () => {
@@ -12608,8 +12597,8 @@ function P$5(...t2) {
   };
   return n2.scopeName = c2.scopeName, n2;
 }
-function b$2(l2) {
-  const i2 = l2 + "CollectionProvider", [N2, _2] = w$1(i2), [v2, f2] = N2(
+function b$1(l2) {
+  const i2 = l2 + "CollectionProvider", [N2, _2] = w(i2), [v2, f2] = N2(
     i2,
     { collectionRef: { current: null }, itemMap: /* @__PURE__ */ new Map() }
   ), p2 = (c2) => {
@@ -12617,16 +12606,16 @@ function b$2(l2) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(v2, { scope: e2, itemMap: o2, collectionRef: t2, children: s2 });
   };
   p2.displayName = i2;
-  const m2 = l2 + "CollectionSlot", E2 = /* @__PURE__ */ C$6(m2), C2 = React.forwardRef(
+  const m2 = l2 + "CollectionSlot", E2 = /* @__PURE__ */ C$4(m2), C2 = React.forwardRef(
     (c2, e2) => {
-      const { scope: s2, children: t2 } = c2, o2 = f2(m2, s2), n2 = x$5(e2, o2.collectionRef);
+      const { scope: s2, children: t2 } = c2, o2 = f2(m2, s2), n2 = x$3(e2, o2.collectionRef);
       return /* @__PURE__ */ jsxRuntimeExports.jsx(E2, { ref: n2, children: t2 });
     }
   );
   C2.displayName = m2;
-  const u2 = l2 + "CollectionItemSlot", R2 = "data-radix-collection-item", T2 = /* @__PURE__ */ C$6(u2), I2 = React.forwardRef(
+  const u2 = l2 + "CollectionItemSlot", R2 = "data-radix-collection-item", T2 = /* @__PURE__ */ C$4(u2), I2 = React.forwardRef(
     (c2, e2) => {
-      const { scope: s2, children: t2, ...o2 } = c2, n2 = React.useRef(null), x2 = x$5(e2, n2), a2 = f2(u2, s2);
+      const { scope: s2, children: t2, ...o2 } = c2, n2 = React.useRef(null), x2 = x$3(e2, n2), a2 = f2(u2, s2);
       return React.useEffect(() => (a2.itemMap.set(n2, { ref: n2, ...o2 }), () => void a2.itemMap.delete(n2))), /* @__PURE__ */ jsxRuntimeExports.jsx(T2, { [R2]: "", ref: x2, children: t2 });
     }
   );
@@ -12648,9 +12637,9 @@ function b$2(l2) {
     _2
   ];
 }
-var P$4 = reactExports.createContext(void 0);
-function j$3(l2) {
-  const i2 = reactExports.useContext(P$4);
+var P = reactExports.createContext(void 0);
+function j$2(l2) {
+  const i2 = reactExports.useContext(P);
   return l2 || i2 || "ltr";
 }
 function c$2(r) {
@@ -12662,7 +12651,7 @@ function c$2(r) {
     return (_a = t2.current) == null ? void 0 : _a.call(t2, ...u2);
   }, []);
 }
-function z$4(n2, e2 = globalThis == null ? void 0 : globalThis.document) {
+function z$2(n2, e2 = globalThis == null ? void 0 : globalThis.document) {
   const t2 = c$2(n2);
   reactExports.useEffect(() => {
     const o2 = (s2) => {
@@ -12671,11 +12660,11 @@ function z$4(n2, e2 = globalThis == null ? void 0 : globalThis.document) {
     return e2.addEventListener("keydown", o2, { capture: true }), () => e2.removeEventListener("keydown", o2, { capture: true });
   }, [t2, e2]);
 }
-var H$5 = "DismissableLayer", y$2 = "dismissableLayer.update", K$4 = "dismissableLayer.pointerDownOutside", j$2 = "dismissableLayer.focusOutside", R$4, B$6 = reactExports.createContext({
+var H$4 = "DismissableLayer", y = "dismissableLayer.update", K$2 = "dismissableLayer.pointerDownOutside", j$1 = "dismissableLayer.focusOutside", R, B$4 = reactExports.createContext({
   layers: /* @__PURE__ */ new Set(),
   layersWithOutsidePointerEventsDisabled: /* @__PURE__ */ new Set(),
   branches: /* @__PURE__ */ new Set()
-}), X$5 = reactExports.forwardRef(
+}), X$2 = reactExports.forwardRef(
   (n2, e2) => {
     const {
       disableOutsidePointerEvents: t2 = false,
@@ -12685,25 +12674,25 @@ var H$5 = "DismissableLayer", y$2 = "dismissableLayer.update", K$4 = "dismissabl
       onInteractOutside: d2,
       onDismiss: l2,
       ...E2
-    } = n2, c2 = reactExports.useContext(B$6), [u2, F2] = reactExports.useState(null), f2 = (u2 == null ? void 0 : u2.ownerDocument) ?? (globalThis == null ? void 0 : globalThis.document), [, I2] = reactExports.useState({}), S2 = x$5(e2, (i2) => F2(i2)), D2 = Array.from(c2.layers), [A2] = [...c2.layersWithOutsidePointerEventsDisabled].slice(-1), N2 = D2.indexOf(A2), O2 = u2 ? D2.indexOf(u2) : -1, W2 = c2.layersWithOutsidePointerEventsDisabled.size > 0, L2 = O2 >= N2, _2 = G$2((i2) => {
+    } = n2, c2 = reactExports.useContext(B$4), [u2, F2] = reactExports.useState(null), f2 = (u2 == null ? void 0 : u2.ownerDocument) ?? (globalThis == null ? void 0 : globalThis.document), [, I2] = reactExports.useState({}), S2 = x$3(e2, (i2) => F2(i2)), D2 = Array.from(c2.layers), [A2] = [...c2.layersWithOutsidePointerEventsDisabled].slice(-1), N2 = D2.indexOf(A2), O2 = u2 ? D2.indexOf(u2) : -1, W2 = c2.layersWithOutsidePointerEventsDisabled.size > 0, L2 = O2 >= N2, _2 = G$1((i2) => {
       const v2 = i2.target, w2 = [...c2.branches].some((m2) => m2.contains(v2));
       !L2 || w2 || (s2 == null ? void 0 : s2(i2), d2 == null ? void 0 : d2(i2), i2.defaultPrevented || (l2 == null ? void 0 : l2()));
     }, f2), C2 = J$3((i2) => {
       const v2 = i2.target;
       [...c2.branches].some((m2) => m2.contains(v2)) || (a2 == null ? void 0 : a2(i2), d2 == null ? void 0 : d2(i2), i2.defaultPrevented || (l2 == null ? void 0 : l2()));
     }, f2);
-    return z$4((i2) => {
+    return z$2((i2) => {
       O2 === c2.layers.size - 1 && (o2 == null ? void 0 : o2(i2), !i2.defaultPrevented && l2 && (i2.preventDefault(), l2()));
     }, f2), reactExports.useEffect(() => {
       if (u2)
-        return t2 && (c2.layersWithOutsidePointerEventsDisabled.size === 0 && (R$4 = f2.body.style.pointerEvents, f2.body.style.pointerEvents = "none"), c2.layersWithOutsidePointerEventsDisabled.add(u2)), c2.layers.add(u2), g$3(), () => {
-          t2 && c2.layersWithOutsidePointerEventsDisabled.size === 1 && (f2.body.style.pointerEvents = R$4);
+        return t2 && (c2.layersWithOutsidePointerEventsDisabled.size === 0 && (R = f2.body.style.pointerEvents, f2.body.style.pointerEvents = "none"), c2.layersWithOutsidePointerEventsDisabled.add(u2)), c2.layers.add(u2), g$1(), () => {
+          t2 && c2.layersWithOutsidePointerEventsDisabled.size === 1 && (f2.body.style.pointerEvents = R);
         };
     }, [u2, f2, t2, c2]), reactExports.useEffect(() => () => {
-      u2 && (c2.layers.delete(u2), c2.layersWithOutsidePointerEventsDisabled.delete(u2), g$3());
+      u2 && (c2.layers.delete(u2), c2.layersWithOutsidePointerEventsDisabled.delete(u2), g$1());
     }, [u2, c2]), reactExports.useEffect(() => {
       const i2 = () => I2({});
-      return document.addEventListener(y$2, i2), () => document.removeEventListener(y$2, i2);
+      return document.addEventListener(y, i2), () => document.removeEventListener(y, i2);
     }, []), /* @__PURE__ */ jsxRuntimeExports.jsx(
       h$3.div,
       {
@@ -12713,9 +12702,9 @@ var H$5 = "DismissableLayer", y$2 = "dismissableLayer.update", K$4 = "dismissabl
           pointerEvents: W2 ? L2 ? "auto" : "none" : void 0,
           ...n2.style
         },
-        onFocusCapture: w$2(n2.onFocusCapture, C2.onFocusCapture),
-        onBlurCapture: w$2(n2.onBlurCapture, C2.onBlurCapture),
-        onPointerDownCapture: w$2(
+        onFocusCapture: w$1(n2.onFocusCapture, C2.onFocusCapture),
+        onBlurCapture: w$1(n2.onBlurCapture, C2.onBlurCapture),
+        onPointerDownCapture: w$1(
           n2.onPointerDownCapture,
           _2.onPointerDownCapture
         )
@@ -12723,9 +12712,9 @@ var H$5 = "DismissableLayer", y$2 = "dismissableLayer.update", K$4 = "dismissabl
     );
   }
 );
-X$5.displayName = H$5;
-var Y$5 = "DismissableLayerBranch", q$5 = reactExports.forwardRef((n2, e2) => {
-  const t2 = reactExports.useContext(B$6), o2 = reactExports.useRef(null), s2 = x$5(e2, o2);
+X$2.displayName = H$4;
+var Y$4 = "DismissableLayerBranch", q$3 = reactExports.forwardRef((n2, e2) => {
+  const t2 = reactExports.useContext(B$4), o2 = reactExports.useRef(null), s2 = x$3(e2, o2);
   return reactExports.useEffect(() => {
     const a2 = o2.current;
     if (a2)
@@ -12734,16 +12723,16 @@ var Y$5 = "DismissableLayerBranch", q$5 = reactExports.forwardRef((n2, e2) => {
       };
   }, [t2.branches]), /* @__PURE__ */ jsxRuntimeExports.jsx(h$3.div, { ...n2, ref: s2 });
 });
-q$5.displayName = Y$5;
-function G$2(n2, e2 = globalThis == null ? void 0 : globalThis.document) {
+q$3.displayName = Y$4;
+function G$1(n2, e2 = globalThis == null ? void 0 : globalThis.document) {
   const t2 = c$2(n2), o2 = reactExports.useRef(false), s2 = reactExports.useRef(() => {
   });
   return reactExports.useEffect(() => {
     const a2 = (l2) => {
       if (l2.target && !o2.current) {
         let E2 = function() {
-          x$4(
-            K$4,
+          x$2(
+            K$2,
             t2,
             c2,
             { discrete: true }
@@ -12769,7 +12758,7 @@ function J$3(n2, e2 = globalThis == null ? void 0 : globalThis.document) {
   const t2 = c$2(n2), o2 = reactExports.useRef(false);
   return reactExports.useEffect(() => {
     const s2 = (a2) => {
-      a2.target && !o2.current && x$4(j$2, t2, { originalEvent: a2 }, {
+      a2.target && !o2.current && x$2(j$1, t2, { originalEvent: a2 }, {
         discrete: false
       });
     };
@@ -12779,43 +12768,43 @@ function J$3(n2, e2 = globalThis == null ? void 0 : globalThis.document) {
     onBlurCapture: () => o2.current = false
   };
 }
-function g$3() {
-  const n2 = new CustomEvent(y$2);
+function g$1() {
+  const n2 = new CustomEvent(y);
   document.dispatchEvent(n2);
 }
-function x$4(n2, e2, t2, { discrete: o2 }) {
+function x$2(n2, e2, t2, { discrete: o2 }) {
   const s2 = t2.originalEvent.target, a2 = new CustomEvent(n2, { bubbles: false, cancelable: true, detail: t2 });
-  e2 && s2.addEventListener(n2, e2, { once: true }), o2 ? w$3(s2, a2) : s2.dispatchEvent(a2);
+  e2 && s2.addEventListener(n2, e2, { once: true }), o2 ? w$2(s2, a2) : s2.dispatchEvent(a2);
 }
-var Q$3 = "Portal", V$3 = reactExports.forwardRef((n2, e2) => {
+var Q$3 = "Portal", V$2 = reactExports.forwardRef((n2, e2) => {
   var _a;
   const { container: t2, ...o2 } = n2, [s2, a$1] = reactExports.useState(false);
   a(() => a$1(true), []);
   const d2 = t2 || s2 && ((_a = globalThis == null ? void 0 : globalThis.document) == null ? void 0 : _a.body);
-  return d2 ? M$4.createPortal(/* @__PURE__ */ jsxRuntimeExports.jsx(h$3.div, { ...o2, ref: e2 }), d2) : null;
+  return d2 ? M$2.createPortal(/* @__PURE__ */ jsxRuntimeExports.jsx(h$3.div, { ...o2, ref: e2 }), d2) : null;
 });
-V$3.displayName = Q$3;
-var U$2 = 0;
+V$2.displayName = Q$3;
+var U$1 = 0;
 function gt$1() {
   reactExports.useEffect(() => {
     const e2 = document.querySelectorAll("[data-radix-focus-guard]");
-    return document.body.insertAdjacentElement("afterbegin", e2[0] ?? Z$2()), document.body.insertAdjacentElement("beforeend", e2[1] ?? Z$2()), U$2++, () => {
-      U$2 === 1 && document.querySelectorAll("[data-radix-focus-guard]").forEach((t2) => t2.remove()), U$2--;
+    return document.body.insertAdjacentElement("afterbegin", e2[0] ?? Z$1()), document.body.insertAdjacentElement("beforeend", e2[1] ?? Z$1()), U$1++, () => {
+      U$1 === 1 && document.querySelectorAll("[data-radix-focus-guard]").forEach((t2) => t2.remove()), U$1--;
     };
   }, []);
 }
-function Z$2() {
+function Z$1() {
   const e2 = document.createElement("span");
   return e2.setAttribute("data-radix-focus-guard", ""), e2.tabIndex = 0, e2.style.outline = "none", e2.style.opacity = "0", e2.style.position = "fixed", e2.style.pointerEvents = "none", e2;
 }
-var _$3 = "focusScope.autoFocusOnMount", j$1 = "focusScope.autoFocusOnUnmount", q$4 = { bubbles: false, cancelable: true }, ye$2 = "FocusScope", be$3 = reactExports.forwardRef((e2, t2) => {
+var _$1 = "focusScope.autoFocusOnMount", j = "focusScope.autoFocusOnUnmount", q$2 = { bubbles: false, cancelable: true }, ye$1 = "FocusScope", be = reactExports.forwardRef((e2, t2) => {
   const {
     loop: n2 = false,
     trapped: r = false,
     onMountAutoFocus: c2,
     onUnmountAutoFocus: i2,
     ...s2
-  } = e2, [a2, S2] = reactExports.useState(null), b2 = c$2(c2), g2 = c$2(i2), f2 = reactExports.useRef(null), v2 = x$5(t2, (o2) => S2(o2)), h2 = reactExports.useRef({
+  } = e2, [a2, S2] = reactExports.useState(null), b2 = c$2(c2), g2 = c$2(i2), f2 = reactExports.useRef(null), v2 = x$3(t2, (o2) => S2(o2)), h2 = reactExports.useRef({
     paused: false,
     pause() {
       this.paused = true;
@@ -12829,15 +12818,15 @@ var _$3 = "focusScope.autoFocusOnMount", j$1 = "focusScope.autoFocusOnUnmount", 
       let o2 = function(p2) {
         if (h2.paused || !a2) return;
         const y2 = p2.target;
-        a2.contains(y2) ? f2.current = y2 : k$2(f2.current, { select: true });
+        a2.contains(y2) ? f2.current = y2 : k(f2.current, { select: true });
       }, l2 = function(p2) {
         if (h2.paused || !a2) return;
         const y2 = p2.relatedTarget;
-        y2 !== null && (a2.contains(y2) || k$2(f2.current, { select: true }));
+        y2 !== null && (a2.contains(y2) || k(f2.current, { select: true }));
       }, d2 = function(p2) {
         if (document.activeElement === document.body)
           for (const E2 of p2)
-            E2.removedNodes.length > 0 && k$2(a2);
+            E2.removedNodes.length > 0 && k(a2);
       };
       document.addEventListener("focusin", o2), document.addEventListener("focusout", l2);
       const m2 = new MutationObserver(d2);
@@ -12847,16 +12836,16 @@ var _$3 = "focusScope.autoFocusOnMount", j$1 = "focusScope.autoFocusOnUnmount", 
     }
   }, [r, a2, h2.paused]), reactExports.useEffect(() => {
     if (a2) {
-      $$3.add(h2);
+      $.add(h2);
       const o2 = document.activeElement;
       if (!a2.contains(o2)) {
-        const d2 = new CustomEvent(_$3, q$4);
-        a2.addEventListener(_$3, b2), a2.dispatchEvent(d2), d2.defaultPrevented || (Ee$2(ke$2(oe$3(a2)), { select: true }), document.activeElement === o2 && k$2(a2));
+        const d2 = new CustomEvent(_$1, q$2);
+        a2.addEventListener(_$1, b2), a2.dispatchEvent(d2), d2.defaultPrevented || (Ee$1(ke$2(oe$1(a2)), { select: true }), document.activeElement === o2 && k(a2));
       }
       return () => {
-        a2.removeEventListener(_$3, b2), setTimeout(() => {
-          const d2 = new CustomEvent(j$1, q$4);
-          a2.addEventListener(j$1, g2), a2.dispatchEvent(d2), d2.defaultPrevented || k$2(o2 ?? document.body, { select: true }), a2.removeEventListener(j$1, g2), $$3.remove(h2);
+        a2.removeEventListener(_$1, b2), setTimeout(() => {
+          const d2 = new CustomEvent(j, q$2);
+          a2.addEventListener(j, g2), a2.dispatchEvent(d2), d2.defaultPrevented || k(o2 ?? document.body, { select: true }), a2.removeEventListener(j, g2), $.remove(h2);
         }, 0);
       };
     }
@@ -12867,24 +12856,24 @@ var _$3 = "focusScope.autoFocusOnMount", j$1 = "focusScope.autoFocusOnUnmount", 
       const l2 = o2.key === "Tab" && !o2.altKey && !o2.ctrlKey && !o2.metaKey, d2 = document.activeElement;
       if (l2 && d2) {
         const m2 = o2.currentTarget, [p2, y2] = Se$1(m2);
-        p2 && y2 ? !o2.shiftKey && d2 === y2 ? (o2.preventDefault(), n2 && k$2(p2, { select: true })) : o2.shiftKey && d2 === p2 && (o2.preventDefault(), n2 && k$2(y2, { select: true })) : d2 === m2 && o2.preventDefault();
+        p2 && y2 ? !o2.shiftKey && d2 === y2 ? (o2.preventDefault(), n2 && k(p2, { select: true })) : o2.shiftKey && d2 === p2 && (o2.preventDefault(), n2 && k(y2, { select: true })) : d2 === m2 && o2.preventDefault();
       }
     },
     [n2, r, h2.paused]
   );
   return /* @__PURE__ */ jsxRuntimeExports.jsx(h$3.div, { tabIndex: -1, ...s2, ref: v2, onKeyDown: w2 });
 });
-be$3.displayName = ye$2;
-function Ee$2(e2, { select: t2 = false } = {}) {
+be.displayName = ye$1;
+function Ee$1(e2, { select: t2 = false } = {}) {
   const n2 = document.activeElement;
   for (const r of e2)
-    if (k$2(r, { select: t2 }), document.activeElement !== n2) return;
+    if (k(r, { select: t2 }), document.activeElement !== n2) return;
 }
 function Se$1(e2) {
-  const t2 = oe$3(e2), n2 = Q$2(t2, e2), r = Q$2(t2.reverse(), e2);
+  const t2 = oe$1(e2), n2 = Q$2(t2, e2), r = Q$2(t2.reverse(), e2);
   return [n2, r];
 }
-function oe$3(e2) {
+function oe$1(e2) {
   const t2 = [], n2 = document.createTreeWalker(e2, NodeFilter.SHOW_ELEMENT, {
     acceptNode: (r) => {
       const c2 = r.tagName === "INPUT" && r.type === "hidden";
@@ -12896,9 +12885,9 @@ function oe$3(e2) {
 }
 function Q$2(e2, t2) {
   for (const n2 of e2)
-    if (!we$2(n2, { upTo: t2 })) return n2;
+    if (!we$1(n2, { upTo: t2 })) return n2;
 }
-function we$2(e2, { upTo: t2 }) {
+function we$1(e2, { upTo: t2 }) {
   if (getComputedStyle(e2).visibility === "hidden") return true;
   for (; e2; ) {
     if (t2 !== void 0 && e2 === t2) return false;
@@ -12907,17 +12896,17 @@ function we$2(e2, { upTo: t2 }) {
   }
   return false;
 }
-function Ce$2(e2) {
+function Ce$1(e2) {
   return e2 instanceof HTMLInputElement && "select" in e2;
 }
-function k$2(e2, { select: t2 = false } = {}) {
+function k(e2, { select: t2 = false } = {}) {
   if (e2 && e2.focus) {
     const n2 = document.activeElement;
-    e2.focus({ preventScroll: true }), e2 !== n2 && Ce$2(e2) && t2 && e2.select();
+    e2.focus({ preventScroll: true }), e2 !== n2 && Ce$1(e2) && t2 && e2.select();
   }
 }
-var $$3 = Re$1();
-function Re$1() {
+var $ = Re();
+function Re() {
   let e2 = [];
   return {
     add(t2) {
@@ -12942,21 +12931,21 @@ var Ae$1 = function(e2) {
     return null;
   var t2 = Array.isArray(e2) ? e2[0] : e2;
   return t2.ownerDocument.body;
-}, T$1 = /* @__PURE__ */ new WeakMap(), O$3 = /* @__PURE__ */ new WeakMap(), L$4 = {}, K$3 = 0, ce$3 = function(e2) {
-  return e2 && (e2.host || ce$3(e2.parentNode));
-}, Te$2 = function(e2, t2) {
+}, T = /* @__PURE__ */ new WeakMap(), O$1 = /* @__PURE__ */ new WeakMap(), L$2 = {}, K$1 = 0, ce$1 = function(e2) {
+  return e2 && (e2.host || ce$1(e2.parentNode));
+}, Te$1 = function(e2, t2) {
   return t2.map(function(n2) {
     if (e2.contains(n2))
       return n2;
-    var r = ce$3(n2);
+    var r = ce$1(n2);
     return r && e2.contains(r) ? r : (console.error("aria-hidden", n2, "in not contained inside", e2, ". Doing nothing"), null);
   }).filter(function(n2) {
     return !!n2;
   });
 }, Ne$1 = function(e2, t2, n2, r) {
-  var c2 = Te$2(t2, Array.isArray(e2) ? e2 : [e2]);
-  L$4[n2] || (L$4[n2] = /* @__PURE__ */ new WeakMap());
-  var i2 = L$4[n2], s2 = [], a2 = /* @__PURE__ */ new Set(), S2 = new Set(c2), b2 = function(f2) {
+  var c2 = Te$1(t2, Array.isArray(e2) ? e2 : [e2]);
+  L$2[n2] || (L$2[n2] = /* @__PURE__ */ new WeakMap());
+  var i2 = L$2[n2], s2 = [], a2 = /* @__PURE__ */ new Set(), S2 = new Set(c2), b2 = function(f2) {
     !f2 || a2.has(f2) || (a2.add(f2), b2(f2.parentNode));
   };
   c2.forEach(b2);
@@ -12966,18 +12955,18 @@ var Ae$1 = function(e2) {
         g2(v2);
       else
         try {
-          var h2 = v2.getAttribute(r), w2 = h2 !== null && h2 !== "false", o2 = (T$1.get(v2) || 0) + 1, l2 = (i2.get(v2) || 0) + 1;
-          T$1.set(v2, o2), i2.set(v2, l2), s2.push(v2), o2 === 1 && w2 && O$3.set(v2, true), l2 === 1 && v2.setAttribute(n2, "true"), w2 || v2.setAttribute(r, "true");
+          var h2 = v2.getAttribute(r), w2 = h2 !== null && h2 !== "false", o2 = (T.get(v2) || 0) + 1, l2 = (i2.get(v2) || 0) + 1;
+          T.set(v2, o2), i2.set(v2, l2), s2.push(v2), o2 === 1 && w2 && O$1.set(v2, true), l2 === 1 && v2.setAttribute(n2, "true"), w2 || v2.setAttribute(r, "true");
         } catch (d2) {
           console.error("aria-hidden: cannot operate on ", v2, d2);
         }
     });
   };
-  return g2(t2), a2.clear(), K$3++, function() {
+  return g2(t2), a2.clear(), K$1++, function() {
     s2.forEach(function(f2) {
-      var v2 = T$1.get(f2) - 1, h2 = i2.get(f2) - 1;
-      T$1.set(f2, v2), i2.set(f2, h2), v2 || (O$3.has(f2) || f2.removeAttribute(r), O$3.delete(f2)), h2 || f2.removeAttribute(n2);
-    }), K$3--, K$3 || (T$1 = /* @__PURE__ */ new WeakMap(), T$1 = /* @__PURE__ */ new WeakMap(), O$3 = /* @__PURE__ */ new WeakMap(), L$4 = {});
+      var v2 = T.get(f2) - 1, h2 = i2.get(f2) - 1;
+      T.set(f2, v2), i2.set(f2, h2), v2 || (O$1.has(f2) || f2.removeAttribute(r), O$1.delete(f2)), h2 || f2.removeAttribute(n2);
+    }), K$1--, K$1 || (T = /* @__PURE__ */ new WeakMap(), T = /* @__PURE__ */ new WeakMap(), O$1 = /* @__PURE__ */ new WeakMap(), L$2 = {});
   };
 }, yt$1 = function(e2, t2, n2) {
   n2 === void 0 && (n2 = "data-aria-hidden");
@@ -12985,16 +12974,16 @@ var Ae$1 = function(e2) {
   return c2 ? (r.push.apply(r, Array.from(c2.querySelectorAll("[aria-live], script"))), Ne$1(r, c2, n2, "aria-hidden")) : function() {
     return null;
   };
-}, C$4 = function() {
-  return C$4 = Object.assign || function(t2) {
+}, C$2 = function() {
+  return C$2 = Object.assign || function(t2) {
     for (var n2, r = 1, c2 = arguments.length; r < c2; r++) {
       n2 = arguments[r];
       for (var i2 in n2) Object.prototype.hasOwnProperty.call(n2, i2) && (t2[i2] = n2[i2]);
     }
     return t2;
-  }, C$4.apply(this, arguments);
+  }, C$2.apply(this, arguments);
 };
-function ue$3(e2, t2) {
+function ue$2(e2, t2) {
   var n2 = {};
   for (var r in e2) Object.prototype.hasOwnProperty.call(e2, r) && t2.indexOf(r) < 0 && (n2[r] = e2[r]);
   if (e2 != null && typeof Object.getOwnPropertySymbols == "function")
@@ -13007,11 +12996,11 @@ function Me$1(e2, t2, n2) {
     (i2 || !(r in t2)) && (i2 || (i2 = Array.prototype.slice.call(t2, 0, r)), i2[r] = t2[r]);
   return e2.concat(i2 || Array.prototype.slice.call(t2));
 }
-var W$1 = "right-scroll-bar-position", B$5 = "width-before-scroll-bar", Fe$3 = "with-scroll-bars-hidden", Pe$2 = "--removed-body-scroll-bar-size";
-function H$4(e2, t2) {
+var W$1 = "right-scroll-bar-position", B$3 = "width-before-scroll-bar", Fe$2 = "with-scroll-bars-hidden", Pe$1 = "--removed-body-scroll-bar-size";
+function H$3(e2, t2) {
   return typeof e2 == "function" ? e2(t2) : e2 && (e2.current = t2), e2;
 }
-function Oe$2(e2, t2) {
+function Oe$1(e2, t2) {
   var n2 = reactExports.useState(function() {
     return {
       // value
@@ -13032,31 +13021,31 @@ function Oe$2(e2, t2) {
   })[0];
   return n2.callback = t2, n2.facade;
 }
-var Le$3 = typeof window < "u" ? reactExports.useLayoutEffect : reactExports.useEffect, ee$5 = /* @__PURE__ */ new WeakMap();
-function Ie$3(e2, t2) {
-  var n2 = Oe$2(null, function(r) {
+var Le$2 = typeof window < "u" ? reactExports.useLayoutEffect : reactExports.useEffect, ee$3 = /* @__PURE__ */ new WeakMap();
+function Ie$2(e2, t2) {
+  var n2 = Oe$1(null, function(r) {
     return e2.forEach(function(c2) {
-      return H$4(c2, r);
+      return H$3(c2, r);
     });
   });
-  return Le$3(function() {
-    var r = ee$5.get(n2);
+  return Le$2(function() {
+    var r = ee$3.get(n2);
     if (r) {
       var c2 = new Set(r), i2 = new Set(e2), s2 = n2.current;
       c2.forEach(function(a2) {
-        i2.has(a2) || H$4(a2, null);
+        i2.has(a2) || H$3(a2, null);
       }), i2.forEach(function(a2) {
-        c2.has(a2) || H$4(a2, s2);
+        c2.has(a2) || H$3(a2, s2);
       });
     }
-    ee$5.set(n2, e2);
+    ee$3.set(n2, e2);
   }, [e2]), n2;
 }
-function xe$2(e2) {
+function xe$1(e2) {
   return e2;
 }
 function We$2(e2, t2) {
-  t2 === void 0 && (t2 = xe$2);
+  t2 === void 0 && (t2 = xe$1);
   var n2 = [], r = false, c2 = {
     read: function() {
       if (r)
@@ -13110,57 +13099,57 @@ function We$2(e2, t2) {
   };
   return c2;
 }
-function Be$3(e2) {
+function Be$2(e2) {
   e2 === void 0 && (e2 = {});
   var t2 = We$2(null);
-  return t2.options = C$4({ async: true, ssr: false }, e2), t2;
+  return t2.options = C$2({ async: true, ssr: false }, e2), t2;
 }
 var ie$2 = function(e2) {
-  var t2 = e2.sideCar, n2 = ue$3(e2, ["sideCar"]);
+  var t2 = e2.sideCar, n2 = ue$2(e2, ["sideCar"]);
   if (!t2)
     throw new Error("Sidecar: please provide `sideCar` property to import the right car");
   var r = t2.read();
   if (!r)
     throw new Error("Sidecar medium not found");
-  return reactExports.createElement(r, C$4({}, n2));
+  return reactExports.createElement(r, C$2({}, n2));
 };
 ie$2.isSideCarExport = true;
-function De$3(e2, t2) {
+function De$2(e2, t2) {
   return e2.useMedium(t2), ie$2;
 }
-var le$3 = Be$3(), V$2 = function() {
-}, D$1 = reactExports.forwardRef(function(e2, t2) {
+var le$2 = Be$2(), V$1 = function() {
+}, D = reactExports.forwardRef(function(e2, t2) {
   var n2 = reactExports.useRef(null), r = reactExports.useState({
-    onScrollCapture: V$2,
-    onWheelCapture: V$2,
-    onTouchMoveCapture: V$2
-  }), c2 = r[0], i2 = r[1], s2 = e2.forwardProps, a2 = e2.children, S2 = e2.className, b2 = e2.removeScrollBar, g2 = e2.enabled, f2 = e2.shards, v2 = e2.sideCar, h2 = e2.noRelative, w2 = e2.noIsolation, o2 = e2.inert, l2 = e2.allowPinchZoom, d2 = e2.as, m2 = d2 === void 0 ? "div" : d2, p2 = e2.gapMode, y2 = ue$3(e2, ["forwardProps", "children", "className", "removeScrollBar", "enabled", "shards", "sideCar", "noRelative", "noIsolation", "inert", "allowPinchZoom", "as", "gapMode"]), E2 = v2, A2 = Ie$3([n2, t2]), R2 = C$4(C$4({}, y2), c2);
+    onScrollCapture: V$1,
+    onWheelCapture: V$1,
+    onTouchMoveCapture: V$1
+  }), c2 = r[0], i2 = r[1], s2 = e2.forwardProps, a2 = e2.children, S2 = e2.className, b2 = e2.removeScrollBar, g2 = e2.enabled, f2 = e2.shards, v2 = e2.sideCar, h2 = e2.noRelative, w2 = e2.noIsolation, o2 = e2.inert, l2 = e2.allowPinchZoom, d2 = e2.as, m2 = d2 === void 0 ? "div" : d2, p2 = e2.gapMode, y2 = ue$2(e2, ["forwardProps", "children", "className", "removeScrollBar", "enabled", "shards", "sideCar", "noRelative", "noIsolation", "inert", "allowPinchZoom", "as", "gapMode"]), E2 = v2, A2 = Ie$2([n2, t2]), R2 = C$2(C$2({}, y2), c2);
   return reactExports.createElement(
     reactExports.Fragment,
     null,
-    g2 && reactExports.createElement(E2, { sideCar: le$3, removeScrollBar: b2, shards: f2, noRelative: h2, noIsolation: w2, inert: o2, setCallbacks: i2, allowPinchZoom: !!l2, lockRef: n2, gapMode: p2 }),
-    s2 ? reactExports.cloneElement(reactExports.Children.only(a2), C$4(C$4({}, R2), { ref: A2 })) : reactExports.createElement(m2, C$4({}, R2, { className: S2, ref: A2 }), a2)
+    g2 && reactExports.createElement(E2, { sideCar: le$2, removeScrollBar: b2, shards: f2, noRelative: h2, noIsolation: w2, inert: o2, setCallbacks: i2, allowPinchZoom: !!l2, lockRef: n2, gapMode: p2 }),
+    s2 ? reactExports.cloneElement(reactExports.Children.only(a2), C$2(C$2({}, R2), { ref: A2 })) : reactExports.createElement(m2, C$2({}, R2, { className: S2, ref: A2 }), a2)
   );
 });
-D$1.defaultProps = {
+D.defaultProps = {
   enabled: true,
   removeScrollBar: true,
   inert: false
 };
-D$1.classNames = {
-  fullWidth: B$5,
+D.classNames = {
+  fullWidth: B$3,
   zeroRight: W$1
 };
-var Ue$3 = function() {
+var Ue$2 = function() {
   if (typeof __webpack_nonce__ < "u")
     return __webpack_nonce__;
 };
-function _e$2() {
+function _e$1() {
   if (!document)
     return null;
   var e2 = document.createElement("style");
   e2.type = "text/css";
-  var t2 = Ue$3();
+  var t2 = Ue$2();
   return t2 && e2.setAttribute("nonce", t2), e2;
 }
 function je$2(e2, t2) {
@@ -13174,7 +13163,7 @@ var He$2 = function() {
   var e2 = 0, t2 = null;
   return {
     add: function(n2) {
-      e2 == 0 && (t2 = _e$2()) && (je$2(t2, n2), Ke$2(t2)), e2++;
+      e2 == 0 && (t2 = _e$1()) && (je$2(t2, n2), Ke$2(t2)), e2++;
     },
     remove: function() {
       e2--, !e2 && t2 && (t2.parentNode && t2.parentNode.removeChild(t2), t2 = null);
@@ -13189,7 +13178,7 @@ var He$2 = function() {
       };
     }, [t2 && n2]);
   };
-}, se$2 = function() {
+}, se$1 = function() {
   var e2 = Ve$2(), t2 = function(n2) {
     var r = n2.styles, c2 = n2.dynamic;
     return e2(r, c2), null;
@@ -13200,11 +13189,11 @@ var He$2 = function() {
   top: 0,
   right: 0,
   gap: 0
-}, X$4 = function(e2) {
+}, X$1 = function(e2) {
   return parseInt(e2 || "", 10) || 0;
 }, Ye$2 = function(e2) {
   var t2 = window.getComputedStyle(document.body), n2 = t2[e2 === "padding" ? "paddingLeft" : "marginLeft"], r = t2[e2 === "padding" ? "paddingTop" : "marginTop"], c2 = t2[e2 === "padding" ? "paddingRight" : "marginRight"];
-  return [X$4(n2), X$4(r), X$4(c2)];
+  return [X$1(n2), X$1(r), X$1(c2)];
 }, Ge$2 = function(e2) {
   if (e2 === void 0 && (e2 = "margin"), typeof window > "u")
     return Xe$2;
@@ -13215,14 +13204,14 @@ var He$2 = function() {
     right: t2[2],
     gap: Math.max(0, r - n2 + t2[2] - t2[0])
   };
-}, ze$2 = se$2(), F$3 = "data-scroll-locked", Ze$2 = function(e2, t2, n2, r) {
+}, ze$2 = se$1(), F$2 = "data-scroll-locked", Ze$2 = function(e2, t2, n2, r) {
   var c2 = e2.left, i2 = e2.top, s2 = e2.right, a2 = e2.gap;
   return n2 === void 0 && (n2 = "margin"), `
-  .`.concat(Fe$3, ` {
+  .`.concat(Fe$2, ` {
    overflow: hidden `).concat(r, `;
    padding-right: `).concat(a2, "px ").concat(r, `;
   }
-  body[`).concat(F$3, `] {
+  body[`).concat(F$2, `] {
     overflow: hidden `).concat(r, `;
     overscroll-behavior: contain;
     `).concat([
@@ -13243,7 +13232,7 @@ var He$2 = function() {
     right: `).concat(a2, "px ").concat(r, `;
   }
   
-  .`).concat(B$5, ` {
+  .`).concat(B$3, ` {
     margin-right: `).concat(a2, "px ").concat(r, `;
   }
   
@@ -13251,22 +13240,22 @@ var He$2 = function() {
     right: 0 `).concat(r, `;
   }
   
-  .`).concat(B$5, " .").concat(B$5, ` {
+  .`).concat(B$3, " .").concat(B$3, ` {
     margin-right: 0 `).concat(r, `;
   }
   
-  body[`).concat(F$3, `] {
-    `).concat(Pe$2, ": ").concat(a2, `px;
+  body[`).concat(F$2, `] {
+    `).concat(Pe$1, ": ").concat(a2, `px;
   }
 `);
-}, te$4 = function() {
-  var e2 = parseInt(document.body.getAttribute(F$3) || "0", 10);
+}, te$2 = function() {
+  var e2 = parseInt(document.body.getAttribute(F$2) || "0", 10);
   return isFinite(e2) ? e2 : 0;
 }, qe$2 = function() {
   reactExports.useEffect(function() {
-    return document.body.setAttribute(F$3, (te$4() + 1).toString()), function() {
-      var e2 = te$4() - 1;
-      e2 <= 0 ? document.body.removeAttribute(F$3) : document.body.setAttribute(F$3, e2.toString());
+    return document.body.setAttribute(F$2, (te$2() + 1).toString()), function() {
+      var e2 = te$2() - 1;
+      e2 <= 0 ? document.body.removeAttribute(F$2) : document.body.setAttribute(F$2, e2.toString());
     };
   }, []);
 }, Qe$2 = function(e2) {
@@ -13276,40 +13265,40 @@ var He$2 = function() {
     return Ge$2(c2);
   }, [c2]);
   return reactExports.createElement(ze$2, { styles: Ze$2(i2, !t2, c2, n2 ? "" : "!important") });
-}, Y$4 = false;
+}, Y$3 = false;
 if (typeof window < "u")
   try {
-    var I$4 = Object.defineProperty({}, "passive", {
+    var I$1 = Object.defineProperty({}, "passive", {
       get: function() {
-        return Y$4 = true, true;
+        return Y$3 = true, true;
       }
     });
-    window.addEventListener("test", I$4, I$4), window.removeEventListener("test", I$4, I$4);
+    window.addEventListener("test", I$1, I$1), window.removeEventListener("test", I$1, I$1);
   } catch {
-    Y$4 = false;
+    Y$3 = false;
   }
-var N$4 = Y$4 ? { passive: false } : false, $e$3 = function(e2) {
+var N$2 = Y$3 ? { passive: false } : false, $e$2 = function(e2) {
   return e2.tagName === "TEXTAREA";
-}, fe$2 = function(e2, t2) {
+}, fe$1 = function(e2, t2) {
   if (!(e2 instanceof Element))
     return false;
   var n2 = window.getComputedStyle(e2);
   return (
     // not-not-scrollable
     n2[t2] !== "hidden" && // contains scroll inside self
-    !(n2.overflowY === n2.overflowX && !$e$3(e2) && n2[t2] === "visible")
+    !(n2.overflowY === n2.overflowX && !$e$2(e2) && n2[t2] === "visible")
   );
 }, Je$2 = function(e2) {
-  return fe$2(e2, "overflowY");
+  return fe$1(e2, "overflowY");
 }, et$2 = function(e2) {
-  return fe$2(e2, "overflowX");
-}, ne$3 = function(e2, t2) {
+  return fe$1(e2, "overflowX");
+}, ne$2 = function(e2, t2) {
   var n2 = t2.ownerDocument, r = t2;
   do {
     typeof ShadowRoot < "u" && r instanceof ShadowRoot && (r = r.host);
-    var c2 = de$3(e2, r);
+    var c2 = de$2(e2, r);
     if (c2) {
-      var i2 = ve$1(e2, r), s2 = i2[1], a2 = i2[2];
+      var i2 = ve(e2, r), s2 = i2[1], a2 = i2[2];
       if (s2 > a2)
         return true;
     }
@@ -13330,9 +13319,9 @@ var N$4 = Y$4 ? { passive: false } : false, $e$3 = function(e2) {
     n2,
     r
   ];
-}, de$3 = function(e2, t2) {
+}, de$2 = function(e2, t2) {
   return e2 === "v" ? Je$2(t2) : et$2(t2);
-}, ve$1 = function(e2, t2) {
+}, ve = function(e2, t2) {
   return e2 === "v" ? tt$2(t2) : nt$1(t2);
 }, rt$2 = function(e2, t2) {
   return e2 === "h" && t2 === "rtl" ? -1 : 1;
@@ -13341,8 +13330,8 @@ var N$4 = Y$4 ? { passive: false } : false, $e$3 = function(e2) {
   do {
     if (!a2)
       break;
-    var h2 = ve$1(e2, a2), w2 = h2[0], o2 = h2[1], l2 = h2[2], d2 = o2 - l2 - i2 * w2;
-    (w2 || d2) && de$3(e2, a2) && (f2 += d2, v2 += w2);
+    var h2 = ve(e2, a2), w2 = h2[0], o2 = h2[1], l2 = h2[2], d2 = o2 - l2 - i2 * w2;
+    (w2 || d2) && de$2(e2, a2) && (f2 += d2, v2 += w2);
     var m2 = a2.parentNode;
     a2 = m2 && m2.nodeType === Node.DOCUMENT_FRAGMENT_NODE ? m2.host : m2;
   } while (
@@ -13351,11 +13340,11 @@ var N$4 = Y$4 ? { passive: false } : false, $e$3 = function(e2) {
     S2 && (t2.contains(a2) || t2 === a2)
   );
   return (g2 && Math.abs(f2) < 1 || !g2 && Math.abs(v2) < 1) && (b2 = true), b2;
-}, x$3 = function(e2) {
+}, x$1 = function(e2) {
   return "changedTouches" in e2 ? [e2.changedTouches[0].clientX, e2.changedTouches[0].clientY] : [0, 0];
-}, re$2 = function(e2) {
+}, re$1 = function(e2) {
   return [e2.deltaX, e2.deltaY];
-}, ae$3 = function(e2) {
+}, ae$2 = function(e2) {
   return e2 && "current" in e2 ? e2.current : e2;
 }, ot$2 = function(e2, t2) {
   return e2[0] === t2[0] && e2[1] === t2[1];
@@ -13364,15 +13353,15 @@ var N$4 = Y$4 ? { passive: false } : false, $e$3 = function(e2) {
   .block-interactivity-`.concat(e2, ` {pointer-events: none;}
   .allow-interactivity-`).concat(e2, ` {pointer-events: all;}
 `);
-}, ut$1 = 0, M$2 = [];
+}, ut$1 = 0, M = [];
 function it$1(e2) {
-  var t2 = reactExports.useRef([]), n2 = reactExports.useRef([0, 0]), r = reactExports.useRef(), c2 = reactExports.useState(ut$1++)[0], i2 = reactExports.useState(se$2)[0], s2 = reactExports.useRef(e2);
+  var t2 = reactExports.useRef([]), n2 = reactExports.useRef([0, 0]), r = reactExports.useRef(), c2 = reactExports.useState(ut$1++)[0], i2 = reactExports.useState(se$1)[0], s2 = reactExports.useRef(e2);
   reactExports.useEffect(function() {
     s2.current = e2;
   }, [e2]), reactExports.useEffect(function() {
     if (e2.inert) {
       document.body.classList.add("block-interactivity-".concat(c2));
-      var o2 = Me$1([e2.lockRef.current], (e2.shards || []).map(ae$3)).filter(Boolean);
+      var o2 = Me$1([e2.lockRef.current], (e2.shards || []).map(ae$2)).filter(Boolean);
       return o2.forEach(function(l2) {
         return l2.classList.add("allow-interactivity-".concat(c2));
       }), function() {
@@ -13385,13 +13374,13 @@ function it$1(e2) {
   var a2 = reactExports.useCallback(function(o2, l2) {
     if ("touches" in o2 && o2.touches.length === 2 || o2.type === "wheel" && o2.ctrlKey)
       return !s2.current.allowPinchZoom;
-    var d2 = x$3(o2), m2 = n2.current, p2 = "deltaX" in o2 ? o2.deltaX : m2[0] - d2[0], y2 = "deltaY" in o2 ? o2.deltaY : m2[1] - d2[1], E2, A2 = o2.target, R2 = Math.abs(p2) > Math.abs(y2) ? "h" : "v";
+    var d2 = x$1(o2), m2 = n2.current, p2 = "deltaX" in o2 ? o2.deltaX : m2[0] - d2[0], y2 = "deltaY" in o2 ? o2.deltaY : m2[1] - d2[1], E2, A2 = o2.target, R2 = Math.abs(p2) > Math.abs(y2) ? "h" : "v";
     if ("touches" in o2 && R2 === "h" && A2.type === "range")
       return false;
-    var P2 = ne$3(R2, A2);
+    var P2 = ne$2(R2, A2);
     if (!P2)
       return true;
-    if (P2 ? E2 = R2 : (E2 = R2 === "v" ? "h" : "v", P2 = ne$3(R2, A2)), !P2)
+    if (P2 ? E2 = R2 : (E2 = R2 === "v" ? "h" : "v", P2 = ne$2(R2, A2)), !P2)
       return false;
     if (!r.current && "changedTouches" in o2 && (p2 || y2) && (r.current = E2), !E2)
       return true;
@@ -13399,8 +13388,8 @@ function it$1(e2) {
     return at$2(G2, l2, o2, G2 === "h" ? p2 : y2);
   }, []), S2 = reactExports.useCallback(function(o2) {
     var l2 = o2;
-    if (!(!M$2.length || M$2[M$2.length - 1] !== i2)) {
-      var d2 = "deltaY" in l2 ? re$2(l2) : x$3(l2), m2 = t2.current.filter(function(E2) {
+    if (!(!M.length || M[M.length - 1] !== i2)) {
+      var d2 = "deltaY" in l2 ? re$1(l2) : x$1(l2), m2 = t2.current.filter(function(E2) {
         return E2.name === l2.type && (E2.target === l2.target || l2.target === E2.shadowParent) && ot$2(E2.delta, d2);
       })[0];
       if (m2 && m2.should) {
@@ -13408,7 +13397,7 @@ function it$1(e2) {
         return;
       }
       if (!m2) {
-        var p2 = (s2.current.shards || []).map(ae$3).filter(Boolean).filter(function(E2) {
+        var p2 = (s2.current.shards || []).map(ae$2).filter(Boolean).filter(function(E2) {
           return E2.contains(l2.target);
         }), y2 = p2.length > 0 ? a2(l2, p2[0]) : !s2.current.noIsolation;
         y2 && l2.cancelable && l2.preventDefault();
@@ -13422,21 +13411,21 @@ function it$1(e2) {
       });
     }, 1);
   }, []), g2 = reactExports.useCallback(function(o2) {
-    n2.current = x$3(o2), r.current = void 0;
+    n2.current = x$1(o2), r.current = void 0;
   }, []), f2 = reactExports.useCallback(function(o2) {
-    b2(o2.type, re$2(o2), o2.target, a2(o2, e2.lockRef.current));
+    b2(o2.type, re$1(o2), o2.target, a2(o2, e2.lockRef.current));
   }, []), v2 = reactExports.useCallback(function(o2) {
-    b2(o2.type, x$3(o2), o2.target, a2(o2, e2.lockRef.current));
+    b2(o2.type, x$1(o2), o2.target, a2(o2, e2.lockRef.current));
   }, []);
   reactExports.useEffect(function() {
-    return M$2.push(i2), e2.setCallbacks({
+    return M.push(i2), e2.setCallbacks({
       onScrollCapture: f2,
       onWheelCapture: f2,
       onTouchMoveCapture: v2
-    }), document.addEventListener("wheel", S2, N$4), document.addEventListener("touchmove", S2, N$4), document.addEventListener("touchstart", g2, N$4), function() {
-      M$2 = M$2.filter(function(o2) {
+    }), document.addEventListener("wheel", S2, N$2), document.addEventListener("touchmove", S2, N$2), document.addEventListener("touchstart", g2, N$2), function() {
+      M = M.filter(function(o2) {
         return o2 !== i2;
-      }), document.removeEventListener("wheel", S2, N$4), document.removeEventListener("touchmove", S2, N$4), document.removeEventListener("touchstart", g2, N$4);
+      }), document.removeEventListener("wheel", S2, N$2), document.removeEventListener("touchmove", S2, N$2), document.removeEventListener("touchstart", g2, N$2);
     };
   }, []);
   var h2 = e2.removeScrollBar, w2 = e2.inert;
@@ -13452,11 +13441,11 @@ function lt$1(e2) {
     e2 instanceof ShadowRoot && (t2 = e2.host, e2 = e2.host), e2 = e2.parentNode;
   return t2;
 }
-const st$1 = De$3(le$3, it$1);
+const st$1 = De$2(le$2, it$1);
 var ft$1 = reactExports.forwardRef(function(e2, t2) {
-  return reactExports.createElement(D$1, C$4({}, e2, { ref: t2, sideCar: st$1 }));
+  return reactExports.createElement(D, C$2({}, e2, { ref: t2, sideCar: st$1 }));
 });
-ft$1.classNames = D$1.classNames;
+ft$1.classNames = D.classNames;
 var s$2 = o$1[" useId ".trim().toString()] || (() => {
 }), i$1 = 0;
 function c$1(t2) {
@@ -13465,7 +13454,7 @@ function c$1(t2) {
     u2((a2) => a2 ?? String(i$1++));
   }, [t2]), t2 || (r ? `radix-${r}` : "");
 }
-function n$2(r) {
+function n$1(r) {
   const [d2, e2] = reactExports.useState(void 0);
   return a(() => {
     if (r) {
@@ -13487,25 +13476,25 @@ function n$2(r) {
       e2(void 0);
   }, [r]), d2;
 }
-const Se = ["top", "right", "bottom", "left"], Z$1 = Math.min, W = Math.max, at$1 = Math.round, ct = Math.floor, I$3 = (t2) => ({
+const Se = ["top", "right", "bottom", "left"], Z = Math.min, W = Math.max, at$1 = Math.round, ct = Math.floor, I = (t2) => ({
   x: t2,
   y: t2
-}), Ee$1 = {
+}), Ee = {
   left: "right",
   right: "left",
   bottom: "top",
   top: "bottom"
-}, Le$2 = {
+}, Le$1 = {
   start: "end",
   end: "start"
 };
 function yt(t2, e2, n2) {
-  return W(t2, Z$1(e2, n2));
+  return W(t2, Z(e2, n2));
 }
-function q$3(t2, e2) {
+function q$1(t2, e2) {
   return typeof t2 == "function" ? t2(e2) : t2;
 }
-function U$1(t2) {
+function U(t2) {
   return t2.split("-")[0];
 }
 function tt$1(t2) {
@@ -13517,12 +13506,12 @@ function Rt$1(t2) {
 function Ct(t2) {
   return t2 === "y" ? "height" : "width";
 }
-const De$2 = /* @__PURE__ */ new Set(["top", "bottom"]);
-function z$3(t2) {
-  return De$2.has(U$1(t2)) ? "y" : "x";
+const De$1 = /* @__PURE__ */ new Set(["top", "bottom"]);
+function z$1(t2) {
+  return De$1.has(U(t2)) ? "y" : "x";
 }
 function Pt$1(t2) {
-  return Rt$1(z$3(t2));
+  return Rt$1(z$1(t2));
 }
 function Me(t2, e2, n2) {
   n2 === void 0 && (n2 = false);
@@ -13530,33 +13519,33 @@ function Me(t2, e2, n2) {
   let s2 = r === "x" ? o2 === (n2 ? "end" : "start") ? "right" : "left" : o2 === "start" ? "bottom" : "top";
   return e2.reference[i2] > e2.floating[i2] && (s2 = ft(s2)), [s2, ft(s2)];
 }
-function Te$1(t2) {
+function Te(t2) {
   const e2 = ft(t2);
   return [vt(t2), e2, vt(e2)];
 }
 function vt(t2) {
-  return t2.replace(/start|end/g, (e2) => Le$2[e2]);
+  return t2.replace(/start|end/g, (e2) => Le$1[e2]);
 }
-const kt$1 = ["left", "right"], Ft$1 = ["right", "left"], $e$2 = ["top", "bottom"], ke$1 = ["bottom", "top"];
-function Fe$2(t2, e2, n2) {
+const kt$1 = ["left", "right"], Ft$1 = ["right", "left"], $e$1 = ["top", "bottom"], ke$1 = ["bottom", "top"];
+function Fe$1(t2, e2, n2) {
   switch (t2) {
     case "top":
     case "bottom":
       return n2 ? e2 ? Ft$1 : kt$1 : e2 ? kt$1 : Ft$1;
     case "left":
     case "right":
-      return e2 ? $e$2 : ke$1;
+      return e2 ? $e$1 : ke$1;
     default:
       return [];
   }
 }
 function Ne(t2, e2, n2, o2) {
   const r = tt$1(t2);
-  let i2 = Fe$2(U$1(t2), n2 === "start", o2);
+  let i2 = Fe$1(U(t2), n2 === "start", o2);
   return r && (i2 = i2.map((s2) => s2 + "-" + r), e2 && (i2 = i2.concat(i2.map(vt)))), i2;
 }
 function ft(t2) {
-  return t2.replace(/left|right|bottom|top/g, (e2) => Ee$1[e2]);
+  return t2.replace(/left|right|bottom|top/g, (e2) => Ee[e2]);
 }
 function We$1(t2) {
   return {
@@ -13598,7 +13587,7 @@ function Nt$1(t2, e2, n2) {
     reference: o2,
     floating: r
   } = t2;
-  const i2 = z$3(e2), s2 = Pt$1(e2), c2 = Ct(s2), l2 = U$1(e2), a2 = i2 === "y", f2 = o2.x + o2.width / 2 - r.width / 2, u2 = o2.y + o2.height / 2 - r.height / 2, p2 = o2[c2] / 2 - r[c2] / 2;
+  const i2 = z$1(e2), s2 = Pt$1(e2), c2 = Ct(s2), l2 = U(e2), a2 = i2 === "y", f2 = o2.x + o2.width / 2 - r.width / 2, u2 = o2.y + o2.height / 2 - r.height / 2, p2 = o2[c2] / 2 - r[c2] / 2;
   let d2;
   switch (l2) {
     case "top":
@@ -13718,7 +13707,7 @@ async function ot$1(t2, e2) {
     elementContext: u2 = "floating",
     altBoundary: p2 = false,
     padding: d2 = 0
-  } = q$3(e2, t2), m2 = jt$1(d2), w2 = c2[p2 ? u2 === "floating" ? "reference" : "floating" : u2], g2 = ut(await i2.getClippingRect({
+  } = q$1(e2, t2), m2 = jt$1(d2), w2 = c2[p2 ? u2 === "floating" ? "reference" : "floating" : u2], g2 = ut(await i2.getClippingRect({
     element: (n2 = await (i2.isElement == null ? void 0 : i2.isElement(w2))) == null || n2 ? w2 : w2.contextElement || await (i2.getDocumentElement == null ? void 0 : i2.getDocumentElement(c2.floating)),
     boundary: a2,
     rootBoundary: f2,
@@ -13747,7 +13736,7 @@ async function ot$1(t2, e2) {
     right: (v2.right - g2.right + m2.right) / y2.x
   };
 }
-const _e$1 = (t2) => ({
+const _e = (t2) => ({
   name: "arrow",
   options: t2,
   async fn(e2) {
@@ -13762,7 +13751,7 @@ const _e$1 = (t2) => ({
     } = e2, {
       element: a2,
       padding: f2 = 0
-    } = q$3(t2, e2) || {};
+    } = q$1(t2, e2) || {};
     if (a2 == null)
       return {};
     const u2 = jt$1(f2), p2 = {
@@ -13771,7 +13760,7 @@ const _e$1 = (t2) => ({
     }, d2 = Pt$1(r), m2 = Ct(d2), h2 = await s2.getDimensions(a2), w2 = d2 === "y", g2 = w2 ? "top" : "left", x2 = w2 ? "bottom" : "right", b2 = w2 ? "clientHeight" : "clientWidth", y2 = i2.reference[m2] + i2.reference[d2] - p2[d2] - i2.floating[m2], v2 = p2[d2] - i2.reference[d2], P2 = await (s2.getOffsetParent == null ? void 0 : s2.getOffsetParent(a2));
     let C2 = P2 ? P2[b2] : 0;
     (!C2 || !await (s2.isElement == null ? void 0 : s2.isElement(P2))) && (C2 = c2.floating[b2] || i2.floating[m2]);
-    const M2 = y2 / 2 - v2 / 2, F2 = C2 / 2 - h2[m2] / 2 - 1, D2 = Z$1(u2[g2], F2), $2 = Z$1(u2[x2], F2), k2 = D2, S2 = C2 - h2[m2] - $2, O2 = C2 / 2 - h2[m2] / 2 + M2, N2 = yt(k2, O2, S2), E2 = !l2.arrow && tt$1(r) != null && O2 !== N2 && i2.reference[m2] / 2 - (O2 < k2 ? D2 : $2) - h2[m2] / 2 < 0, L2 = E2 ? O2 < k2 ? O2 - k2 : O2 - S2 : 0;
+    const M2 = y2 / 2 - v2 / 2, F2 = C2 / 2 - h2[m2] / 2 - 1, D2 = Z(u2[g2], F2), $2 = Z(u2[x2], F2), k2 = D2, S2 = C2 - h2[m2] - $2, O2 = C2 / 2 - h2[m2] / 2 + M2, N2 = yt(k2, O2, S2), E2 = !l2.arrow && tt$1(r) != null && O2 !== N2 && i2.reference[m2] / 2 - (O2 < k2 ? D2 : $2) - h2[m2] / 2 < 0, L2 = E2 ? O2 < k2 ? O2 - k2 : O2 - S2 : 0;
     return {
       [d2]: p2[d2] + L2,
       data: {
@@ -13784,7 +13773,7 @@ const _e$1 = (t2) => ({
       reset: E2
     };
   }
-}), Be$2 = function(t2) {
+}), Be$1 = function(t2) {
   return t2 === void 0 && (t2 = {}), {
     name: "flip",
     options: t2,
@@ -13805,10 +13794,10 @@ const _e$1 = (t2) => ({
         fallbackAxisSideDirection: m2 = "none",
         flipAlignment: h2 = true,
         ...w2
-      } = q$3(t2, e2);
+      } = q$1(t2, e2);
       if ((n2 = i2.arrow) != null && n2.alignmentOffset)
         return {};
-      const g2 = U$1(r), x2 = z$3(c2), b2 = U$1(c2) === c2, y2 = await (l2.isRTL == null ? void 0 : l2.isRTL(a2.floating)), v2 = p2 || (b2 || !h2 ? [ft(c2)] : Te$1(c2)), P2 = m2 !== "none";
+      const g2 = U(r), x2 = z$1(c2), b2 = U(c2) === c2, y2 = await (l2.isRTL == null ? void 0 : l2.isRTL(a2.floating)), v2 = p2 || (b2 || !h2 ? [ft(c2)] : Te(c2)), P2 = m2 !== "none";
       !p2 && P2 && v2.push(...Ne(c2, h2, m2, y2));
       const C2 = [c2, ...v2], M2 = await ot$1(e2, w2), F2 = [];
       let D2 = ((o2 = i2.flip) == null ? void 0 : o2.overflows) || [];
@@ -13822,9 +13811,9 @@ const _e$1 = (t2) => ({
       }], !F2.every((O2) => O2 <= 0)) {
         var $2, k2;
         const O2 = ((($2 = i2.flip) == null ? void 0 : $2.index) || 0) + 1, N2 = C2[O2];
-        if (N2 && (!(u2 === "alignment" ? x2 !== z$3(N2) : false) || // We leave the current main axis only if every placement on that axis
+        if (N2 && (!(u2 === "alignment" ? x2 !== z$1(N2) : false) || // We leave the current main axis only if every placement on that axis
         // overflows the main axis.
-        D2.every((A2) => z$3(A2.placement) === x2 ? A2.overflows[0] > 0 : true)))
+        D2.every((A2) => z$1(A2.placement) === x2 ? A2.overflows[0] > 0 : true)))
           return {
             data: {
               index: O2,
@@ -13841,7 +13830,7 @@ const _e$1 = (t2) => ({
               var S2;
               const L2 = (S2 = D2.filter((A2) => {
                 if (P2) {
-                  const T2 = z$3(A2.placement);
+                  const T2 = z$1(A2.placement);
                   return T2 === x2 || // Create a bias to the `y` side axis due to horizontal
                   // reading directions favoring greater width.
                   T2 === "y";
@@ -13887,7 +13876,7 @@ const Ve$1 = function(t2) {
       } = e2, {
         strategy: o2 = "referenceHidden",
         ...r
-      } = q$3(t2, e2);
+      } = q$1(t2, e2);
       switch (o2) {
         case "referenceHidden": {
           const i2 = await ot$1(e2, {
@@ -13924,7 +13913,7 @@ async function ze$1(t2, e2) {
     placement: n2,
     platform: o2,
     elements: r
-  } = t2, i2 = await (o2.isRTL == null ? void 0 : o2.isRTL(r.floating)), s2 = U$1(n2), c2 = tt$1(n2), l2 = z$3(n2) === "y", a2 = qt$1.has(s2) ? -1 : 1, f2 = i2 && l2 ? -1 : 1, u2 = q$3(e2, t2);
+  } = t2, i2 = await (o2.isRTL == null ? void 0 : o2.isRTL(r.floating)), s2 = U(n2), c2 = tt$1(n2), l2 = z$1(n2) === "y", a2 = qt$1.has(s2) ? -1 : 1, f2 = i2 && l2 ? -1 : 1, u2 = q$1(e2, t2);
   let {
     mainAxis: p2,
     crossAxis: d2,
@@ -13946,7 +13935,7 @@ async function ze$1(t2, e2) {
     y: d2 * f2
   };
 }
-const Ie$2 = function(t2) {
+const Ie$1 = function(t2) {
   return t2 === void 0 && (t2 = 0), {
     name: "offset",
     options: t2,
@@ -13993,10 +13982,10 @@ const Ie$2 = function(t2) {
           }
         },
         ...l2
-      } = q$3(t2, e2), a2 = {
+      } = q$1(t2, e2), a2 = {
         x: n2,
         y: o2
-      }, f2 = await ot$1(e2, l2), u2 = z$3(U$1(r)), p2 = Rt$1(u2);
+      }, f2 = await ot$1(e2, l2), u2 = z$1(U(r)), p2 = Rt$1(u2);
       let d2 = a2[p2], m2 = a2[u2];
       if (i2) {
         const w2 = p2 === "y" ? "top" : "left", g2 = p2 === "y" ? "bottom" : "right", x2 = d2 + f2[w2], b2 = d2 - f2[g2];
@@ -14038,12 +14027,12 @@ const Ie$2 = function(t2) {
         offset: c2 = 0,
         mainAxis: l2 = true,
         crossAxis: a2 = true
-      } = q$3(t2, e2), f2 = {
+      } = q$1(t2, e2), f2 = {
         x: n2,
         y: o2
-      }, u2 = z$3(r), p2 = Rt$1(u2);
+      }, u2 = z$1(r), p2 = Rt$1(u2);
       let d2 = f2[p2], m2 = f2[u2];
-      const h2 = q$3(c2, e2), w2 = typeof h2 == "number" ? {
+      const h2 = q$1(c2, e2), w2 = typeof h2 == "number" ? {
         mainAxis: h2,
         crossAxis: 0
       } : {
@@ -14057,7 +14046,7 @@ const Ie$2 = function(t2) {
       }
       if (a2) {
         var g2, x2;
-        const b2 = p2 === "y" ? "width" : "height", y2 = qt$1.has(U$1(r)), v2 = i2.reference[u2] - i2.floating[b2] + (y2 && ((g2 = s2.offset) == null ? void 0 : g2[u2]) || 0) + (y2 ? 0 : w2.crossAxis), P2 = i2.reference[u2] + i2.reference[b2] + (y2 ? 0 : ((x2 = s2.offset) == null ? void 0 : x2[u2]) || 0) - (y2 ? w2.crossAxis : 0);
+        const b2 = p2 === "y" ? "width" : "height", y2 = qt$1.has(U(r)), v2 = i2.reference[u2] - i2.floating[b2] + (y2 && ((g2 = s2.offset) == null ? void 0 : g2[u2]) || 0) + (y2 ? 0 : w2.crossAxis), P2 = i2.reference[u2] + i2.reference[b2] + (y2 ? 0 : ((x2 = s2.offset) == null ? void 0 : x2[u2]) || 0) - (y2 ? w2.crossAxis : 0);
         m2 < v2 ? m2 = v2 : m2 > P2 && (m2 = P2);
       }
       return {
@@ -14081,13 +14070,13 @@ const Ie$2 = function(t2) {
         apply: l2 = () => {
         },
         ...a2
-      } = q$3(t2, e2), f2 = await ot$1(e2, a2), u2 = U$1(r), p2 = tt$1(r), d2 = z$3(r) === "y", {
+      } = q$1(t2, e2), f2 = await ot$1(e2, a2), u2 = U(r), p2 = tt$1(r), d2 = z$1(r) === "y", {
         width: m2,
         height: h2
       } = i2.floating;
       let w2, g2;
       u2 === "top" || u2 === "bottom" ? (w2 = u2, g2 = p2 === (await (s2.isRTL == null ? void 0 : s2.isRTL(c2.floating)) ? "start" : "end") ? "left" : "right") : (g2 = u2, w2 = p2 === "end" ? "top" : "bottom");
-      const x2 = h2 - f2.top - f2.bottom, b2 = m2 - f2.left - f2.right, y2 = Z$1(h2 - f2[w2], x2), v2 = Z$1(m2 - f2[g2], b2), P2 = !e2.middlewareData.shift;
+      const x2 = h2 - f2.top - f2.bottom, b2 = m2 - f2.left - f2.right, y2 = Z(h2 - f2[w2], x2), v2 = Z(m2 - f2[g2], b2), P2 = !e2.middlewareData.shift;
       let C2 = y2, M2 = v2;
       if ((n2 = e2.middlewareData.shift) != null && n2.enabled.x && (M2 = b2), (o2 = e2.middlewareData.shift) != null && o2.enabled.y && (C2 = x2), P2 && !p2) {
         const D2 = W(f2.left, 0), $2 = W(f2.right, 0), k2 = W(f2.top, 0), S2 = W(f2.bottom, 0);
@@ -14113,25 +14102,25 @@ function mt() {
 function et$1(t2) {
   return Ut$1(t2) ? (t2.nodeName || "").toLowerCase() : "#document";
 }
-function H$3(t2) {
+function H$2(t2) {
   var e2;
   return (t2 == null || (e2 = t2.ownerDocument) == null ? void 0 : e2.defaultView) || window;
 }
-function Y$3(t2) {
+function Y$2(t2) {
   var e2;
   return (e2 = (Ut$1(t2) ? t2.ownerDocument : t2.document) || window.document) == null ? void 0 : e2.documentElement;
 }
 function Ut$1(t2) {
-  return mt() ? t2 instanceof Node || t2 instanceof H$3(t2).Node : false;
+  return mt() ? t2 instanceof Node || t2 instanceof H$2(t2).Node : false;
 }
-function _$2(t2) {
-  return mt() ? t2 instanceof Element || t2 instanceof H$3(t2).Element : false;
+function _(t2) {
+  return mt() ? t2 instanceof Element || t2 instanceof H$2(t2).Element : false;
 }
-function X$3(t2) {
-  return mt() ? t2 instanceof HTMLElement || t2 instanceof H$3(t2).HTMLElement : false;
+function X(t2) {
+  return mt() ? t2 instanceof HTMLElement || t2 instanceof H$2(t2).HTMLElement : false;
 }
 function _t$1(t2) {
-  return !mt() || typeof ShadowRoot > "u" ? false : t2 instanceof ShadowRoot || t2 instanceof H$3(t2).ShadowRoot;
+  return !mt() || typeof ShadowRoot > "u" ? false : t2 instanceof ShadowRoot || t2 instanceof H$2(t2).ShadowRoot;
 }
 const qe$1 = /* @__PURE__ */ new Set(["inline", "contents"]);
 function it(t2) {
@@ -14140,12 +14129,12 @@ function it(t2) {
     overflowX: n2,
     overflowY: o2,
     display: r
-  } = B$4(t2);
+  } = B$2(t2);
   return /auto|scroll|overlay|hidden|clip/.test(e2 + o2 + n2) && !qe$1.has(r);
 }
-const Ue$2 = /* @__PURE__ */ new Set(["table", "td", "th"]);
+const Ue$1 = /* @__PURE__ */ new Set(["table", "td", "th"]);
 function Ze$1(t2) {
-  return Ue$2.has(et$1(t2));
+  return Ue$1.has(et$1(t2));
 }
 const Ke$1 = [":popover-open", ":modal"];
 function pt(t2) {
@@ -14159,17 +14148,17 @@ function pt(t2) {
 }
 const Ge$1 = ["transform", "translate", "scale", "rotate", "perspective"], Je$1 = ["transform", "translate", "scale", "rotate", "perspective", "filter"], Qe$1 = ["paint", "layout", "strict", "content"];
 function Ot$1(t2) {
-  const e2 = St(), n2 = _$2(t2) ? B$4(t2) : t2;
+  const e2 = St(), n2 = _(t2) ? B$2(t2) : t2;
   return Ge$1.some((o2) => n2[o2] ? n2[o2] !== "none" : false) || (n2.containerType ? n2.containerType !== "normal" : false) || !e2 && (n2.backdropFilter ? n2.backdropFilter !== "none" : false) || !e2 && (n2.filter ? n2.filter !== "none" : false) || Je$1.some((o2) => (n2.willChange || "").includes(o2)) || Qe$1.some((o2) => (n2.contain || "").includes(o2));
 }
 function tn(t2) {
-  let e2 = K$2(t2);
-  for (; X$3(e2) && !Q$1(e2); ) {
+  let e2 = K(t2);
+  for (; X(e2) && !Q$1(e2); ) {
     if (Ot$1(e2))
       return e2;
     if (pt(e2))
       return null;
-    e2 = K$2(e2);
+    e2 = K(e2);
   }
   return null;
 }
@@ -14180,11 +14169,11 @@ const en = /* @__PURE__ */ new Set(["html", "body", "#document"]);
 function Q$1(t2) {
   return en.has(et$1(t2));
 }
-function B$4(t2) {
-  return H$3(t2).getComputedStyle(t2);
+function B$2(t2) {
+  return H$2(t2).getComputedStyle(t2);
 }
 function ht(t2) {
-  return _$2(t2) ? {
+  return _(t2) ? {
     scrollLeft: t2.scrollLeft,
     scrollTop: t2.scrollTop
   } : {
@@ -14192,7 +14181,7 @@ function ht(t2) {
     scrollTop: t2.scrollY
   };
 }
-function K$2(t2) {
+function K(t2) {
   if (et$1(t2) === "html")
     return t2;
   const e2 = (
@@ -14200,18 +14189,18 @@ function K$2(t2) {
     t2.assignedSlot || // DOM Element detected.
     t2.parentNode || // ShadowRoot detected.
     _t$1(t2) && t2.host || // Fallback.
-    Y$3(t2)
+    Y$2(t2)
   );
   return _t$1(e2) ? e2.host : e2;
 }
 function Zt$1(t2) {
-  const e2 = K$2(t2);
-  return Q$1(e2) ? t2.ownerDocument ? t2.ownerDocument.body : t2.body : X$3(e2) && it(e2) ? e2 : Zt$1(e2);
+  const e2 = K(t2);
+  return Q$1(e2) ? t2.ownerDocument ? t2.ownerDocument.body : t2.body : X(e2) && it(e2) ? e2 : Zt$1(e2);
 }
 function rt$1(t2, e2, n2) {
   var o2;
   e2 === void 0 && (e2 = []), n2 === void 0 && (n2 = true);
-  const r = Zt$1(t2), i2 = r === ((o2 = t2.ownerDocument) == null ? void 0 : o2.body), s2 = H$3(r);
+  const r = Zt$1(t2), i2 = r === ((o2 = t2.ownerDocument) == null ? void 0 : o2.body), s2 = H$2(r);
   if (i2) {
     const c2 = bt(s2);
     return e2.concat(s2, s2.visualViewport || [], it(r) ? r : [], c2 && n2 ? rt$1(c2) : []);
@@ -14222,9 +14211,9 @@ function bt(t2) {
   return t2.parent && Object.getPrototypeOf(t2.parent) ? t2.frameElement : null;
 }
 function Kt$1(t2) {
-  const e2 = B$4(t2);
+  const e2 = B$2(t2);
   let n2 = parseFloat(e2.width) || 0, o2 = parseFloat(e2.height) || 0;
-  const r = X$3(t2), i2 = r ? t2.offsetWidth : n2, s2 = r ? t2.offsetHeight : o2, c2 = at$1(n2) !== i2 || at$1(o2) !== s2;
+  const r = X(t2), i2 = r ? t2.offsetWidth : n2, s2 = r ? t2.offsetHeight : o2, c2 = at$1(n2) !== i2 || at$1(o2) !== s2;
   return c2 && (n2 = i2, o2 = s2), {
     width: n2,
     height: o2,
@@ -14232,12 +14221,12 @@ function Kt$1(t2) {
   };
 }
 function Et$1(t2) {
-  return _$2(t2) ? t2 : t2.contextElement;
+  return _(t2) ? t2 : t2.contextElement;
 }
 function J$1(t2) {
   const e2 = Et$1(t2);
-  if (!X$3(e2))
-    return I$3(1);
+  if (!X(e2))
+    return I(1);
   const n2 = e2.getBoundingClientRect(), {
     width: o2,
     height: r,
@@ -14249,30 +14238,30 @@ function J$1(t2) {
     y: c2
   };
 }
-const nn = /* @__PURE__ */ I$3(0);
+const nn = /* @__PURE__ */ I(0);
 function Gt$1(t2) {
-  const e2 = H$3(t2);
+  const e2 = H$2(t2);
   return !St() || !e2.visualViewport ? nn : {
     x: e2.visualViewport.offsetLeft,
     y: e2.visualViewport.offsetTop
   };
 }
 function on(t2, e2, n2) {
-  return e2 === void 0 && (e2 = false), !n2 || e2 && n2 !== H$3(t2) ? false : e2;
+  return e2 === void 0 && (e2 = false), !n2 || e2 && n2 !== H$2(t2) ? false : e2;
 }
-function G$1(t2, e2, n2, o2) {
+function G(t2, e2, n2, o2) {
   e2 === void 0 && (e2 = false), n2 === void 0 && (n2 = false);
   const r = t2.getBoundingClientRect(), i2 = Et$1(t2);
-  let s2 = I$3(1);
-  e2 && (o2 ? _$2(o2) && (s2 = J$1(o2)) : s2 = J$1(t2));
-  const c2 = on(i2, n2, o2) ? Gt$1(i2) : I$3(0);
+  let s2 = I(1);
+  e2 && (o2 ? _(o2) && (s2 = J$1(o2)) : s2 = J$1(t2));
+  const c2 = on(i2, n2, o2) ? Gt$1(i2) : I(0);
   let l2 = (r.left + c2.x) / s2.x, a2 = (r.top + c2.y) / s2.y, f2 = r.width / s2.x, u2 = r.height / s2.y;
   if (i2) {
-    const p2 = H$3(i2), d2 = o2 && _$2(o2) ? H$3(o2) : o2;
+    const p2 = H$2(i2), d2 = o2 && _(o2) ? H$2(o2) : o2;
     let m2 = p2, h2 = bt(m2);
     for (; h2 && o2 && d2 !== m2; ) {
-      const w2 = J$1(h2), g2 = h2.getBoundingClientRect(), x2 = B$4(h2), b2 = g2.left + (h2.clientLeft + parseFloat(x2.paddingLeft)) * w2.x, y2 = g2.top + (h2.clientTop + parseFloat(x2.paddingTop)) * w2.y;
-      l2 *= w2.x, a2 *= w2.y, f2 *= w2.x, u2 *= w2.y, l2 += b2, a2 += y2, m2 = H$3(h2), h2 = bt(m2);
+      const w2 = J$1(h2), g2 = h2.getBoundingClientRect(), x2 = B$2(h2), b2 = g2.left + (h2.clientLeft + parseFloat(x2.paddingLeft)) * w2.x, y2 = g2.top + (h2.clientTop + parseFloat(x2.paddingTop)) * w2.y;
+      l2 *= w2.x, a2 *= w2.y, f2 *= w2.x, u2 *= w2.y, l2 += b2, a2 += y2, m2 = H$2(h2), h2 = bt(m2);
     }
   }
   return ut({
@@ -14284,7 +14273,7 @@ function G$1(t2, e2, n2, o2) {
 }
 function gt(t2, e2) {
   const n2 = ht(t2).scrollLeft;
-  return e2 ? e2.left + n2 : G$1(Y$3(t2)).left + n2;
+  return e2 ? e2.left + n2 : G(Y$2(t2)).left + n2;
 }
 function Jt$1(t2, e2) {
   const n2 = t2.getBoundingClientRect(), o2 = n2.left + e2.scrollLeft - gt(t2, n2), r = n2.top + e2.scrollTop;
@@ -14300,19 +14289,19 @@ function rn(t2) {
     offsetParent: o2,
     strategy: r
   } = t2;
-  const i2 = r === "fixed", s2 = Y$3(o2), c2 = e2 ? pt(e2.floating) : false;
+  const i2 = r === "fixed", s2 = Y$2(o2), c2 = e2 ? pt(e2.floating) : false;
   if (o2 === s2 || c2 && i2)
     return n2;
   let l2 = {
     scrollLeft: 0,
     scrollTop: 0
-  }, a2 = I$3(1);
-  const f2 = I$3(0), u2 = X$3(o2);
-  if ((u2 || !u2 && !i2) && ((et$1(o2) !== "body" || it(s2)) && (l2 = ht(o2)), X$3(o2))) {
-    const d2 = G$1(o2);
+  }, a2 = I(1);
+  const f2 = I(0), u2 = X(o2);
+  if ((u2 || !u2 && !i2) && ((et$1(o2) !== "body" || it(s2)) && (l2 = ht(o2)), X(o2))) {
+    const d2 = G(o2);
     a2 = J$1(o2), f2.x = d2.x + o2.clientLeft, f2.y = d2.y + o2.clientTop;
   }
-  const p2 = s2 && !u2 && !i2 ? Jt$1(s2, l2) : I$3(0);
+  const p2 = s2 && !u2 && !i2 ? Jt$1(s2, l2) : I(0);
   return {
     width: n2.width * a2.x,
     height: n2.height * a2.y,
@@ -14324,10 +14313,10 @@ function sn(t2) {
   return Array.from(t2.getClientRects());
 }
 function cn(t2) {
-  const e2 = Y$3(t2), n2 = ht(t2), o2 = t2.ownerDocument.body, r = W(e2.scrollWidth, e2.clientWidth, o2.scrollWidth, o2.clientWidth), i2 = W(e2.scrollHeight, e2.clientHeight, o2.scrollHeight, o2.clientHeight);
+  const e2 = Y$2(t2), n2 = ht(t2), o2 = t2.ownerDocument.body, r = W(e2.scrollWidth, e2.clientWidth, o2.scrollWidth, o2.clientWidth), i2 = W(e2.scrollHeight, e2.clientHeight, o2.scrollHeight, o2.clientHeight);
   let s2 = -n2.scrollLeft + gt(t2);
   const c2 = -n2.scrollTop;
-  return B$4(o2).direction === "rtl" && (s2 += W(e2.clientWidth, o2.clientWidth) - r), {
+  return B$2(o2).direction === "rtl" && (s2 += W(e2.clientWidth, o2.clientWidth) - r), {
     width: r,
     height: i2,
     x: s2,
@@ -14336,7 +14325,7 @@ function cn(t2) {
 }
 const Bt$1 = 25;
 function ln(t2, e2) {
-  const n2 = H$3(t2), o2 = Y$3(t2), r = n2.visualViewport;
+  const n2 = H$2(t2), o2 = Y$2(t2), r = n2.visualViewport;
   let i2 = o2.clientWidth, s2 = o2.clientHeight, c2 = 0, l2 = 0;
   if (r) {
     i2 = r.width, s2 = r.height;
@@ -14357,7 +14346,7 @@ function ln(t2, e2) {
 }
 const an = /* @__PURE__ */ new Set(["absolute", "fixed"]);
 function fn(t2, e2) {
-  const n2 = G$1(t2, true, e2 === "fixed"), o2 = n2.top + t2.clientTop, r = n2.left + t2.clientLeft, i2 = X$3(t2) ? J$1(t2) : I$3(1), s2 = t2.clientWidth * i2.x, c2 = t2.clientHeight * i2.y, l2 = r * i2.x, a2 = o2 * i2.y;
+  const n2 = G(t2, true, e2 === "fixed"), o2 = n2.top + t2.clientTop, r = n2.left + t2.clientLeft, i2 = X(t2) ? J$1(t2) : I(1), s2 = t2.clientWidth * i2.x, c2 = t2.clientHeight * i2.y, l2 = r * i2.x, a2 = o2 * i2.y;
   return {
     width: s2,
     height: c2,
@@ -14370,8 +14359,8 @@ function Vt$1(t2, e2, n2) {
   if (e2 === "viewport")
     o2 = ln(t2, n2);
   else if (e2 === "document")
-    o2 = cn(Y$3(t2));
-  else if (_$2(e2))
+    o2 = cn(Y$2(t2));
+  else if (_(e2))
     o2 = fn(e2, n2);
   else {
     const r = Gt$1(t2);
@@ -14385,19 +14374,19 @@ function Vt$1(t2, e2, n2) {
   return ut(o2);
 }
 function Qt$1(t2, e2) {
-  const n2 = K$2(t2);
-  return n2 === e2 || !_$2(n2) || Q$1(n2) ? false : B$4(n2).position === "fixed" || Qt$1(n2, e2);
+  const n2 = K(t2);
+  return n2 === e2 || !_(n2) || Q$1(n2) ? false : B$2(n2).position === "fixed" || Qt$1(n2, e2);
 }
 function un(t2, e2) {
   const n2 = e2.get(t2);
   if (n2)
     return n2;
-  let o2 = rt$1(t2, [], false).filter((c2) => _$2(c2) && et$1(c2) !== "body"), r = null;
-  const i2 = B$4(t2).position === "fixed";
-  let s2 = i2 ? K$2(t2) : t2;
-  for (; _$2(s2) && !Q$1(s2); ) {
-    const c2 = B$4(s2), l2 = Ot$1(s2);
-    !l2 && c2.position === "fixed" && (r = null), (i2 ? !l2 && !r : !l2 && c2.position === "static" && !!r && an.has(r.position) || it(s2) && !l2 && Qt$1(t2, s2)) ? o2 = o2.filter((f2) => f2 !== s2) : r = c2, s2 = K$2(s2);
+  let o2 = rt$1(t2, [], false).filter((c2) => _(c2) && et$1(c2) !== "body"), r = null;
+  const i2 = B$2(t2).position === "fixed";
+  let s2 = i2 ? K(t2) : t2;
+  for (; _(s2) && !Q$1(s2); ) {
+    const c2 = B$2(s2), l2 = Ot$1(s2);
+    !l2 && c2.position === "fixed" && (r = null), (i2 ? !l2 && !r : !l2 && c2.position === "static" && !!r && an.has(r.position) || it(s2) && !l2 && Qt$1(t2, s2)) ? o2 = o2.filter((f2) => f2 !== s2) : r = c2, s2 = K(s2);
   }
   return e2.set(t2, o2), o2;
 }
@@ -14410,7 +14399,7 @@ function dn(t2) {
   } = t2;
   const s2 = [...n2 === "clippingAncestors" ? pt(e2) ? [] : un(e2, this._c) : [].concat(n2), o2], c2 = s2[0], l2 = s2.reduce((a2, f2) => {
     const u2 = Vt$1(e2, f2, r);
-    return a2.top = W(u2.top, a2.top), a2.right = Z$1(u2.right, a2.right), a2.bottom = Z$1(u2.bottom, a2.bottom), a2.left = W(u2.left, a2.left), a2;
+    return a2.top = W(u2.top, a2.top), a2.right = Z(u2.right, a2.right), a2.bottom = Z(u2.bottom, a2.bottom), a2.left = W(u2.left, a2.left), a2;
   }, Vt$1(e2, c2, r));
   return {
     width: l2.right - l2.left,
@@ -14430,22 +14419,22 @@ function mn(t2) {
   };
 }
 function pn(t2, e2, n2) {
-  const o2 = X$3(e2), r = Y$3(e2), i2 = n2 === "fixed", s2 = G$1(t2, true, i2, e2);
+  const o2 = X(e2), r = Y$2(e2), i2 = n2 === "fixed", s2 = G(t2, true, i2, e2);
   let c2 = {
     scrollLeft: 0,
     scrollTop: 0
   };
-  const l2 = I$3(0);
+  const l2 = I(0);
   function a2() {
     l2.x = gt(r);
   }
   if (o2 || !o2 && !i2)
     if ((et$1(e2) !== "body" || it(r)) && (c2 = ht(e2)), o2) {
-      const d2 = G$1(e2, true, i2, e2);
+      const d2 = G(e2, true, i2, e2);
       l2.x = d2.x + e2.clientLeft, l2.y = d2.y + e2.clientTop;
     } else r && a2();
   i2 && !o2 && r && a2();
-  const f2 = r && !o2 && !i2 ? Jt$1(r, c2) : I$3(0), u2 = s2.left + c2.scrollLeft - l2.x - f2.x, p2 = s2.top + c2.scrollTop - l2.y - f2.y;
+  const f2 = r && !o2 && !i2 ? Jt$1(r, c2) : I(0), u2 = s2.left + c2.scrollLeft - l2.x - f2.x, p2 = s2.top + c2.scrollTop - l2.y - f2.y;
   return {
     x: u2,
     y: p2,
@@ -14454,26 +14443,26 @@ function pn(t2, e2, n2) {
   };
 }
 function wt(t2) {
-  return B$4(t2).position === "static";
+  return B$2(t2).position === "static";
 }
 function zt$1(t2, e2) {
-  if (!X$3(t2) || B$4(t2).position === "fixed")
+  if (!X(t2) || B$2(t2).position === "fixed")
     return null;
   if (e2)
     return e2(t2);
   let n2 = t2.offsetParent;
-  return Y$3(t2) === n2 && (n2 = n2.ownerDocument.body), n2;
+  return Y$2(t2) === n2 && (n2 = n2.ownerDocument.body), n2;
 }
-function te$3(t2, e2) {
-  const n2 = H$3(t2);
+function te$1(t2, e2) {
+  const n2 = H$2(t2);
   if (pt(t2))
     return n2;
-  if (!X$3(t2)) {
-    let r = K$2(t2);
+  if (!X(t2)) {
+    let r = K(t2);
     for (; r && !Q$1(r); ) {
-      if (_$2(r) && !wt(r))
+      if (_(r) && !wt(r))
         return r;
-      r = K$2(r);
+      r = K(r);
     }
     return n2;
   }
@@ -14483,7 +14472,7 @@ function te$3(t2, e2) {
   return o2 && Q$1(o2) && wt(o2) && !Ot$1(o2) ? n2 : o2 || tn(t2) || n2;
 }
 const hn = async function(t2) {
-  const e2 = this.getOffsetParent || te$3, n2 = this.getDimensions, o2 = await n2(t2.floating);
+  const e2 = this.getOffsetParent || te$1, n2 = this.getDimensions, o2 = await n2(t2.floating);
   return {
     reference: pn(t2.reference, await e2(t2.floating), t2.strategy),
     floating: {
@@ -14495,26 +14484,26 @@ const hn = async function(t2) {
   };
 };
 function gn(t2) {
-  return B$4(t2).direction === "rtl";
+  return B$2(t2).direction === "rtl";
 }
 const wn = {
   convertOffsetParentRelativeRectToViewportRelativeRect: rn,
-  getDocumentElement: Y$3,
+  getDocumentElement: Y$2,
   getClippingRect: dn,
-  getOffsetParent: te$3,
+  getOffsetParent: te$1,
   getElementRects: hn,
   getClientRects: sn,
   getDimensions: mn,
   getScale: J$1,
-  isElement: _$2,
+  isElement: _,
   isRTL: gn
 };
-function ee$4(t2, e2) {
+function ee$2(t2, e2) {
   return t2.x === e2.x && t2.y === e2.y && t2.width === e2.width && t2.height === e2.height;
 }
 function xn(t2, e2) {
   let n2 = null, o2;
-  const r = Y$3(t2);
+  const r = Y$2(t2);
   function i2() {
     var c2;
     clearTimeout(o2), (c2 = n2) == null || c2.disconnect(), n2 = null;
@@ -14531,7 +14520,7 @@ function xn(t2, e2) {
       return;
     const m2 = ct(u2), h2 = ct(r.clientWidth - (f2 + p2)), w2 = ct(r.clientHeight - (u2 + d2)), g2 = ct(f2), b2 = {
       rootMargin: -m2 + "px " + -h2 + "px " + -w2 + "px " + -g2 + "px",
-      threshold: W(0, Z$1(1, l2)) || 1
+      threshold: W(0, Z(1, l2)) || 1
     };
     let y2 = true;
     function v2(P2) {
@@ -14543,7 +14532,7 @@ function xn(t2, e2) {
           s2(false, 1e-7);
         }, 1e3);
       }
-      C2 === 1 && !ee$4(a2, t2.getBoundingClientRect()) && s2(), y2 = false;
+      C2 === 1 && !ee$2(a2, t2.getBoundingClientRect()) && s2(), y2 = false;
     }
     try {
       n2 = new IntersectionObserver(v2, {
@@ -14581,11 +14570,11 @@ function yn(t2, e2, n2, o2) {
       (b2 = d2) == null || b2.observe(e2);
     })), n2();
   }), a2 && !l2 && d2.observe(a2), d2.observe(e2));
-  let m2, h2 = l2 ? G$1(t2) : null;
+  let m2, h2 = l2 ? G(t2) : null;
   l2 && w2();
   function w2() {
-    const g2 = G$1(t2);
-    h2 && !ee$4(h2, g2) && n2(), h2 = g2, m2 = requestAnimationFrame(w2);
+    const g2 = G(t2);
+    h2 && !ee$2(h2, g2) && n2(), h2 = g2, m2 = requestAnimationFrame(w2);
   }
   return n2(), () => {
     var g2;
@@ -14594,7 +14583,7 @@ function yn(t2, e2, n2, o2) {
     }), u2 == null ? void 0 : u2(), (g2 = d2) == null || g2.disconnect(), d2 = null, l2 && cancelAnimationFrame(m2);
   };
 }
-const vn = Ie$2, bn = Xe$1, An = Be$2, Rn = je$1, Cn = Ve$1, It = _e$1, Pn = Ye$1, On = (t2, e2, n2) => {
+const vn = Ie$1, bn = Xe$1, An = Be$1, Rn = je$1, Cn = Ve$1, It = _e, Pn = Ye$1, On = (t2, e2, n2) => {
   const o2 = /* @__PURE__ */ new Map(), r = {
     platform: wn,
     ...n2
@@ -14639,11 +14628,11 @@ function dt(t2, e2) {
   }
   return t2 !== t2 && e2 !== e2;
 }
-function ne$2(t2) {
+function ne$1(t2) {
   return typeof window > "u" ? 1 : (t2.ownerDocument.defaultView || window).devicePixelRatio || 1;
 }
 function Xt$1(t2, e2) {
-  const n2 = ne$2(t2);
+  const n2 = ne$1(t2);
   return Math.round(e2 * n2) / n2;
 }
 function xt(t2) {
@@ -14737,7 +14726,7 @@ function Ln(t2) {
     return c2 ? {
       ...A2,
       transform: "translate(" + T2 + "px, " + V2 + "px)",
-      ...ne$2(E2.floating) >= 1.5 && {
+      ...ne$1(E2.floating) >= 1.5 && {
         willChange: "transform"
       }
     } : {
@@ -14797,7 +14786,7 @@ const Dn = (t2) => {
   ...Dn(t2),
   options: [t2, e2]
 });
-var Hn = "Arrow", oe$2 = reactExports.forwardRef((t2, e2) => {
+var Hn = "Arrow", oe = reactExports.forwardRef((t2, e2) => {
   const { children: n2, width: o2 = 10, height: r = 5, ...i2 } = t2;
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     h$3.svg,
@@ -14812,23 +14801,23 @@ var Hn = "Arrow", oe$2 = reactExports.forwardRef((t2, e2) => {
     }
   );
 });
-oe$2.displayName = Hn;
-var _n = oe$2, Lt$1 = "Popper", [re$1, to] = w$1(Lt$1), [Bn, ie$1] = re$1(Lt$1), se$1 = (t2) => {
+oe.displayName = Hn;
+var _n = oe, Lt$1 = "Popper", [re, to] = w(Lt$1), [Bn, ie$1] = re(Lt$1), se = (t2) => {
   const { __scopePopper: e2, children: n2 } = t2, [o2, r] = reactExports.useState(null);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(Bn, { scope: e2, anchor: o2, onAnchorChange: r, children: n2 });
 };
-se$1.displayName = Lt$1;
-var ce$2 = "PopperAnchor", le$2 = reactExports.forwardRef(
+se.displayName = Lt$1;
+var ce = "PopperAnchor", le$1 = reactExports.forwardRef(
   (t2, e2) => {
-    const { __scopePopper: n2, virtualRef: o2, ...r } = t2, i2 = ie$1(ce$2, n2), s2 = reactExports.useRef(null), c2 = x$5(e2, s2), l2 = reactExports.useRef(null);
+    const { __scopePopper: n2, virtualRef: o2, ...r } = t2, i2 = ie$1(ce, n2), s2 = reactExports.useRef(null), c2 = x$3(e2, s2), l2 = reactExports.useRef(null);
     return reactExports.useEffect(() => {
       const a2 = l2.current;
       l2.current = (o2 == null ? void 0 : o2.current) || s2.current, a2 !== l2.current && i2.onAnchorChange(l2.current);
     }), o2 ? null : /* @__PURE__ */ jsxRuntimeExports.jsx(h$3.div, { ...r, ref: c2 });
   }
 );
-le$2.displayName = ce$2;
-var Dt$1 = "PopperContent", [Vn, zn] = re$1(Dt$1), ae$2 = reactExports.forwardRef(
+le$1.displayName = ce;
+var Dt$1 = "PopperContent", [Vn, zn] = re(Dt$1), ae$1 = reactExports.forwardRef(
   (t2, e2) => {
     var _a, _b, _c, _d, _e2, _f;
     const {
@@ -14846,7 +14835,7 @@ var Dt$1 = "PopperContent", [Vn, zn] = re$1(Dt$1), ae$2 = reactExports.forwardRe
       updatePositionStrategy: d2 = "optimized",
       onPlaced: m2,
       ...h2
-    } = t2, w2 = ie$1(Dt$1, n2), [g2, x2] = reactExports.useState(null), b2 = x$5(e2, (nt2) => x2(nt2)), [y2, v2] = reactExports.useState(null), P2 = n$2(y2), C2 = (P2 == null ? void 0 : P2.width) ?? 0, M2 = (P2 == null ? void 0 : P2.height) ?? 0, F2 = o2 + (i2 !== "center" ? "-" + i2 : ""), D2 = typeof f2 == "number" ? f2 : { top: 0, right: 0, bottom: 0, left: 0, ...f2 }, $2 = Array.isArray(a$1) ? a$1 : [a$1], k2 = $2.length > 0, S2 = {
+    } = t2, w2 = ie$1(Dt$1, n2), [g2, x2] = reactExports.useState(null), b2 = x$3(e2, (nt2) => x2(nt2)), [y2, v2] = reactExports.useState(null), P2 = n$1(y2), C2 = (P2 == null ? void 0 : P2.width) ?? 0, M2 = (P2 == null ? void 0 : P2.height) ?? 0, F2 = o2 + (i2 !== "center" ? "-" + i2 : ""), D2 = typeof f2 == "number" ? f2 : { top: 0, right: 0, bottom: 0, left: 0, ...f2 }, $2 = Array.isArray(a$1) ? a$1 : [a$1], k2 = $2.length > 0, S2 = {
       padding: D2,
       boundary: $2.filter(Xn),
       // with `strategy: 'fixed'`, this is the only way to get it to respect boundaries
@@ -14881,7 +14870,7 @@ var Dt$1 = "PopperContent", [Vn, zn] = re$1(Dt$1), ae$2 = reactExports.forwardRe
         Yn({ arrowWidth: C2, arrowHeight: M2 }),
         p2 && Nn({ strategy: "referenceHidden", ...S2 })
       ]
-    }), [T2, V2] = de$2(E2), Mt2 = c$2(m2);
+    }), [T2, V2] = de$1(E2), Mt2 = c$2(m2);
     a(() => {
       L2 && (Mt2 == null ? void 0 : Mt2());
     }, [L2, Mt2]);
@@ -14942,14 +14931,14 @@ var Dt$1 = "PopperContent", [Vn, zn] = re$1(Dt$1), ae$2 = reactExports.forwardRe
     );
   }
 );
-ae$2.displayName = Dt$1;
-var fe$1 = "PopperArrow", In = {
+ae$1.displayName = Dt$1;
+var fe = "PopperArrow", In = {
   top: "bottom",
   right: "left",
   bottom: "top",
   left: "right"
-}, ue$2 = reactExports.forwardRef(function(e2, n2) {
-  const { __scopePopper: o2, ...r } = e2, i2 = zn(fe$1, o2), s2 = In[i2.placedSide];
+}, ue$1 = reactExports.forwardRef(function(e2, n2) {
+  const { __scopePopper: o2, ...r } = e2, i2 = zn(fe, o2), s2 = In[i2.placedSide];
   return (
     // we have to use an extra wrapper because `ResizeObserver` (used by `useSize`)
     // doesn't report size as we'd expect on SVG elements.
@@ -14993,7 +14982,7 @@ var fe$1 = "PopperArrow", In = {
     )
   );
 });
-ue$2.displayName = fe$1;
+ue$1.displayName = fe;
 function Xn(t2) {
   return t2 !== null;
 }
@@ -15002,16 +14991,16 @@ var Yn = (t2) => ({
   options: t2,
   fn(e2) {
     var _a, _b, _c;
-    const { placement: n2, rects: o2, middlewareData: r } = e2, s2 = ((_a = r.arrow) == null ? void 0 : _a.centerOffset) !== 0, c2 = s2 ? 0 : t2.arrowWidth, l2 = s2 ? 0 : t2.arrowHeight, [a2, f2] = de$2(n2), u2 = { start: "0%", center: "50%", end: "100%" }[f2], p2 = (((_b = r.arrow) == null ? void 0 : _b.x) ?? 0) + c2 / 2, d2 = (((_c = r.arrow) == null ? void 0 : _c.y) ?? 0) + l2 / 2;
+    const { placement: n2, rects: o2, middlewareData: r } = e2, s2 = ((_a = r.arrow) == null ? void 0 : _a.centerOffset) !== 0, c2 = s2 ? 0 : t2.arrowWidth, l2 = s2 ? 0 : t2.arrowHeight, [a2, f2] = de$1(n2), u2 = { start: "0%", center: "50%", end: "100%" }[f2], p2 = (((_b = r.arrow) == null ? void 0 : _b.x) ?? 0) + c2 / 2, d2 = (((_c = r.arrow) == null ? void 0 : _c.y) ?? 0) + l2 / 2;
     let m2 = "", h2 = "";
     return a2 === "bottom" ? (m2 = s2 ? u2 : `${p2}px`, h2 = `${-l2}px`) : a2 === "top" ? (m2 = s2 ? u2 : `${p2}px`, h2 = `${o2.floating.height + l2}px`) : a2 === "right" ? (m2 = `${-l2}px`, h2 = s2 ? u2 : `${d2}px`) : a2 === "left" && (m2 = `${o2.floating.width + l2}px`, h2 = s2 ? u2 : `${d2}px`), { data: { x: m2, y: h2 } };
   }
 });
-function de$2(t2) {
+function de$1(t2) {
   const [e2, n2 = "center"] = t2.split("-");
   return [e2, n2];
 }
-var eo = se$1, no$1 = le$2, oo$1 = ae$2, ro$1 = ue$2;
+var eo = se, no$1 = le$1, oo$1 = ae$1, ro$1 = ue$1;
 function t(r) {
   const e2 = reactExports.useRef({ value: r, previous: r });
   return reactExports.useMemo(() => (e2.current.value !== r && (e2.current.previous = e2.current.value, e2.current.value = r), e2.current.previous), [r]);
@@ -15039,25 +15028,24 @@ var d$1 = Object.freeze({
   )
 );
 e.displayName = s$1;
-var n$1 = e;
 /**
  * @license lucide-react v0.468.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const o = C$5("Check", [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]);
+const o = C$3("Check", [["path", { d: "M20 6 9 17l-5-5", key: "1gmf2c" }]]);
 /**
  * @license lucide-react v0.468.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const Pt = C$5("ChevronUp", [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]]);
-var Nt = [" ", "Enter", "ArrowUp", "ArrowDown"], Rt = [" ", "Enter"], ee$3 = "Select", [de$1, ue$1, _t] = b$2(ee$3), [ne$1, Eo] = w$1(ee$3, [
+const Pt = C$3("ChevronUp", [["path", { d: "m18 15-6-6-6 6", key: "153udz" }]]);
+var Nt = [" ", "Enter", "ArrowUp", "ArrowDown"], Rt = [" ", "Enter"], ee$1 = "Select", [de, ue, _t] = b$1(ee$1), [ne, Eo] = w(ee$1, [
   _t,
   to
-]), pe$2 = to(), [Et, Y$2] = ne$1(ee$3), [Mt, At] = ne$1(ee$3), Ae = (t2) => {
+]), pe = to(), [Et, Y$1] = ne(ee$1), [Mt, At] = ne(ee$1), Ae = (t2) => {
   const {
     __scopeSelect: o2,
     children: e2,
@@ -15073,16 +15061,16 @@ var Nt = [" ", "Enter", "ArrowUp", "ArrowDown"], Rt = [" ", "Enter"], ee$3 = "Se
     disabled: N2,
     required: b2,
     form: y2
-  } = t2, d2 = pe$2(o2), [h2, S2] = reactExports.useState(null), [m2, v2] = reactExports.useState(null), [W2, A2] = reactExports.useState(false), re2 = j$3(f2), [R2, D2] = S$1({
+  } = t2, d2 = pe(o2), [h2, S$12] = reactExports.useState(null), [m2, v2] = reactExports.useState(null), [W2, A2] = reactExports.useState(false), re2 = j$2(f2), [R2, D2] = S({
     prop: c2,
     defaultProp: l2 ?? false,
     onChange: u2,
-    caller: ee$3
-  }), [z2, X2] = S$1({
+    caller: ee$1
+  }), [z2, X2] = S({
     prop: r,
     defaultProp: a2,
     onChange: i2,
-    caller: ee$3
+    caller: ee$1
   }), B2 = reactExports.useRef(null), V2 = h2 ? y2 || !!h2.closest("form") : true, [K2, H2] = reactExports.useState(/* @__PURE__ */ new Set()), U2 = Array.from(K2).map((_2) => _2.props.value).join(";");
   return /* @__PURE__ */ jsxRuntimeExports.jsx(eo, { ...d2, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
     Et,
@@ -15090,7 +15078,7 @@ var Nt = [" ", "Enter", "ArrowUp", "ArrowDown"], Rt = [" ", "Enter"], ee$3 = "Se
       required: b2,
       scope: o2,
       trigger: h2,
-      onTriggerChange: S2,
+      onTriggerChange: S$12,
       valueNode: m2,
       onValueNodeChange: v2,
       valueNodeHasChildren: W2,
@@ -15104,7 +15092,7 @@ var Nt = [" ", "Enter", "ArrowUp", "ArrowDown"], Rt = [" ", "Enter"], ee$3 = "Se
       triggerPointerDownPosRef: B2,
       disabled: N2,
       children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(de$1.Provider, { scope: o2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx(de.Provider, { scope: o2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
           Mt,
           {
             scope: t2.__scopeSelect,
@@ -15143,10 +15131,10 @@ var Nt = [" ", "Enter", "ArrowUp", "ArrowDown"], Rt = [" ", "Enter"], ee$3 = "Se
     }
   ) });
 };
-Ae.displayName = ee$3;
-var Oe$1 = "SelectTrigger", De$1 = reactExports.forwardRef(
+Ae.displayName = ee$1;
+var Oe = "SelectTrigger", De = reactExports.forwardRef(
   (t2, o2) => {
-    const { __scopeSelect: e2, disabled: c2 = false, ...l2 } = t2, u2 = pe$2(e2), r = Y$2(Oe$1, e2), a2 = r.disabled || c2, i2 = x$5(o2, r.onTriggerChange), f2 = ue$1(e2), g2 = reactExports.useRef("touch"), [x2, N2, b2] = st((d2) => {
+    const { __scopeSelect: e2, disabled: c2 = false, ...l2 } = t2, u2 = pe(e2), r = Y$1(Oe, e2), a2 = r.disabled || c2, i2 = x$3(o2, r.onTriggerChange), f2 = ue(e2), g2 = reactExports.useRef("touch"), [x2, N2, b2] = st((d2) => {
       const h2 = f2().filter((v2) => !v2.disabled), S2 = h2.find((v2) => v2.value === r.value), m2 = at(h2, d2, S2);
       m2 !== void 0 && r.onValueChange(m2.value);
     }), y2 = (d2) => {
@@ -15171,15 +15159,15 @@ var Oe$1 = "SelectTrigger", De$1 = reactExports.forwardRef(
         "data-placeholder": rt(r.value) ? "" : void 0,
         ...l2,
         ref: i2,
-        onClick: w$2(l2.onClick, (d2) => {
+        onClick: w$1(l2.onClick, (d2) => {
           d2.currentTarget.focus(), g2.current !== "mouse" && y2(d2);
         }),
-        onPointerDown: w$2(l2.onPointerDown, (d2) => {
+        onPointerDown: w$1(l2.onPointerDown, (d2) => {
           g2.current = d2.pointerType;
           const h2 = d2.target;
           h2.hasPointerCapture(d2.pointerId) && h2.releasePointerCapture(d2.pointerId), d2.button === 0 && d2.ctrlKey === false && d2.pointerType === "mouse" && (y2(d2), d2.preventDefault());
         }),
-        onKeyDown: w$2(l2.onKeyDown, (d2) => {
+        onKeyDown: w$1(l2.onKeyDown, (d2) => {
           const h2 = x2.current !== "";
           !(d2.ctrlKey || d2.altKey || d2.metaKey) && d2.key.length === 1 && N2(d2.key), !(h2 && d2.key === " ") && Nt.includes(d2.key) && (y2(), d2.preventDefault());
         })
@@ -15187,10 +15175,10 @@ var Oe$1 = "SelectTrigger", De$1 = reactExports.forwardRef(
     ) });
   }
 );
-De$1.displayName = Oe$1;
-var Le$1 = "SelectValue", ke = reactExports.forwardRef(
+De.displayName = Oe;
+var Le = "SelectValue", ke = reactExports.forwardRef(
   (t2, o2) => {
-    const { __scopeSelect: e2, className: c2, style: l2, children: u2, placeholder: r = "", ...a$1 } = t2, i2 = Y$2(Le$1, e2), { onValueNodeHasChildrenChange: f2 } = i2, g2 = u2 !== void 0, x2 = x$5(o2, i2.onValueNodeChange);
+    const { __scopeSelect: e2, className: c2, style: l2, children: u2, placeholder: r = "", ...a$1 } = t2, i2 = Y$1(Le, e2), { onValueNodeHasChildrenChange: f2 } = i2, g2 = u2 !== void 0, x2 = x$3(o2, i2.onValueNodeChange);
     return a(() => {
       f2(g2);
     }, [f2, g2]), /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -15204,33 +15192,33 @@ var Le$1 = "SelectValue", ke = reactExports.forwardRef(
     );
   }
 );
-ke.displayName = Le$1;
-var Ot = "SelectIcon", Be$1 = reactExports.forwardRef(
+ke.displayName = Le;
+var Ot = "SelectIcon", Be = reactExports.forwardRef(
   (t2, o2) => {
     const { __scopeSelect: e2, children: c2, ...l2 } = t2;
     return /* @__PURE__ */ jsxRuntimeExports.jsx(h$3.span, { "aria-hidden": true, ...l2, ref: o2, children: c2 || "▼" });
   }
 );
-Be$1.displayName = Ot;
-var Dt = "SelectPortal", Ve = (t2) => /* @__PURE__ */ jsxRuntimeExports.jsx(V$3, { asChild: true, ...t2 });
+Be.displayName = Ot;
+var Dt = "SelectPortal", Ve = (t2) => /* @__PURE__ */ jsxRuntimeExports.jsx(V$2, { asChild: true, ...t2 });
 Ve.displayName = Dt;
-var te$2 = "SelectContent", He = reactExports.forwardRef(
+var te = "SelectContent", He = reactExports.forwardRef(
   (t2, o2) => {
-    const e2 = Y$2(te$2, t2.__scopeSelect), [c2, l2] = reactExports.useState();
+    const e2 = Y$1(te, t2.__scopeSelect), [c2, l2] = reactExports.useState();
     if (a(() => {
       l2(new DocumentFragment());
     }, []), !e2.open) {
       const u2 = c2;
       return u2 ? reactDomExports.createPortal(
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Ue$1, { scope: t2.__scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx(de$1.Slot, { scope: t2.__scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: t2.children }) }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Ue, { scope: t2.__scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx(de.Slot, { scope: t2.__scopeSelect, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { children: t2.children }) }) }),
         u2
       ) : null;
     }
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(Fe$1, { ...t2, ref: o2 });
+    return /* @__PURE__ */ jsxRuntimeExports.jsx(Fe, { ...t2, ref: o2 });
   }
 );
-He.displayName = te$2;
-var O$2 = 10, [Ue$1, q$2] = ne$1(te$2), Lt = "SelectContentImpl", kt = /* @__PURE__ */ C$6("SelectContent.RemoveScroll"), Fe$1 = reactExports.forwardRef(
+He.displayName = te;
+var O = 10, [Ue, q] = ne(te), Lt = "SelectContentImpl", kt = /* @__PURE__ */ C$4("SelectContent.RemoveScroll"), Fe = reactExports.forwardRef(
   (t2, o2) => {
     const {
       __scopeSelect: e2,
@@ -15252,9 +15240,9 @@ var O$2 = 10, [Ue$1, q$2] = ne$1(te$2), Lt = "SelectContentImpl", kt = /* @__PUR
       avoidCollisions: h2,
       //
       ...S2
-    } = t2, m2 = Y$2(te$2, e2), [v2, W2] = reactExports.useState(null), [A2, re2] = reactExports.useState(null), R2 = x$5(o2, (p2) => W2(p2)), [D2, z2] = reactExports.useState(null), [X2, B2] = reactExports.useState(
+    } = t2, m2 = Y$1(te, e2), [v2, W2] = reactExports.useState(null), [A2, re2] = reactExports.useState(null), R2 = x$3(o2, (p2) => W2(p2)), [D2, z2] = reactExports.useState(null), [X2, B2] = reactExports.useState(
       null
-    ), V2 = ue$1(e2), [K2, H2] = reactExports.useState(false), U2 = reactExports.useRef(false);
+    ), V2 = ue(e2), [K2, H2] = reactExports.useState(false), U2 = reactExports.useRef(false);
     reactExports.useEffect(() => {
       if (v2) return yt$1(v2);
     }, [v2]), gt$1();
@@ -15310,7 +15298,7 @@ var O$2 = 10, [Ue$1, q$2] = ne$1(te$2), Lt = "SelectContentImpl", kt = /* @__PUR
         (m2.value !== void 0 && m2.value === I2 || w2) && B2(p2);
       },
       [m2.value]
-    ), ce2 = c2 === "popper" ? we$1 : We, se2 = ce2 === we$1 ? {
+    ), ce2 = c2 === "popper" ? we : We, se2 = ce2 === we ? {
       side: a2,
       sideOffset: i2,
       align: f2,
@@ -15323,7 +15311,7 @@ var O$2 = 10, [Ue$1, q$2] = ne$1(te$2), Lt = "SelectContentImpl", kt = /* @__PUR
       avoidCollisions: h2
     } : {};
     return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Ue$1,
+      Ue,
       {
         scope: e2,
         content: v2,
@@ -15339,19 +15327,19 @@ var O$2 = 10, [Ue$1, q$2] = ne$1(te$2), Lt = "SelectContentImpl", kt = /* @__PUR
         isPositioned: K2,
         searchRef: fe2,
         children: /* @__PURE__ */ jsxRuntimeExports.jsx(ft$1, { as: kt, allowPinchZoom: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          be$3,
+          be,
           {
             asChild: true,
             trapped: m2.open,
             onMountAutoFocus: (p2) => {
               p2.preventDefault();
             },
-            onUnmountAutoFocus: w$2(l2, (p2) => {
+            onUnmountAutoFocus: w$1(l2, (p2) => {
               var _a;
               (_a = m2.trigger) == null ? void 0 : _a.focus({ preventScroll: true }), p2.preventDefault();
             }),
             children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-              X$5,
+              X$2,
               {
                 asChild: true,
                 disableOutsidePointerEvents: true,
@@ -15379,7 +15367,7 @@ var O$2 = 10, [Ue$1, q$2] = ne$1(te$2), Lt = "SelectContentImpl", kt = /* @__PUR
                       outline: "none",
                       ...S2.style
                     },
-                    onKeyDown: w$2(S2.onKeyDown, (p2) => {
+                    onKeyDown: w$1(S2.onKeyDown, (p2) => {
                       const I2 = p2.ctrlKey || p2.altKey || p2.metaKey;
                       if (p2.key === "Tab" && p2.preventDefault(), !I2 && p2.key.length === 1 && le2(p2.key), ["ArrowUp", "ArrowDown", "Home", "End"].includes(p2.key)) {
                         let w2 = V2().filter((C2) => !C2.disabled).map((C2) => C2.ref.current);
@@ -15400,30 +15388,30 @@ var O$2 = 10, [Ue$1, q$2] = ne$1(te$2), Lt = "SelectContentImpl", kt = /* @__PUR
     );
   }
 );
-Fe$1.displayName = Lt;
+Fe.displayName = Lt;
 var Bt = "SelectItemAlignedPosition", We = reactExports.forwardRef((t2, o2) => {
-  const { __scopeSelect: e2, onPlaced: c2, ...l2 } = t2, u2 = Y$2(te$2, e2), r = q$2(te$2, e2), [a$1, i2] = reactExports.useState(null), [f2, g2] = reactExports.useState(null), x2 = x$5(o2, (R2) => g2(R2)), N2 = ue$1(e2), b2 = reactExports.useRef(false), y2 = reactExports.useRef(true), { viewport: d2, selectedItem: h2, selectedItemText: S2, focusSelectedItem: m2 } = r, v2 = reactExports.useCallback(() => {
+  const { __scopeSelect: e2, onPlaced: c2, ...l2 } = t2, u2 = Y$1(te, e2), r = q(te, e2), [a$1, i2] = reactExports.useState(null), [f2, g2] = reactExports.useState(null), x2 = x$3(o2, (R2) => g2(R2)), N2 = ue(e2), b2 = reactExports.useRef(false), y2 = reactExports.useRef(true), { viewport: d2, selectedItem: h2, selectedItemText: S2, focusSelectedItem: m2 } = r, v2 = reactExports.useCallback(() => {
     if (u2.trigger && u2.valueNode && a$1 && f2 && d2 && h2 && S2) {
       const R2 = u2.trigger.getBoundingClientRect(), D2 = f2.getBoundingClientRect(), z2 = u2.valueNode.getBoundingClientRect(), X2 = S2.getBoundingClientRect();
       if (u2.dir !== "rtl") {
-        const C2 = X2.left - D2.left, T2 = z2.left - C2, Z2 = R2.left - T2, J2 = R2.width + Z2, ve2 = Math.max(J2, D2.width), ge2 = window.innerWidth - O$2, Se2 = c$3(T2, [
-          O$2,
+        const C2 = X2.left - D2.left, T2 = z2.left - C2, Z2 = R2.left - T2, J2 = R2.width + Z2, ve2 = Math.max(J2, D2.width), ge2 = window.innerWidth - O, Se2 = c$3(T2, [
+          O,
           // Prevents the content from going off the starting edge of the
           // viewport. It may still go off the ending edge, but this can be
           // controlled by the user since they may want to manage overflow in a
           // specific way.
           // https://github.com/radix-ui/primitives/issues/2049
-          Math.max(O$2, ge2 - ve2)
+          Math.max(O, ge2 - ve2)
         ]);
         a$1.style.minWidth = J2 + "px", a$1.style.left = Se2 + "px";
       } else {
-        const C2 = D2.right - X2.right, T2 = window.innerWidth - z2.right - C2, Z2 = window.innerWidth - R2.right - T2, J2 = R2.width + Z2, ve2 = Math.max(J2, D2.width), ge2 = window.innerWidth - O$2, Se2 = c$3(T2, [
-          O$2,
-          Math.max(O$2, ge2 - ve2)
+        const C2 = D2.right - X2.right, T2 = window.innerWidth - z2.right - C2, Z2 = window.innerWidth - R2.right - T2, J2 = R2.width + Z2, ve2 = Math.max(J2, D2.width), ge2 = window.innerWidth - O, Se2 = c$3(T2, [
+          O,
+          Math.max(O, ge2 - ve2)
         ]);
         a$1.style.minWidth = J2 + "px", a$1.style.right = Se2 + "px";
       }
-      const B2 = N2(), V2 = window.innerHeight - O$2 * 2, K2 = d2.scrollHeight, H2 = window.getComputedStyle(f2), U2 = parseInt(H2.borderTopWidth, 10), _2 = parseInt(H2.paddingTop, 10), L2 = parseInt(H2.borderBottomWidth, 10), F2 = parseInt(H2.paddingBottom, 10), $2 = U2 + _2 + K2 + F2 + L2, fe2 = Math.min(h2.offsetHeight * 5, $2), le2 = window.getComputedStyle(d2), me2 = parseInt(le2.paddingTop, 10), he2 = parseInt(le2.paddingBottom, 10), oe2 = R2.top + R2.height / 2 - O$2, ce2 = V2 - oe2, se2 = h2.offsetHeight / 2, p2 = h2.offsetTop + se2, I2 = U2 + _2 + p2, E2 = $2 - I2;
+      const B2 = N2(), V2 = window.innerHeight - O * 2, K2 = d2.scrollHeight, H2 = window.getComputedStyle(f2), U2 = parseInt(H2.borderTopWidth, 10), _2 = parseInt(H2.paddingTop, 10), L2 = parseInt(H2.borderBottomWidth, 10), F2 = parseInt(H2.paddingBottom, 10), $2 = U2 + _2 + K2 + F2 + L2, fe2 = Math.min(h2.offsetHeight * 5, $2), le2 = window.getComputedStyle(d2), me2 = parseInt(le2.paddingTop, 10), he2 = parseInt(le2.paddingBottom, 10), oe2 = R2.top + R2.height / 2 - O, ce2 = V2 - oe2, se2 = h2.offsetHeight / 2, p2 = h2.offsetTop + se2, I2 = U2 + _2 + p2, E2 = $2 - I2;
       if (I2 <= oe2) {
         const C2 = B2.length > 0 && h2 === B2[B2.length - 1].ref.current;
         a$1.style.bottom = "0px";
@@ -15443,7 +15431,7 @@ var Bt = "SelectItemAlignedPosition", We = reactExports.forwardRef((t2, o2) => {
         ) + E2;
         a$1.style.height = Z2 + "px", d2.scrollTop = I2 - oe2 + d2.offsetTop;
       }
-      a$1.style.margin = `${O$2}px 0`, a$1.style.minHeight = fe2 + "px", a$1.style.maxHeight = V2 + "px", c2 == null ? void 0 : c2(), requestAnimationFrame(() => b2.current = true);
+      a$1.style.margin = `${O}px 0`, a$1.style.minHeight = fe2 + "px", a$1.style.maxHeight = V2 + "px", c2 == null ? void 0 : c2(), requestAnimationFrame(() => b2.current = true);
     }
   }, [
     N2,
@@ -15506,13 +15494,13 @@ var Bt = "SelectItemAlignedPosition", We = reactExports.forwardRef((t2, o2) => {
   );
 });
 We.displayName = Bt;
-var Vt = "SelectPopperPosition", we$1 = reactExports.forwardRef((t2, o2) => {
+var Vt = "SelectPopperPosition", we = reactExports.forwardRef((t2, o2) => {
   const {
     __scopeSelect: e2,
     align: c2 = "start",
-    collisionPadding: l2 = O$2,
+    collisionPadding: l2 = O,
     ...u2
-  } = t2, r = pe$2(e2);
+  } = t2, r = pe(e2);
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     oo$1,
     {
@@ -15534,10 +15522,10 @@ var Vt = "SelectPopperPosition", we$1 = reactExports.forwardRef((t2, o2) => {
     }
   );
 });
-we$1.displayName = Vt;
-var [Ht, Pe$1] = ne$1(te$2, {}), xe$1 = "SelectViewport", ze = reactExports.forwardRef(
+we.displayName = Vt;
+var [Ht, Pe] = ne(te, {}), xe = "SelectViewport", ze = reactExports.forwardRef(
   (t2, o2) => {
-    const { __scopeSelect: e2, nonce: c2, ...l2 } = t2, u2 = q$2(xe$1, e2), r = Pe$1(xe$1, e2), a2 = x$5(o2, u2.onViewportChange), i2 = reactExports.useRef(0);
+    const { __scopeSelect: e2, nonce: c2, ...l2 } = t2, u2 = q(xe, e2), r = Pe(xe, e2), a2 = x$3(o2, u2.onViewportChange), i2 = reactExports.useRef(0);
     return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(
         "style",
@@ -15548,7 +15536,7 @@ var [Ht, Pe$1] = ne$1(te$2, {}), xe$1 = "SelectViewport", ze = reactExports.forw
           nonce: c2
         }
       ),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(de$1.Slot, { scope: e2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx(de.Slot, { scope: e2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
         h$3.div,
         {
           "data-radix-select-viewport": "",
@@ -15568,12 +15556,12 @@ var [Ht, Pe$1] = ne$1(te$2, {}), xe$1 = "SelectViewport", ze = reactExports.forw
             overflow: "hidden auto",
             ...l2.style
           },
-          onScroll: w$2(l2.onScroll, (f2) => {
+          onScroll: w$1(l2.onScroll, (f2) => {
             const g2 = f2.currentTarget, { contentWrapper: x2, shouldExpandOnScrollRef: N2 } = r;
             if ((N2 == null ? void 0 : N2.current) && x2) {
               const b2 = Math.abs(i2.current - g2.scrollTop);
               if (b2 > 0) {
-                const y2 = window.innerHeight - O$2 * 2, d2 = parseFloat(x2.style.minHeight), h2 = parseFloat(x2.style.height), S2 = Math.max(d2, h2);
+                const y2 = window.innerHeight - O * 2, d2 = parseFloat(x2.style.minHeight), h2 = parseFloat(x2.style.height), S2 = Math.max(d2, h2);
                 if (S2 < y2) {
                   const m2 = S2 + b2, v2 = Math.min(y2, m2), W2 = m2 - v2;
                   x2.style.height = v2 + "px", x2.style.bottom === "0px" && (g2.scrollTop = W2 > 0 ? W2 : 0, x2.style.justifyContent = "flex-end");
@@ -15587,14 +15575,14 @@ var [Ht, Pe$1] = ne$1(te$2, {}), xe$1 = "SelectViewport", ze = reactExports.forw
     ] });
   }
 );
-ze.displayName = xe$1;
-var Ke = "SelectGroup", [Ut, Ft] = ne$1(Ke), $e$1 = reactExports.forwardRef(
+ze.displayName = xe;
+var Ke = "SelectGroup", [Ut, Ft] = ne(Ke), $e = reactExports.forwardRef(
   (t2, o2) => {
     const { __scopeSelect: e2, ...c2 } = t2, l2 = c$1();
     return /* @__PURE__ */ jsxRuntimeExports.jsx(Ut, { scope: e2, id: l2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(h$3.div, { role: "group", "aria-labelledby": l2, ...c2, ref: o2 }) });
   }
 );
-$e$1.displayName = Ke;
+$e.displayName = Ke;
 var Ge = "SelectLabel", je = reactExports.forwardRef(
   (t2, o2) => {
     const { __scopeSelect: e2, ...c2 } = t2, l2 = Ft(Ge, e2);
@@ -15602,7 +15590,7 @@ var Ge = "SelectLabel", je = reactExports.forwardRef(
   }
 );
 je.displayName = Ge;
-var ie = "SelectItem", [Wt, Ye] = ne$1(ie), qe = reactExports.forwardRef(
+var ie = "SelectItem", [Wt, Ye] = ne(ie), qe = reactExports.forwardRef(
   (t2, o2) => {
     const {
       __scopeSelect: e2,
@@ -15610,7 +15598,7 @@ var ie = "SelectItem", [Wt, Ye] = ne$1(ie), qe = reactExports.forwardRef(
       disabled: l2 = false,
       textValue: u2,
       ...r
-    } = t2, a2 = Y$2(ie, e2), i2 = q$2(ie, e2), f2 = a2.value === c2, [g2, x2] = reactExports.useState(u2 ?? ""), [N2, b2] = reactExports.useState(false), y2 = x$5(
+    } = t2, a2 = Y$1(ie, e2), i2 = q(ie, e2), f2 = a2.value === c2, [g2, x2] = reactExports.useState(u2 ?? ""), [N2, b2] = reactExports.useState(false), y2 = x$3(
       o2,
       (m2) => {
         var _a;
@@ -15635,7 +15623,7 @@ var ie = "SelectItem", [Wt, Ye] = ne$1(ie), qe = reactExports.forwardRef(
           x2((v2) => v2 || ((m2 == null ? void 0 : m2.textContent) ?? "").trim());
         }, []),
         children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          de$1.ItemSlot,
+          de.ItemSlot,
           {
             scope: e2,
             value: c2,
@@ -15654,26 +15642,26 @@ var ie = "SelectItem", [Wt, Ye] = ne$1(ie), qe = reactExports.forwardRef(
                 tabIndex: l2 ? void 0 : -1,
                 ...r,
                 ref: y2,
-                onFocus: w$2(r.onFocus, () => b2(true)),
-                onBlur: w$2(r.onBlur, () => b2(false)),
-                onClick: w$2(r.onClick, () => {
+                onFocus: w$1(r.onFocus, () => b2(true)),
+                onBlur: w$1(r.onBlur, () => b2(false)),
+                onClick: w$1(r.onClick, () => {
                   h2.current !== "mouse" && S2();
                 }),
-                onPointerUp: w$2(r.onPointerUp, () => {
+                onPointerUp: w$1(r.onPointerUp, () => {
                   h2.current === "mouse" && S2();
                 }),
-                onPointerDown: w$2(r.onPointerDown, (m2) => {
+                onPointerDown: w$1(r.onPointerDown, (m2) => {
                   h2.current = m2.pointerType;
                 }),
-                onPointerMove: w$2(r.onPointerMove, (m2) => {
+                onPointerMove: w$1(r.onPointerMove, (m2) => {
                   var _a;
                   h2.current = m2.pointerType, l2 ? (_a = i2.onItemLeave) == null ? void 0 : _a.call(i2) : h2.current === "mouse" && m2.currentTarget.focus({ preventScroll: true });
                 }),
-                onPointerLeave: w$2(r.onPointerLeave, (m2) => {
+                onPointerLeave: w$1(r.onPointerLeave, (m2) => {
                   var _a;
                   m2.currentTarget === document.activeElement && ((_a = i2.onItemLeave) == null ? void 0 : _a.call(i2));
                 }),
-                onKeyDown: w$2(r.onKeyDown, (m2) => {
+                onKeyDown: w$1(r.onKeyDown, (m2) => {
                   var _a;
                   ((_a = i2.searchRef) == null ? void 0 : _a.current) !== "" && m2.key === " " || (Rt.includes(m2.key) && S2(), m2.key === " " && m2.preventDefault());
                 })
@@ -15686,9 +15674,9 @@ var ie = "SelectItem", [Wt, Ye] = ne$1(ie), qe = reactExports.forwardRef(
   }
 );
 qe.displayName = ie;
-var ae$1 = "SelectItemText", Xe = reactExports.forwardRef(
+var ae = "SelectItemText", Xe = reactExports.forwardRef(
   (t2, o2) => {
-    const { __scopeSelect: e2, className: c2, style: l2, ...u2 } = t2, r = Y$2(ae$1, e2), a$1 = q$2(ae$1, e2), i2 = Ye(ae$1, e2), f2 = At(ae$1, e2), [g2, x2] = reactExports.useState(null), N2 = x$5(
+    const { __scopeSelect: e2, className: c2, style: l2, ...u2 } = t2, r = Y$1(ae, e2), a$1 = q(ae, e2), i2 = Ye(ae, e2), f2 = At(ae, e2), [g2, x2] = reactExports.useState(null), N2 = x$3(
       o2,
       (S2) => x2(S2),
       i2.onItemTextChange,
@@ -15706,7 +15694,7 @@ var ae$1 = "SelectItemText", Xe = reactExports.forwardRef(
     ] });
   }
 );
-Xe.displayName = ae$1;
+Xe.displayName = ae;
 var Ze = "SelectItemIndicator", Je = reactExports.forwardRef(
   (t2, o2) => {
     const { __scopeSelect: e2, ...c2 } = t2;
@@ -15714,8 +15702,8 @@ var Ze = "SelectItemIndicator", Je = reactExports.forwardRef(
   }
 );
 Je.displayName = Ze;
-var Ce$1 = "SelectScrollUpButton", Qe = reactExports.forwardRef((t2, o2) => {
-  const e2 = q$2(Ce$1, t2.__scopeSelect), c2 = Pe$1(Ce$1, t2.__scopeSelect), [l2, u2] = reactExports.useState(false), r = x$5(o2, c2.onScrollButtonChange);
+var Ce = "SelectScrollUpButton", Qe = reactExports.forwardRef((t2, o2) => {
+  const e2 = q(Ce, t2.__scopeSelect), c2 = Pe(Ce, t2.__scopeSelect), [l2, u2] = reactExports.useState(false), r = x$3(o2, c2.onScrollButtonChange);
   return a(() => {
     if (e2.viewport && e2.isPositioned) {
       let a2 = function() {
@@ -15737,9 +15725,9 @@ var Ce$1 = "SelectScrollUpButton", Qe = reactExports.forwardRef((t2, o2) => {
     }
   ) : null;
 });
-Qe.displayName = Ce$1;
-var ye$1 = "SelectScrollDownButton", et = reactExports.forwardRef((t2, o2) => {
-  const e2 = q$2(ye$1, t2.__scopeSelect), c2 = Pe$1(ye$1, t2.__scopeSelect), [l2, u2] = reactExports.useState(false), r = x$5(o2, c2.onScrollButtonChange);
+Qe.displayName = Ce;
+var ye = "SelectScrollDownButton", et = reactExports.forwardRef((t2, o2) => {
+  const e2 = q(ye, t2.__scopeSelect), c2 = Pe(ye, t2.__scopeSelect), [l2, u2] = reactExports.useState(false), r = x$3(o2, c2.onScrollButtonChange);
   return a(() => {
     if (e2.viewport && e2.isPositioned) {
       let a2 = function() {
@@ -15761,9 +15749,9 @@ var ye$1 = "SelectScrollDownButton", et = reactExports.forwardRef((t2, o2) => {
     }
   ) : null;
 });
-et.displayName = ye$1;
+et.displayName = ye;
 var tt = reactExports.forwardRef((t2, o2) => {
-  const { __scopeSelect: e2, onAutoScroll: c2, ...l2 } = t2, u2 = q$2("SelectScrollButton", e2), r = reactExports.useRef(null), a$1 = ue$1(e2), i2 = reactExports.useCallback(() => {
+  const { __scopeSelect: e2, onAutoScroll: c2, ...l2 } = t2, u2 = q("SelectScrollButton", e2), r = reactExports.useRef(null), a$1 = ue(e2), i2 = reactExports.useCallback(() => {
     r.current !== null && (window.clearInterval(r.current), r.current = null);
   }, []);
   return reactExports.useEffect(() => () => i2(), [i2]), a(() => {
@@ -15776,14 +15764,14 @@ var tt = reactExports.forwardRef((t2, o2) => {
       ...l2,
       ref: o2,
       style: { flexShrink: 0, ...l2.style },
-      onPointerDown: w$2(l2.onPointerDown, () => {
+      onPointerDown: w$1(l2.onPointerDown, () => {
         r.current === null && (r.current = window.setInterval(c2, 50));
       }),
-      onPointerMove: w$2(l2.onPointerMove, () => {
+      onPointerMove: w$1(l2.onPointerMove, () => {
         var _a;
         (_a = u2.onItemLeave) == null ? void 0 : _a.call(u2), r.current === null && (r.current = window.setInterval(c2, 50));
       }),
-      onPointerLeave: w$2(l2.onPointerLeave, () => {
+      onPointerLeave: w$1(l2.onPointerLeave, () => {
         i2();
       })
     }
@@ -15795,16 +15783,16 @@ var tt = reactExports.forwardRef((t2, o2) => {
   }
 );
 ot.displayName = zt;
-var Ie$1 = "SelectArrow", Kt = reactExports.forwardRef(
+var Ie = "SelectArrow", Kt = reactExports.forwardRef(
   (t2, o2) => {
-    const { __scopeSelect: e2, ...c2 } = t2, l2 = pe$2(e2), u2 = Y$2(Ie$1, e2), r = q$2(Ie$1, e2);
+    const { __scopeSelect: e2, ...c2 } = t2, l2 = pe(e2), u2 = Y$1(Ie, e2), r = q(Ie, e2);
     return u2.open && r.position === "popper" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ro$1, { ...l2, ...c2, ref: o2 }) : null;
   }
 );
-Kt.displayName = Ie$1;
+Kt.displayName = Ie;
 var $t = "SelectBubbleInput", nt = reactExports.forwardRef(
   ({ __scopeSelect: t$1, value: o2, ...e2 }, c2) => {
-    const l2 = reactExports.useRef(null), u2 = x$5(c2, l2), r = t(o2);
+    const l2 = reactExports.useRef(null), u2 = x$3(c2, l2), r = t(o2);
     return reactExports.useEffect(() => {
       const a2 = l2.current;
       if (!a2) return;
@@ -15857,7 +15845,7 @@ function at(t2, o2, e2) {
 function Gt(t2, o2) {
   return t2.map((e2, c2) => t2[(o2 + c2) % t2.length]);
 }
-var jt = Ae, Yt = De$1, qt = ke, Xt = Be$1, Zt = Ve, Jt = He, Qt = ze, oo = qe, no = Xe, ro = Je, so = Qe, ao = et;
+var jt = Ae, Yt = De, qt = ke, Xt = Be, Zt = Ve, Jt = He, Qt = ze, oo = qe, no = Xe, ro = Je, so = Qe, ao = et;
 function Mo({
   ...t2
 }) {
@@ -15886,7 +15874,7 @@ function Do({
       ...c2,
       children: [
         e2,
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Xt, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(n$5, { className: "size-4 opacity-50" }) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Xt, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(n$4, { className: "size-4 opacity-50" }) })
       ]
     }
   );
@@ -15976,7 +15964,7 @@ function io({
         t2
       ),
       ...o2,
-      children: /* @__PURE__ */ jsxRuntimeExports.jsx(n$5, { className: "size-4" })
+      children: /* @__PURE__ */ jsxRuntimeExports.jsx(n$4, { className: "size-4" })
     }
   );
 }
@@ -15986,10 +15974,10 @@ function io({
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const h$1 = C$5("ChevronRight", [
+const h$1 = C$3("ChevronRight", [
   ["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]
 ]);
-const F$2 = j$5(
+const F$1 = j$4(
   "w-full mx-auto bg-background text-foreground",
   {
     variants: {
@@ -16019,7 +16007,7 @@ const F$2 = j$5(
       position: "relative"
     }
   }
-), H$2 = j$5(
+), H$1 = j$4(
   "flex-shrink-0 rounded-lg m-4 max-md:hidden",
   // ✅ OPTIMIZED: Added m-4 for consistent outer margin
   {
@@ -16058,7 +16046,7 @@ const F$2 = j$5(
       tone: "clean"
     }
   }
-), J = j$5(
+), J = j$4(
   "flex-1 min-w-0 p-4",
   // ✅ OPTIMIZED: Constant p-4 padding, removed min-w-0 conflict
   {
@@ -16082,7 +16070,7 @@ const F$2 = j$5(
       hasGap: false
     }
   }
-), L$3 = (a2 = "md") => {
+), L$1 = (a2 = "md") => {
   const c2 = {
     sm: {
       button: "text-xs py-1.5 px-2 min-h-[28px]",
@@ -16124,7 +16112,7 @@ function Q({
   currentPath: x2 = "",
   onNavigate: n2
 }) {
-  const [h2, p2] = reactExports.useState(/* @__PURE__ */ new Set()), m2 = L$3(c2);
+  const [h2, p2] = reactExports.useState(/* @__PURE__ */ new Set()), m2 = L$1(c2);
   reactExports.useEffect(() => {
     const e2 = /* @__PURE__ */ new Set(), o2 = (w2) => {
       w2.forEach((d2) => {
@@ -16142,7 +16130,7 @@ function Q({
     const w2 = e2.items && e2.items.length > 0, d2 = h2.has(e2.key), l2 = e2.href ? x2 === e2.href : e2.isActive;
     return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(
-        b$4,
+        b$3,
         {
           variant: "ghost",
           className: We$3(
@@ -16160,7 +16148,7 @@ function Q({
           children: [
             e2.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(e2.icon, { className: m2.icon }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex-1 text-left truncate", children: e2.label }),
-            e2.badge && m2.showBadges && /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", className: "text-xs ml-auto", children: e2.badge }),
+            e2.badge && m2.showBadges && /* @__PURE__ */ jsxRuntimeExports.jsx(b$2, { variant: "secondary", className: "text-xs ml-auto", children: e2.badge }),
             w2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
               h$1,
               {
@@ -16180,7 +16168,7 @@ function Q({
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: We$3("w-full p-3", m2.spacing), children: a2.map((e2) => f2(e2)) });
 }
-const C$3 = reactExports.forwardRef(({
+const C$1 = reactExports.forwardRef(({
   content: a2,
   position: c2 = "left",
   size: s2 = "md",
@@ -16207,7 +16195,7 @@ const C$3 = reactExports.forwardRef(({
     {
       ref: y2,
       className: We$3(
-        H$2({ position: c2, size: s2, sidebarPosition: x2, tone: n2 }),
+        H$1({ position: c2, size: s2, sidebarPosition: x2, tone: n2 }),
         m2
       ),
       style: u2,
@@ -16215,8 +16203,8 @@ const C$3 = reactExports.forwardRef(({
     }
   );
 });
-C$3.displayName = "ContainerSidebar";
-const B$3 = reactExports.forwardRef(({
+C$1.displayName = "ContainerSidebar";
+const B$1 = reactExports.forwardRef(({
   size: a2 = "md",
   children: c2,
   className: s2,
@@ -16230,8 +16218,8 @@ const B$3 = reactExports.forwardRef(({
     children: c2
   }
 ));
-B$3.displayName = "ContainerMain";
-const V$1 = reactExports.forwardRef(({
+B$1.displayName = "ContainerMain";
+const V = reactExports.forwardRef(({
   className: a2,
   style: c2,
   tone: s2 = "clean",
@@ -16261,11 +16249,11 @@ const V$1 = reactExports.forwardRef(({
     "div",
     {
       ref: o2,
-      className: We$3(F$2({ layout: w2, size: f2, position: x2 }), a2),
+      className: We$3(F$1({ layout: w2, size: f2, position: x2 }), a2),
       style: c2,
       children: [
         d2 && n2 === "left" && /* @__PURE__ */ jsxRuntimeExports.jsx(
-          C$3,
+          C$1,
           {
             content: l2,
             position: "left",
@@ -16276,7 +16264,7 @@ const V$1 = reactExports.forwardRef(({
             onNavigate: u2
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(B$3, { size: f2, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(B$1, { size: f2, children: [
           d2 && Array.isArray(l2) && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:hidden mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Mo, { value: (_a = v2(l2).find((g2) => g2.item.href === m2)) == null ? void 0 : _a.key, onValueChange: j2, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(Do, { className: "w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Oo, { placeholder: "Navigate to..." }) }),
             /* @__PURE__ */ jsxRuntimeExports.jsx(Lo, { children: v2(l2).map(({ key: g2, label: N2, item: t2 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(Bo, { value: g2, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between w-full", children: [
@@ -16284,13 +16272,13 @@ const V$1 = reactExports.forwardRef(({
                 t2.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(t2.icon, { className: "h-4 w-4" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: N2 })
               ] }),
-              t2.badge && /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", className: "text-xs", children: t2.badge })
+              t2.badge && /* @__PURE__ */ jsxRuntimeExports.jsx(b$2, { variant: "secondary", className: "text-xs", children: t2.badge })
             ] }) }, g2)) })
           ] }) }),
           e2
         ] }),
         d2 && n2 === "right" && /* @__PURE__ */ jsxRuntimeExports.jsx(
-          C$3,
+          C$1,
           {
             content: l2,
             position: "right",
@@ -16305,15 +16293,15 @@ const V$1 = reactExports.forwardRef(({
     }
   );
 });
-V$1.displayName = "Container";
-const ee$2 = Object.assign(V$1, {
-  Sidebar: C$3,
-  Main: B$3
+V.displayName = "Container";
+const ee = Object.assign(V, {
+  Sidebar: C$1,
+  Main: B$1
 });
 function f({ ...r }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { "aria-label": "breadcrumb", "data-slot": "breadcrumb", ...r });
 }
-function g$2({ className: r, ...e2 }) {
+function g({ className: r, ...e2 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "ol",
     {
@@ -16326,7 +16314,7 @@ function g$2({ className: r, ...e2 }) {
     }
   );
 }
-function x$2({ className: r, ...e2 }) {
+function x({ className: r, ...e2 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "li",
     {
@@ -16342,7 +16330,7 @@ function h({
   ...s2
 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    r ? I$6 : "a",
+    r ? I$3 : "a",
     {
       "data-slot": "breadcrumb-link",
       className: We$3("hover:text-foreground transition-colors", e2),
@@ -16350,7 +16338,7 @@ function h({
     }
   );
 }
-function N$3({ className: r, ...e2 }) {
+function N$1({ className: r, ...e2 }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "span",
     {
@@ -16363,7 +16351,7 @@ function N$3({ className: r, ...e2 }) {
     }
   );
 }
-function B$2({
+function B({
   children: r,
   className: e2,
   ...s2
@@ -16380,11 +16368,11 @@ function B$2({
     }
   );
 }
-const N$2 = reactExports.createContext({
+const N = reactExports.createContext({
   scheme: "default",
   tone: "brand",
   size: "xl"
-}), Y$1 = j$5(
+}), Y = j$4(
   "min-h-screen flex flex-col",
   {
     variants: {
@@ -16399,22 +16387,22 @@ const N$2 = reactExports.createContext({
       tone: "clean"
     }
   }
-), z$2 = reactExports.forwardRef(({
+), z = reactExports.forwardRef(({
   scheme: o2 = "default",
   tone: n2 = "clean",
   size: i2 = "xl",
   className: s2,
   children: p2
-}, m2) => /* @__PURE__ */ jsxRuntimeExports.jsx(N$2.Provider, { value: { scheme: o2, tone: n2, size: i2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+}, m2) => /* @__PURE__ */ jsxRuntimeExports.jsx(N.Provider, { value: { scheme: o2, tone: n2, size: i2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
   "div",
   {
     ref: m2,
-    className: We$3(Y$1({ tone: n2 }), s2),
+    className: We$3(Y({ tone: n2 }), s2),
     children: p2
   }
 ) }));
-z$2.displayName = "PageLayout";
-const L$2 = reactExports.forwardRef(({
+z.displayName = "PageLayout";
+const L = reactExports.forwardRef(({
   tone: o2,
   size: n2,
   position: i2 = "sticky",
@@ -16426,9 +16414,9 @@ const L$2 = reactExports.forwardRef(({
   actions: l2,
   className: c2
 }, d2) => {
-  const { tone: u2, size: g2 } = C$2();
+  const { tone: u2, size: g2 } = C();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    I$5,
+    I$2,
     {
       ref: d2,
       tone: o2 || u2,
@@ -16436,9 +16424,9 @@ const L$2 = reactExports.forwardRef(({
       position: i2,
       className: c2,
       children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(O$4, { children: t2 || f2 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl font-bold", children: f2 }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(O$2, { children: t2 || f2 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl font-bold", children: f2 }) }),
         s2.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(
-          D$2,
+          D$1,
           {
             navigation: s2,
             currentPath: p2,
@@ -16450,8 +16438,8 @@ const L$2 = reactExports.forwardRef(({
     }
   );
 });
-L$2.displayName = "PageHeader";
-const F$1 = reactExports.forwardRef(({
+L.displayName = "PageHeader";
+const F = reactExports.forwardRef(({
   tone: o2,
   size: n2,
   sidebar: i2 = "none",
@@ -16464,16 +16452,16 @@ const F$1 = reactExports.forwardRef(({
   onBreadcrumbNavigate: c2,
   title: d2,
   className: u2,
-  children: g2
+  children: g$12
 }, a2) => {
-  const { scheme: T2, tone: S2, size: h$12 } = C$2(), k2 = i2 !== "none" ? i2 : T2 === "sidebar" ? "left" : "none", j2 = (r) => {
+  const { scheme: T2, tone: S2, size: h$12 } = C(), k2 = i2 !== "none" ? i2 : T2 === "sidebar" ? "left" : "none", j2 = (r) => {
     c2 ? c2(r) : t2 && t2(r, {
       key: r,
       label: r,
       href: r
     });
-  }, w2 = () => l2.length === 0 ? null : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(f, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(g$2, { children: l2.map((r, P2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(reactExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(x$2, { children: r.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+  }, w2 = () => l2.length === 0 ? null : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(f, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(g, { children: l2.map((r, P2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(reactExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(x, { children: r.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
       h,
       {
         asChild: !!(c2 || t2),
@@ -16484,8 +16472,8 @@ const F$1 = reactExports.forwardRef(({
         } : { href: r.href },
         children: c2 || t2 ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", children: r.label }) : r.label
       }
-    ) : /* @__PURE__ */ jsxRuntimeExports.jsx(N$3, { children: r.label }) }),
-    P2 < l2.length - 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(B$2, {})
+    ) : /* @__PURE__ */ jsxRuntimeExports.jsx(N$1, { children: r.label }) }),
+    P2 < l2.length - 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(B, {})
   ] }, P2)) }) }) }), v2 = () => d2 ? /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl sm:text-3xl font-bold text-foreground mb-4", children: d2 }) : null;
   return k2 === "none" ? /* @__PURE__ */ jsxRuntimeExports.jsx(
     "main",
@@ -16504,11 +16492,11 @@ const F$1 = reactExports.forwardRef(({
           w2(),
           v2()
         ] }),
-        g2
+        g$12
       ] })
     }
   ) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: a2, className: We$3("flex-1", u2), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    ee$2,
+    ee,
     {
       sidebar: k2,
       navigation: s2,
@@ -16523,13 +16511,13 @@ const F$1 = reactExports.forwardRef(({
           w2(),
           v2()
         ] }),
-        g2
+        g$12
       ]
     }
   ) });
 });
-F$1.displayName = "PageContent";
-const H$1 = reactExports.forwardRef(({
+F.displayName = "PageContent";
+const H = reactExports.forwardRef(({
   tone: o2,
   size: n2,
   position: i2 = "relative",
@@ -16540,9 +16528,9 @@ const H$1 = reactExports.forwardRef(({
   className: f2,
   children: l2
 }, c2) => {
-  const { tone: d2, size: u2 } = C$2();
+  const { tone: d2, size: u2 } = C();
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    H$6,
+    H$5,
     {
       ref: c2,
       tone: o2 || (d2 === "brand" ? "subtle" : d2),
@@ -16566,16 +16554,16 @@ const H$1 = reactExports.forwardRef(({
     }
   );
 });
-H$1.displayName = "PageFooter";
-const C$2 = () => {
-  const o2 = reactExports.useContext(N$2);
+H.displayName = "PageFooter";
+const C = () => {
+  const o2 = reactExports.useContext(N);
   if (!o2)
     throw new Error("usePage must be used within a PageLayout component");
   return o2;
-}, le$1 = Object.assign(z$2, {
-  Header: L$2,
-  Content: F$1,
-  Footer: H$1
+}, le = Object.assign(z, {
+  Header: L,
+  Content: F,
+  Footer: H
 });
 /**
  * @license lucide-react v0.544.0 - ISC
@@ -16682,84 +16670,57 @@ const createLucideIcon = (iconName, iconNode) => {
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$y = [
-  [
-    "path",
-    {
-      d: "M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2",
-      key: "169zse"
-    }
-  ]
-];
-const Activity = createLucideIcon("activity", __iconNode$y);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$x = [
-  ["path", { d: "m7 7 10 10", key: "1fmybs" }],
-  ["path", { d: "M17 7v10H7", key: "6fjiku" }]
-];
-const ArrowDownRight = createLucideIcon("arrow-down-right", __iconNode$x);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$w = [
+const __iconNode$L = [
   ["path", { d: "m12 19-7-7 7-7", key: "1l729n" }],
   ["path", { d: "M19 12H5", key: "x3x0zl" }]
 ];
-const ArrowLeft = createLucideIcon("arrow-left", __iconNode$w);
+const ArrowLeft = createLucideIcon("arrow-left", __iconNode$L);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$v = [
+const __iconNode$K = [
   ["path", { d: "M5 12h14", key: "1ays0h" }],
   ["path", { d: "m12 5 7 7-7 7", key: "xquz4c" }]
 ];
-const ArrowRight = createLucideIcon("arrow-right", __iconNode$v);
+const ArrowRight = createLucideIcon("arrow-right", __iconNode$K);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$u = [
-  ["path", { d: "M7 7h10v10", key: "1tivn9" }],
-  ["path", { d: "M7 17 17 7", key: "1vkiza" }]
-];
-const ArrowUpRight = createLucideIcon("arrow-up-right", __iconNode$u);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$t = [
-  ["path", { d: "M12 7v14", key: "1akyts" }],
+const __iconNode$J = [
   [
     "path",
     {
-      d: "M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z",
-      key: "ruj8y"
+      d: "m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",
+      key: "1yiouv"
     }
-  ]
+  ],
+  ["circle", { cx: "12", cy: "8", r: "6", key: "1vp47v" }]
 ];
-const BookOpen = createLucideIcon("book-open", __iconNode$t);
+const Award = createLucideIcon("award", __iconNode$J);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$s = [
+const __iconNode$I = [
+  ["path", { d: "M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16", key: "jecpp" }],
+  ["rect", { width: "20", height: "14", x: "2", y: "6", rx: "2", key: "i6l2r4" }]
+];
+const Briefcase = createLucideIcon("briefcase", __iconNode$I);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$H = [
   ["path", { d: "M12 10h.01", key: "1nrarc" }],
   ["path", { d: "M12 14h.01", key: "1etili" }],
   ["path", { d: "M12 6h.01", key: "1vi96p" }],
@@ -16772,110 +16733,149 @@ const __iconNode$s = [
   ["path", { d: "M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3", key: "cabbwy" }],
   ["rect", { x: "4", y: "2", width: "16", height: "20", rx: "2", key: "1uxh74" }]
 ];
-const Building = createLucideIcon("building", __iconNode$s);
+const Building = createLucideIcon("building", __iconNode$H);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$r = [
-  ["path", { d: "M3 3v16a2 2 0 0 0 2 2h16", key: "c24i48" }],
-  ["path", { d: "M18 17V9", key: "2bz60n" }],
-  ["path", { d: "M13 17V5", key: "1frdt8" }],
-  ["path", { d: "M8 17v-3", key: "17ska0" }]
+const __iconNode$G = [
+  ["path", { d: "M8 2v4", key: "1cmpym" }],
+  ["path", { d: "M16 2v4", key: "4m81vk" }],
+  ["rect", { width: "18", height: "18", x: "3", y: "4", rx: "2", key: "1hopcy" }],
+  ["path", { d: "M3 10h18", key: "8toen8" }]
 ];
-const ChartColumn = createLucideIcon("chart-column", __iconNode$r);
+const Calendar = createLucideIcon("calendar", __iconNode$G);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$q = [
+const __iconNode$F = [["path", { d: "m9 18 6-6-6-6", key: "mthhwq" }]];
+const ChevronRight = createLucideIcon("chevron-right", __iconNode$F);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$E = [
   ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
   ["line", { x1: "12", x2: "12", y1: "8", y2: "12", key: "1pkeuh" }],
   ["line", { x1: "12", x2: "12.01", y1: "16", y2: "16", key: "4dfq90" }]
 ];
-const CircleAlert = createLucideIcon("circle-alert", __iconNode$q);
+const CircleAlert = createLucideIcon("circle-alert", __iconNode$E);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$p = [
+const __iconNode$D = [
   ["path", { d: "M21.801 10A10 10 0 1 1 17 3.335", key: "yps3ct" }],
   ["path", { d: "m9 11 3 3L22 4", key: "1pflzl" }]
 ];
-const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$p);
+const CircleCheckBig = createLucideIcon("circle-check-big", __iconNode$D);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$o = [
+const __iconNode$C = [
+  ["path", { d: "M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z", key: "p7xjir" }]
+];
+const Cloud = createLucideIcon("cloud", __iconNode$C);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$B = [
   ["path", { d: "m18 16 4-4-4-4", key: "1inbqp" }],
   ["path", { d: "m6 8-4 4 4 4", key: "15zrgr" }],
   ["path", { d: "m14.5 4-5 16", key: "e7oirm" }]
 ];
-const CodeXml = createLucideIcon("code-xml", __iconNode$o);
+const CodeXml = createLucideIcon("code-xml", __iconNode$B);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$n = [
+const __iconNode$A = [
+  ["path", { d: "m16 18 6-6-6-6", key: "eg8j8" }],
+  ["path", { d: "m8 6-6 6 6 6", key: "ppft3o" }]
+];
+const Code = createLucideIcon("code", __iconNode$A);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$z = [
+  ["path", { d: "M12 20v2", key: "1lh1kg" }],
+  ["path", { d: "M12 2v2", key: "tus03m" }],
+  ["path", { d: "M17 20v2", key: "1rnc9c" }],
+  ["path", { d: "M17 2v2", key: "11trls" }],
+  ["path", { d: "M2 12h2", key: "1t8f8n" }],
+  ["path", { d: "M2 17h2", key: "7oei6x" }],
+  ["path", { d: "M2 7h2", key: "asdhe0" }],
+  ["path", { d: "M20 12h2", key: "1q8mjw" }],
+  ["path", { d: "M20 17h2", key: "1fpfkl" }],
+  ["path", { d: "M20 7h2", key: "1o8tra" }],
+  ["path", { d: "M7 20v2", key: "4gnj0m" }],
+  ["path", { d: "M7 2v2", key: "1i4yhu" }],
+  ["rect", { x: "4", y: "4", width: "16", height: "16", rx: "2", key: "1vbyd7" }],
+  ["rect", { x: "8", y: "8", width: "8", height: "8", rx: "1", key: "z9xiuo" }]
+];
+const Cpu = createLucideIcon("cpu", __iconNode$z);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$y = [
+  ["ellipse", { cx: "12", cy: "5", rx: "9", ry: "3", key: "msslwz" }],
+  ["path", { d: "M3 5V19A9 3 0 0 0 21 19V5", key: "1wlel7" }],
+  ["path", { d: "M3 12A9 3 0 0 0 21 12", key: "mv7ke4" }]
+];
+const Database = createLucideIcon("database", __iconNode$y);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$x = [
   ["line", { x1: "12", x2: "12", y1: "2", y2: "22", key: "7eqyqh" }],
   ["path", { d: "M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6", key: "1b0p4s" }]
 ];
-const DollarSign = createLucideIcon("dollar-sign", __iconNode$n);
+const DollarSign = createLucideIcon("dollar-sign", __iconNode$x);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$m = [
-  ["path", { d: "M12 15V3", key: "m9g1x1" }],
-  ["path", { d: "M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4", key: "ih7n3h" }],
-  ["path", { d: "m7 10 5 5 5-5", key: "brsn70" }]
+const __iconNode$w = [
+  ["path", { d: "M15 3h6v6", key: "1q9fwt" }],
+  ["path", { d: "M10 14 21 3", key: "gplh6r" }],
+  ["path", { d: "M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6", key: "a6xqqp" }]
 ];
-const Download = createLucideIcon("download", __iconNode$m);
+const ExternalLink = createLucideIcon("external-link", __iconNode$w);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$l = [
-  [
-    "path",
-    {
-      d: "M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49",
-      key: "ct8e1f"
-    }
-  ],
-  ["path", { d: "M14.084 14.158a3 3 0 0 1-4.242-4.242", key: "151rxh" }],
-  [
-    "path",
-    {
-      d: "M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143",
-      key: "13bj9a"
-    }
-  ],
-  ["path", { d: "m2 2 20 20", key: "1ooewy" }]
-];
-const EyeOff = createLucideIcon("eye-off", __iconNode$l);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$k = [
+const __iconNode$v = [
   [
     "path",
     {
@@ -16885,47 +16885,93 @@ const __iconNode$k = [
   ],
   ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
 ];
-const Eye = createLucideIcon("eye", __iconNode$k);
+const Eye = createLucideIcon("eye", __iconNode$v);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$j = [
+const __iconNode$u = [
+  ["path", { d: "M12 16h.01", key: "1drbdi" }],
+  ["path", { d: "M16 16h.01", key: "1f9h7w" }],
   [
     "path",
     {
-      d: "M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z",
-      key: "sc7q7i"
+      d: "M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z",
+      key: "1iv0i2"
+    }
+  ],
+  ["path", { d: "M8 16h.01", key: "18s6g9" }]
+];
+const Factory = createLucideIcon("factory", __iconNode$u);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$t = [
+  ["path", { d: "M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z", key: "1rqfz7" }],
+  ["path", { d: "M14 2v4a2 2 0 0 0 2 2h4", key: "tnqrlb" }],
+  ["path", { d: "M10 9H8", key: "b1mrlr" }],
+  ["path", { d: "M16 13H8", key: "t4e002" }],
+  ["path", { d: "M16 17H8", key: "z1uh3a" }]
+];
+const FileText = createLucideIcon("file-text", __iconNode$t);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$s = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20", key: "13o1zl" }],
+  ["path", { d: "M2 12h20", key: "9i4pu4" }]
+];
+const Globe = createLucideIcon("globe", __iconNode$s);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$r = [
+  [
+    "path",
+    {
+      d: "M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z",
+      key: "j76jl0"
+    }
+  ],
+  ["path", { d: "M22 10v6", key: "1lu8f3" }],
+  ["path", { d: "M6 12.5V16a6 3 0 0 0 12 0v-3.5", key: "1r8lef" }]
+];
+const GraduationCap = createLucideIcon("graduation-cap", __iconNode$r);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$q = [
+  [
+    "path",
+    {
+      d: "M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5",
+      key: "mvr1a0"
     }
   ]
 ];
-const Funnel = createLucideIcon("funnel", __iconNode$j);
+const Heart = createLucideIcon("heart", __iconNode$q);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$i = [
-  [
-    "path",
-    {
-      d: "M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4",
-      key: "tonef"
-    }
-  ],
-  ["path", { d: "M9 18c-4.51 2-5-2-7-2", key: "9comsn" }]
-];
-const Github = createLucideIcon("github", __iconNode$i);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$h = [
+const __iconNode$p = [
   ["path", { d: "M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8", key: "5wwlr5" }],
   [
     "path",
@@ -16935,14 +16981,26 @@ const __iconNode$h = [
     }
   ]
 ];
-const House = createLucideIcon("house", __iconNode$h);
+const House = createLucideIcon("house", __iconNode$p);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$g = [
+const __iconNode$o = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["path", { d: "M12 16v-4", key: "1dtifu" }],
+  ["path", { d: "M12 8h.01", key: "e9boi3" }]
+];
+const Info = createLucideIcon("info", __iconNode$o);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$n = [
   [
     "path",
     {
@@ -16965,36 +17023,54 @@ const __iconNode$g = [
     }
   ]
 ];
-const Layers = createLucideIcon("layers", __iconNode$g);
+const Layers = createLucideIcon("layers", __iconNode$n);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$f = [
+const __iconNode$m = [
+  [
+    "path",
+    {
+      d: "M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5",
+      key: "1gvzjb"
+    }
+  ],
+  ["path", { d: "M9 18h6", key: "x1upvd" }],
+  ["path", { d: "M10 22h4", key: "ceow96" }]
+];
+const Lightbulb = createLucideIcon("lightbulb", __iconNode$m);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$l = [
   ["rect", { width: "18", height: "11", x: "3", y: "11", rx: "2", ry: "2", key: "1w4ew1" }],
   ["path", { d: "M7 11V7a5 5 0 0 1 10 0v4", key: "fwvmzm" }]
 ];
-const Lock = createLucideIcon("lock", __iconNode$f);
+const Lock = createLucideIcon("lock", __iconNode$l);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$e = [
+const __iconNode$k = [
   ["path", { d: "m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7", key: "132q7q" }],
   ["rect", { x: "2", y: "4", width: "20", height: "16", rx: "2", key: "izxlao" }]
 ];
-const Mail = createLucideIcon("mail", __iconNode$e);
+const Mail = createLucideIcon("mail", __iconNode$k);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$d = [
+const __iconNode$j = [
   [
     "path",
     {
@@ -17003,30 +17079,14 @@ const __iconNode$d = [
     }
   ]
 ];
-const MessageSquare = createLucideIcon("message-square", __iconNode$d);
+const MessageSquare = createLucideIcon("message-square", __iconNode$j);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$c = [
-  [
-    "path",
-    {
-      d: "M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401",
-      key: "kfwtm"
-    }
-  ]
-];
-const Moon = createLucideIcon("moon", __iconNode$c);
-/**
- * @license lucide-react v0.544.0 - ISC
- *
- * This source code is licensed under the ISC license.
- * See the LICENSE file in the root directory of this source tree.
- */
-const __iconNode$b = [
+const __iconNode$i = [
   [
     "path",
     {
@@ -17039,26 +17099,26 @@ const __iconNode$b = [
   ["circle", { cx: "6.5", cy: "12.5", r: ".5", fill: "currentColor", key: "qy21gx" }],
   ["circle", { cx: "8.5", cy: "7.5", r: ".5", fill: "currentColor", key: "fotxhn" }]
 ];
-const Palette = createLucideIcon("palette", __iconNode$b);
+const Palette = createLucideIcon("palette", __iconNode$i);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$a = [
+const __iconNode$h = [
   ["rect", { width: "18", height: "18", x: "3", y: "3", rx: "2", key: "afitv7" }],
   ["path", { d: "M3 9h18", key: "1pudct" }],
   ["path", { d: "M9 21V9", key: "1oto5p" }]
 ];
-const PanelsTopLeft = createLucideIcon("panels-top-left", __iconNode$a);
+const PanelsTopLeft = createLucideIcon("panels-top-left", __iconNode$h);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$9 = [
+const __iconNode$g = [
   [
     "path",
     {
@@ -17067,14 +17127,53 @@ const __iconNode$9 = [
     }
   ]
 ];
-const Phone = createLucideIcon("phone", __iconNode$9);
+const Phone = createLucideIcon("phone", __iconNode$g);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$8 = [
+const __iconNode$f = [
+  [
+    "path",
+    {
+      d: "M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z",
+      key: "m3kijz"
+    }
+  ],
+  [
+    "path",
+    {
+      d: "m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z",
+      key: "1fmvmk"
+    }
+  ],
+  ["path", { d: "M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0", key: "1f8sc4" }],
+  ["path", { d: "M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5", key: "qeys4" }]
+];
+const Rocket = createLucideIcon("rocket", __iconNode$f);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$e = [
+  ["path", { d: "m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z", key: "7g6ntu" }],
+  ["path", { d: "m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z", key: "ijws7r" }],
+  ["path", { d: "M7 21h10", key: "1b0cd5" }],
+  ["path", { d: "M12 3v18", key: "108xh3" }],
+  ["path", { d: "M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2", key: "3gwbw2" }]
+];
+const Scale = createLucideIcon("scale", __iconNode$e);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$d = [
   [
     "path",
     {
@@ -17084,14 +17183,44 @@ const __iconNode$8 = [
   ],
   ["path", { d: "m21.854 2.147-10.94 10.939", key: "12cjpa" }]
 ];
-const Send = createLucideIcon("send", __iconNode$8);
+const Send = createLucideIcon("send", __iconNode$d);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$7 = [
+const __iconNode$c = [
+  ["rect", { width: "20", height: "8", x: "2", y: "2", rx: "2", ry: "2", key: "ngkwjq" }],
+  ["rect", { width: "20", height: "8", x: "2", y: "14", rx: "2", ry: "2", key: "iecqi9" }],
+  ["line", { x1: "6", x2: "6.01", y1: "6", y2: "6", key: "16zg32" }],
+  ["line", { x1: "6", x2: "6.01", y1: "18", y2: "18", key: "nzw8ys" }]
+];
+const Server = createLucideIcon("server", __iconNode$c);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$b = [
+  [
+    "path",
+    {
+      d: "M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915",
+      key: "1i5ecw"
+    }
+  ],
+  ["circle", { cx: "12", cy: "12", r: "3", key: "1v7zrd" }]
+];
+const Settings = createLucideIcon("settings", __iconNode$b);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$a = [
   [
     "path",
     {
@@ -17100,25 +17229,43 @@ const __iconNode$7 = [
     }
   ]
 ];
-const Shield = createLucideIcon("shield", __iconNode$7);
+const Shield = createLucideIcon("shield", __iconNode$a);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$6 = [
+const __iconNode$9 = [
+  ["circle", { cx: "8", cy: "21", r: "1", key: "jimo8o" }],
+  ["circle", { cx: "19", cy: "21", r: "1", key: "13723u" }],
+  [
+    "path",
+    {
+      d: "M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12",
+      key: "9zh506"
+    }
+  ]
+];
+const ShoppingCart = createLucideIcon("shopping-cart", __iconNode$9);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$8 = [
   ["rect", { width: "14", height: "20", x: "5", y: "2", rx: "2", ry: "2", key: "1yt0o3" }],
   ["path", { d: "M12 18h.01", key: "mhygvu" }]
 ];
-const Smartphone = createLucideIcon("smartphone", __iconNode$6);
+const Smartphone = createLucideIcon("smartphone", __iconNode$8);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
  * This source code is licensed under the ISC license.
  * See the LICENSE file in the root directory of this source tree.
  */
-const __iconNode$5 = [
+const __iconNode$7 = [
   [
     "path",
     {
@@ -17130,7 +17277,35 @@ const __iconNode$5 = [
   ["path", { d: "M22 4h-4", key: "gwowj6" }],
   ["circle", { cx: "4", cy: "20", r: "2", key: "6kqj1y" }]
 ];
-const Sparkles = createLucideIcon("sparkles", __iconNode$5);
+const Sparkles = createLucideIcon("sparkles", __iconNode$7);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$6 = [
+  [
+    "path",
+    {
+      d: "M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z",
+      key: "r04s7s"
+    }
+  ]
+];
+const Star = createLucideIcon("star", __iconNode$6);
+/**
+ * @license lucide-react v0.544.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */
+const __iconNode$5 = [
+  ["circle", { cx: "12", cy: "12", r: "10", key: "1mglay" }],
+  ["circle", { cx: "12", cy: "12", r: "6", key: "1vlfrh" }],
+  ["circle", { cx: "12", cy: "12", r: "2", key: "1c9p78" }]
+];
+const Target = createLucideIcon("target", __iconNode$5);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -17138,17 +17313,10 @@ const Sparkles = createLucideIcon("sparkles", __iconNode$5);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$4 = [
-  ["circle", { cx: "12", cy: "12", r: "4", key: "4exip2" }],
-  ["path", { d: "M12 2v2", key: "tus03m" }],
-  ["path", { d: "M12 20v2", key: "1lh1kg" }],
-  ["path", { d: "m4.93 4.93 1.41 1.41", key: "149t6j" }],
-  ["path", { d: "m17.66 17.66 1.41 1.41", key: "ptbguv" }],
-  ["path", { d: "M2 12h2", key: "1t8f8n" }],
-  ["path", { d: "M20 12h2", key: "1q8mjw" }],
-  ["path", { d: "m6.34 17.66-1.41 1.41", key: "1m8zz5" }],
-  ["path", { d: "m19.07 4.93-1.41 1.41", key: "1shlcs" }]
+  ["path", { d: "M16 7h6v6", key: "box55l" }],
+  ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
 ];
-const Sun = createLucideIcon("sun", __iconNode$4);
+const TrendingUp = createLucideIcon("trending-up", __iconNode$4);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -17156,10 +17324,17 @@ const Sun = createLucideIcon("sun", __iconNode$4);
  * See the LICENSE file in the root directory of this source tree.
  */
 const __iconNode$3 = [
-  ["path", { d: "M16 7h6v6", key: "box55l" }],
-  ["path", { d: "m22 7-8.5 8.5-5-5L2 17", key: "1t1m79" }]
+  [
+    "path",
+    {
+      d: "m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3",
+      key: "wmoenq"
+    }
+  ],
+  ["path", { d: "M12 9v4", key: "juzpu7" }],
+  ["path", { d: "M12 17h.01", key: "p32p05" }]
 ];
-const TrendingUp = createLucideIcon("trending-up", __iconNode$3);
+const TriangleAlert = createLucideIcon("triangle-alert", __iconNode$3);
 /**
  * @license lucide-react v0.544.0 - ISC
  *
@@ -17202,78 +17377,56 @@ const __iconNode = [
 const Zap = createLucideIcon("zap", __iconNode);
 const navigationItems = [
   { key: "home", label: "Home", href: "/", icon: House },
-  { key: "components", label: "Components", href: "/components", icon: PanelsTopLeft },
-  { key: "themes", label: "Themes", href: "/themes", icon: Palette },
-  {
-    key: "pages",
-    label: "Pages",
-    icon: BookOpen,
-    items: [
-      { key: "login", label: "Login", href: "/login" },
-      { key: "dashboard", label: "Dashboard", href: "/dashboard" },
-      { key: "error", label: "Error Page", href: "/error" }
-    ]
-  },
-  { key: "about", label: "About", href: "/about", icon: BookOpen },
+  { key: "about", label: "About", href: "/about", icon: Info },
+  { key: "services", label: "Services", href: "/services", icon: Settings },
+  { key: "portfolio", label: "Portfolio", href: "/portfolio", icon: Briefcase },
+  { key: "solutions", label: "Solutions", href: "/solutions", icon: Lightbulb },
+  { key: "technologies", label: "Technologies", href: "/technologies", icon: Code },
   { key: "contact", label: "Contact", href: "/contact", icon: Mail }
 ];
-const Logo = () => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-secondary rounded flex items-center justify-center text-primary-foreground font-bold text-sm", children: "UI" }),
-  /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "voila-brand-logo text-xl font-bold", children: "elegant" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-background", children: "Multi-Page Template" })
-  ] })
-] });
-const ThemeActions = () => {
-  const { theme, mode, setTheme, availableThemes, toggleMode } = N$5();
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "select",
-      {
-        value: theme,
-        onChange: (e2) => setTheme(e2.target.value),
-        className: " border  border-input rounded px-3 py-2 text-sm focus:outline-none",
-        children: availableThemes.map((themeId) => /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: themeId, children: themeId.charAt(0).toUpperCase() + themeId.slice(1) }, themeId))
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { onClick: toggleMode, variant: "secondary", size: "sm", children: [
-      mode === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Sun, { className: "h-4 w-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Moon, { className: "h-4 w-4" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 hidden sm:inline", children: mode === "dark" ? "Light" : "Dark" })
-    ] })
-  ] });
-};
+const Logo = () => /* @__PURE__ */ jsxRuntimeExports.jsx(
+  "img",
+  {
+    src: "/voilacode-logo.png",
+    alt: "Voilacode Technologies",
+    className: " h-10 object-contain"
+  }
+);
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const handleNavigation = (href) => {
     navigate(href);
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(I$5, { tone: "brand", size: "xl", position: "sticky", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(O$4, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Logo, {}) }),
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(I$2, { tone: "brand", size: "xl", position: "sticky", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(O$2, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Logo, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
-      D$2,
+      D$1,
       {
         navigation: navigationItems,
         currentPath: location.pathname,
         onNavigate: handleNavigation
       }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ThemeActions, {}) })
+    )
   ] });
 };
 const footerNavigation = [
   { key: "home", label: "Home", href: "/" },
   { key: "about", label: "About", href: "/about" },
+  { key: "services", label: "Services", href: "/services" },
+  { key: "portfolio", label: "Portfolio", href: "/portfolio" },
+  { key: "solutions", label: "Solutions", href: "/solutions" },
+  { key: "technologies", label: "Technologies", href: "/technologies" },
   { key: "contact", label: "Contact", href: "/contact" },
-  { key: "privacy", label: "Privacy", href: "/privacy" },
-  { key: "terms", label: "Terms", href: "/terms" }
+  { key: "privacy", label: "Privacy Policy", href: "/privacy" },
+  { key: "terms", label: "Terms of Service", href: "/terms" }
 ];
 const Footer = () => {
   const navigate = useNavigate();
   const handleNavigation = (href) => {
     navigate(href);
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(H$6, { tone: "subtle", size: "xl", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col space-y-6", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(H$5, { tone: "subtle", size: "xl", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col space-y-6", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap justify-center gap-6", children: footerNavigation.map((item) => /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {
@@ -17283,14 +17436,143 @@ const Footer = () => {
       },
       item.key
     )) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-6 h-6 bg-primary rounded flex items-center justify-center text-primary-foreground font-bold text-xs", children: "UI" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-foreground", children: "elegant" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "img",
+        {
+          src: "/voilacode-logo.png",
+          alt: "Voilacode Technologies",
+          className: "w-12 h-12 object-contain"
+        }
+      ) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Custom Software Development • AI Solutions • Web & Mobile Apps" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "2nd Floor, Oyster Uptown, Hitech City, Hyderabad - 500081, India" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Email: founder@voilacode.com • Phone: +91 7032309797" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border pt-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "© 2025 elegant Multi-Page Template • Built with React Router & Code Splitting" }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "border-t border-border pt-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "© 2025 Voilacode Technologies • All Rights Reserved • Built with Innovation & Excellence" }) })
     ] })
   ] }) });
+};
+const HeroSection = () => {
+  const [displayedText1, setDisplayedText1] = reactExports.useState("");
+  const [displayedText2, setDisplayedText2] = reactExports.useState("");
+  const [showCursor1, setShowCursor1] = reactExports.useState(true);
+  const [showCursor2, setShowCursor2] = reactExports.useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = reactExports.useState(0);
+  const text1 = "Innovate Boldly.";
+  const text2 = "Build Brilliantly.";
+  const heroImages = [
+    "https://i.ibb.co/ccVp2T9S/office-building-construction-services-500x500.webp",
+    "https://i.ibb.co/JwfrQtj1/green-retreats-showroom-cafe-and-breakout-area-7832.webp",
+    "https://i.ibb.co/Hpz5tFpH/worldmap-blue-dark-earth-wallpaper-preview.jpg"
+  ];
+  reactExports.useEffect(() => {
+    let i2 = 0;
+    const timer1 = setInterval(() => {
+      if (i2 < text1.length) {
+        setDisplayedText1(text1.substring(0, i2 + 1));
+        i2++;
+      } else {
+        clearInterval(timer1);
+        setShowCursor1(false);
+        setShowCursor2(true);
+        setTimeout(() => {
+          let j2 = 0;
+          const timer2 = setInterval(() => {
+            if (j2 < text2.length) {
+              setDisplayedText2(text2.substring(0, j2 + 1));
+              j2++;
+            } else {
+              clearInterval(timer2);
+              setShowCursor2(false);
+            }
+          }, 100);
+        }, 500);
+      }
+    }, 150);
+    return () => {
+      clearInterval(timer1);
+    };
+  }, []);
+  reactExports.useEffect(() => {
+    const imageTimer = setInterval(() => {
+      setCurrentImageIndex(
+        (prevIndex) => (prevIndex + 1) % heroImages.length
+      );
+    }, 3e3);
+    return () => clearInterval(imageTimer);
+  }, [heroImages.length]);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative overflow-hidden h-screen flex items-center", children: [
+    heroImages.map((image, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "div",
+      {
+        className: `absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${index === currentImageIndex ? "opacity-100" : "opacity-0"}`,
+        style: {
+          backgroundImage: `url(${image})`
+        }
+      },
+      index
+    )),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-black/40" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0", style: { backgroundColor: "rgba(13, 8, 25, 0.5)" } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative z-10 text-center py-32 px-6 w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-12 max-w-6xl mx-auto", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-6xl md:text-8xl lg:text-9xl font-bold leading-tight min-h-[280px] md:min-h-[320px] lg:min-h-[360px]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-white font-extrabold", style: {
+          textShadow: "3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(139, 92, 246, 0.6)"
+        }, children: [
+          displayedText1,
+          showCursor1 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "animate-pulse", children: "|" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("span", { className: "text-white font-extrabold", style: {
+          textShadow: "3px 3px 6px rgba(0,0,0,0.8), 0 0 20px rgba(139, 92, 246, 0.6)"
+        }, children: [
+          displayedText2,
+          showCursor2 && /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "animate-pulse", children: "|" })
+        ] })
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-2xl md:text-3xl text-white font-medium leading-relaxed", style: {
+        textShadow: "2px 2px 4px rgba(0,0,0,0.9), 0 0 15px rgba(139, 92, 246, 0.5)"
+      }, children: "Transforming Ideas into Digital Reality" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-6 justify-center items-center mt-16", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          b$3,
+          {
+            size: "lg",
+            className: "group px-12 py-6 text-xl font-semibold shadow-2xl hover:shadow-2xl transition-all duration-300 border-0 text-white",
+            style: {
+              background: "linear-gradient(135deg, rgb(139, 92, 246), rgb(147, 51, 234))",
+              boxShadow: "0 25px 50px -12px rgba(139, 92, 246, 0.4)"
+            },
+            asChild: true,
+            children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Rocket, { className: "mr-3 h-6 w-6 group-hover:rotate-12 transition-transform" }),
+              "Get Your Free Consultation",
+              /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform" })
+            ] })
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          b$3,
+          {
+            variant: "outline",
+            size: "lg",
+            className: "px-12 py-6 text-xl font-semibold border-2 border-white/40 bg-white/10 text-white hover:bg-white hover:text-purple-900 backdrop-blur-sm transition-all duration-300",
+            asChild: true,
+            children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/portfolio", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "mr-3 h-6 w-6" }),
+              "View Our Portfolio"
+            ] })
+          }
+        )
+      ] })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-20 left-10 w-24 h-24 rounded-full blur-2xl animate-pulse", style: { backgroundColor: "rgba(139, 92, 246, 0.15)" } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-20 right-10 w-32 h-32 rounded-full blur-2xl animate-pulse delay-700", style: { backgroundColor: "rgba(147, 51, 234, 0.15)" } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-1/2 right-20 w-20 h-20 rounded-full blur-2xl animate-pulse delay-1000", style: { backgroundColor: "rgba(139, 92, 246, 0.12)" } }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "h-6 w-6 rotate-90" }) })
+  ] });
 };
 function n({ className: t2, ...r }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -17349,1046 +17631,1352 @@ function u({ className: t2, ...r }) {
   );
 }
 const HomePage = () => {
-  const { theme } = N$5();
-  const themeDescriptions = {
-    base: "Clean default configuration showcasing the base system",
-    elegant: "Fresh sky blue theme with clean design",
-    metro: "Dark teal theme with bright yellow accents",
-    studio: "Sophisticated neutral theme with golden accents",
-    vivid: "Premium cursive theme with sophisticated typography"
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-12", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "text-center py-16 bg-gradient-to-b from-background to-muted/20 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "voila-heading text-4xl md:text-6xl mb-6 text-accent", children: "Voilacode Technology" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "voila-subheading text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed", children: "Professional React components with file-based routing, showcasing layouts, navigation, and code organization" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-3 text-sm text-muted-foreground bg-muted/50 backdrop-blur px-6 py-3 rounded-full border", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-primary rounded-full animate-pulse" }),
-        themeDescriptions[theme]
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center mt-8", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { size: "lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/components", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(PanelsTopLeft, { className: "mr-2 h-4 w-4" }),
-          "Explore Components"
-        ] }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { variant: "secondary", size: "lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/themes", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Palette, { className: "mr-2 h-4 w-4" }),
-          "Browse Themes"
-        ] }) })
-      ] })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-24 py-8 px-6", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "space-y-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center max-w-4xl mx-auto", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-6", children: "About Voilacode Technologies" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground leading-relaxed mb-8", children: "Voilacode Technologies is a next-generation software development company committed to delivering customized, reliable, and scalable solutions that fuel business growth and operational excellence. Our team thrives on innovation, quality, and client satisfaction, leveraging proven methodologies and the latest technology stacks to solve real-world challenges." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground leading-relaxed", children: "We pride ourselves on understanding your unique business needs thoroughly, enabling us to craft solutions that are not only functional but also intuitive, secure, and future-proof." })
     ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Multi-Page Architecture" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-2xl mx-auto", children: "Explore different pages showcasing various UIKit features and components" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelsTopLeft, { className: "h-6 w-6 text-primary" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Components Gallery" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Comprehensive showcase of all UIKit components with examples and variations" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative py-20", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-b from-transparent via-muted/5 to-transparent" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 space-y-16", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full text-sm font-medium text-secondary", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-4 w-4" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Comprehensive Solutions" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm space-y-2 text-muted-foreground", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Buttons & Interactive Elements" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Cards & Content Containers" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Form Controls & Inputs" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Data Display & Charts" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { asChild: true, className: "w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/components", children: [
-              "View Components",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4" })
-            ] }) })
-          ] })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-4xl md:text-5xl font-bold", children: [
+            "Our ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent", children: "End-to-End" }),
+            " Software Services"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed", children: "We deliver comprehensive software solutions across all platforms and technologies, transforming your ideas into powerful digital experiences." })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Palette, { className: "h-6 w-6 text-secondary" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Theme System" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Interactive theme switching with live preview and color palette showcase" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm space-y-2 text-muted-foreground", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• 5 Beautiful Theme Presets" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• OKLCH Color Science" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Light & Dark Mode Support" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Real-time Theme Switching" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { asChild: true, className: "w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/themes", children: [
-              "Browse Themes",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4" })
-            ] }) })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BookOpen, { className: "h-6 w-6 text-accent" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "About & Documentation" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Learn about UIKit's architecture, design principles, and implementation details" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm space-y-2 text-muted-foreground", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• File-based Routing Structure" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Layout & Navigation Patterns" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Component Organization" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Development Best Practices" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { asChild: true, className: "w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/about", children: [
-              "Learn More",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4" })
-            ] }) })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-chart1/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "h-6 w-6 text-chart1" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Contact & Feedback" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Get in touch, provide feedback, or explore integration options" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm space-y-2 text-muted-foreground", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Form Validation Examples" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Input Field Variations" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Submission Handling" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• User Experience Patterns" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { asChild: true, className: "w-full", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
-              "Contact Us",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4" })
-            ] }) })
-          ] })
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted/30 rounded-lg p-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold", children: "Multi-Page Template Features" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-2xl mx-auto", children: "This template demonstrates advanced UIKit usage with proper code organization and routing" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 text-sm", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-background/80 border rounded-lg p-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold mb-2", children: "📁 File Organization" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground", children: "pages/, layouts/, components/" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-background/80 border rounded-lg p-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold mb-2", children: "🔗 React Router" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground", children: "Code splitting & lazy loading" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-background/80 border rounded-lg p-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold mb-2", children: "🎨 UIKit Layout" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground", children: "PageLayout with navigation" })
-        ] })
-      ] })
-    ] }) })
-  ] });
-};
-var y$1 = "rovingFocusGroup.onEntryFocus", X$2 = { bubbles: false, cancelable: true }, I$2 = "RovingFocusGroup", [P$3, N$1, Z] = b$2(I$2), [$$2, Ie] = w$1(
-  I$2,
-  [Z]
-), [ee$1, oe$1] = $$2(I$2), O$1 = reactExports.forwardRef(
-  (e2, r) => /* @__PURE__ */ jsxRuntimeExports.jsx(P$3.Provider, { scope: e2.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(P$3.Slot, { scope: e2.__scopeRovingFocusGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(te$1, { ...e2, ref: r }) }) })
-);
-O$1.displayName = I$2;
-var te$1 = reactExports.forwardRef((e2, r) => {
-  const {
-    __scopeRovingFocusGroup: c2,
-    orientation: o2,
-    loop: T2 = false,
-    dir: w2,
-    currentTabStopId: v2,
-    defaultCurrentTabStopId: C2,
-    onCurrentTabStopIdChange: S2,
-    onEntryFocus: m2,
-    preventScrollOnEntryFocus: a2 = false,
-    ...b2
-  } = e2, F2 = reactExports.useRef(null), g2 = x$5(r, F2), R2 = j$3(w2), [E2, t2] = S$1({
-    prop: v2,
-    defaultProp: C2 ?? null,
-    onChange: S2,
-    caller: I$2
-  }), [i2, h2] = reactExports.useState(false), u2 = c$2(m2), l2 = N$1(c2), A2 = reactExports.useRef(false), [L2, D2] = reactExports.useState(0);
-  return reactExports.useEffect(() => {
-    const n2 = F2.current;
-    if (n2)
-      return n2.addEventListener(y$1, u2), () => n2.removeEventListener(y$1, u2);
-  }, [u2]), /* @__PURE__ */ jsxRuntimeExports.jsx(
-    ee$1,
-    {
-      scope: c2,
-      orientation: o2,
-      dir: R2,
-      loop: T2,
-      currentTabStopId: E2,
-      onItemFocus: reactExports.useCallback(
-        (n2) => t2(n2),
-        [t2]
-      ),
-      onItemShiftTab: reactExports.useCallback(() => h2(true), []),
-      onFocusableItemAdd: reactExports.useCallback(
-        () => D2((n2) => n2 + 1),
-        []
-      ),
-      onFocusableItemRemove: reactExports.useCallback(
-        () => D2((n2) => n2 - 1),
-        []
-      ),
-      children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        h$3.div,
-        {
-          tabIndex: i2 || L2 === 0 ? -1 : 0,
-          "data-orientation": o2,
-          ...b2,
-          ref: g2,
-          style: { outline: "none", ...e2.style },
-          onMouseDown: w$2(e2.onMouseDown, () => {
-            A2.current = true;
-          }),
-          onFocus: w$2(e2.onFocus, (n2) => {
-            const U2 = !A2.current;
-            if (n2.target === n2.currentTarget && U2 && !i2) {
-              const x2 = new CustomEvent(y$1, X$2);
-              if (n2.currentTarget.dispatchEvent(x2), !x2.defaultPrevented) {
-                const _2 = l2().filter((f2) => f2.focusable), B2 = _2.find((f2) => f2.active), Y2 = _2.find((f2) => f2.id === E2), H2 = [B2, Y2, ..._2].filter(
-                  Boolean
-                ).map((f2) => f2.ref.current);
-                k$1(H2, a2);
-              }
-            }
-            A2.current = false;
-          }),
-          onBlur: w$2(e2.onBlur, () => h2(false))
-        }
-      )
-    }
-  );
-}), K$1 = "RovingFocusGroupItem", M$1 = reactExports.forwardRef(
-  (e2, r) => {
-    const {
-      __scopeRovingFocusGroup: c2,
-      focusable: o2 = true,
-      active: T2 = false,
-      tabStopId: w2,
-      children: v2,
-      ...C2
-    } = e2, S2 = c$1(), m2 = w2 || S2, a2 = oe$1(K$1, c2), b2 = a2.currentTabStopId === m2, F2 = N$1(c2), { onFocusableItemAdd: g2, onFocusableItemRemove: R2, currentTabStopId: E2 } = a2;
-    return reactExports.useEffect(() => {
-      if (o2)
-        return g2(), () => R2();
-    }, [o2, g2, R2]), /* @__PURE__ */ jsxRuntimeExports.jsx(
-      P$3.ItemSlot,
-      {
-        scope: c2,
-        id: m2,
-        focusable: o2,
-        active: T2,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          h$3.span,
-          {
-            tabIndex: b2 ? 0 : -1,
-            "data-orientation": a2.orientation,
-            ...C2,
-            ref: r,
-            onMouseDown: w$2(e2.onMouseDown, (t2) => {
-              o2 ? a2.onItemFocus(m2) : t2.preventDefault();
-            }),
-            onFocus: w$2(e2.onFocus, () => a2.onItemFocus(m2)),
-            onKeyDown: w$2(e2.onKeyDown, (t2) => {
-              if (t2.key === "Tab" && t2.shiftKey) {
-                a2.onItemShiftTab();
-                return;
-              }
-              if (t2.target !== t2.currentTarget) return;
-              const i2 = se(t2, a2.orientation, a2.dir);
-              if (i2 !== void 0) {
-                if (t2.metaKey || t2.ctrlKey || t2.altKey || t2.shiftKey) return;
-                t2.preventDefault();
-                let u2 = F2().filter((l2) => l2.focusable).map((l2) => l2.ref.current);
-                if (i2 === "last") u2.reverse();
-                else if (i2 === "prev" || i2 === "next") {
-                  i2 === "prev" && u2.reverse();
-                  const l2 = u2.indexOf(t2.currentTarget);
-                  u2 = a2.loop ? ce$1(u2, l2 + 1) : u2.slice(l2 + 1);
-                }
-                setTimeout(() => k$1(u2));
-              }
-            }),
-            children: typeof v2 == "function" ? v2({ isCurrentTabStop: b2, hasTabStop: E2 != null }) : v2
-          }
-        )
-      }
-    );
-  }
-);
-M$1.displayName = K$1;
-var re = {
-  ArrowLeft: "prev",
-  ArrowUp: "prev",
-  ArrowRight: "next",
-  ArrowDown: "next",
-  PageUp: "first",
-  Home: "first",
-  PageDown: "last",
-  End: "last"
-};
-function ne(e2, r) {
-  return r !== "rtl" ? e2 : e2 === "ArrowLeft" ? "ArrowRight" : e2 === "ArrowRight" ? "ArrowLeft" : e2;
-}
-function se(e2, r, c2) {
-  const o2 = ne(e2.key, c2);
-  if (!(r === "vertical" && ["ArrowLeft", "ArrowRight"].includes(o2)) && !(r === "horizontal" && ["ArrowUp", "ArrowDown"].includes(o2)))
-    return re[o2];
-}
-function k$1(e2, r = false) {
-  const c2 = document.activeElement;
-  for (const o2 of e2)
-    if (o2 === c2 || (o2.focus({ preventScroll: r }), document.activeElement !== c2)) return;
-}
-function ce$1(e2, r) {
-  return e2.map((c2, o2) => e2[(r + o2) % e2.length]);
-}
-var be$2 = O$1, Fe = M$1;
-function T(n2, e2) {
-  return reactExports.useReducer((t2, r) => e2[t2][r] ?? t2, n2);
-}
-var E = (n2) => {
-  const { present: e2, children: t2 } = n2, r = R$3(e2), a2 = typeof t2 == "function" ? t2({ present: r.isPresent }) : reactExports.Children.only(t2), c2 = x$5(r.ref, P$2(a2));
-  return typeof t2 == "function" || r.isPresent ? reactExports.cloneElement(a2, { ref: c2 }) : null;
-};
-E.displayName = "Presence";
-function R$3(n2) {
-  const [e2, t2] = reactExports.useState(), r = reactExports.useRef(null), a$1 = reactExports.useRef(n2), c2 = reactExports.useRef("none"), p2 = n2 ? "mounted" : "unmounted", [N2, s2] = T(p2, {
-    mounted: {
-      UNMOUNT: "unmounted",
-      ANIMATION_OUT: "unmountSuspended"
-    },
-    unmountSuspended: {
-      MOUNT: "mounted",
-      ANIMATION_END: "unmounted"
-    },
-    unmounted: {
-      MOUNT: "mounted"
-    }
-  });
-  return reactExports.useEffect(() => {
-    const o2 = l(r.current);
-    c2.current = N2 === "mounted" ? o2 : "none";
-  }, [N2]), a(() => {
-    const o2 = r.current, m2 = a$1.current;
-    if (m2 !== n2) {
-      const f2 = c2.current, u2 = l(o2);
-      n2 ? s2("MOUNT") : u2 === "none" || (o2 == null ? void 0 : o2.display) === "none" ? s2("UNMOUNT") : s2(m2 && f2 !== u2 ? "ANIMATION_OUT" : "UNMOUNT"), a$1.current = n2;
-    }
-  }, [n2, s2]), a(() => {
-    if (e2) {
-      let o2;
-      const m2 = e2.ownerDocument.defaultView ?? window, d2 = (u2) => {
-        const g2 = l(r.current).includes(CSS.escape(u2.animationName));
-        if (u2.target === e2 && g2 && (s2("ANIMATION_END"), !a$1.current)) {
-          const O2 = e2.style.animationFillMode;
-          e2.style.animationFillMode = "forwards", o2 = m2.setTimeout(() => {
-            e2.style.animationFillMode === "forwards" && (e2.style.animationFillMode = O2);
-          });
-        }
-      }, f2 = (u2) => {
-        u2.target === e2 && (c2.current = l(r.current));
-      };
-      return e2.addEventListener("animationstart", f2), e2.addEventListener("animationcancel", d2), e2.addEventListener("animationend", d2), () => {
-        m2.clearTimeout(o2), e2.removeEventListener("animationstart", f2), e2.removeEventListener("animationcancel", d2), e2.removeEventListener("animationend", d2);
-      };
-    } else
-      s2("ANIMATION_END");
-  }, [e2, s2]), {
-    isPresent: ["mounted", "unmountSuspended"].includes(N2),
-    ref: reactExports.useCallback((o2) => {
-      r.current = o2 ? getComputedStyle(o2) : null, t2(o2);
-    }, [])
-  };
-}
-function l(n2) {
-  return (n2 == null ? void 0 : n2.animationName) || "none";
-}
-function P$2(n2) {
-  var _a, _b;
-  let e2 = (_a = Object.getOwnPropertyDescriptor(n2.props, "ref")) == null ? void 0 : _a.get, t2 = e2 && "isReactWarning" in e2 && e2.isReactWarning;
-  return t2 ? n2.ref : (e2 = (_b = Object.getOwnPropertyDescriptor(n2, "ref")) == null ? void 0 : _b.get, t2 = e2 && "isReactWarning" in e2 && e2.isReactWarning, t2 ? n2.props.ref : n2.props.ref || n2.ref);
-}
-var g$1 = "Tabs", [G, Z] = w$1(g$1, [
-  Ie
-]), C$1 = Ie(), [L$1, x$1] = G(g$1), I$1 = reactExports.forwardRef(
-  (e2, t2) => {
-    const {
-      __scopeTabs: c2,
-      value: a2,
-      onValueChange: i2,
-      defaultValue: d2,
-      orientation: o2 = "horizontal",
-      dir: u2,
-      activationMode: b2 = "automatic",
-      ...v2
-    } = e2, s2 = j$3(u2), [n2, l2] = S$1({
-      prop: a2,
-      onChange: i2,
-      defaultProp: d2 ?? "",
-      caller: g$1
-    });
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      L$1,
-      {
-        scope: c2,
-        baseId: c$1(),
-        value: n2,
-        onValueChange: l2,
-        orientation: o2,
-        dir: s2,
-        activationMode: b2,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          h$3.div,
-          {
-            dir: s2,
-            "data-orientation": o2,
-            ...v2,
-            ref: t2
-          }
-        )
-      }
-    );
-  }
-);
-I$1.displayName = g$1;
-var y = "TabsList", _$1 = reactExports.forwardRef(
-  (e2, t2) => {
-    const { __scopeTabs: c2, loop: a2 = true, ...i2 } = e2, d2 = x$1(y, c2), o2 = C$1(c2);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      be$2,
-      {
-        asChild: true,
-        ...o2,
-        orientation: d2.orientation,
-        dir: d2.dir,
-        loop: a2,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          h$3.div,
-          {
-            role: "tablist",
-            "aria-orientation": d2.orientation,
-            ...i2,
-            ref: t2
-          }
-        )
-      }
-    );
-  }
-);
-_$1.displayName = y;
-var N = "TabsTrigger", R$2 = reactExports.forwardRef(
-  (e2, t2) => {
-    const { __scopeTabs: c2, value: a2, disabled: i2 = false, ...d2 } = e2, o2 = x$1(N, c2), u2 = C$1(c2), b2 = P$1(o2.baseId, a2), v2 = S(o2.baseId, a2), s2 = a2 === o2.value;
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Fe,
-      {
-        asChild: true,
-        ...u2,
-        focusable: !i2,
-        active: s2,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          h$3.button,
-          {
-            type: "button",
-            role: "tab",
-            "aria-selected": s2,
-            "aria-controls": v2,
-            "data-state": s2 ? "active" : "inactive",
-            "data-disabled": i2 ? "" : void 0,
-            disabled: i2,
-            id: b2,
-            ...d2,
-            ref: t2,
-            onMouseDown: w$2(e2.onMouseDown, (n2) => {
-              !i2 && n2.button === 0 && n2.ctrlKey === false ? o2.onValueChange(a2) : n2.preventDefault();
-            }),
-            onKeyDown: w$2(e2.onKeyDown, (n2) => {
-              [" ", "Enter"].includes(n2.key) && o2.onValueChange(a2);
-            }),
-            onFocus: w$2(e2.onFocus, () => {
-              const n2 = o2.activationMode !== "manual";
-              !s2 && !i2 && n2 && o2.onValueChange(a2);
-            })
-          }
-        )
-      }
-    );
-  }
-);
-R$2.displayName = N;
-var w = "TabsContent", A$1 = reactExports.forwardRef(
-  (e2, t2) => {
-    const { __scopeTabs: c2, value: a2, forceMount: i2, children: d2, ...o2 } = e2, u2 = x$1(w, c2), b2 = P$1(u2.baseId, a2), v2 = S(u2.baseId, a2), s2 = a2 === u2.value, n2 = reactExports.useRef(s2);
-    return reactExports.useEffect(() => {
-      const l2 = requestAnimationFrame(() => n2.current = false);
-      return () => cancelAnimationFrame(l2);
-    }, []), /* @__PURE__ */ jsxRuntimeExports.jsx(E, { present: i2 || s2, children: ({ present: l2 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-      h$3.div,
-      {
-        "data-state": s2 ? "active" : "inactive",
-        "data-orientation": u2.orientation,
-        role: "tabpanel",
-        "aria-labelledby": b2,
-        hidden: !l2,
-        id: v2,
-        tabIndex: 0,
-        ...o2,
-        ref: t2,
-        style: {
-          ...e2.style,
-          animationDuration: n2.current ? "0s" : void 0
-        },
-        children: l2 && d2
-      }
-    ) });
-  }
-);
-A$1.displayName = w;
-function P$1(e2, t2) {
-  return `${e2}-trigger-${t2}`;
-}
-function S(e2, t2) {
-  return `${e2}-content-${t2}`;
-}
-var j = I$1, z$1 = _$1, K = R$2, B$1 = A$1;
-function ee({
-  className: e2,
-  ...t2
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    j,
-    {
-      "data-slot": "tabs",
-      className: We$3("flex flex-col gap-2", e2),
-      ...t2
-    }
-  );
-}
-function te({
-  className: e2,
-  ...t2
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    z$1,
-    {
-      "data-slot": "tabs-list",
-      className: We$3(
-        "bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]",
-        e2
-      ),
-      ...t2
-    }
-  );
-}
-function ae({
-  className: e2,
-  ...t2
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    K,
-    {
-      "data-slot": "tabs-trigger",
-      className: We$3(
-        "data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        e2
-      ),
-      ...t2
-    }
-  );
-}
-function oe({
-  className: e2,
-  ...t2
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    B$1,
-    {
-      "data-slot": "tabs-content",
-      className: We$3("flex-1 outline-none", e2),
-      ...t2
-    }
-  );
-}
-const ComponentsPage = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "voila-heading text-4xl", children: "Component Library" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "voila-subheading text-muted-foreground max-w-3xl mx-auto", children: "Comprehensive showcase of UIKit's production-ready React components with examples and variations" })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(ee, { defaultValue: "buttons", className: "space-y-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(te, { className: "grid w-full grid-cols-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ae, { value: "buttons", children: "Buttons" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ae, { value: "cards", children: "Cards" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ae, { value: "forms", children: "Forms" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(ae, { value: "display", children: "Display" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(oe, { value: "buttons", className: "space-y-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-primary/10 rounded flex items-center justify-center", children: "🔘" }),
-              "Button Variants"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Interactive elements with multiple variants, sizes, and states" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-6", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "Primary Actions" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { size: "lg", children: "Primary" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { variant: "secondary", size: "lg", children: "Secondary" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { variant: "outline", size: "lg", children: "Outline" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { variant: "ghost", size: "lg", children: "Ghost" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { variant: "destructive", size: "lg", children: "Destructive" })
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "Size Variations" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap items-center gap-3", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { size: "sm", children: "Small" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { children: "Default" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { size: "lg", children: "Large" })
-              ] })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "States & Loading" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { children: "Normal" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { disabled: true, children: "Disabled" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { className: "opacity-50 cursor-not-allowed", children: "Loading..." })
-              ] })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Badges & Labels" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Small status indicators and labels" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "space-y-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { children: "Default" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", children: "Secondary" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "destructive", children: "Error" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "outline", children: "Outline" })
-          ] }) })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(oe, { value: "cards", className: "space-y-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-secondary/10 rounded flex items-center justify-center", children: "📋" }),
-            "Card Layouts"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Flexible containers for displaying content and actions" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-lg", children: "Simple Card" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Basic card with header and content" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Cards provide a flexible container for content with consistent spacing and styling." }) })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 bg-primary/5", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-lg", children: "Action Card" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Card with interactive elements" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-3", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Enhanced with buttons and other interactive components." }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { size: "sm", className: "w-full", children: "Take Action" })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 border-dashed", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-lg", children: "Custom Styled" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Customizable appearance" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Easy to customize with different borders, backgrounds, and layouts." }) })
-          ] })
-        ] }) })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(oe, { value: "forms", className: "space-y-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-accent/10 rounded flex items-center justify-center", children: "📝" }),
-            "Form Controls"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Input fields and form controls with consistent styling" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "Text Inputs" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-sm font-medium", children: "Standard Input" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "input",
-                  {
-                    type: "text",
-                    placeholder: "Enter your text",
-                    className: "w-full p-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
-                  }
-                )
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-sm font-medium", children: "Email Input" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  "input",
-                  {
-                    type: "email",
-                    placeholder: "your@email.com",
-                    className: "w-full p-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring"
-                  }
-                )
-              ] })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "Selection Controls" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-sm font-medium", children: "Dropdown Select" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { className: "w-full p-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Choose an option" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Option 1" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Option 2" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Option 3" })
-                ] })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-sm font-medium", children: "Multi-select" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("select", { multiple: true, size: 3, className: "w-full p-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Option A" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Option B" }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("option", { children: "Option C" })
-                ] })
-              ] })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "Text Areas" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { className: "text-sm font-medium", children: "Message" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 overflow-hidden", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "textarea",
+                "img",
                 {
-                  placeholder: "Enter your message here...",
-                  rows: 4,
-                  className: "w-full p-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring resize-none"
+                  src: "https://i.ibb.co/rGyVTwQy/services-webdev.jpg",
+                  alt: "Web Development Services",
+                  className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 }
-              )
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-4 left-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium text-primary", children: "Web Development" }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { className: "relative z-10 pb-4 pt-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl group-hover:text-primary transition-colors", children: "Custom Website Development" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base leading-relaxed", children: "Responsive, SEO-friendly websites tailored for performance and user engagement" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 space-y-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: [
+                "E-commerce platforms & corporate sites",
+                "Built with React, Next.js, Vue",
+                "API & payment gateway integration",
+                "SEO optimization & analytics"
+              ].map((feature, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-primary rounded-full" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: feature })
+              ] }, idx)) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(b$3, { variant: "ghost", className: "w-full mt-6 group-hover:bg-primary group-hover:text-white transition-all", children: [
+                "Learn More ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 overflow-hidden", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "img",
+                {
+                  src: "https://i.ibb.co/fGLmkXyQ/services-mobile.jpg",
+                  alt: "Mobile App Development Services",
+                  className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-secondary/60 via-secondary/20 to-transparent" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-4 left-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium text-secondary", children: "Mobile Apps" }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { className: "relative z-10 pb-4 pt-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl group-hover:text-secondary transition-colors", children: "Mobile Application Development" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base leading-relaxed", children: "Native iOS and Android applications designed for maximum UX and responsiveness" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 space-y-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: [
+                "Native & cross-platform solutions",
+                "React Native, Flutter development",
+                "Push notifications & offline support",
+                "Real-time updates & analytics"
+              ].map((feature, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-secondary rounded-full" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: feature })
+              ] }, idx)) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(b$3, { variant: "ghost", className: "w-full mt-6 group-hover:bg-secondary group-hover:text-white transition-all", children: [
+                "Learn More ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-chart1/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 overflow-hidden", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "img",
+                {
+                  src: "https://i.ibb.co/vg1FvPT/services-desktop.jpg",
+                  alt: "Desktop Software Development Services",
+                  className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-accent/60 via-accent/20 to-transparent" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-4 left-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium text-accent", children: "Desktop Software" }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { className: "relative z-10 pb-4 pt-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl group-hover:text-accent transition-colors", children: "Robust Desktop Software" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base leading-relaxed", children: "High-performance desktop applications compatible with Windows, macOS, and Linux" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 space-y-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: [
+                "Custom tools & enterprise suites",
+                "Cross-platform compatibility",
+                "Cloud services integration",
+                "Focus on stability & security"
+              ].map((feature, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-accent rounded-full" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: feature })
+              ] }, idx)) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(b$3, { variant: "ghost", className: "w-full mt-6 group-hover:bg-accent group-hover:text-white transition-all", children: [
+                "Learn More ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-chart1/5 via-transparent to-chart2/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 overflow-hidden", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "img",
+                {
+                  src: "https://i.ibb.co/xKdCBcxT/services-cloudinfra.jpg",
+                  alt: "Cloud Infrastructure & AI Services",
+                  className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-chart1/60 via-chart1/20 to-transparent" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-4 left-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium text-chart1", children: "AI & Cloud Solutions" }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { className: "relative z-10 pb-4 pt-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl group-hover:text-chart1 transition-colors", children: "Artificial Intelligence & ML" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base leading-relaxed", children: "Tailored AI implementations for chatbots, predictive analytics, and automation" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 space-y-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: [
+                "Natural language processing",
+                "Predictive analytics & insights",
+                "Image & speech recognition",
+                "Data-driven decision making"
+              ].map((feature, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-chart1 rounded-full" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: feature })
+              ] }, idx)) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(b$3, { variant: "ghost", className: "w-full mt-6 group-hover:bg-chart1 group-hover:text-white transition-all", children: [
+                "Learn More ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-chart2/5 via-transparent to-chart3/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 overflow-hidden", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "img",
+                {
+                  src: "https://i.ibb.co/X0vkLQ5/services-uiux.jpg",
+                  alt: "UI/UX Design Services",
+                  className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-t from-chart2/60 via-chart2/20 to-transparent" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-4 left-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm font-medium text-chart2", children: "UI/UX Design" }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { className: "relative z-10 pb-4 pt-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl group-hover:text-chart2 transition-colors", children: "UI/UX Design & Consultation" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base leading-relaxed", children: "User-centric design principles creating accessible and visually appealing interfaces" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 space-y-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: [
+                "Wireframing & prototyping",
+                "Continuous user testing",
+                "Branding & graphic design",
+                "Enhanced customer trust"
+              ].map((feature, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-chart2 rounded-full" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: feature })
+              ] }, idx)) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(b$3, { variant: "ghost", className: "w-full mt-6 group-hover:bg-chart2 group-hover:text-white transition-all", children: [
+                "Learn More ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden border-0 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-chart3/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative h-48 bg-gradient-to-br from-chart3/10 to-primary/10 group-hover:from-chart3/20 group-hover:to-primary/20 transition-all duration-500", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "img",
+              {
+                src: "https://i.ibb.co/VchVzYCc/services-security.jpg\nhttps://i.ibb.co/vg1FvPT/services-desktop.jpg",
+                alt: "Security Services",
+                className: "w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              }
+            ) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { className: "relative z-10 pb-4 pt-6", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl group-hover:text-chart3 transition-colors", children: "Security & Compliance" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base leading-relaxed", children: "Implementation of data protection protocols and compliance with GDPR, HIPAA, PCI DSS" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 space-y-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-3", children: [
+                "Vulnerability assessments",
+                "Penetration testing",
+                "Secure coding practices",
+                "Regular security audits"
+              ].map((feature, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-chart3 rounded-full" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-muted-foreground", children: feature })
+              ] }, idx)) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs(b$3, { variant: "ghost", className: "w-full mt-6 group-hover:bg-chart3 group-hover:text-white transition-all", children: [
+                "Learn More ",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" })
+              ] })
             ] })
           ] })
         ] })
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(oe, { value: "display", className: "space-y-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-chart1/10 rounded flex items-center justify-center", children: "📊" }),
-              "Data Display"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Components for presenting structured information" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Why Work With Voilacode Technologies?" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "h-8 w-8 text-primary" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-2", children: "Deep Technical Expertise" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Seasoned software engineers, AI specialists, and UX designers with diverse industry experience" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "h-8 w-8 text-secondary" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-2", children: "Customer-First Philosophy" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "We immerse ourselves in your business environment to create tailored solutions" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "h-8 w-8 text-accent" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-2", children: "Agile Development" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Iterative planning and transparent communication for quicker, higher quality results" })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative py-20 overflow-hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 left-0 w-1/3 h-full bg-gradient-to-r from-primary/5 to-transparent" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-secondary/5 to-transparent" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 max-w-7xl mx-auto px-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-6 mb-16", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 px-4 py-2 bg-accent/10 border border-accent/20 rounded-full text-sm font-medium text-accent", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Award, { className: "h-4 w-4" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Success Stories" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-6", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "Chart Colors" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-5 gap-3", children: [1, 2, 3, 4, 5].map((i2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-full h-16 rounded-lg mb-2 bg-chart${i2} shadow-sm` }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-xs text-muted-foreground font-medium", children: [
-                  "Chart ",
-                  i2
-                ] })
-              ] }, i2)) })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-4xl md:text-5xl font-bold", children: [
+            "Spotlight on ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-accent to-chart1 bg-clip-text text-transparent", children: "Key Projects" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed", children: "Discover how we've transformed businesses with innovative software solutions that deliver real results and drive growth." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-chart1/10 via-transparent to-chart1/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 bg-gradient-to-br from-chart1/20 to-primary/20 group-hover:from-chart1/30 group-hover:to-primary/30 transition-all duration-500", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-24 bg-gradient-to-br from-chart1 to-chart1/80 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { className: "h-12 w-12 text-white" }) }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-3 py-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-medium text-chart1", children: "AI Project" }) }) })
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-sm font-medium text-muted-foreground", children: "Status Indicators" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap gap-3", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-green-600 rounded-full" }),
-                  "Active"
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 p-8", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-gradient-to-br from-chart1 to-chart1/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { className: "h-8 w-8 text-white" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-chart1/10 rounded-full text-xs font-medium text-chart1", children: "AI/ML" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-primary/10 rounded-full text-xs font-medium text-primary", children: "Analytics" })
                 ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-yellow-600 rounded-full" }),
-                  "Pending"
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xl font-bold group-hover:text-chart1 transition-colors", children: "AI-Powered Customer Insights" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground leading-relaxed", children: [
+                  "Built a proprietary analytics tool leveraging machine learning to identify market trends, boosting client sales by ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-chart1", children: "30%" })
                 ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-red-600 rounded-full" }),
-                  "Inactive"
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 pt-4", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 h-1 bg-muted rounded-full overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-3/4 h-full bg-gradient-to-r from-chart1 to-chart1/80 rounded-full" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-medium text-chart1", children: "Success Rate: 95%" })
+                ] })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-chart2/10 via-transparent to-chart2/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 bg-gradient-to-br from-chart2/20 to-secondary/20 group-hover:from-chart2/30 group-hover:to-secondary/30 transition-all duration-500", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-24 bg-gradient-to-br from-chart2 to-chart2/80 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Building, { className: "h-12 w-12 text-white" }) }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-3 py-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-medium text-chart2", children: "E-commerce" }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 p-8", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-gradient-to-br from-chart2 to-chart2/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Building, { className: "h-8 w-8 text-white" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-chart2/10 rounded-full text-xs font-medium text-chart2", children: "E-commerce" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-secondary/10 rounded-full text-xs font-medium text-secondary", children: "Scalable" })
                 ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-2 h-2 bg-blue-600 rounded-full" }),
-                  "Processing"
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xl font-bold group-hover:text-chart2 transition-colors", children: "E-Commerce Web Platform" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground leading-relaxed", children: [
+                  "Developed a high-traffic, scalable online marketplace with robust payment integration for a fashion brand, handling ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-chart2", children: "10k+" }),
+                  " daily users"
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 pt-4", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 h-1 bg-muted rounded-full overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-5/6 h-full bg-gradient-to-r from-chart2 to-chart2/80 rounded-full" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-medium text-chart2", children: "Performance: 99.9%" })
+                ] })
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden bg-gradient-to-br from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-chart3/10 via-transparent to-chart3/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative h-48 bg-gradient-to-br from-chart3/20 to-accent/20 group-hover:from-chart3/30 group-hover:to-accent/30 transition-all duration-500", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-24 bg-gradient-to-br from-chart3 to-chart3/80 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { className: "h-12 w-12 text-white" }) }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-4 right-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-3 py-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs font-medium text-chart3", children: "Healthcare" }) }) })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 p-8", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-gradient-to-br from-chart3 to-chart3/80 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { className: "h-8 w-8 text-white" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 mb-3", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-chart3/10 rounded-full text-xs font-medium text-chart3", children: "Healthcare" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-accent/10 rounded-full text-xs font-medium text-accent", children: "HIPAA" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xl font-bold group-hover:text-chart3 transition-colors", children: "Healthcare Management App" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-muted-foreground leading-relaxed", children: [
+                  "Created a secure, HIPAA-compliant app with appointment scheduling and telehealth capabilities, serving ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-chart3", children: "5000+" }),
+                  " patients"
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2 pt-4", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 h-1 bg-muted rounded-full overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-full bg-gradient-to-r from-chart3 to-chart3/80 rounded-full" }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs font-medium text-chart3", children: "Compliance: 100%" })
                 ] })
               ] })
             ] })
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Typography Scale" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Text hierarchy and styling examples" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "space-y-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold", children: "Heading 1 - Main Title" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold", children: "Heading 2 - Section Title" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-xl font-bold", children: "Heading 3 - Subsection" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "text-lg font-semibold", children: "Heading 4 - Component Title" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-base", children: "Body text - Lorem ipsum dolor sit amet consectetur adipiscing elit." }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Small text for captions, metadata, and secondary information." }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("code", { className: "text-sm bg-muted px-2 py-1 rounded font-mono", children: "Code snippet example" })
-          ] }) })
-        ] })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { size: "lg", className: "group px-8 py-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/portfolio", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Award, { className: "mr-3 h-5 w-5 group-hover:scale-110 transition-transform" }),
+          "Explore All Success Stories",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" })
+        ] }) }) })
       ] })
-    ] })
-  ] });
-};
-const ThemesPage = () => {
-  var _a;
-  const { theme, mode, setTheme, availableThemes, toggleMode } = N$5();
-  const themeDetails = {
-    base: {
-      description: "Clean default configuration showcasing the base system with Inter typography",
-      features: ["Inter font family", "Neutral color palette", "Clean and minimal design", "Perfect for business apps"],
-      color: "from-gray-400 to-gray-600"
-    },
-    elegant: {
-      description: "Fresh sky blue theme with clean design and modern aesthetics",
-      features: ["Sky blue primary colors", "Elegant typography", "Fresh and modern", "Great for creative projects"],
-      color: "from-sky-400 to-blue-600"
-    },
-    metro: {
-      description: "Dark teal theme with bright yellow accents for bold interfaces",
-      features: ["Dark teal foundation", "Bright yellow accents", "High contrast design", "Perfect for tech platforms"],
-      color: "from-teal-500 to-yellow-500"
-    },
-    studio: {
-      description: "Sophisticated neutral theme with golden accents for premium feel",
-      features: ["Warm neutral tones", "Golden accent colors", "Professional appearance", "Ideal for portfolios"],
-      color: "from-amber-400 to-orange-600"
-    },
-    vivid: {
-      description: "Premium cursive theme with sophisticated typography for luxury brands",
-      features: ["Cursive typography", "Rich color palette", "Luxury brand feeling", "High-end aesthetics"],
-      color: "from-purple-500 to-pink-600"
-    }
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "voila-heading text-4xl", children: "Theme System" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "voila-subheading text-muted-foreground max-w-3xl mx-auto", children: "Interactive theme switching with OKLCH color science and comprehensive design tokens" })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold text-center", children: "Available Themes" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6", children: availableThemes.map((themeId) => {
-        const details = themeDetails[themeId];
-        const isActive = theme === themeId;
-        return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          n,
-          {
-            className: `border-2 transition-all duration-200 hover:shadow-lg ${isActive ? "ring-2 ring-primary border-primary/50 shadow-lg" : "hover:border-primary/30"}`,
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "text-lg capitalize flex items-center gap-2", children: [
-                    isActive && /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "h-4 w-4 text-primary" }),
-                    themeId
-                  ] }),
-                  isActive && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs bg-primary text-primary-foreground px-2 py-1 rounded-full", children: "Active" })
-                ] }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-sm", children: details == null ? void 0 : details.description })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative py-20", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-r from-primary/3 via-secondary/3 to-accent/3" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0 opacity-10", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-10 left-10 w-32 h-32 bg-primary rounded-full blur-3xl animate-pulse" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-10 right-10 w-40 h-40 bg-secondary rounded-full blur-3xl animate-pulse delay-1000" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-accent rounded-full blur-3xl animate-pulse delay-500" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 max-w-7xl mx-auto px-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-6 mb-16", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "h-4 w-4" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Client Success Stories" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-4xl md:text-5xl font-bold", children: [
+            "What Our ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent", children: "Clients" }),
+            " Say"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed", children: "Don't just take our word for it. Here's what industry leaders say about working with Voilacode Technologies." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 p-8", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-gradient-to-br from-primary to-primary/80 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl text-white font-serif", children: '"' }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-6", children: [
+                [...Array(5)].map((_2, i2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "h-5 w-5 fill-primary text-primary mr-1" }, i2)),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 text-sm text-muted-foreground", children: "(5.0)" })
               ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: ` rounded-lg bg-gradient-to-r ${details == null ? void 0 : details.color} opacity-80` }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "text-sm space-y-1 text-muted-foreground", children: details == null ? void 0 : details.features.map((feature, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
-                  "• ",
-                  feature
-                ] }, index)) }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(
-                  b$4,
-                  {
-                    onClick: () => setTheme(themeId),
-                    variant: isActive ? "default" : "outline",
-                    className: "w-full",
-                    disabled: isActive,
-                    children: isActive ? "Currently Active" : "Apply Theme"
-                  }
-                )
-              ] })
-            ]
-          },
-          themeId
-        );
-      }) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 border-primary/20", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Palette, { className: "h-5 w-5" }),
-          "Current Theme: ",
-          theme.charAt(0).toUpperCase() + theme.slice(1)
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: (_a = themeDetails[theme]) == null ? void 0 : _a.description })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-4 mb-6", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-primary text-primary-foreground p-4 rounded-lg text-center shadow-lg", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-lg font-bold", children: "Primary" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm opacity-90 mt-1", children: "Brand color" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-secondary text-secondary-foreground p-4 rounded-lg text-center shadow-lg", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-lg font-bold", children: "Secondary" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm opacity-90 mt-1", children: "Supporting" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-accent text-accent-foreground p-4 rounded-lg text-center shadow-lg", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-lg font-bold", children: "Accent" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm opacity-90 mt-1", children: "Highlights" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted text-muted-foreground p-4 rounded-lg text-center shadow-lg border", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-lg font-bold", children: "Muted" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm opacity-90 mt-1", children: "Subtle" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between p-4 bg-muted/30 rounded-lg", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-            mode === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Moon, { className: "h-5 w-5" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Sun, { className: "h-5 w-5" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-medium", children: mode === "dark" ? "Dark Mode" : "Light Mode" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { onClick: toggleMode, variant: "outline", size: "sm", children: [
-            mode === "dark" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Sun, { className: "h-4 w-4 mr-2" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Moon, { className: "h-4 w-4 mr-2" }),
-            "Switch to ",
-            mode === "dark" ? "Light" : "Dark"
-          ] })
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-gradient-to-br from-red-400 via-yellow-400 to-blue-400 rounded-full" }),
-          "OKLCH Color Science"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "UIKit uses the OKLCH color space for perceptually uniform colors and better accessibility" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4 text-sm", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-muted/50 rounded-lg", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold mb-2", children: "Perceptual Uniformity" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground", children: "Colors with the same lightness appear equally bright to the human eye" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-muted/50 rounded-lg", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold mb-2", children: "Better Accessibility" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground", children: "Improved contrast ratios and color differentiation for accessibility" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-muted/50 rounded-lg", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold mb-2", children: "Future-Proof" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground", children: "Native browser support in modern browsers with graceful fallbacks" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold", children: "Chart Color Palette" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-5 gap-3", children: [1, 2, 3, 4, 5].map((i2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-full h-16 rounded-lg mb-2 bg-chart${i2} shadow-sm` }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-xs text-muted-foreground font-medium", children: [
-              "chart",
-              i2
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("blockquote", { className: "text-lg leading-relaxed mb-6 text-foreground", children: [
+                '"Voilacode Technologies delivered a seamless, feature-rich mobile app that ',
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-primary", children: "transformed the way we serve our clients" }),
+                '. Their professionalism and technical skill were outstanding."'
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl font-bold text-white", children: "JS" }) }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -bottom-1 -right-1 w-6 h-6 bg-primary rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "h-3 w-3 text-white fill-white" }) })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold text-foreground", children: "Jane Smith" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground text-sm", children: "Chief Technology Officer" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-primary text-xs font-medium", children: "TechCorp Solutions" })
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 pt-4 border-t border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-primary/10 rounded-full text-xs font-medium text-primary", children: "Mobile App" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-secondary/10 rounded-full text-xs font-medium text-secondary", children: "6 Months" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-accent/10 rounded-full text-xs font-medium text-accent", children: "Enterprise" })
+              ] }) })
             ] })
-          ] }, i2)) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "group relative overflow-hidden bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "relative z-10 p-8", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl text-white font-serif", children: '"' }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-6", children: [
+                [...Array(5)].map((_2, i2) => /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "h-5 w-5 fill-secondary text-secondary mr-1" }, i2)),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "ml-2 text-sm text-muted-foreground", children: "(5.0)" })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("blockquote", { className: "text-lg leading-relaxed mb-6 text-foreground", children: [
+                '"Their AI automation solution ',
+                /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-secondary", children: "drastically reduced our manual workload" }),
+                ' and revealed insights that helped us improve customer retention. Highly recommended!"'
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full h-full bg-gradient-to-br from-secondary/30 to-accent/30 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl font-bold text-white", children: "RL" }) }) }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute -bottom-1 -right-1 w-6 h-6 bg-secondary rounded-full border-2 border-white dark:border-gray-800 flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Star, { className: "h-3 w-3 text-white fill-white" }) })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold text-foreground", children: "Robert Lee" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-muted-foreground text-sm", children: "Chief Executive Officer" }),
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-secondary text-xs font-medium", children: "DataFlow Analytics" })
+                ] })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-6 pt-4 border-t border-border", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-2", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-secondary/10 rounded-full text-xs font-medium text-secondary", children: "AI/ML" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-accent/10 rounded-full text-xs font-medium text-accent", children: "4 Months" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-3 py-1 bg-chart1/10 rounded-full text-xs font-medium text-chart1", children: "Analytics" })
+              ] }) })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-8", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-lg font-semibold text-muted-foreground", children: "Trusted by Industry Leaders" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-8 md:gap-12 opacity-60", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-12 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-lg font-bold text-primary", children: "TechCorp" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-12 bg-gradient-to-r from-secondary/20 to-accent/20 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-lg font-bold text-secondary", children: "DataFlow" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-12 bg-gradient-to-r from-accent/20 to-chart1/20 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-lg font-bold text-accent", children: "InnovateCo" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-24 h-12 bg-gradient-to-r from-chart1/20 to-primary/20 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-lg font-bold text-chart1", children: "NextGen" }) })
+          ] })
         ] })
       ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "relative py-20 bg-gradient-to-r from-muted/20 via-transparent to-muted/20", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto px-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-6 mb-16", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 px-4 py-2 bg-chart1/10 border border-chart1/20 rounded-full text-sm font-medium text-chart1", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Code, { className: "h-4 w-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Tech Stack" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-4xl md:text-5xl font-bold", children: [
+          "Technologies We ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-chart1 to-chart2 bg-clip-text text-transparent", children: "Master" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed", children: "We leverage cutting-edge technologies and frameworks to build robust, scalable solutions that drive business success." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-6xl mx-auto", children: [
+        { name: "React", icon: "R", color: "from-blue-500 to-cyan-500" },
+        { name: "Node.js", icon: "N", color: "from-green-500 to-emerald-500" },
+        { name: "Python", icon: "P", color: "from-yellow-500 to-orange-500" },
+        { name: "AWS", icon: "A", color: "from-orange-500 to-red-500" },
+        { name: "MongoDB", icon: "M", color: "from-green-600 to-green-700" },
+        { name: "PostgreSQL", icon: "P", color: "from-blue-600 to-indigo-600" },
+        { name: "Docker", icon: "D", color: "from-blue-400 to-blue-600" },
+        { name: "Kubernetes", icon: "K", color: "from-purple-500 to-pink-500" },
+        { name: "TypeScript", icon: "T", color: "from-blue-500 to-blue-700" },
+        { name: "Next.js", icon: "N", color: "from-gray-800 to-black" }
+      ].map((tech, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "group flex flex-col items-center space-y-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-20 h-20 bg-gradient-to-br ${tech.color} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl`, children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-2xl font-bold text-white", children: tech.icon }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold text-foreground group-hover:text-primary transition-colors", children: tech.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-1 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-full mx-auto mt-2 group-hover:from-primary group-hover:to-secondary transition-all duration-300" })
+        ] })
+      ] }, index)) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap justify-center gap-3 mt-16", children: [
+        "Machine Learning",
+        "AI/ML",
+        "Cloud Computing",
+        "DevOps",
+        "Microservices",
+        "API Development",
+        "Mobile Development",
+        "UI/UX Design"
+      ].map((tag, index) => /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-4 py-2 bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-full border border-primary/20 text-sm font-medium text-muted-foreground hover:text-primary hover:border-primary/40 transition-all duration-300", children: tag }, index)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "relative py-24 overflow-hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "absolute inset-0", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-5" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(120,119,198,0.15),transparent_50%),radial-gradient(circle_at_80%_70%,rgba(255,119,198,0.15),transparent_50%),radial-gradient(circle_at_40%_90%,rgba(119,255,198,0.15),transparent_50%)]" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-pulse" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-20 right-20 w-32 h-32 bg-secondary/10 rounded-full blur-xl animate-pulse delay-700" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-1/2 left-1/4 w-16 h-16 bg-accent/10 rounded-full blur-xl animate-pulse delay-1000" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative z-10 max-w-6xl mx-auto px-6 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-10", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full text-sm font-medium", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Rocket, { className: "h-4 w-4" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent font-semibold", children: "Ready to Transform Your Business?" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { className: "text-5xl md:text-6xl font-bold leading-tight", children: [
+            "Start Your",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent", children: "Digital Transformation" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+            "Journey Today"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed", children: [
+            "Our team is excited to hear about your project and provide a ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "font-semibold text-primary", children: "free consultation" }),
+            " tailored to your unique needs. Let us help you innovate and grow in the digital age."
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col lg:flex-row gap-6 justify-center items-center pt-8", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { size: "lg", className: "group px-12 py-6 text-xl font-bold shadow-2xl shadow-primary/30 hover:shadow-3xl hover:shadow-primary/40 transition-all duration-500 hover:scale-105", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Sparkles, { className: "mr-4 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" }),
+            "Get Free Consultation",
+            /* @__PURE__ */ jsxRuntimeExports.jsx(ChevronRight, { className: "ml-4 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" })
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "outline", size: "lg", className: "px-12 py-6 text-xl font-bold border-2 bg-white/5 backdrop-blur-sm hover:bg-primary hover:text-white hover:border-primary transition-all duration-500 hover:scale-105", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/portfolio", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(Award, { className: "mr-4 h-6 w-6" }),
+            "View Success Stories"
+          ] }) })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-5 w-5 text-primary" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-left", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold text-sm", children: "Quick Response" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-muted-foreground", children: "24-hour reply guarantee" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Target, { className: "h-5 w-5 text-secondary" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-left", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold text-sm", children: "Custom Solutions" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-muted-foreground", children: "Tailored to your needs" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-3 p-4 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 hover:bg-white/10 transition-all duration-300", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-accent/20 rounded-full flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Lightbulb, { className: "h-5 w-5 text-accent" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-left", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-semibold text-sm", children: "Innovation Focus" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-muted-foreground", children: "Latest technologies" })
+            ] })
+          ] })
+        ] })
+      ] }) })
     ] })
   ] });
 };
 const AboutPage = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-extrabold tracking-tight", children: "About Voilacode Technologies" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-3xl mx-auto text-lg", children: "Discover our expertise in custom software development including websites, mobile apps, desktop software, AI implementations, and cutting-edge technologies." })
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-20 py-12 px-6 md:px-12 lg:px-24 max-w-7xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "text-center space-y-10 py-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-5xl font-extrabold tracking-tight leading-tight", children: "Our Story: Innovation Meets Expertise" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed", children: "Founded with a passion for technology and a commitment to excellence, Voilacode Technologies has grown into a trusted partner for businesses seeking custom software solutions that truly make a difference. Our journey began with a simple mission: to empower organizations through innovative digital products tailored exactly to their unique challenges and aspirations." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-4xl mx-auto leading-relaxed", children: "Over the years, we have combined industry-leading technical expertise with client-focused collaboration to deliver projects ranging from responsive websites to complex AI-powered automation systems. Our dedication to quality, transparency, and innovation has earned us lasting partnerships and a reputation for driving measurable business impact." })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Target, { className: "h-6 w-6 text-primary" }),
+          "Our Mission"
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-md text-muted-foreground leading-relaxed", children: "To deliver tailored, cutting-edge software solutions that enable businesses to thrive in the digital era, fostering innovation, efficiency, and growth." }) })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Eye, { className: "h-6 w-6 text-primary" }),
+          "Our Vision"
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-md text-muted-foreground leading-relaxed", children: "To be the premier technology partner recognized globally for transforming ideas into high-performance, scalable digital experiences leveraging the latest advancements in AI, software development, and design." }) })
+      ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "h-5 w-5" }),
-          "Company Overview"
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CodeXml, { className: "h-6 w-6 text-primary" }),
+          "What We Do"
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Voilacode Technologies is dedicated to building innovative and custom software solutions tailored to client needs." })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-md text-muted-foreground", children: "At Voilacode Technologies, we specialize in custom software development services that span:" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm md:text-base leading-relaxed", children: "Our team of experts excels in delivering full-cycle development services across multiple platforms including web, mobile, and desktop. We integrate AI and the latest technologies to keep our solutions future-proof and user-friendly." }) })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "space-y-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(PanelsTopLeft, { className: "h-6 w-6 text-primary" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-2", children: "Website Development" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Crafting responsive, SEO-friendly, and feature-rich websites optimized for performance and engagement." })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Smartphone, { className: "h-6 w-6 text-secondary" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-2", children: "Mobile Application Development" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Building intuitive native and cross-platform apps to reach your audience anytime, anywhere." })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Layers, { className: "h-6 w-6 text-accent" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-2", children: "Desktop Software Solutions" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Designing robust and scalable applications for Windows, macOS, and Linux environments." })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-chart1/10 rounded-lg flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-6 w-6 text-chart1" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-2", children: "AI & Machine Learning" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Creating intelligent automation, predictive analytics, natural language processing, and more." })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-chart2/10 rounded-lg flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Palette, { className: "h-6 w-6 text-chart2" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-2", children: "UI/UX Design" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Delivering user-centered designs that drive adoption, satisfaction, and brand loyalty." })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-chart3/10 rounded-lg flex items-center justify-center flex-shrink-0", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "h-6 w-6 text-chart3" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-2", children: "Consulting & Support" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Offering expert guidance, system audits, maintenance, and continuous improvement." })
+          ] })
+        ] })
+      ] }) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(CodeXml, { className: "h-5 w-5" }),
-          "Our Core Services"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Comprehensive expertise spanning multiple domains and technologies" })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Heart, { className: "h-6 w-6 text-primary" }),
+        "Our Core Values"
+      ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: [
-        { icon: PanelsTopLeft, title: "Website Development", description: "Custom, scalable websites tailored to your business needs." },
-        { icon: Smartphone, title: "Mobile Applications", description: "Cross-platform mobile solutions with excellent UX." },
-        { icon: Layers, title: "Desktop Software", description: "Robust desktop applications for major OS platforms." },
-        { icon: Zap, title: "AI & Automation", description: "Smart AI integrations for automation and analytics." },
-        { icon: Palette, title: "UI/UX Design", description: "Modern design principles to create engaging user interfaces." },
-        { icon: Shield, title: "Security & Compliance", description: "Industry-standard security practices embedded in our solutions." }
-      ].map(({ icon: Icon2, title, description }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2 p-4 border border-border rounded-lg hover:shadow-lg transition-shadow", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "h-6 w-6 text-primary" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-lg", children: title }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: description })
-      ] }, title)) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Palette, { className: "h-5 w-5" }),
-          "Design Principles"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "The pillars that guide our development and design philosophy" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
         {
-          icon: Shield,
-          title: "Accessibility",
-          description: "We build inclusive software ensuring accessibility for all users.",
+          icon: Users,
+          title: "Customer Focus",
+          description: "Your goals and success drive every decision we make.",
           iconBg: "bg-primary/10"
         },
         {
-          icon: Zap,
-          title: "Performance",
-          description: "Optimized for speed and efficiency with modern best practices.",
+          icon: Lightbulb,
+          title: "Innovation",
+          description: "We embrace new technologies and creative approaches to solve complex problems.",
           iconBg: "bg-secondary/10"
         },
         {
-          icon: Smartphone,
-          title: "Responsiveness",
-          description: "Designs that adapt seamlessly across devices and screen sizes.",
+          icon: CircleCheckBig,
+          title: "Quality",
+          description: "We commit to delivering reliable, secure, and performant software.",
           iconBg: "bg-accent/10"
+        },
+        {
+          icon: Shield,
+          title: "Integrity",
+          description: "Transparent communication and ethical practices are fundamental to our partnerships.",
+          iconBg: "bg-chart1/10"
+        },
+        {
+          icon: Users,
+          title: "Collaboration",
+          description: "We believe in working closely with clients, fostering trust, and aligned vision.",
+          iconBg: "bg-chart2/10"
         }
-      ].map(({ icon: Icon2, title, description, iconBg }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `${iconBg} w-10 h-10 rounded-lg flex items-center justify-center`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "h-5 w-5 text-primary" }) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-lg", children: title }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: description })
+      ].map(({ icon: Icon2, title, description, iconBg }) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `${iconBg} w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "h-6 w-6 text-primary" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-lg mb-2", children: title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: description })
+        ] })
       ] }, title)) })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Get In Touch" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Contact us to discuss your custom software development needs" })
-      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "h-6 w-6 text-primary" }),
+        "Meet Our Team"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed", children: "Our strength lies in our diverse and talented team of software engineers, data scientists, designers, and strategists. Together, we combine technical know-how with creative thinking to create technology solutions that transform businesses and delight users." }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-6 w-6 text-primary" }),
+        "Why Choose Voilacode Technologies?"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-5 w-5 text-primary mt-1 flex-shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Proven expertise working across industries like healthcare, finance, education, retail, and more" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-5 w-5 text-primary mt-1 flex-shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Agile methodologies ensuring fast delivery, flexibility, and continuous feedback" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-5 w-5 text-primary mt-1 flex-shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Deep commitment to security best practices and compliance standards" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-5 w-5 text-primary mt-1 flex-shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Extensive portfolio of successful projects and satisfied clients" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-5 w-5 text-primary mt-1 flex-shrink-0" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Passionate about pushing the boundaries of technology for business advantage" })
+        ] })
+      ] }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "h-6 w-6 text-primary" }),
+        "Join Our Journey"
+      ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Whether you need a cutting-edge AI project, a responsive website, an efficient mobile app, or a secure desktop solution, the Voilacode team is ready to help." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mt-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "a",
-          {
-            href: "/contact",
-            className: "inline-block px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold hover:bg-primary/90 transition",
-            children: "Contact Us"
-          }
-        ) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed mb-6", children: "Voilacode Technologies is continuously growing and looking for dynamic professionals who share our vision for innovation and excellence. Explore career opportunities and become part of a forward-thinking team dedicated to shaping the future of technology." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/careers", children: "Explore Careers" }) })
       ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "bg-gradient-to-r from-primary/5 to-secondary/5", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-3 text-xl font-semibold", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "h-6 w-6 text-primary" }),
+          "Ready to Innovate with Voilacode?"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-md text-muted-foreground", children: "Connect with our experts today to explore how we can collaborate to bring your software vision to life." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { size: "lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/contact", children: "Contact Us Today" }) }) })
     ] })
+  ] });
+};
+const ServicesPage = () => {
+  const services = [
+    {
+      icon: Globe,
+      title: "Custom Website Development",
+      description: "Build engaging, responsive, and SEO-optimized websites that represent your brand and captivate your audience.",
+      features: [
+        "Responsive and mobile-friendly designs",
+        "SEO best practices implementation",
+        "Integration with third-party APIs and payment systems",
+        "CMS solutions for easy content management"
+      ],
+      iconBg: "bg-primary/10",
+      iconColor: "text-primary"
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile Application Development",
+      description: "Create powerful and user-friendly mobile applications for iOS and Android platforms.",
+      features: [
+        "Native and cross-platform development",
+        "Real-time notifications and offline capabilities",
+        "Integration with backend APIs and cloud services",
+        "User-centric UI/UX design"
+      ],
+      iconBg: "bg-secondary/10",
+      iconColor: "text-secondary"
+    },
+    {
+      icon: Code,
+      title: "Desktop Software Solutions",
+      description: "Develop robust and efficient desktop applications tailored to your unique business processes.",
+      features: [
+        "Cross-platform compatibility",
+        "Optimized for speed and reliability",
+        "Integration with local hardware and peripheral devices",
+        "Security-focused architecture"
+      ],
+      iconBg: "bg-accent/10",
+      iconColor: "text-accent"
+    },
+    {
+      icon: Cpu,
+      title: "Artificial Intelligence (AI) & Machine Learning (ML)",
+      description: "Harness the power of AI and ML to automate workflows, derive actionable insights, and deliver smarter customer experiences.",
+      features: [
+        "Custom AI model development",
+        "Natural Language Processing (NLP) applications",
+        "Intelligent automation and decision support",
+        "Scalable data processing pipelines"
+      ],
+      iconBg: "bg-chart1/10",
+      iconColor: "text-chart1"
+    },
+    {
+      icon: Palette,
+      title: "UI/UX Design & Consultation",
+      description: "Design visually compelling and user-focused digital experiences.",
+      features: [
+        "User journey mapping and persona development",
+        "Intuitive and accessible interfaces",
+        "Mobile-first and responsive design",
+        "Branding and graphic design services"
+      ],
+      iconBg: "bg-chart2/10",
+      iconColor: "text-chart2"
+    },
+    {
+      icon: Shield,
+      title: "Security & Compliance",
+      description: "Protect your digital assets and ensure compliance with industry standards such as GDPR, HIPAA, and PCI DSS.",
+      features: [
+        "Vulnerability assessments and penetration testing",
+        "Secure coding and encryption techniques",
+        "Continuous monitoring and incident response planning",
+        "Compliance certifications and audits"
+      ],
+      iconBg: "bg-chart3/10",
+      iconColor: "text-chart3"
+    }
+  ];
+  const whyChooseUs = [
+    "Expert development teams with cross-industry experience",
+    "Agile project management for transparent and flexible delivery",
+    "Focus on scalability, maintainability, and future-proof architecture",
+    "Dedicated post-launch support and iterative improvements",
+    "Strong emphasis on user experience and security"
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-20 py-12 px-6 md:px-12 max-w-7xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "text-center py-20 bg-gradient-to-b from-background to-muted/20 rounded-lg px-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl md:text-6xl font-bold mb-6 text-accent", children: "Comprehensive Software Development Services" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed", children: "At Voilacode Technologies, we offer a full spectrum of software development services designed to empower businesses and accelerate their digital transformation journey." })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Our Core Services" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-3xl mx-auto", children: "Leveraging the latest technologies and industry best practices, our expert team delivers scalable, secure, and innovative solutions that align perfectly with your business objectives." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-8", children: services.map((service, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-16 h-16 ${service.iconBg} rounded-lg flex items-center justify-center mb-4`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(service.icon, { className: `h-8 w-8 ${service.iconColor}` }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl", children: service.title }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base", children: service.description })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-3", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm text-muted-foreground uppercase tracking-wide", children: "Key Features:" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: service.features.map((feature, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2 text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-4 w-4 text-primary mt-0.5 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: feature })
+          ] }, idx)) })
+        ] }) })
+      ] }, index)) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted/30 rounded-lg p-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Why Choose Our Services?" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4", children: whyChooseUs.map((reason, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3 bg-background/80 border rounded-lg p-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-5 w-5 text-primary mt-0.5 flex-shrink-0" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: reason })
+      ] }, index)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-12 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold", children: "Get Started Today" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto", children: "Explore how Voilacode Technologies can transform your business with custom software solutions designed for innovation and success." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "mr-2 h-5 w-5" }),
+          "Contact Us for Free Consultation"
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/portfolio", children: [
+          "View Our Portfolio",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-5 w-5" })
+        ] }) })
+      ] })
+    ] }) })
+  ] });
+};
+const PortfolioPage = () => {
+  const featuredProjects = [
+    {
+      title: "FresherBot.com – Advanced Hiring Assessment Tool",
+      description: "We built FresherBot, an industry-leading hiring assessment platform designed specifically for colleges and companies to streamline recruitment processes.",
+      details: "Developed with Node.js and React, FresherBot offers customizable tests, real-time analytics, and an intuitive interface that empowers recruiters and students alike to connect through skill-based evaluations. This tool enhances the hiring efficiency and transforms campus placement drives into smooth, data-driven experiences.",
+      technologies: ["Node.js", "React", "MongoDB", "Analytics"],
+      icon: Users,
+      iconColor: "text-primary",
+      iconBg: "bg-primary/10"
+    },
+    {
+      title: "FirstAcademy.in – Abroad Study Preparation Assessment Platform",
+      description: "FirstAcademy.in is a comprehensive test prep platform we developed to help students prepare effectively for studying abroad.",
+      details: "The platform features adaptive assessments, detailed performance insights, and personalized learning paths. Our development focused on delivering a high-performance, user-friendly experience to motivate learners and maximize success rates.",
+      technologies: ["React", "Python", "AI/ML", "Analytics"],
+      icon: Target,
+      iconColor: "text-secondary",
+      iconBg: "bg-secondary/10"
+    },
+    {
+      title: "TuitionPoint.qa – Modern Tuition Center Website",
+      description: "For TuitionPoint.qa, we created a responsive, clean, and highly accessible tuition center website using Tailwind CSS.",
+      details: "The site showcases course offerings, faculty expertise, and student testimonials while ensuring optimal performance and SEO best practices. This digital presence helps Tuition Point attract and engage students across Qatar effectively.",
+      technologies: ["React", "Tailwind CSS", "SEO", "Responsive Design"],
+      icon: Globe,
+      iconColor: "text-accent",
+      iconBg: "bg-accent/10"
+    },
+    {
+      title: "HealthRevivalHub.com – WordPress Website Optimization",
+      description: "We optimized HealthRevivalHub.com by improving site speed, security, and user experience on their existing WordPress platform.",
+      details: "Our work involved performance tuning, plugin management, SEO enhancements, and responsive design fixes that resulted in faster load times, higher search rankings, and improved visitor retention.",
+      technologies: ["WordPress", "SEO", "Performance Optimization", "Security"],
+      icon: TrendingUp,
+      iconColor: "text-chart1",
+      iconBg: "bg-chart1/10"
+    }
+  ];
+  const whyClientsChooseUs = [
+    {
+      icon: Target,
+      title: "Custom Solutions",
+      description: "Every project is crafted to meet client-specific needs with precision."
+    },
+    {
+      icon: Code,
+      title: "Tech Expertise",
+      description: "Skilled in modern frontend and backend frameworks, CMSs, and cloud technologies."
+    },
+    {
+      icon: Users,
+      title: "User-Centered Design",
+      description: "Focused on delivering engaging and intuitive user experiences."
+    },
+    {
+      icon: Shield,
+      title: "Collaborative Approach",
+      description: "Transparent communication and agile development ensure smooth project delivery."
+    }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-20 py-12 px-6 md:px-12 max-w-7xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "text-center py-16 bg-gradient-to-b from-background to-muted/20 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl md:text-6xl font-bold mb-6 text-accent", children: "Our Portfolio: Driving Success with Innovation" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed", children: "At Voilacode Technologies, we create tailor-made digital products that solve real problems and deliver measurable value. Our portfolio showcases a variety of successful collaborations across industries and technologies." })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Featured Projects" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-3xl mx-auto", children: "Explore our successful collaborations that reflect our versatility and commitment to excellence" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8", children: featuredProjects.map((project, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-16 h-16 ${project.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(project.icon, { className: `h-8 w-8 ${project.iconColor}` }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl mb-2", children: project.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base mb-4", children: project.description }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap gap-2", children: project.technologies.map((tech, idx) => /* @__PURE__ */ jsxRuntimeExports.jsx(b$2, { variant: "secondary", className: "text-xs", children: tech }, idx)) })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed", children: project.details }) })
+      ] }, index)) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted/30 rounded-lg p-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Why Our Clients Choose Us" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6", children: whyClientsChooseUs.map((reason, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(reason.icon, { className: "h-8 w-8 text-primary" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-2", children: reason.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: reason.description })
+      ] }, index)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Proven Results & Business Impact" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-8 bg-gradient-to-b from-primary/5 to-primary/10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-4xl font-bold text-primary mb-2", children: "30%" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "Average Sales Increase" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-muted-foreground mt-1", children: "Through AI-powered insights" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-8 bg-gradient-to-b from-secondary/5 to-secondary/10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-4xl font-bold text-secondary mb-2", children: "100%" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "HIPAA Compliance" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-muted-foreground mt-1", children: "In healthcare applications" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-8 bg-gradient-to-b from-accent/5 to-accent/10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-4xl font-bold text-accent mb-2", children: "50+" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "Successful Projects" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-xs text-muted-foreground mt-1", children: "Across multiple industries" })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-12 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold", children: "View More Success Stories" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto", children: "Ready to become our next success story? Let's discuss how we can bring innovation and reliability to your project." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "mr-2 h-5 w-5" }),
+          "Start Your Project"
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/services", children: [
+          "View Our Services",
+          /* @__PURE__ */ jsxRuntimeExports.jsx(ExternalLink, { className: "ml-2 h-5 w-5" })
+        ] }) })
+      ] })
+    ] }) })
+  ] });
+};
+const SolutionsPage = () => {
+  const industrySolutions = [
+    {
+      icon: GraduationCap,
+      title: "Education Technology Solutions (EdTech)",
+      description: "Stay ahead in the evolving educational landscape with digital solutions designed to enhance learning, administration, and student outcomes.",
+      solutions: [
+        "Online examination and assessment platforms with real-time analytics",
+        "Personalized e-learning apps tailoring content to student needs",
+        "LMS (Learning Management System) integration and custom portals",
+        "Virtual classrooms and remote learning tools powered by secure cloud infrastructure"
+      ],
+      benefits: "Help educational institutions improve engagement, automate grading workflows, and offer scalable digital learning experiences.",
+      iconBg: "bg-primary/10",
+      iconColor: "text-primary"
+    },
+    {
+      icon: Heart,
+      title: "Healthcare & Wellness Technology",
+      description: "Modernize healthcare delivery with secure, compliant, and efficient digital tools tailored for providers and patients.",
+      solutions: [
+        "Telemedicine platforms for remote consultations with HIPAA-compliant features",
+        "Patient management systems offering centralized record keeping and scheduling",
+        "AI-powered diagnostic tools and predictive analytics for early disease detection",
+        "Robust cybersecurity measures ensuring patient data privacy and regulatory compliance"
+      ],
+      benefits: "Healthcare organizations can increase patient reach, reduce costs, and enhance care quality.",
+      iconBg: "bg-secondary/10",
+      iconColor: "text-secondary"
+    },
+    {
+      icon: ShoppingCart,
+      title: "Retail & E-Commerce Solutions",
+      description: "Drive sales growth and enhance customer loyalty with e-commerce platforms and retail technology solutions built for scalability.",
+      solutions: [
+        "Custom e-commerce websites with advanced catalog, search, and payment integration",
+        "Inventory and supply chain management automation",
+        "Customer insights and behavioral analytics powered by AI",
+        "Omnichannel retail solutions linking online and offline customer journeys"
+      ],
+      benefits: "Retailers benefit from improved operational efficiency, higher conversion rates, and personalized marketing capabilities.",
+      iconBg: "bg-accent/10",
+      iconColor: "text-accent"
+    },
+    {
+      icon: DollarSign,
+      title: "Finance & Insurance (FinTech / InsurTech) Technology",
+      description: "Accelerate digital transformation in finance and insurance sectors by implementing innovative technology solutions focused on security and compliance.",
+      solutions: [
+        "Automated claims processing and underwriting systems",
+        "Fraud detection systems utilizing machine learning",
+        "Customer portals providing transparency and self-service options",
+        "Seamless integration with banking APIs and regulatory reporting tools"
+      ],
+      benefits: "These solutions ensure faster services, reduced operational risk, and enhanced customer satisfaction.",
+      iconBg: "bg-chart1/10",
+      iconColor: "text-chart1"
+    },
+    {
+      icon: Factory,
+      title: "Manufacturing & Supply Chain Technology",
+      description: "Optimize your production environment and supply chain with IoT, data analytics, and automation technologies.",
+      solutions: [
+        "Real-time equipment and inventory monitoring through IoT sensors",
+        "Predictive maintenance solutions reducing downtime and saving costs",
+        "Warehouse and logistics management software",
+        "Robotics process automation (RPA) for streamlined workflows"
+      ],
+      benefits: "Manufacturers can increase throughput, improve quality, and respond agilely to market demand.",
+      iconBg: "bg-chart2/10",
+      iconColor: "text-chart2"
+    }
+  ];
+  const whyPartnerWithUs = [
+    {
+      icon: Target,
+      title: "Custom-Built for Your Unique Needs",
+      description: "We take the time to analyze your challenges and craft solutions that fit perfectly within your business model."
+    },
+    {
+      icon: Lightbulb,
+      title: "Innovative Technology Stack",
+      description: "We leverage modern technologies such as Node.js, React, Python, AI/ML frameworks, cloud infrastructure, and more."
+    },
+    {
+      icon: CircleCheckBig,
+      title: "End-to-End Delivery",
+      description: "From initial strategy and design to development, deployment, and support, we provide full lifecycle services."
+    },
+    {
+      icon: Shield,
+      title: "Focus on Security & Compliance",
+      description: "We embed stringent security protocols and compliance best practices in all solutions."
+    },
+    {
+      icon: Zap,
+      title: "Agile & Transparent Process",
+      description: "Our clients enjoy continuous involvement, rapid iterations, and clear communication."
+    }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-20 py-12 px-6 md:px-12 max-w-7xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "text-center py-16 bg-gradient-to-b from-background to-muted/20 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl md:text-6xl font-bold mb-6 text-accent", children: "Transform Your Business with Tailored Technology Solutions" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed", children: "At Voilacode Technologies, we understand that every industry has distinct challenges and goals requiring specialized technology approaches. Our customized solutions leverage the latest innovations in software development, AI, cloud computing, and IoT." })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Industry-Specific Technology Solutions We Offer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-3xl mx-auto", children: "Empowering your business for long-term success and digital transformation across various industries" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8", children: industrySolutions.map((solution, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-16 h-16 ${solution.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(solution.icon, { className: `h-8 w-8 ${solution.iconColor}` }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl mb-2", children: solution.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base", children: solution.description })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold mb-3 text-foreground", children: "Our Solutions Include:" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: solution.solutions.map((item, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2 text-sm", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(CircleCheckBig, { className: "h-4 w-4 text-primary mt-0.5 flex-shrink-0" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-muted-foreground", children: item })
+            ] }, idx)) })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "bg-muted/50 rounded-lg p-4", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground italic", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Impact:" }),
+            " ",
+            solution.benefits
+          ] }) })
+        ] })
+      ] }, index)) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted/30 rounded-lg p-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Why Partner with Voilacode Technologies for Your Solutions?" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6", children: whyPartnerWithUs.map((reason, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(reason.icon, { className: "h-6 w-6 text-primary" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-2", children: reason.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: reason.description })
+      ] }, index)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Proven Results Across Industries" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-4 gap-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-8 bg-gradient-to-b from-primary/5 to-primary/10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-primary mb-2", children: "25+" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "Industries Served" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-8 bg-gradient-to-b from-secondary/5 to-secondary/10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-secondary mb-2", children: "40%" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "Avg. Efficiency Improvement" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-8 bg-gradient-to-b from-accent/5 to-accent/10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-accent mb-2", children: "99.9%" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "Solution Uptime" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-8 bg-gradient-to-b from-chart1/5 to-chart1/10", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-chart1 mb-2", children: "100%" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "Compliance Rate" })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-12 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold", children: "Get Started on Tailored Solutions That Drive Results" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto", children: "Ready to harness technology tailored to your industry's exact requirements? Contact Voilacode Technologies today for a personalized consultation and begin your path toward enhanced productivity, innovation, and competitive advantage." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "mr-2 h-5 w-5" }),
+          "Get Personalized Consultation"
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/portfolio", children: "View Success Stories" }) })
+      ] })
+    ] }) })
+  ] });
+};
+const TechnologiesPage = () => {
+  const technologyCategories = [
+    {
+      icon: Globe,
+      title: "Frontend Frameworks & Libraries",
+      description: "Building dynamic, responsive, and scalable user interfaces with modern frameworks",
+      technologies: [
+        { name: "React.js", description: "Building dynamic, responsive, and scalable user interfaces with declarative components" },
+        { name: "Next.js", description: "Server-side rendering and static site generation for fast, SEO-friendly React apps" },
+        { name: "Vue.js", description: "Progressive framework for flexible and approachable frontend development" },
+        { name: "Tailwind CSS", description: "Utility-first CSS framework enabling fast and consistent UI styling" }
+      ],
+      iconBg: "bg-primary/10",
+      iconColor: "text-primary"
+    },
+    {
+      icon: Server,
+      title: "Backend Technologies",
+      description: "High-performance, scalable server-side solutions and APIs",
+      technologies: [
+        { name: "Node.js", description: "High-performance, event-driven backend services and APIs for real-time and scalable applications" },
+        { name: "Express.js", description: "Minimal and flexible Node.js web framework for building RESTful APIs" },
+        { name: "Python & Django", description: "Rapid development of secure, scalable web applications using Python frameworks" },
+        { name: "GraphQL", description: "Flexible query language for APIs with efficient data fetching" }
+      ],
+      iconBg: "bg-secondary/10",
+      iconColor: "text-secondary"
+    },
+    {
+      icon: Database,
+      title: "Databases & Storage",
+      description: "Robust data storage solutions for modern applications",
+      technologies: [
+        { name: "PostgreSQL", description: "Advanced open-source relational database with strong data integrity and scalability" },
+        { name: "MongoDB", description: "NoSQL database for flexible, schema-less data storage, ideal for modern applications" },
+        { name: "Redis", description: "In-memory data structure store used for caching and real-time analytics" },
+        { name: "Amazon S3 & Cloud Storage", description: "Durable object storage solutions for media assets and backups" }
+      ],
+      iconBg: "bg-accent/10",
+      iconColor: "text-accent"
+    },
+    {
+      icon: Cloud,
+      title: "Cloud Platforms & DevOps",
+      description: "Scalable cloud infrastructure and automated deployment solutions",
+      technologies: [
+        { name: "AWS & Azure", description: "Scalable cloud infrastructure with extensive services for compute, storage, and AI" },
+        { name: "Docker & Kubernetes", description: "Containerization and orchestration platforms for consistent deployments and scaling" },
+        { name: "CI/CD Pipelines", description: "Automated testing and deployment workflows to ensure code quality and fast release cycles" }
+      ],
+      iconBg: "bg-chart1/10",
+      iconColor: "text-chart1"
+    },
+    {
+      icon: Cpu,
+      title: "Artificial Intelligence & Machine Learning",
+      description: "Cutting-edge AI and ML frameworks for intelligent applications",
+      technologies: [
+        { name: "TensorFlow & PyTorch", description: "Leading machine learning frameworks for AI model building and deployment" },
+        { name: "Natural Language Processing (NLP)", description: "Tools and libraries enabling human language understanding in apps" },
+        { name: "OpenAI API", description: "Integrating advanced AI capabilities such as chatbots, text generation, and vision APIs" }
+      ],
+      iconBg: "bg-chart2/10",
+      iconColor: "text-chart2"
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile Development",
+      description: "Cross-platform and native mobile application development",
+      technologies: [
+        { name: "React Native", description: "Cross-platform mobile app development with near-native performance" },
+        { name: "Flutter", description: "Google's open-source UI toolkit for building beautiful, natively compiled applications" },
+        { name: "Swift & Kotlin", description: "Native iOS and Android development for maximum performance and platform integration" }
+      ],
+      iconBg: "bg-chart3/10",
+      iconColor: "text-chart3"
+    }
+  ];
+  const whyOurTechChoicesMatter = [
+    {
+      icon: TrendingUp,
+      title: "Performance & Scalability",
+      description: "Our modern tech stack ensures your apps remain fast and scalable as your user base grows."
+    },
+    {
+      icon: Shield,
+      title: "Security",
+      description: "We build secure architectures using best practices, protecting your business and customer data."
+    },
+    {
+      icon: CircleCheckBig,
+      title: "Maintainability",
+      description: "Clean, modular codebases simplify ongoing development and future enhancements."
+    },
+    {
+      icon: Zap,
+      title: "Future-Ready",
+      description: "By leveraging trending technologies, your solutions stay competitive and adaptable to change."
+    }
+  ];
+  const techStack = [
+    "React.js",
+    "Next.js",
+    "Vue.js",
+    "Node.js",
+    "Python",
+    "Django",
+    "PostgreSQL",
+    "MongoDB",
+    "AWS",
+    "Azure",
+    "Docker",
+    "Kubernetes",
+    "TensorFlow",
+    "PyTorch",
+    "React Native",
+    "Flutter"
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-20 py-12 px-6 md:px-12 max-w-7xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "text-center py-16 bg-gradient-to-b from-background to-muted/20 rounded-lg", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl md:text-6xl font-bold mb-6 text-accent", children: "Cutting-Edge Technologies Powering Your Solutions" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed", children: "At Voilacode Technologies, we harness the latest and most reliable technologies to build robust, scalable, and high-performance software tailored to your business needs." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-wrap justify-center gap-2 mt-8", children: techStack.map((tech, index) => /* @__PURE__ */ jsxRuntimeExports.jsx(b$2, { variant: "secondary", className: "px-3 py-1", children: tech }, index)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Our Expertise Across Modern Development Technologies" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-3xl mx-auto", children: "Our technology stack is carefully chosen to ensure speed, security, maintainability, and innovation" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-8", children: technologyCategories.map((category, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "border-2 hover:border-primary/50 transition-all duration-200 hover:shadow-lg", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-16 h-16 ${category.iconBg} rounded-lg flex items-center justify-center flex-shrink-0`, children: /* @__PURE__ */ jsxRuntimeExports.jsx(category.icon, { className: `h-8 w-8 ${category.iconColor}` }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-xl mb-2", children: category.title }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { className: "text-base", children: category.description })
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-4", children: category.technologies.map((tech, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/30 rounded-lg p-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-foreground mb-2", children: tech.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: tech.description })
+        ] }, idx)) }) })
+      ] }, index)) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-muted/30 rounded-lg p-8", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-4", children: "Why Our Technology Choices Matter" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6", children: whyOurTechChoicesMatter.map((reason, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "text-center p-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(reason.icon, { className: "h-8 w-8 text-primary" }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-2", children: reason.title }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: reason.description })
+      ] }, index)) })
+    ] }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "space-y-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold mb-8", children: "Our Technology Philosophy" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "p-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "h-6 w-6 text-primary" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-3", children: "Security First" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "We prioritize security at every layer, implementing industry best practices and staying updated with the latest security protocols and compliance requirements." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "p-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { className: "h-6 w-6 text-secondary" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-3", children: "Performance Optimized" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "Every technology choice is made with performance in mind, ensuring your applications load fast, respond quickly, and scale efficiently under load." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "p-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Zap, { className: "h-6 w-6 text-accent" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-3", children: "Innovation Ready" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm", children: "We stay ahead of technology trends, adopting emerging technologies that provide competitive advantages while maintaining stability and reliability." })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("section", { className: "bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg p-12 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-6", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-3xl font-bold", children: "Explore More or Talk to Our Experts" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-muted-foreground max-w-3xl mx-auto", children: "Want to know how our technology expertise can translate to your project's success? Contact Voilacode Technologies for a personalized consultation today." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "mr-2 h-5 w-5" }),
+          "Get Technical Consultation"
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", size: "lg", className: "px-8 py-6 text-lg", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/portfolio", children: "View Our Work" }) })
+      ] })
+    ] }) })
   ] });
 };
 const ContactPage = () => {
@@ -18568,7 +19156,7 @@ const ContactPage = () => {
                 onChange: handleInputChange,
                 required: true,
                 className: "w-full p-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring",
-                placeholder: "Brief description of your inquiry"
+                placeholder: "Brief description of your project or inquiry"
               }
             )
           ] }),
@@ -18588,7 +19176,7 @@ const ContactPage = () => {
             )
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
-            b$4,
+            b$3,
             {
               type: "submit",
               size: "lg",
@@ -18617,7 +19205,7 @@ const ContactPage = () => {
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-medium", children: "Email Support" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "support@voilajsx.com" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", className: "mt-1", children: "24-48h response" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx(b$2, { variant: "secondary", className: "mt-1", children: "24-48h response" })
               ] })
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
@@ -18625,7 +19213,7 @@ const ContactPage = () => {
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-medium", children: "Live Chat" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "Available Mon-Fri 9AM-5PM PST" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", className: "mt-1", children: "Instant response" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx(b$2, { variant: "secondary", className: "mt-1", children: "Instant response" })
               ] })
             ] }),
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-start gap-3", children: [
@@ -18633,7 +19221,7 @@ const ContactPage = () => {
               /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-medium", children: "Enterprise Sales" }),
                 /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-muted-foreground", children: "For custom solutions & partnerships" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { variant: "secondary", className: "mt-1", children: "Same day response" })
+                /* @__PURE__ */ jsxRuntimeExports.jsx(b$2, { variant: "secondary", className: "mt-1", children: "Same day response" })
               ] })
             ] })
           ] }) })
@@ -18670,1267 +19258,332 @@ const ContactPage = () => {
     ] })
   ] });
 };
-const x = j$5(
-  "min-h-screen",
-  {
-    variants: {
-      scheme: {
-        simple: "bg-background flex items-center justify-center p-4",
-        card: "bg-background flex items-center justify-center p-4",
-        split: "flex min-h-screen bg-background",
-        hero: "min-h-screen relative overflow-hidden"
-      },
-      tone: {
-        clean: "",
-        subtle: "bg-muted/10",
-        brand: "bg-primary/5",
-        contrast: "bg-zinc-900"
-      }
-    },
-    defaultVariants: {
-      scheme: "card",
-      tone: "clean"
-    }
-  }
-), g = j$5(
-  "w-full space-y-6",
-  {
-    variants: {
-      size: {
-        sm: "max-w-sm",
-        md: "max-w-md",
-        lg: "max-w-lg",
-        xl: "max-w-xl",
-        full: "max-w-2xl"
-      },
-      scheme: {
-        simple: "",
-        card: "p-8 bg-card border border-border rounded-lg shadow-lg",
-        split: "mx-auto lg:w-96",
-        hero: ""
-      }
-    },
-    defaultVariants: {
-      size: "md",
-      scheme: "card"
-    }
-  }
-), C = reactExports.forwardRef(({
-  scheme: l2 = "card",
-  tone: t2 = "clean",
-  size: n2 = "md",
-  title: r,
-  subtitle: c2,
-  logo: s2,
-  footer: i2,
-  className: m2,
-  containerProps: h2,
-  // Split scheme props
-  splitContent: u2,
-  // Hero scheme props
-  imageUrl: N2,
-  imageAlt: y2 = "Authentication background",
-  imageOverlay: f2 = "dark",
-  // Card scheme props
-  cardContent: p2,
-  children: v2
-}, o2) => {
-  const w2 = N2 || "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjA3MCIgaGVpZ2h0PSIxMzgwIiB2aWV3Qm94PSIwIDAgMjA3MCAxMzgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMjA3MCIgaGVpZ2h0PSIxMzgwIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIvPgo8ZGVmcz4KPGC5bmVhckdyYWRpZW50IGlkPSJncmFkaWVudCIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPgo8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjM2Y4MWJhIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzJkNmM5YyIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=", I2 = {
-    light: "bg-gradient-to-br from-white/50 via-white/25 to-white/50",
-    dark: "bg-gradient-to-br from-black/40 via-black/25 to-black/40",
-    none: ""
-  };
-  return l2 === "simple" ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: o2, className: We$3(x({ scheme: l2, tone: t2 }), m2), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      ...h2,
-      className: We$3(
-        g({ size: n2, scheme: l2 }),
-        h2 == null ? void 0 : h2.className
-      ),
-      children: [
-        s2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center", children: s2 }),
-        (r || c2) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-2", children: [
-          r && /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-semibold tracking-tight text-foreground", children: r }),
-          c2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: c2 })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: v2 }),
-        i2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: i2 })
-      ]
-    }
-  ) }) : l2 === "card" ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: o2, className: We$3(x({ scheme: l2, tone: t2 }), m2), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      ...h2,
-      className: We$3(
-        g({ size: n2, scheme: l2 }),
-        h2 == null ? void 0 : h2.className
-      ),
-      children: [
-        s2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center", children: s2 }),
-        (r || c2) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-2", children: [
-          r && /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-semibold tracking-tight text-foreground", children: r }),
-          c2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: c2 })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: v2 }),
-        i2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: i2 })
-      ]
-    }
-  ) }) : l2 === "split" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { ref: o2, className: We$3(x({ scheme: l2, tone: t2 }), m2), children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden lg:flex lg:w-1/2 relative overflow-hidden", children: u2 ? (
-      // Custom split content
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative z-10 flex flex-col justify-center p-8 lg:p-12 w-full", children: u2 })
-    ) : /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-primary via-primary/90 to-accent" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 opacity-10", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "div",
-        {
-          className: "w-full h-full",
-          style: {
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='7' cy='7' r='1'/%3E%3Ccircle cx='53' cy='7' r='1'/%3E%3Ccircle cx='7' cy='53' r='1'/%3E%3Ccircle cx='53' cy='53' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-          }
-        }
-      ) })
-    ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-1 lg:w-1/2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex flex-col justify-center w-full px-4 py-12 sm:px-6 lg:flex-none lg:px-20 xl:px-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: We$3(g({ size: n2, scheme: l2 })), children: [
-      s2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex justify-center lg:justify-start mb-8", children: s2 }),
-      (r || c2) && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center lg:text-left space-y-2 mb-8", children: [
-        r && /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl sm:text-3xl font-semibold tracking-tight text-foreground", children: r }),
-        c2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: c2 })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: v2 }),
-      i2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center lg:text-left mt-8", children: i2 })
-    ] }) }) })
-  ] }) : l2 === "hero" ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { ref: o2, className: We$3(x({ scheme: l2, tone: t2 }), m2), children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "div",
-      {
-        className: "absolute inset-0 bg-cover bg-center bg-no-repeat",
-        style: {
-          backgroundImage: `url('${w2}')`
-        },
-        role: "img",
-        "aria-label": y2,
-        children: [
-          f2 !== "none" && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: We$3("absolute inset-0", I2[f2]) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-accent/20" })
-        ]
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative z-10 min-h-screen flex items-center justify-center p-4 sm:p-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: We$3("w-full", g({ size: n2, scheme: "simple" })), children: [
-      s2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center mb-8", children: s2 }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-card/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-border/20 overflow-hidden", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-8 pt-8 pb-6 text-center", children: [
-          r && /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-3xl font-bold text-foreground mb-2", children: r }),
-          c2 && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: c2 })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "px-8 pb-8 space-y-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: v2 }) })
-      ] }),
-      p2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-8", children: p2 }),
-      i2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center mt-8 text-sm text-primary-foreground/80", children: i2 })
-    ] }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-20 left-10 w-2 h-2 bg-primary-foreground/30 rounded-full animate-pulse" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute top-40 right-20 w-3 h-3 bg-primary/40 rounded-full animate-pulse delay-1000" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-32 left-20 w-2 h-2 bg-primary/40 rounded-full animate-pulse delay-500" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute bottom-20 right-32 w-4 h-4 bg-primary-foreground/20 rounded-full animate-pulse delay-700" })
-  ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("div", { ref: o2, className: We$3(x({ scheme: "card", tone: t2 }), m2), children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: We$3(g({ size: n2, scheme: "card" })), children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-destructive", children: [
-    "Invalid scheme: ",
-    l2
-  ] }) }) }) });
-});
-C.displayName = "AuthLayout";
-const LoginPage = () => {
-  const [showPassword, setShowPassword] = reactExports.useState(false);
-  const [formData, setFormData] = reactExports.useState({
-    email: "",
-    password: "",
-    rememberMe: false
-  });
-  const handleSubmit = (e2) => {
-    e2.preventDefault();
-    console.log("Login attempt:", formData);
-  };
-  const handleInputChange = (e2) => {
-    const { name, value, type, checked } = e2.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === "checkbox" ? checked : value
-    }));
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    C,
-    {
-      scheme: "hero",
-      tone: "clean",
-      size: "md",
-      title: "Welcome back",
-      subtitle: "Sign in to your account to continue",
-      imageUrl: "https://images.pexels.com/photos/9754/mountains-clouds-forest-fog.jpg",
-      imageAlt: "Mountains with clouds and forest fog",
-      imageOverlay: "dark",
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, className: "space-y-4", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "email", className: "text-sm font-medium", children: "Email" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "absolute left-3 top-3 h-4 w-4 text-muted-foreground" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  id: "email",
-                  name: "email",
-                  type: "email",
-                  placeholder: "Enter your email",
-                  value: formData.email,
-                  onChange: handleInputChange,
-                  className: "w-full pl-10 pr-3 py-2 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring",
-                  required: true
-                }
-              )
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "password", className: "text-sm font-medium", children: "Password" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Lock, { className: "absolute left-3 top-3 h-4 w-4 text-muted-foreground" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  id: "password",
-                  name: "password",
-                  type: showPassword ? "text" : "password",
-                  placeholder: "Enter your password",
-                  value: formData.password,
-                  onChange: handleInputChange,
-                  className: "w-full pl-10 pr-10 py-2 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring",
-                  required: true
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                b$4,
-                {
-                  type: "button",
-                  variant: "ghost",
-                  size: "sm",
-                  className: "absolute right-1 top-1 h-8 w-8 p-0",
-                  onClick: () => setShowPassword(!showPassword),
-                  children: showPassword ? /* @__PURE__ */ jsxRuntimeExports.jsx(EyeOff, { className: "h-4 w-4" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Eye, { className: "h-4 w-4" })
-                }
-              )
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-2", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(
-                "input",
-                {
-                  id: "rememberMe",
-                  name: "rememberMe",
-                  type: "checkbox",
-                  checked: formData.rememberMe,
-                  onChange: handleInputChange,
-                  className: "h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
-                }
-              ),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("label", { htmlFor: "rememberMe", className: "text-sm", children: "Remember me" })
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { variant: "link", size: "sm", className: "px-0", children: "Forgot password?" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { type: "submit", className: "w-full", children: [
-            "Sign in",
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 h-4 w-4" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "w-full border-t" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative flex justify-center text-xs uppercase", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "bg-background px-2 text-muted-foreground", children: "Or continue with" }) })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { variant: "outline", className: "w-full", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Github, { className: "mr-2 h-4 w-4" }),
-          "Continue with GitHub"
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm text-muted-foreground", children: [
-          "Don't have an account?",
-          " ",
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/dashboard", className: "font-medium text-primary hover:underline", children: "Sign up" })
-        ] }) })
-      ]
-    }
-  );
-};
-var [O, ze] = w$1("Tooltip", [
-  to
-]), D = to(), F = "TooltipProvider", le = 700, A = "tooltip.open", [ce, k] = O(F), z = (e2) => {
-  const {
-    __scopeTooltip: o2,
-    delayDuration: t2 = le,
-    skipDelayDuration: r = 300,
-    disableHoverableContent: n2 = false,
-    children: l2
-  } = e2, i2 = reactExports.useRef(true), v2 = reactExports.useRef(false), s2 = reactExports.useRef(0);
-  return reactExports.useEffect(() => {
-    const d2 = s2.current;
-    return () => window.clearTimeout(d2);
-  }, []), /* @__PURE__ */ jsxRuntimeExports.jsx(
-    ce,
-    {
-      scope: o2,
-      isOpenDelayedRef: i2,
-      delayDuration: t2,
-      onOpen: reactExports.useCallback(() => {
-        window.clearTimeout(s2.current), i2.current = false;
-      }, []),
-      onClose: reactExports.useCallback(() => {
-        window.clearTimeout(s2.current), s2.current = window.setTimeout(
-          () => i2.current = true,
-          r
-        );
-      }, [r]),
-      isPointerInTransitRef: v2,
-      onPointerInTransitChange: reactExports.useCallback((d2) => {
-        v2.current = d2;
-      }, []),
-      disableHoverableContent: n2,
-      children: l2
-    }
-  );
-};
-z.displayName = F;
-var R$1 = "Tooltip", [ue, _] = O(R$1), $$1 = (e2) => {
-  const {
-    __scopeTooltip: o2,
-    children: t2,
-    open: r,
-    defaultOpen: n2,
-    onOpenChange: l2,
-    disableHoverableContent: i2,
-    delayDuration: v2
-  } = e2, s2 = k(R$1, e2.__scopeTooltip), d2 = D(o2), [c2, f2] = reactExports.useState(null), m2 = c$1(), p2 = reactExports.useRef(0), h2 = i2 ?? s2.disableHoverableContent, g2 = v2 ?? s2.delayDuration, T2 = reactExports.useRef(false), [x2, y2] = S$1({
-    prop: r,
-    defaultProp: n2 ?? false,
-    onChange: (N2) => {
-      N2 ? (s2.onOpen(), document.dispatchEvent(new CustomEvent(A))) : s2.onClose(), l2 == null ? void 0 : l2(N2);
-    },
-    caller: R$1
-  }), w2 = reactExports.useMemo(() => x2 ? T2.current ? "delayed-open" : "instant-open" : "closed", [x2]), P2 = reactExports.useCallback(() => {
-    window.clearTimeout(p2.current), p2.current = 0, T2.current = false, y2(true);
-  }, [y2]), E2 = reactExports.useCallback(() => {
-    window.clearTimeout(p2.current), p2.current = 0, y2(false);
-  }, [y2]), I2 = reactExports.useCallback(() => {
-    window.clearTimeout(p2.current), p2.current = window.setTimeout(() => {
-      T2.current = true, y2(true), p2.current = 0;
-    }, g2);
-  }, [g2, y2]);
-  return reactExports.useEffect(() => () => {
-    p2.current && (window.clearTimeout(p2.current), p2.current = 0);
-  }, []), /* @__PURE__ */ jsxRuntimeExports.jsx(eo, { ...d2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-    ue,
-    {
-      scope: o2,
-      contentId: m2,
-      open: x2,
-      stateAttribute: w2,
-      trigger: c2,
-      onTriggerChange: f2,
-      onTriggerEnter: reactExports.useCallback(() => {
-        s2.isOpenDelayedRef.current ? I2() : P2();
-      }, [s2.isOpenDelayedRef, I2, P2]),
-      onTriggerLeave: reactExports.useCallback(() => {
-        h2 ? E2() : (window.clearTimeout(p2.current), p2.current = 0);
-      }, [E2, h2]),
-      onOpen: P2,
-      onClose: E2,
-      disableHoverableContent: h2,
-      children: t2
-    }
-  ) });
-};
-$$1.displayName = R$1;
-var L = "TooltipTrigger", B = reactExports.forwardRef(
-  (e2, o2) => {
-    const { __scopeTooltip: t2, ...r } = e2, n2 = _(L, t2), l2 = k(L, t2), i2 = D(t2), v2 = reactExports.useRef(null), s2 = x$5(o2, v2, n2.onTriggerChange), d2 = reactExports.useRef(false), c2 = reactExports.useRef(false), f2 = reactExports.useCallback(() => d2.current = false, []);
-    return reactExports.useEffect(() => () => document.removeEventListener("pointerup", f2), [f2]), /* @__PURE__ */ jsxRuntimeExports.jsx(no$1, { asChild: true, ...i2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      h$3.button,
-      {
-        "aria-describedby": n2.open ? n2.contentId : void 0,
-        "data-state": n2.stateAttribute,
-        ...r,
-        ref: s2,
-        onPointerMove: w$2(e2.onPointerMove, (m2) => {
-          m2.pointerType !== "touch" && !c2.current && !l2.isPointerInTransitRef.current && (n2.onTriggerEnter(), c2.current = true);
-        }),
-        onPointerLeave: w$2(e2.onPointerLeave, () => {
-          n2.onTriggerLeave(), c2.current = false;
-        }),
-        onPointerDown: w$2(e2.onPointerDown, () => {
-          n2.open && n2.onClose(), d2.current = true, document.addEventListener("pointerup", f2, { once: true });
-        }),
-        onFocus: w$2(e2.onFocus, () => {
-          d2.current || n2.onOpen();
-        }),
-        onBlur: w$2(e2.onBlur, n2.onClose),
-        onClick: w$2(e2.onClick, n2.onClose)
-      }
-    ) });
-  }
-);
-B.displayName = L;
-var M = "TooltipPortal", [pe$1, de] = O(M, {
-  forceMount: void 0
-}), U = (e2) => {
-  const { __scopeTooltip: o2, forceMount: t2, children: r, container: n2 } = e2, l2 = _(M, o2);
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(pe$1, { scope: o2, forceMount: t2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(E, { present: t2 || l2.open, children: /* @__PURE__ */ jsxRuntimeExports.jsx(V$3, { asChild: true, container: n2, children: r }) }) });
-};
-U.displayName = M;
-var b$1 = "TooltipContent", V = reactExports.forwardRef(
-  (e2, o2) => {
-    const t2 = de(b$1, e2.__scopeTooltip), { forceMount: r = t2.forceMount, side: n2 = "top", ...l2 } = e2, i2 = _(b$1, e2.__scopeTooltip);
-    return /* @__PURE__ */ jsxRuntimeExports.jsx(E, { present: r || i2.open, children: i2.disableHoverableContent ? /* @__PURE__ */ jsxRuntimeExports.jsx(Y, { side: n2, ...l2, ref: o2 }) : /* @__PURE__ */ jsxRuntimeExports.jsx(fe, { side: n2, ...l2, ref: o2 }) });
-  }
-), fe = reactExports.forwardRef((e2, o2) => {
-  const t2 = _(b$1, e2.__scopeTooltip), r = k(b$1, e2.__scopeTooltip), n2 = reactExports.useRef(null), l2 = x$5(o2, n2), [i2, v2] = reactExports.useState(null), { trigger: s2, onClose: d2 } = t2, c2 = n2.current, { onPointerInTransitChange: f2 } = r, m2 = reactExports.useCallback(() => {
-    v2(null), f2(false);
-  }, [f2]), p2 = reactExports.useCallback(
-    (h2, g2) => {
-      const T2 = h2.currentTarget, x2 = { x: h2.clientX, y: h2.clientY }, y2 = Te(x2, T2.getBoundingClientRect()), w2 = ge(x2, y2), P2 = ye(g2.getBoundingClientRect()), E2 = Ce([...w2, ...P2]);
-      v2(E2), f2(true);
-    },
-    [f2]
-  );
-  return reactExports.useEffect(() => () => m2(), [m2]), reactExports.useEffect(() => {
-    if (s2 && c2) {
-      const h2 = (T2) => p2(T2, c2), g2 = (T2) => p2(T2, s2);
-      return s2.addEventListener("pointerleave", h2), c2.addEventListener("pointerleave", g2), () => {
-        s2.removeEventListener("pointerleave", h2), c2.removeEventListener("pointerleave", g2);
-      };
-    }
-  }, [s2, c2, p2, m2]), reactExports.useEffect(() => {
-    if (i2) {
-      const h2 = (g2) => {
-        const T2 = g2.target, x2 = { x: g2.clientX, y: g2.clientY }, y2 = (s2 == null ? void 0 : s2.contains(T2)) || (c2 == null ? void 0 : c2.contains(T2)), w2 = !xe(x2, i2);
-        y2 ? m2() : w2 && (m2(), d2());
-      };
-      return document.addEventListener("pointermove", h2), () => document.removeEventListener("pointermove", h2);
-    }
-  }, [s2, c2, i2, d2, m2]), /* @__PURE__ */ jsxRuntimeExports.jsx(Y, { ...e2, ref: l2 });
-}), [ve, me] = O(R$1, { isInside: false }), he = /* @__PURE__ */ V$4("TooltipContent"), Y = reactExports.forwardRef(
-  (e2, o2) => {
-    const {
-      __scopeTooltip: t2,
-      children: r,
-      "aria-label": n2,
-      onEscapeKeyDown: l2,
-      onPointerDownOutside: i2,
-      ...v2
-    } = e2, s2 = _(b$1, t2), d2 = D(t2), { onClose: c2 } = s2;
-    return reactExports.useEffect(() => (document.addEventListener(A, c2), () => document.removeEventListener(A, c2)), [c2]), reactExports.useEffect(() => {
-      if (s2.trigger) {
-        const f2 = (m2) => {
-          var _a;
-          ((_a = m2.target) == null ? void 0 : _a.contains(s2.trigger)) && c2();
-        };
-        return window.addEventListener("scroll", f2, { capture: true }), () => window.removeEventListener("scroll", f2, { capture: true });
-      }
-    }, [s2.trigger, c2]), /* @__PURE__ */ jsxRuntimeExports.jsx(
-      X$5,
-      {
-        asChild: true,
-        disableOutsidePointerEvents: false,
-        onEscapeKeyDown: l2,
-        onPointerDownOutside: i2,
-        onFocusOutside: (f2) => f2.preventDefault(),
-        onDismiss: c2,
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          oo$1,
-          {
-            "data-state": s2.stateAttribute,
-            ...d2,
-            ...v2,
-            ref: o2,
-            style: {
-              ...v2.style,
-              "--radix-tooltip-content-transform-origin": "var(--radix-popper-transform-origin)",
-              "--radix-tooltip-content-available-width": "var(--radix-popper-available-width)",
-              "--radix-tooltip-content-available-height": "var(--radix-popper-available-height)",
-              "--radix-tooltip-trigger-width": "var(--radix-popper-anchor-width)",
-              "--radix-tooltip-trigger-height": "var(--radix-popper-anchor-height)"
-            },
-            children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(he, { children: r }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ve, { scope: t2, isInside: true, children: /* @__PURE__ */ jsxRuntimeExports.jsx(n$1, { id: s2.contentId, role: "tooltip", children: n2 || r }) })
-            ]
-          }
-        )
-      }
-    );
-  }
-);
-V.displayName = b$1;
-var q$1 = "TooltipArrow", X$1 = reactExports.forwardRef(
-  (e2, o2) => {
-    const { __scopeTooltip: t2, ...r } = e2, n2 = D(t2);
-    return me(
-      q$1,
-      t2
-    ).isInside ? null : /* @__PURE__ */ jsxRuntimeExports.jsx(ro$1, { ...n2, ...r, ref: o2 });
-  }
-);
-X$1.displayName = q$1;
-function Te(e2, o2) {
-  const t2 = Math.abs(o2.top - e2.y), r = Math.abs(o2.bottom - e2.y), n2 = Math.abs(o2.right - e2.x), l2 = Math.abs(o2.left - e2.x);
-  switch (Math.min(t2, r, n2, l2)) {
-    case l2:
-      return "left";
-    case n2:
-      return "right";
-    case t2:
-      return "top";
-    case r:
-      return "bottom";
-    default:
-      throw new Error("unreachable");
-  }
-}
-function ge(e2, o2, t2 = 5) {
-  const r = [];
-  switch (o2) {
-    case "top":
-      r.push(
-        { x: e2.x - t2, y: e2.y + t2 },
-        { x: e2.x + t2, y: e2.y + t2 }
-      );
-      break;
-    case "bottom":
-      r.push(
-        { x: e2.x - t2, y: e2.y - t2 },
-        { x: e2.x + t2, y: e2.y - t2 }
-      );
-      break;
-    case "left":
-      r.push(
-        { x: e2.x + t2, y: e2.y - t2 },
-        { x: e2.x + t2, y: e2.y + t2 }
-      );
-      break;
-    case "right":
-      r.push(
-        { x: e2.x - t2, y: e2.y - t2 },
-        { x: e2.x - t2, y: e2.y + t2 }
-      );
-      break;
-  }
-  return r;
-}
-function ye(e2) {
-  const { top: o2, right: t2, bottom: r, left: n2 } = e2;
-  return [
-    { x: n2, y: o2 },
-    { x: t2, y: o2 },
-    { x: t2, y: r },
-    { x: n2, y: r }
-  ];
-}
-function xe(e2, o2) {
-  const { x: t2, y: r } = e2;
-  let n2 = false;
-  for (let l2 = 0, i2 = o2.length - 1; l2 < o2.length; i2 = l2++) {
-    const v2 = o2[l2], s2 = o2[i2], d2 = v2.x, c2 = v2.y, f2 = s2.x, m2 = s2.y;
-    c2 > r != m2 > r && t2 < (f2 - d2) * (r - c2) / (m2 - c2) + d2 && (n2 = !n2);
-  }
-  return n2;
-}
-function Ce(e2) {
-  const o2 = e2.slice();
-  return o2.sort((t2, r) => t2.x < r.x ? -1 : t2.x > r.x ? 1 : t2.y < r.y ? -1 : t2.y > r.y ? 1 : 0), be$1(o2);
-}
-function be$1(e2) {
-  if (e2.length <= 1) return e2.slice();
-  const o2 = [];
-  for (let r = 0; r < e2.length; r++) {
-    const n2 = e2[r];
-    for (; o2.length >= 2; ) {
-      const l2 = o2[o2.length - 1], i2 = o2[o2.length - 2];
-      if ((l2.x - i2.x) * (n2.y - i2.y) >= (l2.y - i2.y) * (n2.x - i2.x)) o2.pop();
-      else break;
-    }
-    o2.push(n2);
-  }
-  o2.pop();
-  const t2 = [];
-  for (let r = e2.length - 1; r >= 0; r--) {
-    const n2 = e2[r];
-    for (; t2.length >= 2; ) {
-      const l2 = t2[t2.length - 1], i2 = t2[t2.length - 2];
-      if ((l2.x - i2.x) * (n2.y - i2.y) >= (l2.y - i2.y) * (n2.x - i2.x)) t2.pop();
-      else break;
-    }
-    t2.push(n2);
-  }
-  return t2.pop(), o2.length === 1 && t2.length === 1 && o2[0].x === t2[0].x && o2[0].y === t2[0].y ? o2 : o2.concat(t2);
-}
-var we = z, Pe = $$1, Ee = B, Re = U, _e = V, Oe = X$1;
-function De({
-  delayDuration: e2 = 0,
-  ...o2
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    we,
-    {
-      "data-slot": "tooltip-provider",
-      delayDuration: e2,
-      ...o2
-    }
-  );
-}
-function $e({
-  ...e2
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(De, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Pe, { "data-slot": "tooltip", ...e2 }) });
-}
-function Be({
-  ...e2
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Ee, { "data-slot": "tooltip-trigger", ...e2 });
-}
-function Ue({
-  className: e2,
-  sideOffset: o2 = 0,
-  children: t2,
-  ...r
-}) {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(Re, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    _e,
-    {
-      "data-slot": "tooltip-content",
-      sideOffset: o2,
-      className: We$3(
-        "bg-primary text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md px-3 py-1.5 text-xs text-balance",
-        e2
-      ),
-      ...r,
-      children: [
-        t2,
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Oe, { className: "bg-primary fill-primary z-50 size-2.5 translate-y-[calc(-50%_-_2px)] rotate-45 rounded-[2px]" })
-      ]
-    }
-  ) });
-}
-function $() {
-  return typeof window > "u" ? false : window.innerWidth < 1024;
-}
-function be(x2) {
-  return typeof window > "u" ? x2 : $() ? false : x2;
-}
-const X = reactExports.createContext({
-  scheme: "sidebar",
-  tone: "subtle",
-  size: "lg",
-  sidebarExpanded: true,
-  setSidebarExpanded: () => {
-  },
-  isMobile: false
-}), pe = j$5(
-  "min-h-screen flex bg-background",
-  {
-    variants: {
-      tone: {
-        clean: "",
-        subtle: "",
-        brand: "",
-        contrast: ""
-      }
-    },
-    defaultVariants: {
-      tone: "subtle"
-    }
-  }
-), q = reactExports.forwardRef(({
-  scheme: x2 = "sidebar",
-  tone: k2 = "subtle",
-  size: h2 = "lg",
-  position: g2 = "relative",
-  defaultSidebarOpen: m2 = true,
-  className: v2,
-  children: N2
-}, M2) => {
-  const [d2, n2] = reactExports.useState($), [w2, t2] = reactExports.useState(
-    () => be(m2)
-  );
-  reactExports.useLayoutEffect(() => {
-    const l2 = () => {
-      const a2 = window.innerWidth < 1024, C2 = d2;
-      n2(a2), a2 && !C2 && w2 ? t2(false) : !a2 && C2 && t2(m2);
-    };
-    return l2(), window.addEventListener("resize", l2), () => window.removeEventListener("resize", l2);
-  }, [d2, w2, m2]), reactExports.useEffect(() => (d2 && w2 ? document.body.style.overflow = "hidden" : document.body.style.overflow = "unset", () => {
-    document.body.style.overflow = "unset";
-  }), [d2, w2]);
-  const u2 = reactExports.Children.toArray(N2), y2 = u2.find(
-    (l2) => reactExports.isValidElement(l2) && l2.type === I
-  ), b2 = u2.find(
-    (l2) => reactExports.isValidElement(l2) && l2.type === R
-  ), T2 = u2.find(
-    (l2) => reactExports.isValidElement(l2) && l2.type === H
-  );
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(X.Provider, { value: {
-    scheme: x2,
-    tone: k2,
-    size: h2,
-    sidebarExpanded: w2,
-    setSidebarExpanded: t2,
-    isMobile: d2
-  }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
-    "div",
-    {
-      ref: M2,
-      className: We$3(pe({ tone: k2 }), v2),
-      children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: We$3(
-          "flex-shrink-0 transition-all duration-200 ease-out overflow-hidden",
-          // Desktop: smooth width transition
-          !d2 && w2 && (h2 === "sm" ? "w-48" : h2 === "md" ? "w-56" : h2 === "lg" ? "w-64" : h2 === "xl" ? "w-72" : "w-80"),
-          !d2 && !w2 && "w-0",
-          // Mobile: don't affect layout
-          d2 && "w-0",
-          g2 === "sticky" && d2 && "top-0 max-h-screen",
-          g2 === "sticky" && !d2 && "sticky top-0 max-h-screen"
-        ), children: y2 }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex-1 flex flex-col min-w-0 transition-all duration-200 ease-out", children: [
-          b2,
-          T2
-        ] })
-      ]
-    }
-  ) });
-});
-q.displayName = "AdminLayout";
-const I = reactExports.forwardRef(({
-  tone: x2,
-  navigation: k2 = [],
-  currentPath: h2 = "",
-  onNavigate: g2,
-  logo: m2,
-  position: v2,
-  footer: N2,
-  className: M2
-}, d2) => {
-  const { scheme: n2, tone: w2, size: t2, sidebarExpanded: u2, setSidebarExpanded: y2, isMobile: b2 } = P(), [T2, l2] = reactExports.useState(/* @__PURE__ */ new Set()), [a2, C2] = reactExports.useState(false), o2 = x2 || w2, E2 = n2 === "compact", p2 = !E2 || a2, G2 = () => {
-    E2 && C2(!a2);
-  }, J2 = (r) => {
-    const c2 = new Set(T2);
-    c2.has(r) ? c2.delete(r) : c2.add(r), l2(c2);
-  }, Q2 = (r, c2 = false) => {
-    const z2 = c2 ? "w-[92%] flex items-center group text-left font-medium rounded-lg cursor-pointer transition-all duration-300 ease-out transform hover:scale-[1.02]" : "w-full flex items-center group text-left font-medium rounded-lg cursor-pointer transition-all duration-300 ease-out transform hover:scale-[1.02]", S2 = c2 ? p2 ? "ml-4 px-3 py-2" : "px-2 py-2" : p2 ? "px-3 py-2.5" : "px-2 py-2.5 justify-center";
-    let f2 = "";
-    switch (o2) {
-      case "clean":
-        f2 = r ? "bg-muted text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-muted/50";
-        break;
-      case "subtle":
-        f2 = r ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-background/60";
-        break;
-      case "brand":
-        f2 = r ? "bg-primary-foreground/20 text-primary-foreground shadow-sm" : "text-primary-foreground/90 hover:text-primary-foreground hover:bg-primary-foreground/10";
-        break;
-      case "contrast":
-        f2 = r ? "bg-muted/20 dark:bg-muted/20 text-white shadow-sm" : "text-white hover:bg-muted/20";
-        break;
-      default:
-        f2 = r ? "bg-muted/10 text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-muted/50";
-    }
-    return We$3(z2, S2, f2);
-  }, D2 = ({ item: r, isSubmenu: c2 = false }) => {
-    const z2 = !c2 && r.items && r.items.length > 0, S2 = T2.has(r.key), f2 = r.href ? h2 === r.href : !!r.isActive, F2 = /* @__PURE__ */ jsxRuntimeExports.jsxs(
-      "button",
-      {
-        onClick: () => {
-          if (E2 && !a2) {
-            C2(true);
-            return;
-          }
-          z2 ? J2(r.key) : r.href && g2 ? (g2(r.href, r), b2 && y2(false)) : r.onClick && (r.onClick(), b2 && y2(false));
-        },
-        className: Q2(f2, c2),
-        children: [
-          !c2 && r.icon && /* @__PURE__ */ jsxRuntimeExports.jsx(r.icon, { className: We$3(
-            "flex-shrink-0",
-            p2 ? "h-4 w-4 mr-3" : "h-5 w-5"
-          ) }),
-          p2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "flex-1 truncate text-left", children: r.label }),
-            r.badge && /* @__PURE__ */ jsxRuntimeExports.jsx(
-              b$3,
-              {
-                variant: f2 ? "secondary" : "outline",
-                className: We$3(
-                  "text-xs h-4 px-1 ml-1 flex-shrink-0",
-                  o2 === "brand" && !f2 && "bg-primary-foreground/10 text-primary-foreground border-primary-foreground/20",
-                  o2 === "brand" && f2 && "bg-primary-foreground/20 text-primary-foreground border-primary-foreground/30",
-                  o2 === "contrast" && !f2 && "bg-zinc-700 text-zinc-300 border-zinc-600",
-                  o2 === "contrast" && f2 && "bg-zinc-600 text-zinc-100 border-zinc-500"
-                ),
-                children: r.badge
-              }
-            ),
-            z2 && /* @__PURE__ */ jsxRuntimeExports.jsx(h$1, { className: We$3(
-              "h-4 w-4 flex-shrink-0 transition-transform duration-200",
-              S2 && "rotate-90"
-            ) })
-          ] })
-        ]
-      }
-    );
-    return E2 && !a2 && !c2 && r.icon ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(De, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs($e, { delayDuration: 300, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Be, { asChild: true, children: F2 }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          Ue,
-          {
-            side: "right",
-            className: "bg-white text-black border border-gray-200 shadow-md",
-            children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: r.label })
-          }
-        )
-      ] }) }),
-      z2 && S2 && p2 && r.items && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden transition-all duration-300 mt-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-1 pb-2", children: r.items.map((A2) => /* @__PURE__ */ jsxRuntimeExports.jsx(D2, { item: A2, isSubmenu: true }, A2.key)) }) })
-    ] }, r.key) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full", children: [
-      F2,
-      z2 && S2 && p2 && r.items && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-hidden transition-all duration-400 ease-out mt-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-1 pb-2 animate-in slide-in-from-top-2", children: r.items.map((A2, U2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "div",
-        {
-          className: "transition-all duration-300 ease-out",
-          style: { transitionDelay: `${U2 * 75}ms` },
-          children: /* @__PURE__ */ jsxRuntimeExports.jsx(D2, { item: A2, isSubmenu: true })
-        },
-        A2.key
-      )) }) })
-    ] }, r.key);
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    b2 && u2 && /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "div",
-      {
-        className: "fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm lg:hidden",
-        onClick: () => y2(false),
-        "aria-hidden": "true"
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      "aside",
-      {
-        ref: d2,
-        className: We$3(
-          "border-r flex flex-col bg-background overflow-hidden",
-          // ✅ RESTORED: Original smooth transitions
-          "transition-all duration-200 ease-out",
-          // ✅ FIXED: Proper z-index layering for mobile
-          // Mobile: Higher z-index than header (z-[70] > z-[10])
-          b2 ? "fixed left-0 top-0 z-[70] h-full" : "relative h-screen",
-          // Mobile: slide animation
-          b2 && (u2 ? "translate-x-0" : "-translate-x-full"),
-          // Desktop: always visible but container controls width
-          !b2 && "translate-x-0",
-          // Fixed widths for consistent animation
-          n2 === "sidebar" && t2 === "sm" && "w-48",
-          n2 === "sidebar" && t2 === "md" && "w-56",
-          n2 === "sidebar" && t2 === "lg" && "w-64",
-          n2 === "sidebar" && t2 === "xl" && "w-72",
-          n2 === "sidebar" && t2 === "full" && "w-80",
-          n2 === "compact" && !a2 && t2 === "sm" && "w-12",
-          n2 === "compact" && !a2 && t2 === "md" && "w-14",
-          n2 === "compact" && !a2 && t2 === "lg" && "w-16",
-          n2 === "compact" && !a2 && t2 === "xl" && "w-18",
-          n2 === "compact" && !a2 && t2 === "full" && "w-20",
-          n2 === "compact" && a2 && t2 === "sm" && "w-48",
-          n2 === "compact" && a2 && t2 === "md" && "w-56",
-          n2 === "compact" && a2 && t2 === "lg" && "w-64",
-          n2 === "compact" && a2 && t2 === "xl" && "w-72",
-          n2 === "compact" && a2 && t2 === "full" && "w-80",
-          // Tone colors
-          o2 === "clean" && "bg-background/90 backdrop-blur-sm border-border/40 text-foreground",
-          o2 === "subtle" && "bg-muted/90 backdrop-blur-sm border-border/30 text-foreground",
-          o2 === "brand" && "bg-primary border-primary-foreground/20 text-primary-foreground",
-          o2 === "contrast" && "bg-zinc-900 border-zinc-700/40 text-zinc-100",
-          M2
-        ),
-        children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col h-full", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: We$3(
-            "flex items-center shadow-sm flex-shrink-0 border-b transition-all duration-300 ease-out",
-            o2 === "clean" && "border-border/40",
-            o2 === "subtle" && "border-border/30",
-            o2 === "brand" && "border-primary-foreground/20",
-            o2 === "contrast" && "border-zinc-700/40",
-            p2 ? "justify-between h-16 px-4" : "justify-center h-16 px-2"
-          ), children: p2 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-            m2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: We$3(
-              "flex-shrink-0",
-              o2 === "brand" && "[&_*]:text-primary-foreground",
-              o2 === "contrast" && "[&_*]:text-zinc-100"
-            ), children: m2 }),
-            (b2 || E2 && a2) && /* @__PURE__ */ jsxRuntimeExports.jsx(
-              b$4,
-              {
-                variant: "ghost",
-                size: "icon",
-                onClick: () => {
-                  b2 ? y2(false) : E2 && C2(false);
-                },
-                className: "flex-shrink-0",
-                children: /* @__PURE__ */ jsxRuntimeExports.jsx(c$4, { className: "h-4 w-4" })
-              }
-            )
-          ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-            b$4,
-            {
-              variant: "ghost",
-              size: "icon",
-              onClick: G2,
-              className: "flex-shrink-0",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(n$4, { className: "h-4 w-4" })
-            }
-          ) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-1 overflow-y-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: We$3(
-            "space-y-1 transition-all duration-300 ease-out",
-            p2 ? "p-4" : "p-2"
-          ), children: k2.map((r, c2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "div",
-            {
-              className: We$3(
-                "transition-all duration-300 ease-out",
-                p2 ? "opacity-100 translate-x-0" : "opacity-100"
-              ),
-              style: {
-                transitionDelay: p2 ? `${c2 * 50}ms` : "0ms"
-              },
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(D2, { item: r })
-            },
-            r.key
-          )) }) }),
-          N2 && p2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(R$6, { className: We$3(
-              o2 === "clean" && "bg-border/40",
-              o2 === "subtle" && "bg-border/30",
-              o2 === "brand" && "bg-primary-foreground/20",
-              o2 === "contrast" && "bg-zinc-700/40"
-            ) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-shrink-0 p-4", children: N2 })
-          ] })
-        ] })
-      }
-    )
-  ] });
-});
-I.displayName = "AdminSidebar";
-const R = reactExports.forwardRef(({
-  tone: x2,
-  size: k2,
-  title: h$12,
-  position: g2 = "sticky",
-  breadcrumbs: m2 = [],
-  onBreadcrumbNavigate: v2,
-  actions: N2,
-  className: M2
-}, d2) => {
-  const { sidebarExpanded: n2, setSidebarExpanded: w2, isMobile: t2 } = P();
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "header",
-    {
-      ref: d2,
-      className: We$3(
-        "w-full shadow-sm bg-background/95 backdrop-blur-md text-foreground flex-shrink-0 border-b border-border/50",
-        "transition-all duration-200 ease-out",
-        // ✅ FIXED: Sticky on desktop, lower z-index for mobile sidebar layering
-        g2 === "sticky" && "sticky top-0",
-        g2 === "fixed" && "fixed top-0 left-0 right-0",
-        // Always use lower z-index so mobile sidebar appears above
-        "z-[10]",
-        g2 === "relative" && "relative",
-        M2
-      ),
-      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between px-4 lg:px-6 h-16", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-4 min-w-0 flex-1", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              className: We$3(
-                "p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-all duration-300 ease-out",
-                "transform hover:scale-105 active:scale-95",
-                // Always show on mobile
-                t2 && "block",
-                // Show on desktop for toggle functionality  
-                !t2 && "block"
-              ),
-              onClick: () => w2(!n2),
-              "aria-label": n2 ? "Close sidebar" : "Open sidebar",
-              children: /* @__PURE__ */ jsxRuntimeExports.jsx(n$4, { className: We$3(
-                "h-5 w-5 transition-transform duration-300 ease-out",
-                n2 && !t2 && "rotate-180"
-              ) })
-            }
-          ),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-w-0 flex-1", children: [
-            h$12 && !m2.length && /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-lg font-semibold text-foreground truncate", children: h$12 }),
-            m2.length > 0 && /* @__PURE__ */ jsxRuntimeExports.jsx(f, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(g$2, { children: m2.map((u2, y2) => /* @__PURE__ */ jsxRuntimeExports.jsxs(reactExports.Fragment, { children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(x$2, { children: u2.href ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-                h,
-                {
-                  asChild: !!v2,
-                  ...v2 ? {
-                    onClick: (b2) => {
-                      b2.preventDefault(), v2(u2.href);
-                    }
-                  } : { href: u2.href },
-                  children: v2 ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "button", children: u2.label }) : u2.label
-                }
-              ) : /* @__PURE__ */ jsxRuntimeExports.jsx(N$3, { children: u2.label }) }),
-              y2 < m2.length - 1 && /* @__PURE__ */ jsxRuntimeExports.jsx(B$2, {})
-            ] }, y2)) }) })
-          ] })
-        ] }),
-        N2 && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex-shrink-0", children: N2 })
+const PrivacyPage = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8 max-w-4xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "text-center py-12", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "h-8 w-8 text-primary" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-bold mb-4", children: "Privacy Policy" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-2xl mx-auto", children: "At Voilacode Technologies, we are committed to protecting your privacy and ensuring the security of your personal information." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2 mt-4 text-sm text-muted-foreground", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "h-4 w-4" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Last updated: January 2025" })
       ] })
-    }
-  );
-});
-R.displayName = "AdminHeader";
-const H = reactExports.forwardRef(({
-  tone: x2,
-  size: k2,
-  className: h2,
-  children: g2
-}, m2) => {
-  const { isMobile: v2 } = P();
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "main",
-    {
-      ref: m2,
-      className: We$3(
-        "flex-1 min-w-0 overflow-auto",
-        h2
-      ),
-      children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-full mx-auto", children: g2 }) })
-    }
-  );
-});
-H.displayName = "AdminContent";
-const P = () => {
-  const x2 = reactExports.useContext(X);
-  if (!x2)
-    throw new Error("useAdmin must be used within an AdminLayout component");
-  return x2;
-}, Le = Object.assign(q, {
-  Sidebar: I,
-  Header: R,
-  Content: H
-});
-const DashboardPage = () => {
-  const navigate = useNavigate();
-  const adminNavigation = [
-    { key: "home", label: "Home", href: "/", icon: House },
-    { key: "components", label: "Components", href: "/components", icon: PanelsTopLeft },
-    { key: "themes", label: "Themes", href: "/themes", icon: Palette },
-    {
-      key: "pages",
-      label: "Pages",
-      icon: BookOpen,
-      items: [
-        { key: "login", label: "Login", href: "/login" },
-        { key: "dashboard", label: "Dashboard", href: "/dashboard" },
-        { key: "error", label: "Error Page", href: "/error" }
-      ]
-    },
-    { key: "about", label: "About", href: "/about", icon: BookOpen },
-    { key: "contact", label: "Contact", href: "/contact", icon: Mail }
-  ];
-  const handleNavigation = (href) => {
-    navigate(href);
-  };
-  const stats = [
-    {
-      title: "Total Revenue",
-      value: "$45,231.89",
-      change: "+20.1%",
-      trend: "up",
-      icon: DollarSign,
-      description: "from last month"
-    },
-    {
-      title: "Active Users",
-      value: "2,350",
-      change: "+180.1%",
-      trend: "up",
-      icon: Users,
-      description: "from last month"
-    },
-    {
-      title: "Conversion Rate",
-      value: "12.5%",
-      change: "+19%",
-      trend: "up",
-      icon: TrendingUp,
-      description: "from last month"
-    },
-    {
-      title: "Bounce Rate",
-      value: "24.8%",
-      change: "-4.3%",
-      trend: "down",
-      icon: Activity,
-      description: "from last month"
-    }
-  ];
-  const recentActivity = [
-    { id: 1, user: "Alice Johnson", action: "Created new project", time: "2 minutes ago", status: "success" },
-    { id: 2, user: "Bob Smith", action: "Updated user profile", time: "5 minutes ago", status: "info" },
-    { id: 3, user: "Carol Davis", action: "Deleted 3 items", time: "10 minutes ago", status: "warning" },
-    { id: 4, user: "David Wilson", action: "Failed login attempt", time: "15 minutes ago", status: "error" }
-  ];
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "success":
-        return "text-green-600 bg-green-100";
-      case "info":
-        return "text-blue-600 bg-blue-100";
-      case "warning":
-        return "text-yellow-600 bg-yellow-100";
-      case "error":
-        return "text-red-600 bg-red-100";
-      default:
-        return "text-gray-600 bg-gray-100";
-    }
-  };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(Le, { scheme: "sidebar", tone: "brand", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Le.Sidebar,
-      {
-        navigation: adminNavigation,
-        currentPath: "/dashboard",
-        onNavigate: handleNavigation,
-        logo: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "font-bold", children: "Admin Panel" })
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Le.Header,
-      {
-        title: "Dashboard",
-        actions: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center gap-3", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { variant: "outline", size: "sm", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Download, { className: "h-4 w-4 mr-2" }),
-            "Export"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { variant: "outline", size: "sm", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Funnel, { className: "h-4 w-4 mr-2" }),
-            "Filter"
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { size: "sm", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Eye, { className: "h-4 w-4 mr-2" }),
-            "View All"
-          ] })
-        ] })
-      }
-    ),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Le.Content, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8 p-6", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "Welcome back! Here's what's happening with your projects." }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6", children: stats.map((stat, index) => {
-        const Icon2 = stat.icon;
-        return /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "relative overflow-hidden", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { className: "flex flex-row items-center justify-between space-y-0 pb-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { className: "text-sm font-medium", children: stat.title }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(Icon2, { className: "h-4 w-4 text-muted-foreground" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-2xl font-bold", children: stat.value }),
-            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-1 text-xs text-muted-foreground", children: [
-              stat.trend === "up" ? /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowUpRight, { className: "h-3 w-3 text-green-500" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowDownRight, { className: "h-3 w-3 text-red-500" }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: stat.trend === "up" ? "text-green-500" : "text-red-500", children: stat.change }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: stat.description })
-            ] })
-          ] })
-        ] }, index);
-      }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Revenue Overview" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Monthly revenue for the last 6 months" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-[200px] bg-muted/30 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(ChartColumn, { className: "h-12 w-12 text-muted-foreground mx-auto" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Chart Component Placeholder" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Integrate with chart libraries like Chart.js or Recharts" })
-          ] }) }) })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "User Growth" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "New user registrations over time" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "h-[200px] bg-muted/30 rounded-lg flex items-center justify-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-2", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(TrendingUp, { className: "h-12 w-12 text-muted-foreground mx-auto" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "Growth Chart Placeholder" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Shows user acquisition trends" })
-          ] }) }) })
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 lg:grid-cols-3 gap-6", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { className: "lg:col-span-2", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Recent Activity" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Latest user actions and system events" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "space-y-4", children: recentActivity.map((activity) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between p-3 rounded-lg bg-muted/20", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center space-x-3", children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: `w-2 h-2 rounded-full ${getStatusColor(activity.status)}` }),
-                /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm font-medium", children: activity.user }),
-                  /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: activity.action })
-                ] })
-              ] }),
-              /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xs text-muted-foreground", children: activity.time })
-            ] }, activity.id)) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "mt-4 text-center", children: /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { variant: "outline", size: "sm", children: "View All Activity" }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Introduction" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed", children: 'This Privacy Policy explains how Voilacode Technologies ("we," "our," or "us") collects, uses, and protects your information when you visit our website or use our services. By using our website and services, you agree to the collection and use of information in accordance with this policy.' }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Database, { className: "h-5 w-5" }),
+        "Information We Collect"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Personal Information" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-2", children: "We may collect the following personal information when you contact us or use our services:" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm text-muted-foreground space-y-1 ml-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Name and contact information (email, phone number)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Company name and business information" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Project requirements and technical specifications" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Communication preferences" })
           ] })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(s, { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Quick Actions" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(i, { children: "Common dashboard tasks" })
-          ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-3", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { className: "w-full justify-start", variant: "outline", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Users, { className: "mr-2 h-4 w-4" }),
-              "Manage Users"
-            ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { className: "w-full justify-start", variant: "outline", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/components", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ChartColumn, { className: "mr-2 h-4 w-4" }),
-              "View Reports"
-            ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { className: "w-full justify-start", variant: "outline", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/themes", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(Activity, { className: "mr-2 h-4 w-4" }),
-              "System Status"
-            ] }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { className: "w-full justify-start", variant: "outline", asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/contact", children: [
-              /* @__PURE__ */ jsxRuntimeExports.jsx(DollarSign, { className: "mr-2 h-4 w-4" }),
-              "Billing & Plans"
-            ] }) })
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Technical Information" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-2", children: "We automatically collect certain technical information when you visit our website:" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm text-muted-foreground space-y-1 ml-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• IP address and browser type" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Device information and operating system" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Website usage patterns and analytics data" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Cookies and similar tracking technologies" })
           ] })
         ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(n, { className: "bg-muted/30", children: /* @__PURE__ */ jsxRuntimeExports.jsx(u, { className: "pt-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center space-y-2", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold", children: "Dashboard Demo" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-sm text-muted-foreground", children: "This dashboard showcases UIKit components in a real-world layout with statistics, charts, and activity feeds." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-wrap justify-center gap-4 text-xs text-muted-foreground", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "• Responsive grid layout" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "• Interactive statistics" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "• Activity tracking" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "• Chart placeholders" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Eye, { className: "h-5 w-5" }),
+        "How We Use Your Information"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-4", children: "We use the collected information for the following purposes:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm text-muted-foreground space-y-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "To provide and improve our software development services" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "To communicate with you about projects, services, and support" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "To analyze website usage and improve user experience" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "To comply with legal obligations and protect our rights" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "To send relevant updates about our services (with your consent)" })
+          ] })
         ] })
-      ] }) }) })
-    ] }) })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Lock, { className: "h-5 w-5" }),
+        "Data Protection & Security"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "We implement industry-standard security measures to protect your personal information:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/30 rounded-lg p-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Encryption" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "All data transmission is encrypted using SSL/TLS protocols" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/30 rounded-lg p-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Access Control" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Strict access controls limit who can view your information" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/30 rounded-lg p-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Data Minimization" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "We only collect and store necessary information" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/30 rounded-lg p-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Regular Audits" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Regular security audits ensure ongoing protection" })
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Information Sharing" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-4", children: "We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm text-muted-foreground space-y-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• With your explicit consent" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• With trusted service providers who assist in our operations (under strict confidentiality agreements)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• When required by law or to protect our legal rights" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• In case of business merger or acquisition (with advance notice)" })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Your Privacy Rights" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-4", children: "You have the following rights regarding your personal information:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Access & Correction" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Request access to or correction of your personal data" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Data Portability" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Request a copy of your data in a portable format" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Deletion" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Request deletion of your personal information" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h4", { className: "font-semibold text-sm mb-2", children: "Opt-out" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xs text-muted-foreground", children: "Opt-out of marketing communications at any time" })
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "h-5 w-5" }),
+        "Contact Us"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-4", children: "If you have any questions about this Privacy Policy or our data practices, please contact us:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/30 rounded-lg p-4 space-y-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
+            " founder@voilacode.com"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Phone:" }),
+            " +91 7032309797"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Address:" }),
+            " 2nd Floor, Oyster Uptown, Beside Durgam Cheruvu Metro Station, Hitech City, Hyderabad - 500081, India"
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Policy Updates" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: 'We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last updated" date. We encourage you to review this Privacy Policy periodically for any changes.' }) })
+    ] })
   ] });
 };
-const p = j$5(
+const TermsPage = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "space-y-8 max-w-4xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "text-center py-12", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Scale, { className: "h-8 w-8 text-primary" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-bold mb-4", children: "Terms of Service" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground max-w-2xl mx-auto", children: "These terms govern your use of Voilacode Technologies' website and services. Please read them carefully." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-center gap-2 mt-4 text-sm text-muted-foreground", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Calendar, { className: "h-4 w-4" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Last updated: January 2025" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Agreement to Terms" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground leading-relaxed", children: "By accessing our website at voilacode.com or using our services, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing our services." }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FileText, { className: "h-5 w-5" }),
+        "Our Services"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "Voilacode Technologies provides custom software development services including:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm text-muted-foreground space-y-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Custom website development and web applications" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Mobile application development for iOS and Android" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Desktop software solutions" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Artificial Intelligence and Machine Learning solutions" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "UI/UX design and consultation services" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { className: "flex items-start gap-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Security and compliance consulting" })
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Shield, { className: "h-5 w-5" }),
+        "Acceptable Use"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-4", children: "You agree to use our website and services only for lawful purposes. You must not:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm text-muted-foreground space-y-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Use our services for any illegal or unauthorized purpose" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Violate any international, federal, provincial, or state regulations or laws" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Transmit worms, viruses, or any code of a destructive nature" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Attempt to gain unauthorized access to our systems or networks" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Use our services to harass, abuse, insult, harm, defame, or intimidate anyone" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Submit false or misleading information" })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Service Agreement Terms" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Project Scope & Timeline" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "All projects begin with a detailed scope definition and timeline agreement. Changes to the agreed scope may result in additional costs and timeline adjustments." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Payment Terms" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "Payment terms are specified in individual project contracts. Generally, we require a deposit before project commencement and progress-based payments throughout the development cycle." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Intellectual Property" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "Upon full payment, clients receive ownership of the custom code developed specifically for their project. We retain rights to general methodologies, frameworks, and pre-existing tools used in development." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Confidentiality" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "We maintain strict confidentiality of all client information, business processes, and proprietary data shared during the project lifecycle." })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(TriangleAlert, { className: "h-5 w-5" }),
+        "Disclaimers & Limitations"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { className: "space-y-4", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Service Availability" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "While we strive to maintain high service availability, we do not guarantee uninterrupted access to our website or services. Scheduled maintenance and unforeseen circumstances may cause temporary service interruptions." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Limitation of Liability" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "To the fullest extent permitted by law, Voilacode Technologies shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of our services." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-semibold mb-3", children: "Third-Party Services" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "Our solutions may integrate with third-party services. We are not responsible for the availability, functionality, or terms of service of these external platforms." })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Termination" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-4", children: "Either party may terminate service agreements under the following conditions:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "text-sm text-muted-foreground space-y-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• With written notice as specified in the service contract" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• Immediately for breach of terms or non-payment" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "• For convenience, subject to contract terms and applicable fees" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mt-4", children: "Upon termination, we will provide deliverables completed up to the termination date, subject to payment of all outstanding fees." })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Governing Law" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "These terms are governed by and construed in accordance with the laws of India. Any disputes arising from these terms or our services shall be subject to the exclusive jurisdiction of the courts in Hyderabad, Telangana, India." }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(c, { children: "Changes to Terms" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(u, { children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed", children: "We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our services after any such changes constitutes your acceptance of the new terms." }) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(n, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(s, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(c, { className: "flex items-center gap-2", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Mail, { className: "h-5 w-5" }),
+        "Contact Information"
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(u, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground text-sm leading-relaxed mb-4", children: "If you have any questions about these Terms of Service, please contact us:" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-muted/30 rounded-lg p-4 space-y-2", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
+            " founder@voilacode.com"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Phone:" }),
+            " +91 7032309797"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "text-sm", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Address:" }),
+            " Voilacode Technologies",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+            "2nd Floor, Oyster Uptown",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+            "Beside Durgam Cheruvu Metro Station",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+            "Hitech City, Hyderabad - 500081, India"
+          ] })
+        ] })
+      ] })
+    ] })
+  ] });
+};
+const p = j$4(
   "",
   {
     variants: {
@@ -19961,7 +19614,7 @@ const p = j$5(
       }
     ]
   }
-), d = j$5(
+), d = j$4(
   "",
   {
     variants: {
@@ -20009,11 +19662,11 @@ const ErrorPage = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-2xl font-bold", children: "Page Not Found" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-muted-foreground", children: "The page you're looking for doesn't exist." }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex gap-4 justify-center", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs(b$4, { onClick: () => navigate(-1), variant: "outline", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(b$3, { onClick: () => navigate(-1), variant: "outline", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowLeft, { className: "mr-2 h-4 w-4" }),
         "Go Back"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(b$3, { asChild: true, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(House, { className: "mr-2 h-4 w-4" }),
         "Go Home"
       ] }) })
@@ -20022,12 +19675,14 @@ const ErrorPage = () => {
 };
 const routes = [
   { path: "/", component: HomePage },
-  { path: "/components", component: ComponentsPage },
-  { path: "/themes", component: ThemesPage },
   { path: "/about", component: AboutPage },
+  { path: "/services", component: ServicesPage },
+  { path: "/portfolio", component: PortfolioPage },
+  { path: "/solutions", component: SolutionsPage },
+  { path: "/technologies", component: TechnologiesPage },
   { path: "/contact", component: ContactPage },
-  { path: "/login", component: LoginPage },
-  { path: "/dashboard", component: DashboardPage },
+  { path: "/privacy", component: PrivacyPage },
+  { path: "/terms", component: TermsPage },
   { path: "/error", component: ErrorPage }
 ];
 const AppRouter = () => /* @__PURE__ */ jsxRuntimeExports.jsxs(Routes, { children: [
@@ -20049,16 +19704,17 @@ const LayoutWrapper = () => {
   if (location.pathname === "/error" || location.pathname.startsWith("/error")) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsx(AppRouter, {}) });
   }
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(le$1, { scheme: "default", tone: "clean", size: "xl", children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(le, { scheme: "default", tone: "clean", size: "xl", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(le$1.Content, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsx(AppRouter, {}) }) }),
+    location.pathname === "/" && /* @__PURE__ */ jsxRuntimeExports.jsx(HeroSection, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(le.Content, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsx(LoadingSpinner, {}), children: /* @__PURE__ */ jsxRuntimeExports.jsx(AppRouter, {}) }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
   ] });
 };
 function App() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(H$8, { theme: "elegant", mode: "light", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(LayoutWrapper, {}) }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(H$7, { theme: "elegant", mode: "light", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(LayoutWrapper, {}) }) });
 }
 ReactDOM.createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-DDta9D7n.js.map
+//# sourceMappingURL=index-C6g8nY4D.js.map
