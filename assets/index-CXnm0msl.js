@@ -19712,9 +19712,9 @@ const LayoutWrapper = () => {
   ] });
 };
 function App() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(H$7, { theme: "elegant", mode: "light", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(LayoutWrapper, {}) }) });
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(H$7, { theme: "vivid", mode: "light", children: /* @__PURE__ */ jsxRuntimeExports.jsx(BrowserRouter, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(LayoutWrapper, {}) }) });
 }
 ReactDOM.createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-C6g8nY4D.js.map
+//# sourceMappingURL=index-CXnm0msl.js.map
