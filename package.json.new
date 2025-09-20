@@ -1,10 +1,5 @@
 {
-  "name": "vcwebsite",
-  "homepage": "https://voilacode.com/",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/voilacode/vcwebsite.git"
-  },
+  "name": "myapp1",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,10 +13,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@fontsource/caveat": "^5.2.8",
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/libre-baskerville": "^5.2.8",
-    "@fontsource/playfair-display": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "@voilajsx/uikit": "^1.2.7",
     "lucide-react": "latest",

@@ -3,23 +3,27 @@ import { Routes, Route } from 'react-router-dom';
 
 // Import your pages
 import Home from './pages/Home';
-import Components from './pages/Components';
-import Themes from './pages/Themes';
 import About from './pages/About';
+import Services from './pages/Services';
+import Portfolio from './pages/Portfolio';
+import Solutions from './pages/Solutions';
+import Technologies from './pages/Technologies';
 import Contact from './pages/Contact';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 import ErrorPage from './pages/ErrorPage';
 
 // Simple route configuration - users can easily add/remove routes here
 export const routes = [
   { path: '/', component: Home },
-  { path: '/components', component: Components },
-  { path: '/themes', component: Themes },
   { path: '/about', component: About },
+  { path: '/services', component: Services },
+  { path: '/portfolio', component: Portfolio },
+  { path: '/solutions', component: Solutions },
+  { path: '/technologies', component: Technologies },
   { path: '/contact', component: Contact },
-  { path: '/login', component: Login },
-  { path: '/dashboard', component: Dashboard },
+  { path: '/privacy', component: Privacy },
+  { path: '/terms', component: Terms },
   { path: '/error', component: ErrorPage },
 ];
 

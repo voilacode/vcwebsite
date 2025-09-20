@@ -1,26 +1,19 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import path from 'path';
-import { viteStaticCopy } from 'vite-plugin-static-copy';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
+import tailwindcss from '@tailwindcss/vite'
+import { fileURLToPath } from 'url'
+
+// Get __dirname equivalent in ESM
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    viteStaticCopy({
-      targets: [
-        {
-          src: 'dist/index.html',
-          dest: '.',
-          rename: '404.html',
-        },
-      ],
-    }),
-  ],
-  base: '/', // Ensure this matches your GitHub repository name or subdirectory
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      "@": path.resolve(__dirname, "./src"),
     },
   },
   server: {
@@ -30,6 +23,13 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
-    minify: false,
-  },
-});
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          uikit: ['@voilajsx/uikit']
+        }
+      }
+    }
+  }
+})
