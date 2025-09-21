@@ -24,6 +24,7 @@
     "@fontsource/playfair-display": "^5.2.8",
     "@tailwindcss/vite": "^4.1.13",
     "@voilajsx/uikit": "^1.2.7",
+    "gh-pages": "^6.3.0",
     "lucide-react": "latest",
     "path": "^0.12.7",
     "react": "^19.1.0",
