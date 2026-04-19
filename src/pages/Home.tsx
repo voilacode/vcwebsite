@@ -1,398 +1,354 @@
-import React from 'react';
-import { Button } from '@voilajsx/uikit/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@voilajsx/uikit/card';
-import { ArrowRight, Code, Star, Users, Zap } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { SEO } from '../components';
+import { CASE_STUDIES } from '../content/case-studies';
+import { WorkCover } from '../components/WorkCover';
+
+/* Featured work — first 3 from the case study content file. */
+const FEATURED_WORK = CASE_STUDIES.slice(0, 3);
+
+const CAPABILITIES = [
+  {
+    n: '01',
+    title: 'Product engineering',
+    body: 'Full-stack delivery across web, desktop, and mobile — typed end-to-end, FBCA-structured, agent-reviewable.',
+  },
+  {
+    n: '02',
+    title: 'AI integration',
+    body: 'LLM tool-calling, agent orchestration, RAG pipelines, evaluation harnesses — built in, not bolted on.',
+  },
+  {
+    n: '03',
+    title: 'Ops & maintenance',
+    body: 'Deployment pipelines, observability, incident response, and the quiet ongoing care that keeps production healthy. Software you don\'t maintain becomes software you regret.',
+  },
+  {
+    n: '04',
+    title: 'Team augmentation',
+    body: 'Embed senior engineers alongside your team for 3–6 month sprints. You keep control; we add velocity. Stand-ups, code review, shared rituals — treated like your own team.',
+  },
+];
+
+const PROCESS = [
+  {
+    n: '01',
+    title: 'Scope',
+    body: 'A one-week discovery sprint. We listen, challenge assumptions, and write you a plan — scope, timeline, cost, risks. Fixed-fee. Yours to keep, even if we don\'t work together.',
+  },
+  {
+    n: '02',
+    title: 'Ship',
+    body: 'Two-to-six week build cycles. Weekly demos on working software — no waterfall, no guesswork. Every decision documented, every assumption called out, every change reviewed before it lands.',
+  },
+  {
+    n: '03',
+    title: 'Maintain',
+    body: 'We stay on. Deployment tuned, dependencies current, incidents triaged, roadmap conversations continued. And when you want to take it in-house, version-matched docs + llms.txt + AGENTS.md mean the next engineer joins mid-stride — no re-onboarding, no tribal knowledge lost.',
+  },
+];
+
+/* ───────────────────────────── Visual ─────────────────────────────
+   Pure CSS/SVG covers — no external images, no stock photos.
+   Each tag ("bloom" | "helix" | "gallery" | "ai") gets a distinct
+   generative visual.
+────────────────────────────────────────────────────────────────── */
+
+
+/* ───────────────────────────── Reveal hook ───────────────────────── */
+
+const useReveal = () => {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>('.vc-reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach((el) => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+};
+
+/* ───────────────────────────── Page ───────────────────────────── */
 
 export const HomePage: React.FC = () => {
+  useReveal();
+
   return (
     <>
       <SEO
-        title="Custom Software Development Company | React, Node.js, AI/ML | Voilacode Technologies Hyderabad"
-        description="Leading software development company in Hyderabad specializing in React web apps, Node.js, mobile development, AI/ML solutions. 50+ projects, free consultation, 24hr response."
+        title="Voilacode — Agentic software studio. The team behind Bloom."
+        description="Voilacode is a software studio that ships production software across web, desktop, and mobile with AI coding agents. We make Bloom — the open-source framework we build every product on."
       />
-      <div className="space-y-24 py-8 px-0">
 
-        {/* About Section */}
-        <section className="space-y-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6">About Voilacode Technologies</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed mb-8">
-              Voilacode Technologies is a next-generation software development company committed to delivering customized, reliable, and scalable solutions that fuel business growth and operational excellence. Our team thrives on innovation, quality, and client satisfaction, leveraging proven methodologies and the latest technology stacks to solve real-world challenges.
+      {/* ───────── Hero ───────── */}
+      <section className="vc-section" style={{ paddingTop: 'clamp(3rem, 7vw, 5.5rem)' }}>
+        <div className="vc-wrap">
+          <div className="vc-reveal" style={{ maxWidth: '1000px' }}>
+            <span className="vc-eyebrow" style={{ marginBottom: '1.75rem', display: 'inline-flex' }}>
+              Software consulting studio · Hyderabad, India · Remote-first
+            </span>
+            <h1 className="vc-display" style={{ marginTop: '1.25rem' }}>
+              Your engineering partner
+              <br />
+              for the <span className="vc-display-italic" style={{ color: 'var(--vc-accent)' }}>AI era</span>.
+            </h1>
+            <p className="vc-lead" style={{ marginTop: '2rem', maxWidth: '58ch' }}>
+              We build production applications across web, desktop, and mobile. As an extension of
+              your team — AI-native by default. Backed by{' '}
+              <a
+                href="https://dev.bloomneo.com/bloom/"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'var(--vc-ink)', borderBottom: '1px solid var(--vc-ink)' }}
+              >
+                Bloom
+              </a>
+              , the open-source framework we built.
             </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              We pride ourselves on understanding your unique business needs thoroughly, enabling us to craft solutions that are not only functional but also intuitive, secure, and future-proof.
-            </p>
+            <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+              <Link to="/contact" className="vc-btn vc-btn-primary">
+                Start a project <ArrowUpRight size={16} />
+              </Link>
+              <Link to="/work" className="vc-btn vc-btn-ghost">
+                See our work <ArrowRight size={16} />
+              </Link>
+            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Enhanced Services Section */}
-        <section className="relative py-20">
-          {/* Background */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-muted/5 to-transparent"></div>
+      {/* ───────── Ticker ───────── */}
+      <section className="vc-ticker">
+        <div className="vc-ticker-track">
+          {Array.from({ length: 2 }).map((_, loop) => (
+            <React.Fragment key={loop}>
+              <span className="vc-ticker-item">Web apps</span>
+              <span className="vc-ticker-item vc-ticker-dot">✦</span>
+              <span className="vc-ticker-item">Desktop</span>
+              <span className="vc-ticker-item vc-ticker-dot">✦</span>
+              <span className="vc-ticker-item">iOS + Android</span>
+              <span className="vc-ticker-item vc-ticker-dot">✦</span>
+              <span className="vc-ticker-item">AI integration</span>
+              <span className="vc-ticker-item vc-ticker-dot">✦</span>
+              <span className="vc-ticker-item">SaaS platforms</span>
+              <span className="vc-ticker-item vc-ticker-dot">✦</span>
+              <span className="vc-ticker-item">Browser extensions</span>
+              <span className="vc-ticker-item vc-ticker-dot">✦</span>
+              <span className="vc-ticker-item">Framework work</span>
+              <span className="vc-ticker-item vc-ticker-dot">✦</span>
+            </React.Fragment>
+          ))}
+        </div>
+      </section>
 
-          <div className="relative z-10 space-y-16">
-            <div className="text-center space-y-6">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-secondary/10 border border-secondary/20 rounded-full text-sm font-medium text-secondary">
-                <Zap className="h-4 w-4" />
-                <span>Comprehensive Solutions</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold">
-                Our <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">End-to-End</span> Software Services
+      {/* ───────── Featured work ───────── */}
+      <section className="vc-section" id="work">
+        <div className="vc-wrap">
+          <div
+            className="vc-reveal"
+            style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3.5rem', gap: '2rem', flexWrap: 'wrap' }}
+          >
+            <div>
+              <span className="vc-eyebrow" style={{ marginBottom: '1.25rem', display: 'inline-flex' }}>
+                Selected work
+              </span>
+              <h2 className="vc-h2" style={{ marginTop: '1rem', maxWidth: '22ch' }}>
+                Products we've engineered — <em>shipping in production today</em>.
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                We deliver comprehensive software solutions across all platforms and technologies, transforming your ideas into powerful digital experiences.
-              </p>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-2">
-              {/* Website Development Card */}
-              <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted dark:from-background dark:to-muted shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Service Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src="https://i.ibb.co/rGyVTwQy/services-webdev.jpg"
-                    alt="Web Development Services"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-primary/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center">
-                      <div className="text-sm font-medium text-primary">Web Development</div>
-                    </div>
-                  </div>
-                </div>
-
-                <CardHeader className="relative z-10 pb-4 pt-6">
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">Custom Website Development</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">Responsive, SEO-friendly websites tailored for performance and user engagement</CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4">
-                  <div className="space-y-3">
-                    {[
-                      'E-commerce platforms & corporate sites',
-                      'Built with React, Next.js, Vue',
-                      'API & payment gateway integration',
-                      'SEO optimization & analytics'
-                    ].map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Button variant="ghost" className="w-full mt-6 group-hover:bg-primary group-hover:text-white transition-all">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Mobile Development Card */}
-              <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted dark:from-background dark:to-muted shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Service Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src="https://i.ibb.co/fGLmkXyQ/services-mobile.jpg"
-                    alt="Mobile App Development Services"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/60 via-secondary/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center">
-                      <div className="text-sm font-medium text-secondary">Mobile Apps</div>
-                    </div>
-                  </div>
-                </div>
-
-                <CardHeader className="relative z-10 pb-4 pt-6">
-                  <CardTitle className="text-xl group-hover:text-secondary transition-colors">Mobile Application Development</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">Native iOS and Android applications designed for maximum UX and responsiveness</CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4">
-                  <div className="space-y-3">
-                    {[
-                      'Native & cross-platform solutions',
-                      'React Native, Flutter development',
-                      'Push notifications & offline support',
-                      'Real-time updates & analytics'
-                    ].map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Button variant="ghost" className="w-full mt-6 group-hover:bg-secondary group-hover:text-white transition-all">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Desktop Software Card */}
-              <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted dark:from-background dark:to-muted shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-chart1/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Service Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src="https://i.ibb.co/vg1FvPT/services-desktop.jpg"
-                    alt="Desktop Software Development Services"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-accent/60 via-accent/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center">
-                      <div className="text-sm font-medium text-accent">Desktop Software</div>
-                    </div>
-                  </div>
-                </div>
-
-                <CardHeader className="relative z-10 pb-4 pt-6">
-                  <CardTitle className="text-xl group-hover:text-accent transition-colors">Robust Desktop Software</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">High-performance desktop applications compatible with Windows, macOS, and Linux</CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4">
-                  <div className="space-y-3">
-                    {[
-                      'Custom tools & enterprise suites',
-                      'Cross-platform compatibility',
-                      'Cloud services integration',
-                      'Focus on stability & security'
-                    ].map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-accent rounded-full"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Button variant="ghost" className="w-full mt-6 group-hover:bg-accent group-hover:text-white transition-all">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* AI & ML Card */}
-              <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted dark:from-background dark:to-muted shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-chart1/5 via-transparent to-chart2/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Service Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src="https://i.ibb.co/xKdCBcxT/services-cloudinfra.jpg"
-                    alt="Cloud Infrastructure & AI Services"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-chart1/60 via-chart1/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center">
-                      <div className="text-sm font-medium text-chart1">AI & Cloud Solutions</div>
-                    </div>
-                  </div>
-                </div>
-
-                <CardHeader className="relative z-10 pb-4 pt-6">
-                  <CardTitle className="text-xl group-hover:text-chart1 transition-colors">Artificial Intelligence & ML</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">Tailored AI implementations for chatbots, predictive analytics, and automation</CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4">
-                  <div className="space-y-3">
-                    {[
-                      'Natural language processing',
-                      'Predictive analytics & insights',
-                      'Image & speech recognition',
-                      'Data-driven decision making'
-                    ].map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-chart1 rounded-full"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Button variant="ghost" className="w-full mt-6 group-hover:bg-chart1 group-hover:text-white transition-all">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* UI/UX Design Card */}
-              <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted dark:from-background dark:to-muted shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-chart2/5 via-transparent to-chart3/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Service Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src="https://i.ibb.co/X0vkLQ5/services-uiux.jpg"
-                    alt="UI/UX Design Services"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-chart2/60 via-chart2/20 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg p-2 text-center">
-                      <div className="text-sm font-medium text-chart2">UI/UX Design</div>
-                    </div>
-                  </div>
-                </div>
-
-                <CardHeader className="relative z-10 pb-4 pt-6">
-                  <CardTitle className="text-xl group-hover:text-chart2 transition-colors">UI/UX Design & Consultation</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">User-centric design principles creating accessible and visually appealing interfaces</CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4">
-                  <div className="space-y-3">
-                    {[
-                      'Wireframing & prototyping',
-                      'Continuous user testing',
-                      'Branding & graphic design',
-                      'Enhanced customer trust'
-                    ].map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-chart2 rounded-full"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Button variant="ghost" className="w-full mt-6 group-hover:bg-chart2 group-hover:text-white transition-all">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-
-              {/* Security & Compliance Card */}
-              <Card className="group relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted dark:from-background dark:to-muted shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-chart3/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Service Image */}
-                <div className="relative h-48 bg-gradient-to-br from-chart3/10 to-primary/10 group-hover:from-chart3/20 group-hover:to-primary/20 transition-all duration-500">
-                <img
-                    src="https://i.ibb.co/VchVzYCc/services-security.jpg"
-                    alt="Security Services"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-
-                <CardHeader className="relative z-10 pb-4 pt-6">
-                  <CardTitle className="text-xl group-hover:text-chart3 transition-colors">Security & Compliance</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">Implementation of data protection protocols and compliance with GDPR, HIPAA, PCI DSS</CardDescription>
-                </CardHeader>
-                <CardContent className="relative z-10 space-y-4">
-                  <div className="space-y-3">
-                    {[
-                      'Vulnerability assessments',
-                      'Penetration testing',
-                      'Secure coding practices',
-                      'Regular security audits'
-                    ].map((feature, idx) => (
-                      <div key={idx} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-chart3 rounded-full"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </div>
-                    ))}
-                  </div>
-                  <Button variant="ghost" className="w-full mt-6 group-hover:bg-chart3 group-hover:text-white transition-all">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Why Choose Us */}
-        <section className="space-y-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Why Work With Voilacode Technologies?</h2>
+            <Link to="/work" className="vc-arrow-link">
+              All case studies <ArrowRight size={18} />
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="text-center p-6">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Deep Technical Expertise</h3>
-              <p className="text-muted-foreground text-sm">Seasoned software engineers, AI specialists, and UX designers with diverse industry experience</p>
-            </Card>
-
-            <Card className="text-center p-6">
-              <div className="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Star className="h-8 w-8 text-secondary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Customer-First Philosophy</h3>
-              <p className="text-muted-foreground text-sm">We immerse ourselves in your business environment to create tailored solutions</p>
-            </Card>
-
-            <Card className="text-center p-6">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <ArrowRight className="h-8 w-8 text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold mb-2">Agile Development</h3>
-              <p className="text-muted-foreground text-sm">Iterative planning and transparent communication for quicker, higher quality results</p>
-            </Card>
+          <div className="vc-work-grid">
+            {FEATURED_WORK.map((w) => (
+              <Link key={w.slug} to={`/work/${w.slug}`} className="vc-work-card vc-reveal">
+                <div className="vc-work-cover">
+                  <WorkCover kind={w.coverKind} />
+                </div>
+                <div className="vc-work-body">
+                  <div className="vc-work-meta">
+                    <span>{w.tags[0]}</span>
+                    <span>{w.year}</span>
+                  </div>
+                  <h3 className="vc-work-title">{w.tagline}</h3>
+                  <p className="vc-work-desc">{w.intro}</p>
+                  <div style={{ marginTop: '1.25rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--vc-ink)', fontWeight: 500 }}>
+                    {w.client} <ArrowRight size={14} />
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Technologies Section */}
-        <section className="relative py-20 bg-gradient-to-r from-muted/20 via-transparent to-muted/20">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center space-y-6 mb-16">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-chart1/10 border border-chart1/20 rounded-full text-sm font-medium text-chart1">
-                <Code className="h-4 w-4" />
-                <span>Tech Stack</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold">
-                Technologies We <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Master</span>
+      {/* ───────── Bloom positioning ───────── */}
+      <section
+        className="vc-section"
+        style={{
+          background: 'var(--vc-ink)',
+          color: 'var(--vc-paper)',
+        }}
+      >
+        <div className="vc-wrap">
+          <div className="vc-reveal vc-grid-2">
+            <div>
+              <span className="vc-eyebrow" style={{ color: 'var(--vc-accent)', marginBottom: '1.5rem', display: 'inline-flex' }}>
+                Open-source, shipped by us
+              </span>
+              <h2 className="vc-h2" style={{ color: 'var(--vc-paper)', maxWidth: '16ch' }}>
+                We're the team behind <em>Bloom</em>.
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                We leverage cutting-edge technologies and frameworks to build robust, scalable solutions that drive business success.
+              <p className="vc-lead" style={{ color: 'rgba(247,245,251,0.7)', marginTop: '1.75rem', maxWidth: '50ch' }}>
+                Bloom is the TypeScript full-stack framework we built for the era where developers and AI coding
+                agents ship software together. Every client project we take on starts from it — which means you
+                inherit a stack that's typed end-to-end, drift-checked in CI, and designed so Claude Code, Cursor,
+                or Copilot can extend it correctly on the first try.
               </p>
+              <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a
+                  href="https://dev.bloomneo.com/bloom/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="vc-btn"
+                  style={{ background: 'var(--vc-accent)', color: 'var(--vc-accent-ink)' }}
+                >
+                  Explore Bloom <ArrowUpRight size={16} />
+                </a>
+                <a
+                  href="https://github.com/bloomneo"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="vc-btn vc-btn-outline"
+                  style={{ color: 'var(--vc-paper)', borderColor: 'rgba(247,245,251,0.3)' }}
+                >
+                  GitHub
+                </a>
+              </div>
             </div>
-            {/* Technology Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+
+            <div style={{ display: 'grid', gap: '1rem' }}>
               {[
-                { name: "React", icon: "R", color: "from-blue-500 to-cyan-500" },
-                { name: "Node.js", icon: "N", color: "from-green-500 to-emerald-500" },
-                { name: "Python", icon: "P", color: "from-yellow-500 to-orange-500" },
-                { name: "AWS", icon: "A", color: "from-orange-500 to-red-500" },
-                { name: "MongoDB", icon: "M", color: "from-green-600 to-green-700" },
-                { name: "PostgreSQL", icon: "P", color: "from-blue-600 to-indigo-600" },
-                { name: "Docker", icon: "D", color: "from-blue-400 to-blue-600" },
-                { name: "Kubernetes", icon: "K", color: "from-purple-500 to-pink-500" },
-                { name: "TypeScript", icon: "T", color: "from-blue-500 to-blue-700" },
-                { name: "Next.js", icon: "N", color: "from-gray-800 to-black" }
-              ].map((tech, index) => (
-                <div key={index} className="group flex flex-col items-center space-y-4">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${tech.color} rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg group-hover:shadow-xl`}>
-                    <span className="text-2xl font-bold text-white">{tech.icon}</span>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-semibold text-foreground group-hover:text-primary transition-colors">{tech.name}</div>
-                    <div className="w-12 h-1 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-full mx-auto mt-2 group-hover:from-primary group-hover:to-secondary transition-all duration-300"></div>
-                  </div>
-                </div>
+                { k: '@bloomneo/appkit', v: 'Node backend toolkit · 12 typed modules · auto-scaling memory → Redis → cloud', href: 'https://dev.bloomneo.com/appkit/' },
+                { k: '@bloomneo/uikit', v: 'React component library · 45+ components · 5 OKLCH themes · cross-platform', href: 'https://dev.bloomneo.com/uikit/' },
+                { k: '@bloomneo/bloom', v: 'Scaffolder · FBCA convention · 5 templates · postinstall doc hydration', href: 'https://dev.bloomneo.com/bloom/' },
+              ].map((p) => (
+                <a
+                  key={p.k}
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{
+                    display: 'block',
+                    padding: '1.5rem 1.75rem',
+                    border: '1px solid rgba(247,245,251,0.12)',
+                    transition: 'border-color 200ms ease, background 200ms ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'var(--vc-accent)';
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(108,59,230,0.10)';
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(247,245,251,0.12)';
+                    (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
+                  }}
+                >
+                  <div className="vc-mono" style={{ color: 'var(--vc-accent)' }}>{p.k}</div>
+                  <div style={{ marginTop: '0.4rem', fontSize: '0.92rem', color: 'rgba(247,245,251,0.72)', lineHeight: 1.5 }}>{p.v}</div>
+                </a>
               ))}
             </div>
-
-            {/* Additional Tech Tags */}
-            <section className='pt-8'>
-            <div className="flex flex-wrap justify-center gap-3 mt-16 ">
-              {[
-                "Machine Learning", "AI/ML", "Cloud Computing", "DevOps",
-                "Microservices", "API Development", "Mobile Development", "UI/UX Design"
-              ].map((tag, index) => (
-                <div key={index} className="px-4 py-2 bg-background/80 backdrop-blur-sm rounded-full border border-primary/20 text-sm font-medium text-foreground hover:text-primary hover:border-primary/40 transition-all duration-300">
-                  {tag}
-                </div>
-              ))}
-            </div>
-            </section>
-
           </div>
-        </section>
+        </div>
+      </section>
 
-      </div>
+      {/* ───────── Capabilities ───────── */}
+      <section className="vc-section">
+        <div className="vc-wrap">
+          <div className="vc-reveal" style={{ maxWidth: '44ch', marginBottom: '3.5rem' }}>
+            <span className="vc-eyebrow" style={{ marginBottom: '1.25rem', display: 'inline-flex' }}>
+              Capabilities
+            </span>
+            <h2 className="vc-h2" style={{ marginTop: '1rem' }}>
+              Narrow stack. Broad shipping surface.
+            </h2>
+            <p className="vc-lead" style={{ marginTop: '1.5rem' }}>
+              We don't list thirty services. We ship four things well — and we say no to everything else.
+            </p>
+          </div>
+
+          <ul className="vc-caps vc-reveal">
+            {CAPABILITIES.map((c) => (
+              <li key={c.n}>
+                <span className="vc-cap-num">{c.n}</span>
+                <h3 className="vc-cap-title">{c.title}</h3>
+                <p className="vc-cap-desc">{c.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ───────── Process ───────── */}
+      <section
+        className="vc-section"
+        style={{ background: 'var(--vc-paper-alt)' }}
+      >
+        <div className="vc-wrap">
+          <div className="vc-reveal" style={{ maxWidth: '52ch', marginBottom: '3.5rem' }}>
+            <span className="vc-eyebrow" style={{ marginBottom: '1.25rem', display: 'inline-flex' }}>
+              How we work
+            </span>
+            <h2 className="vc-h2" style={{ marginTop: '1rem' }}>
+              Three phases. No surprises.
+            </h2>
+          </div>
+
+          <div className="vc-card-grid">
+            {PROCESS.map((p) => (
+              <div key={p.n} className="vc-reveal">
+                <div style={{ fontFamily: 'var(--vc-font-mono)', fontSize: '0.75rem', letterSpacing: '0.16em', color: 'var(--vc-accent)', marginBottom: '1rem' }}>
+                  PHASE {p.n}
+                </div>
+                <h3 className="vc-h3" style={{ fontFamily: 'var(--vc-font-display)', fontSize: '1.75rem', fontWeight: 500, marginBottom: '1rem' }}>{p.title}</h3>
+                <p style={{ color: 'var(--vc-muted)', lineHeight: 1.65, fontSize: '0.95rem' }}>{p.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ───────── Closing CTA ───────── */}
+      <section className="vc-section" style={{ textAlign: 'center' }}>
+        <div className="vc-wrap vc-reveal">
+          <h2 className="vc-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', maxWidth: '22ch', margin: '0 auto' }}>
+            Build something worth <span className="vc-display-italic" style={{ color: 'var(--vc-accent)' }}>shipping</span>.
+          </h2>
+          <p className="vc-lead" style={{ margin: '2rem auto 0' }}>
+            Fast, typed, cross-platform — and agent-reviewable from day one.
+          </p>
+          <div style={{ marginTop: '2.5rem' }}>
+            <Link to="/contact" className="vc-btn vc-btn-primary">
+              Start a project <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

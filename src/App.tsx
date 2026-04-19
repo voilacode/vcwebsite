@@ -1,72 +1,77 @@
 import React, { Suspense, useEffect } from 'react';
-import { BrowserRouter as Router, useLocation } from 'react-router-dom';
-import { PageLayout } from '@voilajsx/uikit/page';
-import { Header, Footer, HeroSection } from './components';
-import { AppRouter } from './router';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import HomePage from './pages/Home';
+import WorkPage from './pages/Work';
+import AboutPage from './pages/About';
+import ContactPage from './pages/Contact';
+import CaseStudyPage from './pages/CaseStudy';
+import { PrivacyPage, TermsPage } from './pages/Legal';
+import { Nav, Footer } from './components';
 
-// Component to handle scroll to top on route change
+// Scroll-to-top on route change
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
-
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
   }, [pathname]);
-
   return null;
 };
 
-// Loading component
-const LoadingSpinner: React.FC = () => (
-  <div className="flex items-center justify-center min-h-[400px]">
-    <div className="flex items-center gap-3 text-muted-foreground">
-      <div className="w-6 h-6 border-2 border-muted-foreground/30 border-t-muted-foreground rounded-full animate-spin" />
-      <span>Loading page...</span>
-    </div>
+const LoadingFallback: React.FC = () => (
+  <div
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      minHeight: '50vh',
+      color: 'var(--vc-muted)',
+      fontFamily: 'var(--vc-font-mono)',
+      fontSize: '0.8rem',
+      letterSpacing: '0.14em',
+      textTransform: 'uppercase',
+    }}
+  >
+    Loading…
   </div>
 );
 
-// Layout wrapper that chooses layout based on current route
-const LayoutWrapper: React.FC = () => {
-  const location = useLocation();
+const NotYetBuilt: React.FC<{ title: string }> = ({ title }) => (
+  <section className="vc-section" style={{ textAlign: 'center', minHeight: '60vh', display: 'flex', alignItems: 'center' }}>
+    <div className="vc-wrap">
+      <span className="vc-eyebrow" style={{ marginBottom: '1.5rem', display: 'inline-flex' }}>Soon</span>
+      <h1 className="vc-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)' }}>{title}</h1>
+      <p className="vc-lead" style={{ margin: '1.5rem auto 0' }}>
+        This page is still being built. The home page is live — start there.
+      </p>
+      <div style={{ marginTop: '2rem' }}>
+        <a href="/" className="vc-btn vc-btn-outline">Back to home</a>
+      </div>
+    </div>
+  </section>
+);
 
-  if (location.pathname === '/error' || location.pathname.startsWith('/error')) {
-    // ErrorPage uses its own BlankLayout
-    return (
-      <>
-        <ScrollToTop />
-        <Suspense fallback={<LoadingSpinner />}>
-          <AppRouter />
-        </Suspense>
-      </>
-    );
-  }
-
-  // Default: PageLayout for all other pages
-  const isHomePage = location.pathname === '/';
-
-  return (
-    <>
-      <ScrollToTop />
-      <PageLayout scheme="default" tone="clean" size="xl">
-        <Header />
-        {isHomePage && <HeroSection />}
-        <PageLayout.Content>
-          <Suspense fallback={<LoadingSpinner />}>
-            <AppRouter />
-          </Suspense>
-        </PageLayout.Content>
-        <Footer />
-      </PageLayout>
-    </>
-  );
-};
-
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
-      <LayoutWrapper />
+      <ScrollToTop />
+      <Nav />
+      <main>
+        <Suspense fallback={<LoadingFallback />}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/work/:slug" element={<CaseStudyPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/privacy" element={<PrivacyPage />} />
+            <Route path="/terms" element={<TermsPage />} />
+            <Route path="*" element={<NotYetBuilt title="Page not found" />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <Footer />
     </Router>
   );
-}
+};
 
 export default App;

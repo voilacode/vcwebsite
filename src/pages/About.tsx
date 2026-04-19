@@ -1,340 +1,493 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@voilajsx/uikit/card';
-import { Button } from '@voilajsx/uikit/button';
-import {
-  FileText,
-  Layout,
-  Palette,
-  Code2,
-  Layers,
-  Zap,
-  Shield,
-  Smartphone,
-  Target,
-  Eye,
-  Users,
-  Heart,
-  Lightbulb,
-  CheckCircle,
-  Mail
-} from 'lucide-react';
+import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { SEO } from '../components';
 
+const useReveal = () => {
+  useEffect(() => {
+    const els = document.querySelectorAll<HTMLElement>('.vc-reveal');
+    if (!('IntersectionObserver' in window)) {
+      els.forEach((el) => el.classList.add('in'));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+};
+
+const PRINCIPLES = [
+  {
+    n: '01',
+    title: 'Trust, earned with every release.',
+    body:
+      'Clients stay because the code holds up, the updates arrive on Friday afternoon without drama, and the same senior engineer who started the project is the one who answers your email three years later. Trust is the deliverable — the software is just the artifact.',
+  },
+  {
+    n: '02',
+    title: 'Future-ready, not future-hyped.',
+    body:
+      'AI coding agents are teammates on every engagement — Claude Code, Cursor, Copilot — accelerating the work we already know how to do. But the judgment, the taste, the decisions stay with us. You get software built for the next decade, not a demo from the last one.',
+  },
+  {
+    n: '03',
+    title: 'Skill you can feel in the details.',
+    body:
+      'The code you inherit from us reads like documentation. Types that tell the story, errors that point at the fix, a stack your next engineer can step into without an onboarding doc. Craft isn\'t a posture. It\'s what the diff looks like on Monday morning.',
+  },
+  {
+    n: '04',
+    title: 'Reliability, baked in from day one.',
+    body:
+      'Auth, multi-tenancy, audit logs, error handling, observability — the things you shouldn\'t have to discover missing at 2am. Built on Bloom, our own framework, so every product you get from us starts with the invariants already in place.',
+  },
+  {
+    n: '05',
+    title: 'Built with passion. Delivered with love.',
+    body:
+      'Not every brief is a fit — and the ones that are, we treat like our own product. Software built with genuine care lasts longer than software built to a spec. We pick engagements where we can say yes with our whole hearts.',
+  },
+];
+
+const STACK = [
+  { label: 'Language', value: 'TypeScript, end-to-end' },
+  { label: 'Backend', value: 'Node.js · Express · Prisma' },
+  { label: 'Frontend', value: 'React · Vite · Tailwind' },
+  { label: 'Framework', value: 'Bloom (we author it)' },
+  { label: 'Databases', value: 'PostgreSQL · SQLite · Redis' },
+  { label: 'Infra', value: 'Fly.io · AWS · Vercel' },
+  { label: 'Mobile', value: 'Capacitor · React Native where required' },
+  { label: 'Desktop', value: 'Electron · Tauri' },
+  { label: 'AI', value: 'Anthropic · OpenAI · on-prem when needed' },
+];
+
+const FACTS = [
+  { k: 'Founded', v: '2023' },
+  { k: 'Based', v: 'Hyderabad, India · Remote-first' },
+  { k: 'Team', v: 'Senior. Accountable. Shipping.' },
+  { k: 'Engagement size', v: 'Medium — the bets that matter' },
+  { k: 'Open-source', v: 'Bloom · AppKit · UIKit · MIT' },
+  { k: 'Projects live', v: '6+ across web · desktop · mobile' },
+];
+
 export const AboutPage: React.FC = () => {
+  useReveal();
+
   return (
     <>
       <SEO
-        title="Expert Software Development Team | 5+ Years Experience | React, Node.js Specialists"
-        description="Meet our experienced software development team in Hyderabad. 50+ successful projects across healthcare, finance, education. Specializing in React, Node.js, Python, AI/ML solutions."
+        title="About Voilacode — A small studio with strong engineering opinions"
+        description="Voilacode is a software consulting studio based in Hyderabad, India. We build production applications for the AI era — and author Bloom, the open-source framework behind every product we ship."
       />
-      <div className="space-y-12 py-2 px-2 md:px-12 lg:px-24 max-w-7xl mx-auto">
-        {/* Enhanced Hero Section */}
-        <section className="relative text-center space-y-8 py-8 overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-3xl"></div>
-          <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-40 h-40 bg-gradient-to-r from-secondary/10 to-accent/10 rounded-full blur-3xl animate-pulse delay-700"></div>
 
-          <div className="relative z-10 px-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 backdrop-blur-sm rounded-full border border-primary/20 mb-8">
-              <Heart className="h-4 w-4 text-primary animate-pulse" />
-              <span className="text-primary text-sm font-medium">Our Journey & Values</span>
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent mb-8">
-              Innovation Meets Expertise
+      {/* ─── Hero ─── */}
+      <section className="vc-section" style={{ paddingTop: 'clamp(3rem, 7vw, 5.5rem)' }}>
+        <div className="vc-wrap">
+          <div className="vc-reveal" style={{ maxWidth: '1000px' }}>
+            <span className="vc-eyebrow" style={{ marginBottom: '1.75rem', display: 'inline-flex' }}>
+              About Voilacode
+            </span>
+            <h1 className="vc-display" style={{ marginTop: '1.25rem' }}>
+              Engineered with skill.
+              <br />
+              <span className="vc-display-italic" style={{ color: 'var(--vc-accent)' }}>
+                Delivered with love
+              </span>
+              .
             </h1>
-
-            <div className="space-y-6 max-w-5xl mx-auto">
-              <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium">
-                Founded with a passion for technology and a commitment to excellence, Voilacode Technologies has grown into a trusted partner for businesses seeking custom software solutions that truly make a difference.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Our journey began with a simple mission: to empower organizations through innovative digital products tailored exactly to their unique challenges and aspirations. Over the years, we have combined industry-leading technical expertise with client-focused collaboration to deliver measurable business impact.
-              </p>
-            </div>
-
-            {/* Stats Section */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 max-w-4xl mx-auto">
-              <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-primary">50+</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Projects Delivered</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-secondary">5+</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Years Experience</div>
-              </div>
-              <div className="text-center space-y-2">
-                <div className="text-4xl font-bold text-accent">100%</div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wide">Client Satisfaction</div>
-              </div>
-            </div>
+            <p className="vc-lead" style={{ marginTop: '2rem', maxWidth: '58ch' }}>
+              Voilacode is a software consulting studio in Hyderabad, India. We partner with
+              founders and teams on the products that shape their business — work built on trust,
+              shaped by skill, and delivered with care. Engineered for the AI era on{' '}
+              <a
+                href="https://dev.bloomneo.com/bloom/"
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'var(--vc-ink)', borderBottom: '1px solid var(--vc-ink)' }}
+              >
+                Bloom
+              </a>
+              , the open-source framework we author.
+            </p>
           </div>
-        </section>
-
-        {/* Enhanced Mission & Vision */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-primary/5 to-primary/10 hover:shadow-2xl transition-all duration-500 group">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <CardHeader className="relative z-10">
-              <CardTitle className="flex items-center gap-3 text-2xl font-bold">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Target className="h-6 w-6 text-primary" />
-                </div>
-                Our Mission
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="relative z-10">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                To deliver tailored, cutting-edge software solutions that enable businesses to thrive in the digital era, fostering innovation, efficiency, and growth.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-secondary/5 to-secondary/10 hover:shadow-2xl transition-all duration-500 group">
-            <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <CardHeader className="relative z-10">
-              <CardTitle className="flex items-center gap-3 text-2xl font-bold">
-                <div className="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Eye className="h-6 w-6 text-secondary" />
-                </div>
-                Our Vision
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="relative z-10">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                To be the premier technology partner recognized globally for transforming ideas into high-performance, scalable digital experiences leveraging the latest advancements in AI, software development, and design.
-              </p>
-            </CardContent>
-          </Card>
         </div>
+      </section>
 
-        {/* Enhanced What We Do Section */}
-        <section className="relative">
-          <div className="text-center my-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 backdrop-blur-sm rounded-full border border-accent/20 mb-6">
-              <Code2 className="h-4 w-4 text-accent" />
-              <span className="text-accent text-sm font-medium">Our Expertise</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent">
-              What We Do
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              At Voilacode Technologies, we specialize in custom software development services that span multiple domains and technologies.
-            </p>
-          </div>
-
-          <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted/20 shadow-2xl">
-            <CardContent className="p-6 lg:p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Layout className="h-6 w-6 text-primary" />
+      {/* ─── Fact strip ─── */}
+      <section className="vc-section-tight" style={{ paddingTop: 0 }}>
+        <div className="vc-wrap">
+          <div
+            className="vc-reveal"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+              gap: 0,
+              borderTop: '1px solid var(--vc-line)',
+              borderBottom: '1px solid var(--vc-line)',
+            }}
+          >
+            {FACTS.map((f, i) => (
+              <div
+                key={f.k}
+                style={{
+                  padding: '1.5rem 1.25rem 1.5rem 0',
+                  borderRight: i % 3 !== 2 ? '1px solid var(--vc-line)' : 'none',
+                }}
+              >
+                <div
+                  className="vc-mono"
+                  style={{
+                    fontSize: '0.7rem',
+                    color: 'var(--vc-muted)',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  {f.k}
                 </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Website Development</h3>
-                  <p className="text-muted-foreground text-sm">Crafting responsive, SEO-friendly, and feature-rich websites optimized for performance and engagement.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Smartphone className="h-6 w-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Mobile Application Development</h3>
-                  <p className="text-muted-foreground text-sm">Building intuitive native and cross-platform apps to reach your audience anytime, anywhere.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Layers className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Desktop Software Solutions</h3>
-                  <p className="text-muted-foreground text-sm">Designing robust and scalable applications for Windows, macOS, and Linux environments.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-chart1/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Zap className="h-6 w-6 text-chart1" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">AI & Machine Learning</h3>
-                  <p className="text-muted-foreground text-sm">Creating intelligent automation, predictive analytics, natural language processing, and more.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-chart2/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Palette className="h-6 w-6 text-chart2" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">UI/UX Design</h3>
-                  <p className="text-muted-foreground text-sm">Delivering user-centered designs that drive adoption, satisfaction, and brand loyalty.</p>
-                </div>
-              </div>
-
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-chart3/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <FileText className="h-6 w-6 text-chart3" />
-                </div>
-                <div>
-                  <h3 className="font-semibold mb-2">Consulting & Support</h3>
-                  <p className="text-muted-foreground text-sm">Offering expert guidance, system audits, maintenance, and continuous improvement.</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-        </section>
-
-        {/* Enhanced Core Values */}
-        <section className="relative">
-          <div className="text-center mb-10">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-chart1/10 backdrop-blur-sm rounded-full border border-chart1/20 mb-6">
-              <Heart className="h-4 w-4 text-chart1 animate-pulse" />
-              <span className="text-chart1 text-sm font-medium">Our Foundation</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-chart1 via-primary to-secondary bg-clip-text text-transparent">
-              Core Values
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              The principles that guide every decision and interaction at Voilacode Technologies.
-            </p>
-          </div>
-
-          <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-background to-muted/20 shadow-2xl">
-            <CardContent className="p-6 lg:p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                icon: Users,
-                title: 'Customer Focus',
-                description: 'Your goals and success drive every decision we make.',
-                iconBg: 'bg-primary/10',
-              },
-              {
-                icon: Lightbulb,
-                title: 'Innovation',
-                description: 'We embrace new technologies and creative approaches to solve complex problems.',
-                iconBg: 'bg-secondary/10',
-              },
-              {
-                icon: CheckCircle,
-                title: 'Quality',
-                description: 'We commit to delivering reliable, secure, and performant software.',
-                iconBg: 'bg-accent/10',
-              },
-              {
-                icon: Shield,
-                title: 'Integrity',
-                description: 'Transparent communication and ethical practices are fundamental to our partnerships.',
-                iconBg: 'bg-chart1/10',
-              },
-              {
-                icon: Users,
-                title: 'Collaboration',
-                description: 'We believe in working closely with clients, fostering trust, and aligned vision.',
-                iconBg: 'bg-chart2/10',
-              },
-            ].map(({ icon: Icon, title, description, iconBg }) => (
-              <div key={title} className="flex gap-4">
-                <div className={`${iconBg} w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0`}>
-                  <Icon className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg mb-2">{title}</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
+                <div style={{ fontFamily: 'var(--vc-font-display)', fontSize: '1.15rem', fontWeight: 500, color: 'var(--vc-ink)', lineHeight: 1.25 }}>
+                  {f.v}
                 </div>
               </div>
             ))}
-              </div>
-            </CardContent>
-          </Card>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        {/* Meet Our Team */}
-        <Card className="relative overflow-hidden border-0 bg-gradient-to-br from-chart2/5 to-chart2/10 hover:shadow-2xl transition-all duration-500">
-          <CardHeader className="pb-4">
-            <CardTitle className="flex items-center gap-3 text-2xl font-bold">
-              <div className="w-12 h-12 bg-chart2/10 rounded-xl flex items-center justify-center">
-                <Users className="h-6 w-6 text-chart2" />
+      {/* ─── Manifesto ─── */}
+      <section className="vc-section">
+        <div className="vc-wrap">
+          <div
+            className="vc-reveal"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2fr)',
+              gap: '4rem',
+              alignItems: 'start',
+            }}
+          >
+            <div>
+              <span className="vc-eyebrow" style={{ display: 'inline-flex' }}>
+                What we believe
+              </span>
+            </div>
+            <div>
+              <p
+                style={{
+                  fontSize: 'clamp(1.25rem, 2.2vw, 1.5rem)',
+                  lineHeight: 1.5,
+                  color: 'var(--vc-ink)',
+                  maxWidth: '60ch',
+                  fontFamily: 'var(--vc-font-display)',
+                  fontWeight: 400,
+                }}
+              >
+                Great software isn't built once — it{' '}
+                <em style={{ color: 'var(--vc-accent)' }}>keeps getting better</em> for the team
+                that owns it, the customers who rely on it, the business that grows around it.
+              </p>
+              <p
+                style={{
+                  marginTop: '1.5rem',
+                  fontSize: '1.05rem',
+                  lineHeight: 1.7,
+                  color: 'var(--vc-muted)',
+                  maxWidth: '60ch',
+                }}
+              >
+                That takes more than code. It takes care, craft, and a partner who's still around
+                when things change. Every product we ship is built on the framework we maintain in
+                public — so what you inherit is a codebase your next engineer can read, extend, and
+                trust for years.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Principles ─── */}
+      <section className="vc-section" style={{ background: 'var(--vc-paper-alt)' }}>
+        <div className="vc-wrap">
+          <div className="vc-reveal" style={{ marginBottom: '3rem' }}>
+            <span className="vc-eyebrow" style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
+              How we work
+            </span>
+            <h2 className="vc-h2" style={{ marginTop: '1rem', maxWidth: '22ch' }}>
+              Five principles that shape every engagement.
+            </h2>
+          </div>
+          <div style={{ display: 'grid', gap: '1.5rem' }}>
+            {PRINCIPLES.map((p) => (
+              <div
+                key={p.n}
+                className="vc-reveal"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'minmax(0, 0.5fr) minmax(0, 3fr)',
+                  gap: '2rem',
+                  paddingTop: '2rem',
+                  paddingBottom: '0.5rem',
+                  borderTop: '1px solid var(--vc-line)',
+                }}
+              >
+                <div>
+                  <div
+                    className="vc-mono"
+                    style={{
+                      color: 'var(--vc-accent)',
+                      fontSize: '0.72rem',
+                      letterSpacing: '0.16em',
+                      fontWeight: 600,
+                    }}
+                  >
+                    {p.n}
+                  </div>
+                </div>
+                <div>
+                  <h3
+                    style={{
+                      fontFamily: 'var(--vc-font-display)',
+                      fontSize: 'clamp(1.3rem, 2.2vw, 1.65rem)',
+                      fontWeight: 500,
+                      lineHeight: 1.2,
+                      letterSpacing: '-0.01em',
+                      color: 'var(--vc-ink)',
+                      marginBottom: '0.75rem',
+                    }}
+                  >
+                    {p.title}
+                  </h3>
+                  <p style={{ color: 'var(--vc-muted)', fontSize: '1rem', lineHeight: 1.65, maxWidth: '64ch' }}>
+                    {p.body}
+                  </p>
+                </div>
               </div>
-              Meet Our Team
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Our strength lies in our diverse and talented team of software engineers, data scientists, designers, and strategists. Together, we combine technical know-how with creative thinking to create technology solutions that transform businesses and delight users.
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Stack ─── */}
+      <section className="vc-section">
+        <div className="vc-wrap">
+          <div className="vc-reveal" style={{ marginBottom: '3rem', maxWidth: '60ch' }}>
+            <span className="vc-eyebrow" style={{ display: 'inline-flex', marginBottom: '1.25rem' }}>
+              Our stack
+            </span>
+            <h2 className="vc-h2" style={{ marginTop: '1rem' }}>
+              Boring, battle-tested, carefully chosen.
+            </h2>
+            <p className="vc-lead" style={{ marginTop: '1.5rem' }}>
+              No framework-of-the-month. We pick tools that will still be maintained in five years, and
+              we open-source the glue that holds them together.
             </p>
-          </CardContent>
-        </Card>
+          </div>
 
-        {/* Why Choose Us */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-3 text-xl font-semibold">
-              <CheckCircle className="h-6 w-6 text-primary" />
-              Why Choose Voilacode Technologies?
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">Proven expertise working across industries like healthcare, finance, education, retail, and more</p>
+          <div
+            className="vc-reveal"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: 0,
+              borderTop: '1px solid var(--vc-line)',
+            }}
+          >
+            {STACK.map((s) => (
+              <div
+                key={s.label}
+                style={{
+                  padding: '1.5rem 1.5rem 1.5rem 0',
+                  borderBottom: '1px solid var(--vc-line)',
+                }}
+              >
+                <div
+                  className="vc-mono"
+                  style={{
+                    fontSize: '0.72rem',
+                    color: 'var(--vc-muted)',
+                    letterSpacing: '0.14em',
+                    textTransform: 'uppercase',
+                    marginBottom: '0.4rem',
+                  }}
+                >
+                  {s.label}
+                </div>
+                <div style={{ fontSize: '1rem', fontWeight: 500, color: 'var(--vc-ink)' }}>
+                  {s.value}
+                </div>
               </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">Agile methodologies ensuring fast delivery, flexibility, and continuous feedback</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">Deep commitment to security best practices and compliance standards</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">Extensive portfolio of successful projects and satisfied clients</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                <p className="text-muted-foreground">Passionate about pushing the boundaries of technology for business advantage</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Bloom / open-source block ─── */}
+      <section className="vc-section" style={{ background: 'var(--vc-ink)', color: 'var(--vc-paper)' }}>
+        <div className="vc-wrap">
+          <div
+            className="vc-reveal"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
+              gap: '4rem',
+              alignItems: 'center',
+            }}
+          >
+            <div>
+              <span
+                className="vc-eyebrow"
+                style={{ color: 'var(--vc-accent)', display: 'inline-flex', marginBottom: '1.5rem' }}
+              >
+                Open-source, maintained in public
+              </span>
+              <h2 className="vc-h2" style={{ color: 'var(--vc-paper)', marginTop: '1rem', maxWidth: '18ch' }}>
+                We build <em>Bloom</em> because we needed it.
+              </h2>
+              <p
+                className="vc-lead"
+                style={{ color: 'rgba(247,245,251,0.7)', marginTop: '1.75rem', maxWidth: '52ch' }}
+              >
+                Every project we took on started from the same scaffold: a TypeScript fullstack app with
+                auth, multi-tenancy, error handling, and AI-agent-readable docs. Eventually it was easier to
+                open-source it than to keep copy-pasting. Today Bloom is the foundation of every product we
+                ship — and anyone can use it.
+              </p>
+              <div style={{ marginTop: '2.5rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+                <a
+                  href="https://dev.bloomneo.com/bloom/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="vc-btn"
+                  style={{ background: 'var(--vc-accent)', color: '#FFFFFF' }}
+                >
+                  Explore Bloom <ArrowUpRight size={16} />
+                </a>
+                <a
+                  href="https://github.com/bloomneo"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="vc-btn vc-btn-outline"
+                  style={{ color: 'var(--vc-paper)', borderColor: 'rgba(247,245,251,0.3)' }}
+                >
+                  GitHub ↗
+                </a>
               </div>
             </div>
-          </CardContent>
-        </Card>
 
+            <div style={{ display: 'grid', gap: '1rem' }}>
+              {[
+                { k: '@bloomneo/appkit', v: 'Node backend toolkit · 12 typed modules' },
+                { k: '@bloomneo/uikit', v: 'React component library · 45+ components · 5 themes' },
+                { k: '@bloomneo/bloom', v: 'Scaffolder · FBCA convention · 5 templates' },
+              ].map((p) => (
+                <div
+                  key={p.k}
+                  style={{
+                    padding: '1.25rem 1.5rem',
+                    border: '1px solid rgba(247,245,251,0.12)',
+                  }}
+                >
+                  <div className="vc-mono" style={{ color: 'var(--vc-accent)', fontSize: '0.8rem', letterSpacing: '0.04em' }}>
+                    {p.k}
+                  </div>
+                  <div style={{ marginTop: '0.35rem', fontSize: '0.9rem', color: 'rgba(247,245,251,0.72)', lineHeight: 1.5 }}>
+                    {p.v}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
-        {/* Contact Call to Action */}
-        <Card className="bg-gradient-to-r from-primary/5 to-secondary/5">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-3 text-xl font-semibold">
-              <Mail className="h-6 w-6 text-primary" />
-              Ready to Innovate with Voilacode?
-            </CardTitle>
-            <CardDescription className="text-md text-muted-foreground">
-              Connect with our experts today to explore how we can collaborate to bring your software vision to life.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button size="lg" asChild>
-              <Link to="/contact">
-                Contact Us Today
-              </Link>
-            </Button>
-          </CardContent>
-        </Card>
-      </div>
+      {/* ─── Team / founder ─── */}
+      <section className="vc-section">
+        <div className="vc-wrap">
+          <div
+            className="vc-reveal"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2fr)',
+              gap: '4rem',
+              alignItems: 'start',
+            }}
+          >
+            <div>
+              <span className="vc-eyebrow" style={{ display: 'inline-flex' }}>
+                The team
+              </span>
+            </div>
+            <div>
+              <h2 className="vc-h2" style={{ maxWidth: '22ch' }}>
+                Built for ideas that matter.
+              </h2>
+              <p
+                style={{
+                  marginTop: '1.5rem',
+                  fontSize: '1.05rem',
+                  lineHeight: 1.7,
+                  color: 'var(--vc-muted)',
+                  maxWidth: '62ch',
+                }}
+              >
+                Founded in 2023 by{' '}
+                <strong style={{ color: 'var(--vc-ink)' }}>Poojitha N</strong> and{' '}
+                <strong style={{ color: 'var(--vc-ink)' }}>Krishna Teja GS</strong> — principals of
+                the studio, accountable end-to-end. Senior engineers shipping across web, desktop,
+                and mobile, backed by a bench of specialists we bring in for design, compliance,
+                and native-platform work.
+              </p>
+              <p
+                style={{
+                  marginTop: '1rem',
+                  fontSize: '1.05rem',
+                  lineHeight: 1.7,
+                  color: 'var(--vc-muted)',
+                  maxWidth: '62ch',
+                }}
+              >
+                We work best on{' '}
+                <strong style={{ color: 'var(--vc-ink)' }}>medium-sized engagements</strong> — the
+                products founders bet the company on. Not enterprise mega-projects. Not throwaway
+                MVPs. When an idea matters, we put our hearts into it.
+              </p>
+              <div style={{ marginTop: '2rem' }}>
+                <Link to="/contact" className="vc-arrow-link">
+                  Start a conversation <ArrowRight size={18} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Closing CTA ─── */}
+      <section className="vc-section" style={{ background: 'var(--vc-paper-alt)', textAlign: 'center' }}>
+        <div className="vc-wrap vc-reveal">
+          <h2 className="vc-display" style={{ fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', maxWidth: '22ch', margin: '0 auto' }}>
+            Build something <span className="vc-display-italic" style={{ color: 'var(--vc-accent)' }}>worth keeping</span>.
+          </h2>
+          <p className="vc-lead" style={{ margin: '1.75rem auto 0' }}>
+            Have an idea worth engineering? Tell us.
+          </p>
+          <div style={{ marginTop: '2.5rem' }}>
+            <Link to="/contact" className="vc-btn vc-btn-primary">
+              Start a project <ArrowUpRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 };

@@ -1,7 +1,595 @@
 /**
- * Main Styles Entry Point
- * Tailwind CSS v4+ with UIKit integration
+ * Voilacode — agency site styles
+ * Monochrome + single accent. Editorial typography. Restrained motion.
  */
 
-/* Tailwind CSS v4+ - REQUIRED */
 @import "tailwindcss";
+
+/* ───────────────────────── Design tokens ───────────────────────── */
+
+:root {
+  /* neutrals — cool editorial, ink-violet + lavender paper */
+  --vc-ink:         #0F0E1A;   /* deep cool near-black with violet undertone */
+  --vc-ink-soft:    #1A1828;   /* secondary dark surfaces */
+  --vc-paper:       #F7F5FB;   /* very light cool-white with a hint of lavender */
+  --vc-paper-alt:   #EDEAF3;   /* subtle section bg */
+  --vc-paper-tint:  #FBFAFD;   /* lightest tint for overlays */
+  --vc-line:        #E0DCEA;   /* cool hairlines */
+  --vc-muted:       #5F5B71;   /* cool gray-violet supporting text */
+  --vc-muted-soft:  #8F8AA3;   /* quiet text */
+
+  /* accent — Voilacode brand purple (sampled from logo) */
+  --vc-accent:      #6C3BE6;   /* exact logo purple */
+  --vc-accent-deep: #5023C6;   /* pressed / active */
+  --vc-accent-soft-rgb: 108, 59, 230;
+  --vc-accent-ink:  #FFFFFF;   /* high-contrast on purple */
+  --vc-accent-soft: rgba(108,59,230,0.10);
+
+  /* type */
+  --vc-font-sans:    "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --vc-font-display: "Playfair Display", "Inter", Georgia, serif;
+  --vc-font-mono:    ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* rhythm */
+  --vc-gutter: clamp(1.25rem, 3vw, 2.5rem);
+  --vc-max:    1200px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vc-ink:         #F7F5FB;
+    --vc-ink-soft:    #E0DCEA;
+    --vc-paper:       #0F0E1A;
+    --vc-paper-alt:   #18162A;
+    --vc-paper-tint:  #1E1C33;
+    --vc-line:        #2A2640;
+    --vc-muted:       #9C97AE;
+    --vc-muted-soft:  #5F5B71;
+    --vc-accent-ink:  #FFFFFF;
+  }
+}
+
+/* ───────────────────────── Base ───────────────────────── */
+
+html { scroll-behavior: smooth; }
+
+html, body {
+  background: var(--vc-paper);
+  color: var(--vc-ink);
+  font-family: var(--vc-font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--vc-accent);
+  color: var(--vc-accent-ink);
+}
+
+* { border-color: var(--vc-line); }
+
+a { color: inherit; text-decoration: none; }
+a:hover { color: var(--vc-accent); }
+
+/* ───────────────────────── Layout ───────────────────────── */
+
+.vc-wrap {
+  max-width: var(--vc-max);
+  margin: 0 auto;
+  padding-left: var(--vc-gutter);
+  padding-right: var(--vc-gutter);
+}
+
+.vc-section {
+  padding-top: clamp(4rem, 10vw, 7rem);
+  padding-bottom: clamp(4rem, 10vw, 7rem);
+}
+
+.vc-section-tight {
+  padding-top: clamp(3rem, 7vw, 5rem);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.vc-rule {
+  height: 1px;
+  background: var(--vc-line);
+  border: 0;
+}
+
+/* ───────────────────────── Typography ───────────────────────── */
+
+.vc-eyebrow {
+  font-family: var(--vc-font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vc-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vc-eyebrow::before {
+  content: "";
+  width: 1.5rem;
+  height: 1px;
+  background: currentColor;
+  display: inline-block;
+}
+
+.vc-display {
+  font-family: var(--vc-font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  color: var(--vc-ink);
+}
+
+.vc-display-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.vc-h2 {
+  font-family: var(--vc-font-display);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+.vc-h3 {
+  font-family: var(--vc-font-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.vc-lead {
+  font-size: clamp(1.1rem, 1.5vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--vc-muted);
+  max-width: 44ch;
+}
+
+.vc-mono {
+  font-family: var(--vc-font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+/* ───────────────────────── Buttons ───────────────────────── */
+
+.vc-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  font-family: var(--vc-font-sans);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease, border-color 160ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.vc-btn:hover { transform: translateY(-1px); }
+
+.vc-btn-primary {
+  background: var(--vc-ink);
+  color: var(--vc-paper);
+}
+.vc-btn-primary:hover {
+  background: var(--vc-accent);
+  color: var(--vc-accent-ink);
+}
+
+.vc-btn-outline {
+  background: transparent;
+  color: var(--vc-ink);
+  border-color: var(--vc-ink);
+}
+.vc-btn-outline:hover {
+  background: var(--vc-ink);
+  color: var(--vc-paper);
+}
+
+.vc-btn-ghost {
+  background: transparent;
+  color: var(--vc-ink);
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+.vc-btn-ghost:hover {
+  color: var(--vc-accent);
+}
+
+/* ───────────────────────── Cards / work ───────────────────────── */
+
+.vc-work-card {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: var(--vc-paper-alt);
+  border: 1px solid var(--vc-line);
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+.vc-work-card:hover {
+  border-color: var(--vc-ink);
+  transform: translateY(-2px);
+}
+.vc-work-card .vc-work-cover {
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(135deg, var(--vc-ink) 0%, var(--vc-ink-soft) 100%);
+  position: relative;
+  overflow: hidden;
+}
+.vc-work-card .vc-work-body {
+  padding: 1.5rem 1.75rem 1.75rem;
+}
+.vc-work-card .vc-work-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--vc-font-mono);
+  font-size: 0.72rem;
+  color: var(--vc-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+.vc-work-card .vc-work-title {
+  font-family: var(--vc-font-display);
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--vc-ink);
+}
+.vc-work-card .vc-work-desc {
+  color: var(--vc-muted);
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  line-height: 1.55;
+}
+
+/* ───────────────────────── Capability list ───────────────────────── */
+
+.vc-caps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--vc-line);
+}
+.vc-caps > li {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid var(--vc-line);
+  list-style: none;
+  position: relative;
+}
+.vc-caps > li:first-child {
+  padding-left: 0;
+}
+.vc-caps > li:not(:last-child) {
+  border-right: 1px solid var(--vc-line);
+}
+@media (max-width: 780px) {
+  .vc-caps > li,
+  .vc-caps > li:first-child {
+    padding: 1.75rem 0;
+    border-right: 0 !important;
+  }
+}
+.vc-caps .vc-cap-num {
+  font-family: var(--vc-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--vc-accent);
+  margin-bottom: 1rem;
+  display: block;
+}
+.vc-caps .vc-cap-title {
+  font-family: var(--vc-font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+  color: var(--vc-ink);
+}
+.vc-caps .vc-cap-desc {
+  color: var(--vc-muted);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+/* ───────────────────────── Responsive grid utilities ───────────────────────── */
+
+/* Two equal columns on desktop → single column on mobile. */
+.vc-grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.vc-grid-2-top {
+  align-items: start;
+}
+
+/* Unbalanced 2:1 for content + side rail. */
+.vc-grid-2-unbal {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+/* Narrow eyebrow column + wider prose column. */
+.vc-grid-rail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+/* Safe auto-fit work grid — never forces horizontal overflow. */
+.vc-work-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  gap: 2rem;
+}
+
+/* Auto-fit card grid (smaller min width). */
+.vc-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 2rem;
+}
+
+@media (max-width: 780px) {
+  .vc-grid-2,
+  .vc-grid-2-unbal,
+  .vc-grid-rail {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+  .vc-work-grid,
+  .vc-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* ───────────────────────── Ticker / logos ───────────────────────── */
+
+.vc-ticker {
+  overflow: hidden;
+  border-top: 1px solid var(--vc-line);
+  border-bottom: 1px solid var(--vc-line);
+  padding: 1.5rem 0;
+}
+.vc-ticker-track {
+  display: flex;
+  gap: 3rem;
+  animation: vc-ticker 40s linear infinite;
+  white-space: nowrap;
+  will-change: transform;
+}
+.vc-ticker-item {
+  font-family: var(--vc-font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-style: italic;
+  color: var(--vc-muted);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.vc-ticker-dot {
+  color: var(--vc-accent);
+  font-style: normal;
+}
+@keyframes vc-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ───────────────────────── Nav ───────────────────────── */
+
+.vc-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--vc-paper) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--vc-line);
+}
+.vc-nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+  gap: 1rem;
+}
+.vc-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  height: 36px; /* consistent target height so the logo sits centered */
+  color: var(--vc-ink);
+}
+.vc-nav-logo {
+  display: block;
+  height: 30px;
+  width: auto;
+  /* optical alignment: the logo's inherent baseline sits ~1px above center */
+  transform: translateY(-1px);
+}
+.vc-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+.vc-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.vc-nav-links a {
+  font-size: 0.92rem;
+  color: var(--vc-muted);
+  transition: color 120ms ease;
+}
+.vc-nav-links a:hover,
+.vc-nav-links a.active {
+  color: var(--vc-ink);
+}
+.vc-nav-cta {
+  padding: 0.55rem 1.1rem;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+.vc-nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: var(--vc-ink);
+  cursor: pointer;
+  padding: 0.3rem;
+  line-height: 0;
+}
+
+@media (max-width: 780px) {
+  .vc-nav-inner { padding: 0.8rem 0; }
+  .vc-nav-right { gap: 0.6rem; }
+  /* Collapse Work/About into the open-menu drawer */
+  .vc-nav-links {
+    display: none;
+  }
+  .vc-nav-links.open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem var(--vc-gutter) 1rem;
+    background: var(--vc-paper);
+    border-bottom: 1px solid var(--vc-line);
+  }
+  .vc-nav-links.open li {
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--vc-line);
+  }
+  .vc-nav-links.open li:last-child { border-bottom: 0; }
+  .vc-nav-links.open a {
+    font-size: 1rem;
+    color: var(--vc-ink);
+  }
+
+  /* CTA shrinks but stays inline beside the hamburger */
+  .vc-nav-cta {
+    padding: 0.48rem 0.85rem;
+    font-size: 0.82rem;
+  }
+  .vc-nav-brand { padding-left: 0.5rem; }
+  .vc-nav-logo { height: 26px; }
+  .vc-nav-toggle { display: inline-flex; }
+}
+
+@media (max-width: 400px) {
+  /* Very narrow phones — further tighten so the row still fits */
+  .vc-nav-cta { padding: 0.42rem 0.75rem; font-size: 0.78rem; }
+  .vc-nav-right { gap: 0.4rem; }
+  .vc-nav-logo { height: 24px; }
+}
+
+/* ───────────────────────── Footer ───────────────────────── */
+
+.vc-footer {
+  background: var(--vc-ink);
+  color: var(--vc-paper);
+  padding: clamp(4rem, 8vw, 6rem) 0 2rem;
+}
+.vc-footer a { color: var(--vc-paper); }
+.vc-footer a:hover { color: var(--vc-accent); }
+.vc-footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+@media (max-width: 980px) {
+  .vc-footer-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+}
+@media (max-width: 560px) {
+  .vc-footer-grid { grid-template-columns: 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+}
+.vc-footer-sig {
+  font-family: var(--vc-font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  max-width: 18ch;
+}
+.vc-footer-col h4 {
+  font-family: var(--vc-font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--vc-muted-soft);
+  margin-bottom: 1.25rem;
+}
+.vc-footer-col ul { list-style: none; display: grid; gap: 0.75rem; }
+.vc-footer-col a { font-size: 0.92rem; }
+
+.vc-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.82rem;
+  color: var(--vc-muted-soft);
+}
+@media (max-width: 780px) {
+  .vc-footer-bottom { flex-direction: column; gap: 1rem; }
+}
+
+/* ───────────────────────── Fine-touch ───────────────────────── */
+
+.vc-reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.vc-reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+.vc-arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--vc-ink);
+  font-weight: 500;
+  transition: gap 180ms ease, color 180ms ease;
+}
+.vc-arrow-link:hover {
+  color: var(--vc-accent);
+  gap: 0.9rem;
+}
