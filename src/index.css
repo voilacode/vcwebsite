@@ -400,10 +400,13 @@ a:hover { color: var(--vc-accent); }
   }
 }
 
-/* Form-row — two inputs side-by-side on desktop, stacked on mobile. */
+/* Form-row — two inputs side-by-side on desktop, stacked on mobile.
+   minmax(0, 1fr) is required so grid cells can shrink below content
+   min-width; without it inputs push the right column past the viewport
+   and content hugs the right wall. */
 .vc-form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.5rem;
 }
 @media (max-width: 560px) {
@@ -411,6 +414,15 @@ a:hover { color: var(--vc-accent); }
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
+}
+
+/* Native form elements don't respect parent width constraints unless
+   min-width is explicitly 0. Prevents inputs/selects from "bleeding"
+   past .vc-wrap gutters on narrow viewports. */
+input, select, textarea {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Stack grid — label/value rows with bottom hairlines. Cells get

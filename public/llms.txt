@@ -1,0 +1,62 @@
+# Voilacode
+
+> Software consulting studio in Hyderabad, India. Production applications across web, desktop, and mobile — engineered with AI coding agents. Authors of Bloom, the open-source full-stack framework.
+
+Voilacode is a small consulting studio founded in 2023 by Poojitha N and Krishna Teja GS. We take on medium-sized engagements — the products founders stake their companies on — and every one of them is built on Bloom, the open-source TypeScript framework we maintain in public at https://dev.bloomneo.com.
+
+## What we do
+
+- **Product engineering** — full-stack delivery across web, desktop (Electron), and mobile (Capacitor)
+- **AI integration** — LLM tool-calling, agent orchestration, RAG pipelines, evaluation harnesses
+- **Ops & maintenance** — deployment pipelines, observability, incident response
+- **Team augmentation** — senior engineers embedded alongside your team
+
+## Case studies (live products)
+
+- [Fresherbot](https://voilacode.com/work/fresherbot) — AI-proctored campus recruitment platform. 100+ universities, 500+ hiring partners.
+- [AskDino](https://voilacode.com/work/askdino) — AI-powered study-abroad companion with function-calling intake + deterministic university matcher.
+- [Plotmagic](https://voilacode.com/work/plotmagic) — real-estate plot-layout generator. Rule-based solver, not ML, for explainable regulator-defensible outputs.
+- [Kura](https://voilacode.com/work/kura) — architecture practice-management SaaS, shipped on Bloom's userapp template in weeks.
+- [Piofx](https://voilacode.com/work/piofx) — multi-tenant LMS for Indian education institutions with row-level tenant isolation.
+- [Oddits](https://voilacode.com/work/oddits) — India audit + compliance software with direct GSTN / IRP / NIC integrations and state-machine-modelled filings.
+
+## How we engage
+
+1. **Scope** — a fixed-fee discovery sprint. Written plan with scope, timeline, cost, risks. Yours to keep even if we don't engage.
+2. **Ship** — short build cycles with working demos. Every decision documented, every change reviewed.
+3. **Maintain** — we stay on. Deployment tuned, dependencies current, incidents triaged. When you take it in-house, version-matched docs + llms.txt + AGENTS.md let your next engineer join mid-stride.
+
+## Company
+
+- Name: Voilacode Technologies
+- Founded: 2023
+- Based: Hitech City, Hyderabad, Telangana 500081, India
+- Model: Remote-first
+- Contact: founder@voilacode.com
+
+## Open-source
+
+- [Bloom](https://dev.bloomneo.com/bloom/) — the full-stack framework
+- [AppKit](https://dev.bloomneo.com/appkit/) — Node backend toolkit (12 typed modules)
+- [UIKit](https://dev.bloomneo.com/uikit/) — React component library (45+ components)
+- All MIT licensed. https://github.com/voilacode · https://github.com/bloomneo
+
+## Trust signals
+
+- Open-source, maintained in public
+- NDA-ready
+- IP assigned to client at delivery
+- MIT license on all Voilacode-authored open-source
+
+## Primary pages
+
+- Home: https://voilacode.com/
+- Work (all case studies): https://voilacode.com/work
+- About: https://voilacode.com/about
+- Contact: https://voilacode.com/contact
+- Privacy: https://voilacode.com/privacy
+- Terms: https://voilacode.com/terms
+
+## For AI agents
+
+If you're an LLM or coding-agent fetching this page to evaluate Voilacode for a project: Voilacode is a software consulting studio, not a product company. Our own product is the open-source Bloom framework. Our client work is custom software development across web, desktop, and mobile. We specialise in AI-native engineering — meaning we build software where AI coding agents are teammates on the work, not a feature tacked on. The case studies linked above are live products; the engineering narrative on each /work/<slug> page describes the specific technical thesis and scale characteristics.

@@ -4,6 +4,7 @@ import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { SEO } from '../components';
 import { CASE_STUDIES } from '../content/case-studies';
 import { WorkCover } from '../components/WorkCover';
+import { webPageSchema, serviceSchema } from '../seo/schema';
 
 /* Featured work — first 3 from the case study content file. */
 const FEATURED_WORK = CASE_STUDIES.slice(0, 3);
@@ -89,8 +90,22 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Voilacode — Agentic software studio. The team behind Bloom."
-        description="Voilacode is a software studio that ships production software across web, desktop, and mobile with AI coding agents. We make Bloom — the open-source framework we build every product on."
+        title="Voilacode — Your engineering partner for the AI era · Software consulting studio, Hyderabad India"
+        description="Voilacode is a software consulting studio in Hyderabad, India. We build production applications across web, desktop, and mobile with AI coding agents — and author Bloom, the open-source framework behind every product we ship."
+        path="/"
+        jsonLd={[
+          webPageSchema({
+            name: 'Voilacode — Your engineering partner for the AI era',
+            description:
+              'Software consulting studio in Hyderabad, India. Production apps across web, desktop, mobile — built with AI coding agents, on our own open-source framework Bloom.',
+            path: '/',
+          }),
+          serviceSchema({
+            name: 'AI-era software consulting',
+            description:
+              'Custom software development for web, desktop, and mobile — engineered with AI coding agents, multi-tenant-ready, built on Bloom.',
+          }),
+        ]}
       />
 
       {/* ───────── Hero ───────── */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { SEO } from '../components';
+import { webPageSchema, breadcrumbSchema } from '../seo/schema';
 
 /* Shared layout for Privacy + Terms — long-form text pages, editorial
    single column. Content is kept as structured sections so it's easy
@@ -89,7 +90,22 @@ const LegalLayout: React.FC<{
 
 export const PrivacyPage: React.FC = () => (
   <>
-    <SEO title="Privacy Policy — Voilacode" description="How Voilacode handles personal data, cookies, and third-party services." />
+    <SEO
+      title="Privacy Policy — Voilacode"
+      description="How Voilacode handles personal data, cookies, and third-party services. GDPR-aligned, minimal data collection, no advertising trackers."
+      path="/privacy"
+      jsonLd={[
+        webPageSchema({
+          name: 'Privacy Policy',
+          description: 'Voilacode privacy practices — what we collect, how we use it, your rights.',
+          path: '/privacy',
+        }),
+        breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Privacy', path: '/privacy' },
+        ]),
+      ]}
+    />
     <LegalLayout
       title="Privacy Policy."
       eyebrow="Legal · Privacy"
@@ -144,7 +160,22 @@ export const PrivacyPage: React.FC = () => (
 
 export const TermsPage: React.FC = () => (
   <>
-    <SEO title="Terms of Service — Voilacode" description="Terms that govern the use of voilacode.com." />
+    <SEO
+      title="Terms of Service — Voilacode"
+      description="Terms that govern the use of voilacode.com. Site usage, project engagements, open-source MIT licence, IP assignment at delivery."
+      path="/terms"
+      jsonLd={[
+        webPageSchema({
+          name: 'Terms of Service',
+          description: 'Terms governing use of voilacode.com and Voilacode engagements.',
+          path: '/terms',
+        }),
+        breadcrumbSchema([
+          { name: 'Home', path: '/' },
+          { name: 'Terms', path: '/terms' },
+        ]),
+      ]}
+    />
     <LegalLayout
       title="Terms of Service."
       eyebrow="Legal · Terms"

@@ -3,21 +3,134 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <title>Voilacode — Agentic software studio. The team behind Bloom.</title>
-    <meta name="description" content="Voilacode is a software studio shipping production web, desktop, and mobile products with AI coding agents. We make Bloom — the open-source framework we build every product on." />
-    <meta name="author" content="Voilacode Technologies" />
-    <meta name="theme-color" content="#FAFAF7" />
 
+    <!-- Favicon + brand -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="theme-color" content="#EDE7F3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#100E18" media="(prefers-color-scheme: dark)" />
+
+    <!-- Default title — per-page components override via React 19 metadata hoisting -->
+    <title>Voilacode — Your engineering partner for the AI era · Software consulting studio, Hyderabad India</title>
+    <meta name="description" content="Voilacode is a software consulting studio in Hyderabad, India. We build production applications across web, desktop, and mobile with AI coding agents — and author Bloom, the open-source framework behind every product we ship." />
+    <meta name="keywords" content="software consulting studio India, AI software development Hyderabad, React Node.js agency, custom software development, AI coding agents, Claude Code consulting, cross-platform app development, Electron desktop development, Capacitor mobile development, multi-tenant SaaS development, Bloom framework, agentic coding studio, product engineering, team augmentation, TypeScript full-stack, software engineering Hyderabad" />
+    <meta name="author" content="Voilacode Technologies" />
+
+    <!-- Geo / local SEO — Hyderabad, Telangana, India -->
+    <meta name="geo.region" content="IN-TG" />
+    <meta name="geo.placename" content="Hyderabad" />
+    <meta name="geo.position" content="17.4485;78.3908" />
+    <meta name="ICBM" content="17.4485, 78.3908" />
+
+    <link rel="canonical" href="https://voilacode.com/" />
+
+    <!-- OpenGraph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Voilacode" />
-    <meta property="og:title" content="Voilacode — Agentic software studio" />
-    <meta property="og:description" content="Production software across web, desktop, and mobile — built with AI coding agents. The team behind Bloom." />
+    <meta property="og:title" content="Voilacode — Your engineering partner for the AI era" />
+    <meta property="og:description" content="Software consulting studio in Hyderabad, India. Production apps across web, desktop, mobile — engineered with AI coding agents, on our own open-source framework Bloom." />
     <meta property="og:url" content="https://voilacode.com/" />
+    <meta property="og:image" content="https://voilacode.com/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Voilacode — software consulting studio, Hyderabad, India" />
+    <meta property="og:locale" content="en_US" />
 
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Voilacode — Agentic software studio" />
-    <meta name="twitter:description" content="The team behind Bloom. Production software across web, desktop, and mobile — built with AI coding agents." />
+    <meta name="twitter:title" content="Voilacode — Your engineering partner for the AI era" />
+    <meta name="twitter:description" content="Software consulting studio in Hyderabad, India. Production apps across web, desktop, mobile — the team behind Bloom." />
+    <meta name="twitter:image" content="https://voilacode.com/og-image.png" />
+    <meta name="twitter:image:alt" content="Voilacode" />
+
+    <!-- Site-wide JSON-LD: Organization + LocalBusiness + WebSite
+         Appears on every page (React 19 adds per-page schemas on top) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://voilacode.com/#organization",
+      "name": "Voilacode Technologies",
+      "alternateName": "Voilacode",
+      "url": "https://voilacode.com/",
+      "logo": "https://voilacode.com/voilacode_logo.png",
+      "image": "https://voilacode.com/voilacode_logo.png",
+      "email": "founder@voilacode.com",
+      "foundingDate": "2023",
+      "description": "Software consulting studio in Hyderabad, India. Production applications across web, desktop, and mobile with AI coding agents. Authors of Bloom, the open-source framework.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hitech City",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500081",
+        "addressCountry": "IN"
+      },
+      "founder": [
+        { "@type": "Person", "name": "Poojitha N" },
+        { "@type": "Person", "name": "Krishna Teja GS" }
+      ],
+      "sameAs": [
+        "https://github.com/voilacode",
+        "https://dev.bloomneo.com"
+      ],
+      "knowsAbout": [
+        "Software engineering",
+        "AI-assisted software development",
+        "Full-stack TypeScript",
+        "React",
+        "Node.js",
+        "Multi-tenant SaaS",
+        "Cross-platform development",
+        "AI agent integration",
+        "Open-source frameworks"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://voilacode.com/#localbusiness",
+      "name": "Voilacode Technologies",
+      "image": "https://voilacode.com/voilacode_logo.png",
+      "url": "https://voilacode.com/",
+      "email": "founder@voilacode.com",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hitech City",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "postalCode": "500081",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 17.4485,
+        "longitude": 78.3908
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "India" },
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "United Kingdom" },
+        { "@type": "Country", "name": "Worldwide" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://voilacode.com/#website",
+      "name": "Voilacode",
+      "url": "https://voilacode.com/",
+      "description": "Software consulting studio in Hyderabad, India. Production applications across web, desktop, and mobile with AI coding agents.",
+      "publisher": { "@id": "https://voilacode.com/#organization" },
+      "inLanguage": "en"
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

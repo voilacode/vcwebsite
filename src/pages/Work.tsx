@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { CASE_STUDIES, CATEGORY_ORDER, type Category } from '../content/case-studies';
 import { WorkCover } from '../components/WorkCover';
 import { SEO } from '../components';
+import { webPageSchema, breadcrumbSchema } from '../seo/schema';
 
 /* Filter options — "All" + the explicit categories declared on each
    case study. No regex matching; a case either lists a category or
@@ -58,8 +59,21 @@ export const WorkPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Work — Voilacode · Software consulting studio, case studies"
-        description="Case studies from Voilacode — AI proctoring at university scale, India GST compliance, generative plot design, vertical SaaS on our own framework, and more."
+        title="Work — Voilacode case studies · AI proctoring, GST compliance, generative design, vertical SaaS"
+        description="Six production case studies from Voilacode — Fresherbot (AI proctoring at university scale), Oddits (India GST compliance), Plotmagic (generative plot design), Kura (vertical SaaS on Bloom), Piofx (multi-tenant LMS), AskDino (AI study-abroad matching)."
+        path="/work"
+        jsonLd={[
+          webPageSchema({
+            name: 'Work — Voilacode case studies',
+            description:
+              'Six production case studies across AI, SaaS, EdTech, FinTech, and Real estate.',
+            path: '/work',
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Work', path: '/work' },
+          ]),
+        ]}
       />
 
       {/* ─── Hero ─── */}

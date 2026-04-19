@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, ExternalLink } from 'lucide-react'
 import { getCaseStudy, CASE_STUDIES } from '../content/case-studies';
 import { WorkCover } from '../components/WorkCover';
 import { SEO } from '../components';
+import { caseStudyCreativeWorkSchema, breadcrumbSchema } from '../seo/schema';
 
 const useReveal = () => {
   useEffect(() => {
@@ -41,8 +42,25 @@ export const CaseStudyPage: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${study.client} — Case study · Voilacode`}
-        description={`${study.tagline} · ${study.intro}`}
+        title={`${study.client} — ${study.tagline} · Voilacode case study`}
+        description={`${study.intro} · Engineered by Voilacode, the team behind Bloom.`}
+        path={`/work/${study.slug}`}
+        jsonLd={[
+          caseStudyCreativeWorkSchema({
+            slug: study.slug,
+            client: study.client,
+            tagline: study.tagline,
+            intro: study.intro,
+            year: study.year,
+            categories: study.categories,
+            liveUrl: study.liveUrl,
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Work', path: '/work' },
+            { name: study.client, path: `/work/${study.slug}` },
+          ]),
+        ]}
       />
 
       {/* ─── Hero ─── */}

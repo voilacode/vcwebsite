@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { ArrowUpRight, CheckCircle2, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { SEO } from '../components';
+import { webPageSchema, breadcrumbSchema } from '../seo/schema';
 
 /* EmailJS — configure via Vite env vars.
    Copy .env.example → .env.local and fill:
@@ -148,8 +149,21 @@ export const ContactPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact Voilacode — Start a project"
-        description="Tell us about your product — stage, scope, timeline, what's blocking you. We reply within 24 hours on business days."
+        title="Contact Voilacode — Start a project · Hyderabad, India"
+        description="Tell us about your product — stage, scope, timeline, what's blocking you. We reply within 24 hours on business days. Voilacode software consulting studio, Hyderabad, India."
+        path="/contact"
+        jsonLd={[
+          webPageSchema({
+            name: 'Contact Voilacode',
+            description:
+              'Start a project with Voilacode — software consulting studio in Hyderabad, India.',
+            path: '/contact',
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'Contact', path: '/contact' },
+          ]),
+        ]}
       />
 
       {/* ─── Hero ─── */}

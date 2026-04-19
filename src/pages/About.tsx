@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { SEO } from '../components';
+import { webPageSchema, breadcrumbSchema, personSchema } from '../seo/schema';
 
 const useReveal = () => {
   useEffect(() => {
@@ -86,8 +87,23 @@ export const AboutPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="About Voilacode — A small studio with strong engineering opinions"
-        description="Voilacode is a software consulting studio based in Hyderabad, India. We build production applications for the AI era — and author Bloom, the open-source framework behind every product we ship."
+        title="About Voilacode — Software consulting studio in Hyderabad, India · Founded 2023"
+        description="Voilacode is a software consulting studio in Hyderabad, India, founded in 2023 by Poojitha N and Krishna Teja GS. We build production applications for the AI era — and author Bloom, the open-source framework behind every product we ship."
+        path="/about"
+        jsonLd={[
+          webPageSchema({
+            name: 'About Voilacode',
+            description:
+              'Founded in 2023 by Poojitha N and Krishna Teja GS. A software consulting studio in Hyderabad, India, authoring Bloom — the open-source framework.',
+            path: '/about',
+          }),
+          breadcrumbSchema([
+            { name: 'Home', path: '/' },
+            { name: 'About', path: '/about' },
+          ]),
+          personSchema({ name: 'Poojitha N', jobTitle: 'Principal, Voilacode' }),
+          personSchema({ name: 'Krishna Teja GS', jobTitle: 'Principal, Voilacode' }),
+        ]}
       />
 
       {/* ─── Hero ─── */}
