@@ -22,12 +22,12 @@ const CAPABILITIES = [
   {
     n: '03',
     title: 'Ops & maintenance',
-    body: 'Deployment pipelines, observability, incident response, and the quiet ongoing care that keeps production healthy. Software you don\'t maintain becomes software you regret.',
+    body: 'Deployment pipelines, observability, incident response, and the quiet ongoing care that keeps production healthy.',
   },
   {
     n: '04',
     title: 'Team augmentation',
-    body: 'Embed senior engineers alongside your team for 3–6 month sprints. You keep control; we add velocity. Stand-ups, code review, shared rituals — treated like your own team.',
+    body: 'Embed senior engineers alongside your team. You keep control; we add velocity — treated like your own hires, not a vendor.',
   },
 ];
 
@@ -35,17 +35,17 @@ const PROCESS = [
   {
     n: '01',
     title: 'Scope',
-    body: 'A one-week discovery sprint. We listen, challenge assumptions, and write you a plan — scope, timeline, cost, risks. Fixed-fee. Yours to keep, even if we don\'t work together.',
+    body: 'A discovery sprint where we listen, challenge assumptions, and write you a plan — scope, cost, risks. Fixed-fee. Yours to keep, even if we don\'t engage.',
   },
   {
     n: '02',
     title: 'Ship',
-    body: 'Two-to-six week build cycles. Weekly demos on working software — no waterfall, no guesswork. Every decision documented, every assumption called out, every change reviewed before it lands.',
+    body: 'Short build cycles with regular demos on working software. No waterfall, no guesswork. Every decision documented, every assumption called out, every change reviewed before it lands.',
   },
   {
     n: '03',
     title: 'Maintain',
-    body: 'We stay on. Deployment tuned, dependencies current, incidents triaged, roadmap conversations continued. And when you want to take it in-house, version-matched docs + llms.txt + AGENTS.md mean the next engineer joins mid-stride — no re-onboarding, no tribal knowledge lost.',
+    body: 'We stay on — deployment tuned, dependencies current, incidents triaged, roadmap conversations continued. When you take it in-house, version-matched docs + llms.txt + AGENTS.md let the next engineer join mid-stride.',
   },
 ];
 
