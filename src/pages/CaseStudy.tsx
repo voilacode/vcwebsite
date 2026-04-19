@@ -159,27 +159,27 @@ export const CaseStudyPage: React.FC = () => {
       </section>
 
       {/* ─── Engineering highlight ─── */}
-      <section className="vc-section" style={{ background: 'var(--vc-ink)', color: 'var(--vc-paper)' }}>
+      <section className="vc-section vc-band-dark">
         <div className="vc-wrap">
           <div className="vc-reveal" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.5fr) minmax(0, 1fr)', gap: '4rem', alignItems: 'start' }}>
             <div>
               <span className="vc-eyebrow" style={{ color: 'var(--vc-accent)', display: 'inline-flex', marginBottom: '1.5rem' }}>
                 Engineering
               </span>
-              <h2 className="vc-h2" style={{ color: 'var(--vc-paper)', maxWidth: '18ch', marginTop: '1rem' }}>
+              <h2 className="vc-h2" style={{ color: '#EDE7F3', maxWidth: '18ch', marginTop: '1rem' }}>
                 {study.engineering.heading}
               </h2>
-              <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(247,245,251,0.72)', marginTop: '1.75rem', maxWidth: '58ch' }}>
+              <p style={{ fontSize: '1.1rem', lineHeight: 1.7, color: 'rgba(237,231,243,0.72)', marginTop: '1.75rem', maxWidth: '58ch' }}>
                 {study.engineering.body}
               </p>
             </div>
             <div style={{ display: 'grid', gap: '1rem' }}>
               {study.engineering.highlights.map((h) => (
-                <div key={h.label} style={{ padding: '1.25rem 1.5rem', border: '1px solid rgba(247,245,251,0.12)' }}>
+                <div key={h.label} style={{ padding: '1.25rem 1.5rem', border: '1px solid rgba(237,231,243,0.12)' }}>
                   <div className="vc-mono" style={{ color: 'var(--vc-accent)', fontSize: '0.7rem', letterSpacing: '0.14em', textTransform: 'uppercase', marginBottom: '0.35rem' }}>
                     {h.label}
                   </div>
-                  <div style={{ fontFamily: 'var(--vc-font-display)', fontSize: '1.35rem', fontWeight: 500, color: 'var(--vc-paper)', lineHeight: 1.15 }}>
+                  <div style={{ fontFamily: 'var(--vc-font-display)', fontSize: '1.35rem', fontWeight: 500, color: '#EDE7F3', lineHeight: 1.15 }}>
                     {h.value}
                   </div>
                 </div>

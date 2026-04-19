@@ -8,13 +8,15 @@
 /* ───────────────────────── Design tokens ───────────────────────── */
 
 :root {
+  color-scheme: light dark;
+
   /* neutrals — cool editorial, ink-violet + lavender paper */
   --vc-ink:         #0F0E1A;   /* deep cool near-black with violet undertone */
   --vc-ink-soft:    #1A1828;   /* secondary dark surfaces */
-  --vc-paper:       #F7F5FB;   /* very light cool-white with a hint of lavender */
-  --vc-paper-alt:   #EDEAF3;   /* subtle section bg */
-  --vc-paper-tint:  #FBFAFD;   /* lightest tint for overlays */
-  --vc-line:        #E0DCEA;   /* cool hairlines */
+  --vc-paper:       #EDE7F3;   /* lavender-tinted paper — visibly warm-violet, not white */
+  --vc-paper-alt:   #DFD5EB;   /* deeper lavender for section bands */
+  --vc-paper-tint:  #F5F0F9;   /* lightest overlay / form fields */
+  --vc-line:        #D4C8E3;   /* lavender hairlines */
   --vc-muted:       #5F5B71;   /* cool gray-violet supporting text */
   --vc-muted-soft:  #8F8AA3;   /* quiet text */
 
@@ -35,19 +37,30 @@
   --vc-max:    1200px;
 }
 
+/* Dark mode — flips body bg + text, keeps brand-dark sections fixed. */
 @media (prefers-color-scheme: dark) {
   :root {
-    --vc-ink:         #F7F5FB;
-    --vc-ink-soft:    #E0DCEA;
-    --vc-paper:       #0F0E1A;
-    --vc-paper-alt:   #18162A;
-    --vc-paper-tint:  #1E1C33;
-    --vc-line:        #2A2640;
-    --vc-muted:       #9C97AE;
-    --vc-muted-soft:  #5F5B71;
-    --vc-accent-ink:  #FFFFFF;
+    --vc-ink:         #EDE7F3;   /* now the light text color */
+    --vc-ink-soft:    #D4C8E3;
+    --vc-paper:       #100E18;   /* deep violet-black page bg */
+    --vc-paper-alt:   #1A1728;   /* slightly lifted bands */
+    --vc-paper-tint:  #1F1B30;   /* form-field / overlay fills */
+    --vc-line:        #2E2742;   /* violet-tinted hairlines */
+    --vc-muted:       #9F97B0;
+    --vc-muted-soft:  #6D667F;
+    --vc-accent-soft: rgba(108,59,230,0.18);
   }
 }
+
+/* Brand-dark band — always dark regardless of OS colour scheme.
+   Used by sections that are intentionally a contrast strip
+   (Bloom positioning on Home, Engineering on CaseStudy, etc). */
+.vc-band-dark {
+  background: #0F0E1A;
+  color: #EDE7F3;
+}
+.vc-band-dark a { color: #EDE7F3; }
+.vc-band-dark a:hover { color: var(--vc-accent); }
 
 /* ───────────────────────── Base ───────────────────────── */
 
@@ -519,11 +532,11 @@ a:hover { color: var(--vc-accent); }
 /* ───────────────────────── Footer ───────────────────────── */
 
 .vc-footer {
-  background: var(--vc-ink);
-  color: var(--vc-paper);
+  background: #0F0E1A;       /* always-dark band — never inverts */
+  color: #EDE7F3;
   padding: clamp(4rem, 8vw, 6rem) 0 2rem;
 }
-.vc-footer a { color: var(--vc-paper); }
+.vc-footer a { color: #EDE7F3; }
 .vc-footer a:hover { color: var(--vc-accent); }
 .vc-footer-grid {
   display: grid;

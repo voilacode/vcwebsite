@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { ArrowUpRight, CheckCircle2, Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { SEO } from '../components';
 
 /* EmailJS — configure via Vite env vars.
@@ -297,12 +297,6 @@ export const ContactPage: React.FC = () => {
                 <h3 style={labelStyle}>Email</h3>
                 <a href={`mailto:${CONTACT_EMAIL}`} style={{ fontSize: '1rem', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--vc-ink)' }}>
                   <Mail size={16} /> {CONTACT_EMAIL}
-                </a>
-              </div>
-              <div>
-                <h3 style={labelStyle}>Phone</h3>
-                <a href="tel:+917032309797" style={{ fontSize: '1rem', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: 'var(--vc-ink)' }}>
-                  <Phone size={16} /> +91 7032309797
                 </a>
               </div>
               <div>

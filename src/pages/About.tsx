@@ -333,7 +333,7 @@ export const AboutPage: React.FC = () => {
       </section>
 
       {/* ─── Bloom / open-source block ─── */}
-      <section className="vc-section" style={{ background: 'var(--vc-ink)', color: 'var(--vc-paper)' }}>
+      <section className="vc-section vc-band-dark">
         <div className="vc-wrap">
           <div
             className="vc-reveal"
@@ -351,12 +351,12 @@ export const AboutPage: React.FC = () => {
               >
                 Open-source, maintained in public
               </span>
-              <h2 className="vc-h2" style={{ color: 'var(--vc-paper)', marginTop: '1rem', maxWidth: '18ch' }}>
+              <h2 className="vc-h2" style={{ color: '#EDE7F3', marginTop: '1rem', maxWidth: '18ch' }}>
                 We build <em>Bloom</em> because we needed it.
               </h2>
               <p
                 className="vc-lead"
-                style={{ color: 'rgba(247,245,251,0.7)', marginTop: '1.75rem', maxWidth: '52ch' }}
+                style={{ color: 'rgba(237,231,243,0.7)', marginTop: '1.75rem', maxWidth: '52ch' }}
               >
                 Every project we took on started from the same scaffold: a TypeScript fullstack app with
                 auth, multi-tenancy, error handling, and AI-agent-readable docs. Eventually it was easier to
@@ -378,7 +378,7 @@ export const AboutPage: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="vc-btn vc-btn-outline"
-                  style={{ color: 'var(--vc-paper)', borderColor: 'rgba(247,245,251,0.3)' }}
+                  style={{ color: '#EDE7F3', borderColor: 'rgba(237,231,243,0.3)' }}
                 >
                   GitHub ↗
                 </a>
@@ -395,13 +395,13 @@ export const AboutPage: React.FC = () => {
                   key={p.k}
                   style={{
                     padding: '1.25rem 1.5rem',
-                    border: '1px solid rgba(247,245,251,0.12)',
+                    border: '1px solid rgba(237,231,243,0.12)',
                   }}
                 >
                   <div className="vc-mono" style={{ color: 'var(--vc-accent)', fontSize: '0.8rem', letterSpacing: '0.04em' }}>
                     {p.k}
                   </div>
-                  <div style={{ marginTop: '0.35rem', fontSize: '0.9rem', color: 'rgba(247,245,251,0.72)', lineHeight: 1.5 }}>
+                  <div style={{ marginTop: '0.35rem', fontSize: '0.9rem', color: 'rgba(237,231,243,0.72)', lineHeight: 1.5 }}>
                     {p.v}
                   </div>
                 </div>

@@ -134,7 +134,7 @@ export const WorkPage: React.FC = () => {
                     className="vc-mono"
                     style={{
                       fontSize: '0.65rem',
-                      color: isActive ? 'rgba(247,245,251,0.55)' : 'var(--vc-muted)',
+                      color: isActive ? 'rgba(237,231,243,0.55)' : 'var(--vc-muted)',
                       letterSpacing: '0.1em',
                     }}
                   >

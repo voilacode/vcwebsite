@@ -49,7 +49,7 @@ export const Footer: React.FC = () => {
             <h4>Contact</h4>
             <ul>
               <li><a href="mailto:founder@voilacode.com">founder@voilacode.com</a></li>
-              <li><a href="tel:+917032309797">+91 7032309797</a></li>
+              <li><Link to="/contact">Start a project →</Link></li>
               <li style={{ color: '#9A9AA0', fontSize: '0.85rem', lineHeight: 1.5 }}>
                 Hitech City,<br />Hyderabad — 500081
               </li>

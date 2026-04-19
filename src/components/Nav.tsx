@@ -14,11 +14,14 @@ export const Nav: React.FC = () => {
     <header className="vc-nav">
       <div className="vc-wrap vc-nav-inner">
         <Link to="/" className="vc-nav-brand" onClick={() => setOpen(false)} aria-label="Voilacode">
-          <img
-            src="/voilacode_logo.png"
-            alt="Voilacode"
-            className="vc-nav-logo"
-          />
+          <picture>
+            <source srcSet="/voilacode-logo-white.png" media="(prefers-color-scheme: dark)" />
+            <img
+              src="/voilacode_logo.png"
+              alt="Voilacode"
+              className="vc-nav-logo"
+            />
+          </picture>
         </Link>
 
         <div className="vc-nav-right">
@@ -39,7 +42,6 @@ export const Nav: React.FC = () => {
           <Link
             to="/contact"
             className="vc-btn vc-btn-primary vc-nav-cta"
-            style={{ color: '#FFFFFF' }}
             onClick={() => setOpen(false)}
           >
             Talk to us

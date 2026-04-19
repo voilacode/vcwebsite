@@ -198,23 +198,17 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* ───────── Bloom positioning ───────── */}
-      <section
-        className="vc-section"
-        style={{
-          background: 'var(--vc-ink)',
-          color: 'var(--vc-paper)',
-        }}
-      >
+      <section className="vc-section vc-band-dark">
         <div className="vc-wrap">
           <div className="vc-reveal vc-grid-2">
             <div>
               <span className="vc-eyebrow" style={{ color: 'var(--vc-accent)', marginBottom: '1.5rem', display: 'inline-flex' }}>
                 Open-source, shipped by us
               </span>
-              <h2 className="vc-h2" style={{ color: 'var(--vc-paper)', maxWidth: '16ch' }}>
+              <h2 className="vc-h2" style={{ color: '#EDE7F3', maxWidth: '16ch' }}>
                 We're the team behind <em>Bloom</em>.
               </h2>
-              <p className="vc-lead" style={{ color: 'rgba(247,245,251,0.7)', marginTop: '1.75rem', maxWidth: '50ch' }}>
+              <p className="vc-lead" style={{ color: 'rgba(237,231,243,0.7)', marginTop: '1.75rem', maxWidth: '50ch' }}>
                 Bloom is the TypeScript full-stack framework we built for the era where developers and AI coding
                 agents ship software together. Every client project we take on starts from it — which means you
                 inherit a stack that's typed end-to-end, drift-checked in CI, and designed so Claude Code, Cursor,
@@ -235,7 +229,7 @@ export const HomePage: React.FC = () => {
                   target="_blank"
                   rel="noreferrer"
                   className="vc-btn vc-btn-outline"
-                  style={{ color: 'var(--vc-paper)', borderColor: 'rgba(247,245,251,0.3)' }}
+                  style={{ color: '#EDE7F3', borderColor: 'rgba(237,231,243,0.3)' }}
                 >
                   GitHub
                 </a>
@@ -256,7 +250,7 @@ export const HomePage: React.FC = () => {
                   style={{
                     display: 'block',
                     padding: '1.5rem 1.75rem',
-                    border: '1px solid rgba(247,245,251,0.12)',
+                    border: '1px solid rgba(237,231,243,0.12)',
                     transition: 'border-color 200ms ease, background 200ms ease',
                   }}
                   onMouseEnter={(e) => {
@@ -264,12 +258,12 @@ export const HomePage: React.FC = () => {
                     (e.currentTarget as HTMLAnchorElement).style.background = 'rgba(108,59,230,0.10)';
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(247,245,251,0.12)';
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = 'rgba(237,231,243,0.12)';
                     (e.currentTarget as HTMLAnchorElement).style.background = 'transparent';
                   }}
                 >
                   <div className="vc-mono" style={{ color: 'var(--vc-accent)' }}>{p.k}</div>
-                  <div style={{ marginTop: '0.4rem', fontSize: '0.92rem', color: 'rgba(247,245,251,0.72)', lineHeight: 1.5 }}>{p.v}</div>
+                  <div style={{ marginTop: '0.4rem', fontSize: '0.92rem', color: 'rgba(237,231,243,0.72)', lineHeight: 1.5 }}>{p.v}</div>
                 </a>
               ))}
             </div>
