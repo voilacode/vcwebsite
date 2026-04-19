@@ -7,13 +7,22 @@ export type CaseStudyMetric = { label: string; value: string };
 
 export type CaseStudyApproach = { heading: string; body: string };
 
+/**
+ * Filter categories — an explicit, closed set. Every case study lists
+ * which categories it belongs to; the Work page filter uses exact
+ * equality against this list (no regex guessing against free-form tags).
+ */
+export const CATEGORY_ORDER = ['AI', 'SaaS', 'EdTech', 'FinTech', 'Real estate'] as const;
+export type Category = (typeof CATEGORY_ORDER)[number];
+
 export type CaseStudy = {
   slug: string;
   client: string;
   tagline: string;            // one-line hero headline
   year: string;
   role: string;                // "Product engineering" / "Design + engineering"
-  tags: string[];              // short chip labels
+  tags: string[];              // free-form chip labels (display only)
+  categories: Category[];      // used by the Work page filter
   liveUrl?: string;
 
   motto: string;               // the ONE engineering thesis
@@ -40,6 +49,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2024',
     role: 'Product engineering',
     tags: ['B2B SaaS', 'AI proctoring', 'EdTech', 'Enterprise'],
+    categories: ['AI', 'EdTech', 'SaaS'],
     liveUrl: 'https://fresherbot.com',
 
     motto: 'Deterministic AI proctoring at university scale.',
@@ -92,6 +102,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2025',
     role: 'Product engineering',
     tags: ['AI', 'EdTech', 'Consumer', 'Recommendation'],
+    categories: ['AI', 'EdTech'],
     liveUrl: 'https://askdino.firstacademy.in/',
 
     motto: 'Match a student to a university before the CV is ready.',
@@ -143,6 +154,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2025',
     role: 'Product engineering',
     tags: ['Real estate', 'Generative design', 'B2B'],
+    categories: ['Real estate'],
     liveUrl: 'https://plotmagic.in',
 
     motto: 'Generative geometry beats AutoCAD for first-pass layouts.',
@@ -194,6 +206,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2025',
     role: 'Product engineering · Design',
     tags: ['B2B SaaS', 'Vertical', 'Bloom-powered'],
+    categories: ['SaaS'],
     liveUrl: 'https://kura-app.fly.dev/',
 
     motto: 'Bloom\'s userapp template, customized into a vertical SaaS in weeks.',
@@ -245,6 +258,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2024',
     role: 'Product engineering',
     tags: ['EdTech', 'Multi-tenant', 'SaaS'],
+    categories: ['EdTech', 'SaaS'],
     liveUrl: 'https://piofx.com',
 
     motto: 'Student-centric growth, not course-centric completion.',
@@ -296,6 +310,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     year: '2025',
     role: 'Product engineering',
     tags: ['FinTech', 'Compliance', 'India', 'B2B SaaS'],
+    categories: ['FinTech', 'SaaS'],
     liveUrl: 'https://oddits.app',
 
     motto: 'Compliance as data. Not as a form.',

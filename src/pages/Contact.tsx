@@ -179,11 +179,8 @@ export const ContactPage: React.FC = () => {
       <section className="vc-section" style={{ paddingTop: 0 }}>
         <div className="vc-wrap">
           <div
-            className="vc-reveal"
+            className="vc-reveal vc-grid-2-unbal"
             style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 2fr) minmax(0, 1fr)',
-              gap: '4rem',
               paddingTop: '2rem',
               borderTop: '1px solid var(--vc-line)',
             }}
@@ -218,7 +215,7 @@ export const ContactPage: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={onSubmit} style={{ display: 'grid', gap: '1.75rem' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                  <div className="vc-form-row">
                     <div>
                       <label htmlFor="name" style={labelStyle}>Name *</label>
                       <input id="name" name="name" type="text" required value={form.name} onChange={onChange('name')} style={inputStyle} placeholder="Your name" />
@@ -234,7 +231,7 @@ export const ContactPage: React.FC = () => {
                     <input id="company" name="company" type="text" value={form.company} onChange={onChange('company')} style={inputStyle} placeholder="Optional" />
                   </div>
 
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                  <div className="vc-form-row">
                     <div>
                       <label htmlFor="projectType" style={labelStyle}>Project type</label>
                       <select id="projectType" name="projectType" value={form.projectType} onChange={onChange('projectType')} style={{ ...inputStyle, appearance: 'none', paddingRight: '2.5rem', cursor: 'pointer' }}>

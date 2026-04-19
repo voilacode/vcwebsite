@@ -126,24 +126,9 @@ export const AboutPage: React.FC = () => {
       {/* ─── Fact strip ─── */}
       <section className="vc-section-tight" style={{ paddingTop: 0 }}>
         <div className="vc-wrap">
-          <div
-            className="vc-reveal"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-              gap: 0,
-              borderTop: '1px solid var(--vc-line)',
-              borderBottom: '1px solid var(--vc-line)',
-            }}
-          >
-            {FACTS.map((f, i) => (
-              <div
-                key={f.k}
-                style={{
-                  padding: '1.5rem 1.25rem 1.5rem 0',
-                  borderRight: i % 3 !== 2 ? '1px solid var(--vc-line)' : 'none',
-                }}
-              >
+          <div className="vc-reveal vc-facts">
+            {FACTS.map((f) => (
+              <div key={f.k}>
                 <div
                   className="vc-mono"
                   style={{
@@ -168,15 +153,7 @@ export const AboutPage: React.FC = () => {
       {/* ─── Manifesto ─── */}
       <section className="vc-section">
         <div className="vc-wrap">
-          <div
-            className="vc-reveal"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2fr)',
-              gap: '4rem',
-              alignItems: 'start',
-            }}
-          >
+          <div className="vc-reveal vc-grid-rail">
             <div>
               <span className="vc-eyebrow" style={{ display: 'inline-flex' }}>
                 What we believe
@@ -231,15 +208,7 @@ export const AboutPage: React.FC = () => {
             {PRINCIPLES.map((p) => (
               <div
                 key={p.n}
-                className="vc-reveal"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'minmax(0, 0.5fr) minmax(0, 3fr)',
-                  gap: '2rem',
-                  paddingTop: '2rem',
-                  paddingBottom: '0.5rem',
-                  borderTop: '1px solid var(--vc-line)',
-                }}
+                className="vc-reveal vc-principle-row"
               >
                 <div>
                   <div
@@ -294,23 +263,9 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          <div
-            className="vc-reveal"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: 0,
-              borderTop: '1px solid var(--vc-line)',
-            }}
-          >
+          <div className="vc-reveal vc-stack-grid">
             {STACK.map((s) => (
-              <div
-                key={s.label}
-                style={{
-                  padding: '1.5rem 1.5rem 1.5rem 0',
-                  borderBottom: '1px solid var(--vc-line)',
-                }}
-              >
+              <div key={s.label}>
                 <div
                   className="vc-mono"
                   style={{
@@ -335,15 +290,7 @@ export const AboutPage: React.FC = () => {
       {/* ─── Bloom / open-source block ─── */}
       <section className="vc-section vc-band-dark">
         <div className="vc-wrap">
-          <div
-            className="vc-reveal"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
-              gap: '4rem',
-              alignItems: 'center',
-            }}
-          >
+          <div className="vc-reveal vc-grid-2-unbal">
             <div>
               <span
                 className="vc-eyebrow"
@@ -414,15 +361,7 @@ export const AboutPage: React.FC = () => {
       {/* ─── Team / founder ─── */}
       <section className="vc-section">
         <div className="vc-wrap">
-          <div
-            className="vc-reveal"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2fr)',
-              gap: '4rem',
-              alignItems: 'start',
-            }}
-          >
+          <div className="vc-reveal vc-grid-rail">
             <div>
               <span className="vc-eyebrow" style={{ display: 'inline-flex' }}>
                 The team

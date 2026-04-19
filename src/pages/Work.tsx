@@ -1,25 +1,15 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
-import { CASE_STUDIES, type CaseStudy } from '../content/case-studies';
+import { CASE_STUDIES, CATEGORY_ORDER, type Category } from '../content/case-studies';
 import { WorkCover } from '../components/WorkCover';
 import { SEO } from '../components';
 
-/* ─── filter taxonomy ───
-   We don't use every raw tag — we map to a handful of useful top-level
-   categories so the filter bar stays decisive, not noisy. */
-type Category = 'All' | 'AI' | 'EdTech' | 'SaaS' | 'FinTech' | 'Real estate';
-
-const CATEGORY_MATCHERS: Record<Category, (c: CaseStudy) => boolean> = {
-  All: () => true,
-  AI: (c) => c.tags.some((t) => /^AI|proctoring|Recommendation/i.test(t)),
-  EdTech: (c) => c.tags.some((t) => /EdTech/i.test(t)),
-  SaaS: (c) => c.tags.some((t) => /SaaS|Bloom-powered|Multi-tenant/i.test(t)),
-  FinTech: (c) => c.tags.some((t) => /FinTech|Compliance/i.test(t)),
-  'Real estate': (c) => c.tags.some((t) => /Real estate|Generative design/i.test(t)),
-};
-
-const CATEGORIES: Category[] = ['All', 'AI', 'EdTech', 'SaaS', 'FinTech', 'Real estate'];
+/* Filter options — "All" + the explicit categories declared on each
+   case study. No regex matching; a case either lists a category or
+   it doesn't. */
+type Filter = 'All' | Category;
+const FILTERS: Filter[] = ['All', ...CATEGORY_ORDER];
 
 const useReveal = () => {
   useEffect(() => {
@@ -46,17 +36,22 @@ const useReveal = () => {
 
 export const WorkPage: React.FC = () => {
   useReveal();
-  const [active, setActive] = useState<Category>('All');
+  const [active, setActive] = useState<Filter>('All');
 
   const filtered = useMemo(
-    () => CASE_STUDIES.filter((c) => CATEGORY_MATCHERS[active](c)),
+    () =>
+      active === 'All'
+        ? CASE_STUDIES
+        : CASE_STUDIES.filter((c) => c.categories.includes(active)),
     [active]
   );
 
-  // count per category so the pills show matches at a glance
+  // count per filter so the pills show matches at a glance
   const counts = useMemo(() => {
-    const out: Record<Category, number> = {} as Record<Category, number>;
-    for (const cat of CATEGORIES) out[cat] = CASE_STUDIES.filter(CATEGORY_MATCHERS[cat]).length;
+    const out: Record<Filter, number> = { All: CASE_STUDIES.length } as Record<Filter, number>;
+    for (const cat of CATEGORY_ORDER) {
+      out[cat] = CASE_STUDIES.filter((c) => c.categories.includes(cat)).length;
+    }
     return out;
   }, []);
 
@@ -105,7 +100,7 @@ export const WorkPage: React.FC = () => {
             role="tablist"
             aria-label="Filter case studies by category"
           >
-            {CATEGORIES.map((cat) => {
+            {FILTERS.map((cat) => {
               const isActive = active === cat;
               return (
                 <button
@@ -162,13 +157,7 @@ export const WorkPage: React.FC = () => {
               </button>
             </div>
           ) : (
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-                gap: '2rem',
-              }}
-            >
+            <div className="vc-work-grid">
               {filtered.map((w) => (
                 <Link key={w.slug} to={`/work/${w.slug}`} className="vc-work-card vc-reveal">
                   <div className="vc-work-cover">

@@ -381,6 +381,97 @@ a:hover { color: var(--vc-accent); }
   }
 }
 
+/* Principle row — narrow "01 02 …" number column + content.
+   On mobile the number reads inline above the title instead of as
+   a separate column so content has full width. */
+.vc-principle-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.5fr) minmax(0, 3fr);
+  gap: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+  border-top: 1px solid var(--vc-line);
+}
+@media (max-width: 780px) {
+  .vc-principle-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+  }
+}
+
+/* Form-row — two inputs side-by-side on desktop, stacked on mobile. */
+.vc-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 560px) {
+  .vc-form-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Stack grid — label/value rows with bottom hairlines. Cells get
+   symmetric horizontal padding and first-child flush-left. */
+.vc-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  border-top: 1px solid var(--vc-line);
+}
+.vc-stack-grid > div {
+  padding: 1.5rem 1.5rem;
+  border-bottom: 1px solid var(--vc-line);
+}
+.vc-stack-grid > div:first-child {
+  padding-left: 0;
+}
+@media (max-width: 780px) {
+  .vc-stack-grid {
+    grid-template-columns: 1fr;
+  }
+  .vc-stack-grid > div,
+  .vc-stack-grid > div:first-child {
+    padding: 1.1rem 0;
+  }
+}
+
+/* Fact strip — label + value cells with hairline dividers between.
+   Symmetric horizontal padding so content never touches the vertical
+   lines. First cell flush-left with section; mobile stacks vertically. */
+.vc-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  border-top: 1px solid var(--vc-line);
+  border-bottom: 1px solid var(--vc-line);
+}
+.vc-facts > div {
+  padding: 1.5rem 1.5rem;
+  border-right: 1px solid var(--vc-line);
+}
+.vc-facts > div:first-child {
+  padding-left: 0;
+}
+.vc-facts > div:last-child {
+  border-right: 0;
+}
+@media (max-width: 780px) {
+  .vc-facts {
+    grid-template-columns: 1fr;
+  }
+  .vc-facts > div,
+  .vc-facts > div:first-child,
+  .vc-facts > div:last-child {
+    padding: 1.25rem 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--vc-line);
+  }
+  .vc-facts > div:last-child {
+    border-bottom: 0;
+  }
+}
+
 /* ───────────────────────── Ticker / logos ───────────────────────── */
 
 .vc-ticker {
