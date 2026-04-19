@@ -27,8 +27,9 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          uikit: ['@voilajsx/uikit']
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          uikit: ['@bloomneo/uikit'],
+          motion: ['framer-motion']
         }
       }
     }
